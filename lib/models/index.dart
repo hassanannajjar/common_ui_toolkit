@@ -1,2 +1,2 @@
 export './Styles.dart';
-export './TypographyStyle.dart';
+export './CustomTextStyle.dart';

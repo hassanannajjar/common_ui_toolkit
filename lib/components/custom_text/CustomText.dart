@@ -2,15 +2,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../index.dart';
 
-class TypographyC extends StatelessWidget {
-  TypographyStyle? style;
+class CustomText extends StatelessWidget {
+  CustomTextStyle? style;
   Styles? iconStyle;
 
   Function? onPress;
 
   String? text, iconPath;
 
-  TypographyC({
+  CustomText({
     this.text,
     this.onPress,
     this.iconPath,

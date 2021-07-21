@@ -1,6 +1,6 @@
 import 'package:common_ui_toolkit/index.dart';
 
-class TypographyStyle extends Styles {
+class CustomTextStyle extends Styles {
   TextDecoration? textDecoration;
   FontWeight? fontweight;
   TextAlign textAlign;
@@ -10,7 +10,7 @@ class TypographyStyle extends Styles {
   String? fontFamily;
   bool? customUnderlined;
 
-  TypographyStyle({
+  CustomTextStyle({
     this.textDecoration,
     this.fontColor,
     this.fontweight,
