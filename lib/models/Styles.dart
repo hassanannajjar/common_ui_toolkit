@@ -4,112 +4,88 @@ import '../utils/index.dart';
 
 class Styles {
   //sizes
-  double width;
-  double height;
-  double fontSize;
-  double lineSpace;
-  double underlineThikness;
-  bool fullWidth;
+  double? width;
+  double? height;
 
   // padding
-  double padding;
-  double paddingTop;
-  double paddingBottom;
-  double paddingRight;
-  double paddingLeft;
-  double paddingVertical;
-  double paddingHorizontal;
-  double iconPaddingLeft;
-  double iconPaddingRight;
+  double? padding;
+  double? paddingTop;
+  double? paddingBottom;
+  double? paddingRight;
+  double? paddingLeft;
+  double? paddingVertical;
+  double? paddingHorizontal;
 
   // margin
-  double margin;
-  double marginTop;
-  double marginBottom;
-  double marginRight;
-  double marginLeft;
-  double marginVertical;
-  double marginHorizontal;
+  double? margin;
+  double? marginTop;
+  double? marginBottom;
+  double? marginRight;
+  double? marginLeft;
+  double? marginVertical;
+  double? marginHorizontal;
 
   // shadow
-  double shadowSpreadRadius;
-  double shadowbBlurRadius;
-  double shadowOffsetDX;
-  double shadowOffsetDY;
-  double shadowOpacity;
+  double? shadowSpreadRadius;
+  double? shadowbBlurRadius;
+  double? shadowOffsetDX;
+  double? shadowOffsetDY;
+  double? shadowOpacity;
+
   // raduis
-  double bottomLeftRadius;
-  double bottomRightRadius;
-  double topLeftRadius;
-  double topRightRadius;
-  double borderRaduis;
-  int raduisColor;
+  double? bottomLeftRadius;
+  double? bottomRightRadius;
+  double? topLeftRadius;
+  double? topRightRadius;
+  double? borderRaduis;
+  int? raduisColor;
+
   // colors
-  int shadowColor;
-  int backgroundColor;
-  int fontColor;
-  int svgColor;
-  int titleFontColor;
-  int edgeTextColor;
-
-  // effects
-  bool withEffect;
-  int underLineColor;
-  bool showArrow;
-
-  //font
-  FontWeight fontweight;
-  TextDecoration textDecoration;
-  TextAlign textAlign;
-  String fontFamily;
-  bool customUnderlined;
-  double titleFontSize;
+  int? shadowColor;
+  int? backgroundColor;
+  int? color;
 
   getMarginEdgeInsets() => EdgeInsets.fromLTRB(
-        margin ?? marginHorizontal ?? marginLeft,
-        margin ?? marginVertical ?? marginTop,
-        margin ?? marginHorizontal ?? marginRight,
-        margin ?? marginVertical ?? marginBottom,
+        (margin ?? marginHorizontal ?? marginLeft)!,
+        (margin ?? marginVertical ?? marginTop)!,
+        (margin ?? marginHorizontal ?? marginRight)!,
+        (margin ?? marginVertical ?? marginBottom)!,
       );
 
   getPaddingEdgeInsets() => EdgeInsets.fromLTRB(
-        padding ?? paddingHorizontal ?? paddingLeft,
-        padding ?? paddingVertical ?? paddingTop,
-        padding ?? paddingHorizontal ?? paddingRight,
-        padding ?? paddingVertical ?? paddingBottom,
+        padding ?? paddingHorizontal ?? paddingLeft!,
+        padding ?? paddingVertical ?? paddingTop!,
+        padding ?? paddingHorizontal ?? paddingRight!,
+        padding ?? paddingVertical ?? paddingBottom!,
       );
 
   getBorderRaduis() => borderRaduis == 0
       ? BorderRadius.only(
-          topRight: Radius.circular(topRightRadius),
-          topLeft: Radius.circular(topLeftRadius),
-          bottomLeft: Radius.circular(bottomLeftRadius),
-          bottomRight: Radius.circular(bottomRightRadius),
+          topRight: Radius.circular(topRightRadius!),
+          topLeft: Radius.circular(topLeftRadius!),
+          bottomLeft: Radius.circular(bottomLeftRadius!),
+          bottomRight: Radius.circular(bottomRightRadius!),
         )
       : BorderRadius.all(
-          Radius.circular(borderRaduis),
+          Radius.circular(borderRaduis!),
         );
 
-  getWidth() => width < 1.0 && width > 0.0
-      ? DEVICE_WIDTH * width
-      : width > 1
-          ? width
+  getWidth() => width! < 1.0 && width! > 0.0
+      ? DEVICE_WIDTH * width!
+      : width! > 1
+          ? width!
           : null;
 
-  getHeight() => height < 1.0 && height > 0.0
-      ? DEVICE_HEIGHT * height
-      : height > 0.0
-          ? height
+  getHeight() => height! < 1.0 && height! > 0.0
+      ? DEVICE_HEIGHT * height!
+      : height! > 0.0
+          ? height!
           : null;
 
   Styles({
     //sizes
     this.width = 0.0,
     this.height = 0.0,
-    this.fontSize = 17.0,
-    this.lineSpace = 0.0,
-    this.underlineThikness = 0.0,
-    this.fullWidth = false,
 
     // padding
     this.padding,
@@ -127,99 +103,63 @@ class Styles {
     this.marginLeft = 0.0,
     this.marginVertical,
     this.marginHorizontal,
-    this.iconPaddingLeft = 0.0,
-    this.iconPaddingRight = 0.0,
+
     // colors
-    this.backgroundColor = WHITE_COLOR,
-    this.raduisColor = PRIMARY_COLOR,
-    this.fontColor = BLACK_COLOR,
-    this.underLineColor = BLACK_COLOR,
-    this.svgColor = PRIMARY_COLOR,
-    this.edgeTextColor = PRIMARY_COLOR,
-    this.titleFontColor = GREY_COLOR,
+    this.backgroundColor = 0xFFFFFFFF,
+    this.color = 0xFFFFFFFF,
+    this.raduisColor = 0xFF000000,
 
     // shadow
     this.shadowSpreadRadius = 0.0,
     this.shadowbBlurRadius = 0.0,
     this.shadowOffsetDX = 0.0,
     this.shadowOffsetDY = 0.0,
-    this.shadowColor = GREY_COLOR,
+    this.shadowColor = 0xFF000000,
     this.shadowOpacity = 0.0,
+
     // raduis
     this.bottomLeftRadius = 0.0,
     this.bottomRightRadius = 0.0,
     this.topLeftRadius = 0.0,
     this.topRightRadius = 0.0,
     this.borderRaduis = 0.0,
-    // effects
-    this.withEffect = false,
-    this.showArrow = true,
-    //typography
-    this.fontweight = FontWeight.normal,
-    this.textDecoration = TextDecoration.none,
-    this.textAlign = TextAlign.start,
-    this.customUnderlined = false,
-    this.fontFamily,
-    this.titleFontSize = H5_FONT,
   });
 
   Styles copyWith({
-    double width,
-    double height,
-    double fontSize,
-    double lineSpace,
-    double underlineThikness,
-    bool fullWidth,
-    double padding,
-    double paddingTop,
-    double paddingBottom,
-    double paddingRight,
-    double paddingLeft,
-    double paddingVertical,
-    double paddingHorizontal,
-    double iconPaddingLeft,
-    double iconPaddingRight,
-    double margin,
-    double marginTop,
-    double marginBottom,
-    double marginRight,
-    double marginLeft,
-    double marginVertical,
-    double marginHorizontal,
-    double shadowSpreadRadius,
-    double shadowbBlurRadius,
-    double shadowOffsetDX,
-    double shadowOffsetDY,
-    double shadowOpacity,
-    double bottomLeftRadius,
-    double bottomRightRadius,
-    double topLeftRadius,
-    double topRightRadius,
-    double borderRaduis,
-    int raduisColor,
-    int shadowColor,
-    int backgroundColor,
-    int fontColor,
-    int svgColor,
-    int titleFontColor,
-    int edgeTextColor,
-    bool withEffect,
-    int underLineColor,
-    bool showArrow,
-    FontWeight fontweight,
-    TextDecoration textDecoration,
-    TextAlign textAlign,
-    String fontFamily,
-    bool customUnderlined,
-    double titleFontSize,
+    double? width,
+    double? height,
+    double? padding,
+    double? paddingTop,
+    double? paddingBottom,
+    double? paddingRight,
+    double? paddingLeft,
+    double? paddingVertical,
+    double? paddingHorizontal,
+    double? margin,
+    double? marginTop,
+    double? marginBottom,
+    double? marginRight,
+    double? marginLeft,
+    double? marginVertical,
+    double? marginHorizontal,
+    double? shadowSpreadRadius,
+    double? shadowbBlurRadius,
+    double? shadowOffsetDX,
+    double? shadowOffsetDY,
+    double? shadowOpacity,
+    double? bottomLeftRadius,
+    double? bottomRightRadius,
+    double? topLeftRadius,
+    double? topRightRadius,
+    double? borderRaduis,
+    int? raduisColor,
+    int? shadowColor,
+    int? backgroundColor,
+    int? color,
   }) {
     return Styles(
       width: width ?? this.width,
       height: height ?? this.height,
-      fontSize: fontSize ?? this.fontSize,
-      lineSpace: lineSpace ?? this.lineSpace,
-      underlineThikness: underlineThikness ?? this.underlineThikness,
-      fullWidth: fullWidth ?? this.fullWidth,
       padding: padding ?? this.padding,
       paddingTop: paddingTop ?? this.paddingTop,
       paddingBottom: paddingBottom ?? this.paddingBottom,
@@ -227,8 +167,6 @@ class Styles {
       paddingLeft: paddingLeft ?? this.paddingLeft,
       paddingVertical: paddingVertical ?? this.paddingVertical,
       paddingHorizontal: paddingHorizontal ?? this.paddingHorizontal,
-      iconPaddingLeft: iconPaddingLeft ?? this.iconPaddingLeft,
-      iconPaddingRight: iconPaddingRight ?? this.iconPaddingRight,
       margin: margin ?? this.margin,
       marginTop: marginTop ?? this.marginTop,
       marginBottom: marginBottom ?? this.marginBottom,
@@ -249,19 +187,7 @@ class Styles {
       raduisColor: raduisColor ?? this.raduisColor,
       shadowColor: shadowColor ?? this.shadowColor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
-      fontColor: fontColor ?? this.fontColor,
-      svgColor: svgColor ?? this.svgColor,
-      titleFontColor: titleFontColor ?? this.titleFontColor,
-      edgeTextColor: edgeTextColor ?? this.edgeTextColor,
-      withEffect: withEffect ?? this.withEffect,
-      underLineColor: underLineColor ?? this.underLineColor,
-      showArrow: showArrow ?? this.showArrow,
-      fontweight: fontweight ?? this.fontweight,
-      textDecoration: textDecoration ?? this.textDecoration,
-      textAlign: textAlign ?? this.textAlign,
-      fontFamily: fontFamily ?? this.fontFamily,
-      customUnderlined: customUnderlined ?? this.customUnderlined,
-      titleFontSize: titleFontSize ?? this.titleFontSize,
+      color: color ?? this.color,
     );
   }
 }
