@@ -8,5 +8,9 @@ class CommonTextStyles {
     textDecoration: TextDecoration.none,
     underlineThikness: 0.0,
     underLineColor: PRIMARY_COLOR,
+    iconWidth: 20,
+    iconHeight: 20,
+    iconMarginHorizontal: 10.0,
+    iconColor: PRIMARY_COLOR,
   );
 }

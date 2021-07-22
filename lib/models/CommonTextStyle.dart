@@ -34,10 +34,23 @@ class CommonTextStyle {
   int? decorationColor;
 
   TextDecoration? textDecoration;
+  Decoration? decoration;
   TextDecorationStyle? decorationStyle;
   FontWeight? fontweight;
   TextAlign textAlign;
   FontStyle? fontStyle;
+
+  // Icon
+  double? iconWidth;
+  double? iconHeight;
+  double? iconMargin;
+  double? iconMarginTop;
+  double? iconMarginBottom;
+  double? iconMarginRight;
+  double? iconMarginLeft;
+  double? iconMarginVertical;
+  double? iconMarginHorizontal;
+  int? iconColor;
 
   // --------------------------
   TextBaseline? textBaseline;
@@ -53,7 +66,6 @@ class CommonTextStyle {
   double? fontSize;
   double? underlineThikness;
   String? fontFamily;
-  bool? customUnderlined;
 
   CommonTextStyle({
     //sizes
@@ -85,11 +97,11 @@ class CommonTextStyle {
     this.backgroundColor = TRANSPARENT_COLOR,
     this.decorationColor = PRIMARY_COLOR,
     this.textDecoration,
+    this.decoration,
     this.fontweight,
     this.fontSize = H4_FONT,
     this.fontFamily,
     this.fontStyle,
-    this.customUnderlined = false,
     this.underlineThikness = 1,
     this.textAlign = TextAlign.center,
     this.textBaseline,
@@ -103,5 +115,17 @@ class CommonTextStyle {
     this.decorationThickness,
     this.debugLabel,
     this.fontFamilyFallback,
+
+    // Icon
+    this.iconWidth,
+    this.iconHeight,
+    this.iconMargin,
+    this.iconMarginTop = 0.0,
+    this.iconMarginBottom = 0.0,
+    this.iconMarginRight = 0.0,
+    this.iconMarginLeft = 0.0,
+    this.iconMarginVertical,
+    this.iconMarginHorizontal,
+    this.iconColor,
   });
 }
