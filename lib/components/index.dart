@@ -1,1 +1,1 @@
-export './custom_text/index.dart';
+export './common_text/index.dart';

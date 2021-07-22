@@ -2,15 +2,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../index.dart';
 
-class CustomText extends StatelessWidget {
-  CustomTextStyle? style;
+class CommonText extends StatelessWidget {
+  CommonTextStyle? style;
   Styles? iconStyle;
 
   Function? onPress;
 
   String? text, iconPath;
 
-  CustomText({
+  CommonText({
     this.text,
     this.onPress,
     this.iconPath,
@@ -20,7 +20,7 @@ class CustomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    style = style ?? TypographyCStyles().defaultStyle;
+    style = style ?? CommonTextStyles().defaultStyle;
     iconStyle = iconStyle ?? IconStyles().defaultStyle;
     return GestureDetector(
       onTap: () {

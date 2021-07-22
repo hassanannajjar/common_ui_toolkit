@@ -1,2 +1,2 @@
-export './TypograpphyCStyles.dart';
+export './CommonTextStyles.dart';
 export './IconStyles.dart';

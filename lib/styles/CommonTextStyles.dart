@@ -1,7 +1,7 @@
 import '../index.dart';
 
-class TypographyCStyles {
-  CustomTextStyle defaultStyle = CustomTextStyle(
+class CommonTextStyles {
+  CommonTextStyle defaultStyle = CommonTextStyle(
     fontColor: PRIMARY_COLOR,
     fontSize: 17.0,
     fontweight: FontWeight.normal,
