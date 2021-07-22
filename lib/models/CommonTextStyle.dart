@@ -8,6 +8,9 @@ class CommonTextStyle {
   double? letterSpacing;
   double? wordSpacing;
   double? decorationThickness;
+  double? iconWidth;
+  double? iconHeight;
+  double? fontSize;
 
   // padding
   double? padding;
@@ -26,23 +29,6 @@ class CommonTextStyle {
   double? marginLeft;
   double? marginVertical;
   double? marginHorizontal;
-
-  // colors
-  int? fontColor;
-  int? underLineColor;
-  int? backgroundColor;
-  int? decorationColor;
-
-  TextDecoration? textDecoration;
-  Decoration? decoration;
-  TextDecorationStyle? decorationStyle;
-  FontWeight? fontweight;
-  TextAlign textAlign;
-  FontStyle? fontStyle;
-
-  // Icon
-  double? iconWidth;
-  double? iconHeight;
   double? iconMargin;
   double? iconMarginTop;
   double? iconMarginBottom;
@@ -50,9 +36,20 @@ class CommonTextStyle {
   double? iconMarginLeft;
   double? iconMarginVertical;
   double? iconMarginHorizontal;
+
+  // colors
+  int? fontColor;
+  int? underLineColor;
+  int? backgroundColor;
+  int? decorationColor;
   int? iconColor;
 
-  // --------------------------
+  TextDecoration? textDecoration;
+  Decoration? decoration;
+  TextDecorationStyle? decorationStyle;
+  FontWeight? fontweight;
+  TextAlign textAlign;
+  FontStyle? fontStyle;
   TextBaseline? textBaseline;
   TextLeadingDistribution? leadingDistribution;
   Locale? locale;
@@ -63,8 +60,6 @@ class CommonTextStyle {
   String? debugLabel;
   List<String>? fontFamilyFallback;
 
-  double? fontSize;
-  double? underlineThikness;
   String? fontFamily;
 
   CommonTextStyle({
@@ -72,6 +67,10 @@ class CommonTextStyle {
     this.height,
     this.letterSpacing = 0.0,
     this.wordSpacing = 0.0,
+    this.iconWidth,
+    this.iconHeight,
+    this.fontSize = H4_FONT,
+    this.decorationThickness,
 
     // padding
     this.padding,
@@ -90,6 +89,13 @@ class CommonTextStyle {
     this.marginLeft = 0.0,
     this.marginVertical,
     this.marginHorizontal,
+    this.iconMargin,
+    this.iconMarginTop = 0.0,
+    this.iconMarginBottom = 0.0,
+    this.iconMarginRight = 0.0,
+    this.iconMarginLeft = 0.0,
+    this.iconMarginVertical,
+    this.iconMarginHorizontal,
 
     // colors
     this.fontColor = BLACK_COLOR,
@@ -97,12 +103,13 @@ class CommonTextStyle {
     this.backgroundColor = TRANSPARENT_COLOR,
     this.decorationColor = PRIMARY_COLOR,
     this.textDecoration,
+    this.iconColor,
+
+    // -------------------
     this.decoration,
     this.fontweight,
-    this.fontSize = H4_FONT,
     this.fontFamily,
     this.fontStyle,
-    this.underlineThikness = 1,
     this.textAlign = TextAlign.center,
     this.textBaseline,
     this.leadingDistribution,
@@ -112,20 +119,111 @@ class CommonTextStyle {
     this.shadows,
     this.fontFeatures,
     this.decorationStyle,
-    this.decorationThickness,
     this.debugLabel,
     this.fontFamilyFallback,
-
-    // Icon
-    this.iconWidth,
-    this.iconHeight,
-    this.iconMargin,
-    this.iconMarginTop = 0.0,
-    this.iconMarginBottom = 0.0,
-    this.iconMarginRight = 0.0,
-    this.iconMarginLeft = 0.0,
-    this.iconMarginVertical,
-    this.iconMarginHorizontal,
-    this.iconColor,
   });
+
+  CommonTextStyle copyWith({
+    double? height,
+    double? letterSpacing,
+    double? wordSpacing,
+    double? decorationThickness,
+    double? iconWidth,
+    double? iconHeight,
+    double? fontSize,
+    double? padding,
+    double? paddingTop,
+    double? paddingBottom,
+    double? paddingRight,
+    double? paddingLeft,
+    double? paddingVertical,
+    double? paddingHorizontal,
+    double? margin,
+    double? marginTop,
+    double? marginBottom,
+    double? marginRight,
+    double? marginLeft,
+    double? marginVertical,
+    double? marginHorizontal,
+    double? iconMargin,
+    double? iconMarginTop,
+    double? iconMarginBottom,
+    double? iconMarginRight,
+    double? iconMarginLeft,
+    double? iconMarginVertical,
+    double? iconMarginHorizontal,
+    int? fontColor,
+    int? underLineColor,
+    int? backgroundColor,
+    int? decorationColor,
+    int? iconColor,
+    TextDecoration? textDecoration,
+    Decoration? decoration,
+    TextDecorationStyle? decorationStyle,
+    FontWeight? fontweight,
+    TextAlign? textAlign,
+    FontStyle? fontStyle,
+    TextBaseline? textBaseline,
+    TextLeadingDistribution? leadingDistribution,
+    Locale? locale,
+    Paint? foreground,
+    Paint? background,
+    List<Shadow>? shadows,
+    List<FontFeature>? fontFeatures,
+    String? debugLabel,
+    List<String>? fontFamilyFallback,
+    String? fontFamily,
+  }) {
+    return CommonTextStyle(
+      height: height ?? this.height,
+      letterSpacing: letterSpacing ?? this.letterSpacing,
+      wordSpacing: wordSpacing ?? this.wordSpacing,
+      decorationThickness: decorationThickness ?? this.decorationThickness,
+      iconWidth: iconWidth ?? this.iconWidth,
+      iconHeight: iconHeight ?? this.iconHeight,
+      fontSize: fontSize ?? this.fontSize,
+      padding: padding ?? this.padding,
+      paddingTop: paddingTop ?? this.paddingTop,
+      paddingBottom: paddingBottom ?? this.paddingBottom,
+      paddingRight: paddingRight ?? this.paddingRight,
+      paddingLeft: paddingLeft ?? this.paddingLeft,
+      paddingVertical: paddingVertical ?? this.paddingVertical,
+      paddingHorizontal: paddingHorizontal ?? this.paddingHorizontal,
+      margin: margin ?? this.margin,
+      marginTop: marginTop ?? this.marginTop,
+      marginBottom: marginBottom ?? this.marginBottom,
+      marginRight: marginRight ?? this.marginRight,
+      marginLeft: marginLeft ?? this.marginLeft,
+      marginVertical: marginVertical ?? this.marginVertical,
+      marginHorizontal: marginHorizontal ?? this.marginHorizontal,
+      iconMargin: iconMargin ?? this.iconMargin,
+      iconMarginTop: iconMarginTop ?? this.iconMarginTop,
+      iconMarginBottom: iconMarginBottom ?? this.iconMarginBottom,
+      iconMarginRight: iconMarginRight ?? this.iconMarginRight,
+      iconMarginLeft: iconMarginLeft ?? this.iconMarginLeft,
+      iconMarginVertical: iconMarginVertical ?? this.iconMarginVertical,
+      iconMarginHorizontal: iconMarginHorizontal ?? this.iconMarginHorizontal,
+      fontColor: fontColor ?? this.fontColor,
+      underLineColor: underLineColor ?? this.underLineColor,
+      backgroundColor: backgroundColor ?? this.backgroundColor,
+      decorationColor: decorationColor ?? this.decorationColor,
+      iconColor: iconColor ?? this.iconColor,
+      textDecoration: textDecoration ?? this.textDecoration,
+      decoration: decoration ?? this.decoration,
+      decorationStyle: decorationStyle ?? this.decorationStyle,
+      fontweight: fontweight ?? this.fontweight,
+      textAlign: textAlign ?? this.textAlign,
+      fontStyle: fontStyle ?? this.fontStyle,
+      textBaseline: textBaseline ?? this.textBaseline,
+      leadingDistribution: leadingDistribution ?? this.leadingDistribution,
+      locale: locale ?? this.locale,
+      foreground: foreground ?? this.foreground,
+      background: background ?? this.background,
+      shadows: shadows ?? this.shadows,
+      fontFeatures: fontFeatures ?? this.fontFeatures,
+      debugLabel: debugLabel ?? this.debugLabel,
+      fontFamilyFallback: fontFamilyFallback ?? this.fontFamilyFallback,
+      fontFamily: fontFamily ?? this.fontFamily,
+    );
+  }
 }
