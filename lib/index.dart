@@ -1,5 +1,4 @@
 export 'package:flutter/material.dart';
-export 'package:get/get.dart';
 
 export './models/index.dart';
 export './components/index.dart';
