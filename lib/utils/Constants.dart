@@ -18,6 +18,7 @@ const DISABLED_COLOR = 0xFFCBCBCB;
 const BLACK_COLOR = 0xFF1D2029;
 const BLUE_COLOR = 0xFF6B6C7E;
 const HEADER_COLOR = 0xFF444445;
+const TRANSPARENT_COLOR = 0x00444445;
 
 // ----------------------------------------
 
@@ -25,7 +26,7 @@ const HEADER_COLOR = 0xFF444445;
 const H1_FONT = 32.0;
 const H2_FONT = 24.0;
 const H3_FONT = 18.0;
-const H4_FONT = 15.0;
+const H4_FONT = 14.0;
 const H5_FONT = 12.0;
 const H6_FONT = 9.0;
 const HEADER_FONT = 20.0;

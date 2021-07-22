@@ -27,9 +27,9 @@ class CommonText extends StatelessWidget {
         if (onPress != null) onPress!();
       },
       child: Padding(
-        padding: style!.getMarginEdgeInsets(),
+        padding: getMarginEdgeInsets(style),
         child: Container(
-          padding: style!.getPaddingEdgeInsets(),
+          padding: getPaddingEdgeInsets(style),
           decoration: getBoxDecoration(),
           child: RichText(
             textAlign: style!.textAlign,
@@ -45,10 +45,26 @@ class CommonText extends StatelessWidget {
                   style: TextStyle(
                     decoration: style!.textDecoration,
                     color: Color(style!.fontColor!),
-                    decorationThickness: 3,
+                    decorationThickness: style!.decorationThickness,
                     fontWeight: style!.fontweight,
                     fontSize: style!.fontSize,
                     fontFamily: style!.fontFamily,
+                    wordSpacing: style!.wordSpacing,
+                    fontStyle: style!.fontStyle,
+                    letterSpacing: style!.letterSpacing,
+                    backgroundColor: Color(style!.backgroundColor!),
+                    height: style!.height,
+                    textBaseline: style!.textBaseline,
+                    leadingDistribution: style!.leadingDistribution,
+                    locale: style!.locale,
+                    foreground: style!.foreground,
+                    background: style!.background,
+                    shadows: style!.shadows,
+                    fontFeatures: style!.fontFeatures,
+                    decorationColor: Color(style!.decorationColor!),
+                    decorationStyle: style!.decorationStyle,
+                    debugLabel: style!.debugLabel,
+                    fontFamilyFallback: style!.fontFamilyFallback,
                   ),
                 ),
               ],
@@ -92,7 +108,7 @@ class CommonText extends StatelessWidget {
               ),
       );
     } else {
-      return Center();
+      return Padding(padding: EdgeInsets.zero);
     }
   }
 }
