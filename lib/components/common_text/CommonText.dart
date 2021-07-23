@@ -14,7 +14,7 @@ class CommonText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    style = style ?? CommonTextStyles().defaultStyle;
+    style = style ?? CommonTextStyles().defaultStyle();
     return GestureDetector(
       onTap: () {
         if (onPress != null) onPress!();
@@ -24,11 +24,12 @@ class CommonText extends StatelessWidget {
         margin: getMarginEdgeInsets(style),
         decoration: style!.decoration,
         child: RichText(
+          maxLines: style!.maxlines,
           textAlign: style!.textAlign,
           text: TextSpan(
             children: [
               WidgetSpan(
-                alignment: PlaceholderAlignment.middle,
+                alignment: PlaceholderAlignment.bottom,
                 child: getIcon(iconPath, style),
               ),
               TextSpan(

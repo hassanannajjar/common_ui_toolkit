@@ -11,6 +11,7 @@ class CommonTextStyle {
   double? iconWidth;
   double? iconHeight;
   double? fontSize;
+  int? maxlines;
 
   // padding
   double? padding;
@@ -39,7 +40,6 @@ class CommonTextStyle {
 
   // colors
   int? fontColor;
-  int? underLineColor;
   int? backgroundColor;
   int? decorationColor;
   int? iconColor;
@@ -67,10 +67,11 @@ class CommonTextStyle {
     this.height,
     this.letterSpacing = 0.0,
     this.wordSpacing = 0.0,
-    this.iconWidth,
-    this.iconHeight,
+    this.iconWidth = 20.0,
+    this.iconHeight = 20.0,
     this.fontSize = H4_FONT,
     this.decorationThickness,
+    this.maxlines,
 
     // padding
     this.padding,
@@ -95,21 +96,20 @@ class CommonTextStyle {
     this.iconMarginRight = 0.0,
     this.iconMarginLeft = 0.0,
     this.iconMarginVertical,
-    this.iconMarginHorizontal,
+    this.iconMarginHorizontal = 10.0,
 
     // colors
     this.fontColor = BLACK_COLOR,
-    this.underLineColor = PRIMARY_COLOR,
     this.backgroundColor = TRANSPARENT_COLOR,
-    this.decorationColor = PRIMARY_COLOR,
-    this.textDecoration,
-    this.iconColor,
+    this.decorationColor = BLACK_COLOR,
+    this.textDecoration = TextDecoration.none,
+    this.iconColor = BLACK_COLOR,
 
     // -------------------
     this.decoration,
-    this.fontweight,
+    this.fontweight = FontWeight.normal,
     this.fontFamily,
-    this.fontStyle,
+    this.fontStyle = FontStyle.normal,
     this.textAlign = TextAlign.center,
     this.textBaseline,
     this.leadingDistribution,
@@ -131,6 +131,7 @@ class CommonTextStyle {
     double? iconWidth,
     double? iconHeight,
     double? fontSize,
+    int? maxlines,
     double? padding,
     double? paddingTop,
     double? paddingBottom,
@@ -153,7 +154,6 @@ class CommonTextStyle {
     double? iconMarginVertical,
     double? iconMarginHorizontal,
     int? fontColor,
-    int? underLineColor,
     int? backgroundColor,
     int? decorationColor,
     int? iconColor,
@@ -182,6 +182,7 @@ class CommonTextStyle {
       iconWidth: iconWidth ?? this.iconWidth,
       iconHeight: iconHeight ?? this.iconHeight,
       fontSize: fontSize ?? this.fontSize,
+      maxlines: maxlines ?? this.maxlines,
       padding: padding ?? this.padding,
       paddingTop: paddingTop ?? this.paddingTop,
       paddingBottom: paddingBottom ?? this.paddingBottom,
@@ -204,7 +205,6 @@ class CommonTextStyle {
       iconMarginVertical: iconMarginVertical ?? this.iconMarginVertical,
       iconMarginHorizontal: iconMarginHorizontal ?? this.iconMarginHorizontal,
       fontColor: fontColor ?? this.fontColor,
-      underLineColor: underLineColor ?? this.underLineColor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       decorationColor: decorationColor ?? this.decorationColor,
       iconColor: iconColor ?? this.iconColor,
