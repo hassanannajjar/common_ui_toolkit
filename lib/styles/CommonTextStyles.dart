@@ -1,31 +1,35 @@
 import '../index.dart';
 
 class CommonTextStyles {
-  CommonTextStyle defaultStyle() => CommonTextStyle(
-        fontColor: BLACK_COLOR,
-        fontSize: H4_FONT,
-        fontweight: FontWeight.normal,
-        textDecoration: TextDecoration.none,
-        iconWidth: 20.0,
-        iconHeight: 20.0,
-        iconMarginHorizontal: 10.0,
-        iconColor: BLACK_COLOR,
+  CommonTextStyle bodyStyle() => CommonTextStyle(
+        fontSize: BODY_FONT,
       );
 
-  CommonTextStyle largeStyle() => defaultStyle().copyWith(
+  CommonTextStyle headerStyle() => CommonTextStyle(
+        fontSize: HEADER_FONT,
+      );
+
+  CommonTextStyle h1Style() => CommonTextStyle(
+        fontSize: H1_FONT,
+      );
+
+  CommonTextStyle h2Style() => CommonTextStyle(
         fontSize: H2_FONT,
-        fontweight: FontWeight.bold,
-        fontStyle: FontStyle.italic,
       );
 
-  CommonTextStyle decoratedStyle() => CommonTextStyle(
-        padding: 12.0,
-        fontColor: PRIMARY_COLOR,
-        decoration: BoxDecoration(
-          color: Color(BLACK_COLOR),
-          borderRadius: BorderRadius.all(
-            Radius.circular(15.0),
-          ),
-        ),
+  CommonTextStyle h3Style() => CommonTextStyle(
+        fontSize: H3_FONT,
+      );
+
+  CommonTextStyle h4Style() => CommonTextStyle(
+        fontSize: H4_FONT,
+      );
+
+  CommonTextStyle h5Style() => CommonTextStyle(
+        fontSize: H5_FONT,
+      );
+
+  CommonTextStyle h6Style() => CommonTextStyle(
+        fontSize: H6_FONT,
       );
 }
