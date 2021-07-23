@@ -14,7 +14,7 @@ class CommonText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    style = style ?? CommonTextStyles().defaultStyle();
+    style = style ?? CommonTextStyle();
     return GestureDetector(
       onTap: () {
         if (onPress != null) onPress!();
