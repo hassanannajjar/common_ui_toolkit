@@ -31,6 +31,13 @@ class CommonText extends StatelessWidget {
               child: RichText(
                 maxLines: style!.maxlines,
                 textAlign: style!.textAlign,
+                textDirection: style!.textDirection,
+                overflow: style!.overflow,
+                softWrap: style!.softWrap,
+                strutStyle: style!.strutStyle,
+                textHeightBehavior: style!.textHeightBehavior,
+                textScaleFactor: style!.textScaleFactor,
+                textWidthBasis: style!.textWidthBasis,
                 text: TextSpan(
                   text: text,
                   style: TextStyle(

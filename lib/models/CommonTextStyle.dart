@@ -11,6 +11,7 @@ class CommonTextStyle {
   double? iconWidth;
   double? iconHeight;
   double? fontSize;
+  double textScaleFactor;
   int? maxlines;
 
   // padding
@@ -45,6 +46,12 @@ class CommonTextStyle {
   int? iconColor;
 
   TextDecoration? textDecoration;
+  TextDirection? textDirection;
+  TextOverflow overflow;
+  bool softWrap;
+  StrutStyle? strutStyle;
+  TextHeightBehavior? textHeightBehavior;
+  TextWidthBasis textWidthBasis;
   Decoration? decoration;
   TextDecorationStyle? decorationStyle;
   FontWeight? fontweight;
@@ -57,10 +64,9 @@ class CommonTextStyle {
   Paint? background;
   List<Shadow>? shadows;
   List<FontFeature>? fontFeatures;
-  String? debugLabel;
   List<String>? fontFamilyFallback;
-
   String? fontFamily;
+  String? debugLabel;
 
   CommonTextStyle({
     //sizes
@@ -72,6 +78,7 @@ class CommonTextStyle {
     this.fontSize = H4_FONT,
     this.decorationThickness,
     this.maxlines,
+    this.textScaleFactor = 1.0,
 
     // padding
     this.padding,
@@ -103,6 +110,12 @@ class CommonTextStyle {
     this.backgroundColor = TRANSPARENT_COLOR,
     this.decorationColor = BLACK_COLOR,
     this.textDecoration = TextDecoration.none,
+    this.textDirection,
+    this.overflow = TextOverflow.clip,
+    this.softWrap = true,
+    this.strutStyle,
+    this.textHeightBehavior,
+    this.textWidthBasis = TextWidthBasis.parent,
     this.iconColor = BLACK_COLOR,
 
     // -------------------
@@ -122,108 +135,4 @@ class CommonTextStyle {
     this.debugLabel,
     this.fontFamilyFallback,
   });
-
-  CommonTextStyle copyWith({
-    double? height,
-    double? letterSpacing,
-    double? wordSpacing,
-    double? decorationThickness,
-    double? iconWidth,
-    double? iconHeight,
-    double? fontSize,
-    int? maxlines,
-    double? padding,
-    double? paddingTop,
-    double? paddingBottom,
-    double? paddingRight,
-    double? paddingLeft,
-    double? paddingVertical,
-    double? paddingHorizontal,
-    double? margin,
-    double? marginTop,
-    double? marginBottom,
-    double? marginRight,
-    double? marginLeft,
-    double? marginVertical,
-    double? marginHorizontal,
-    double? iconMargin,
-    double? iconMarginTop,
-    double? iconMarginBottom,
-    double? iconMarginRight,
-    double? iconMarginLeft,
-    double? iconMarginVertical,
-    double? iconMarginHorizontal,
-    int? fontColor,
-    int? backgroundColor,
-    int? decorationColor,
-    int? iconColor,
-    TextDecoration? textDecoration,
-    Decoration? decoration,
-    TextDecorationStyle? decorationStyle,
-    FontWeight? fontweight,
-    TextAlign? textAlign,
-    FontStyle? fontStyle,
-    TextBaseline? textBaseline,
-    TextLeadingDistribution? leadingDistribution,
-    Locale? locale,
-    Paint? foreground,
-    Paint? background,
-    List<Shadow>? shadows,
-    List<FontFeature>? fontFeatures,
-    String? debugLabel,
-    List<String>? fontFamilyFallback,
-    String? fontFamily,
-  }) {
-    return CommonTextStyle(
-      height: height ?? this.height,
-      letterSpacing: letterSpacing ?? this.letterSpacing,
-      wordSpacing: wordSpacing ?? this.wordSpacing,
-      decorationThickness: decorationThickness ?? this.decorationThickness,
-      iconWidth: iconWidth ?? this.iconWidth,
-      iconHeight: iconHeight ?? this.iconHeight,
-      fontSize: fontSize ?? this.fontSize,
-      maxlines: maxlines ?? this.maxlines,
-      padding: padding ?? this.padding,
-      paddingTop: paddingTop ?? this.paddingTop,
-      paddingBottom: paddingBottom ?? this.paddingBottom,
-      paddingRight: paddingRight ?? this.paddingRight,
-      paddingLeft: paddingLeft ?? this.paddingLeft,
-      paddingVertical: paddingVertical ?? this.paddingVertical,
-      paddingHorizontal: paddingHorizontal ?? this.paddingHorizontal,
-      margin: margin ?? this.margin,
-      marginTop: marginTop ?? this.marginTop,
-      marginBottom: marginBottom ?? this.marginBottom,
-      marginRight: marginRight ?? this.marginRight,
-      marginLeft: marginLeft ?? this.marginLeft,
-      marginVertical: marginVertical ?? this.marginVertical,
-      marginHorizontal: marginHorizontal ?? this.marginHorizontal,
-      iconMargin: iconMargin ?? this.iconMargin,
-      iconMarginTop: iconMarginTop ?? this.iconMarginTop,
-      iconMarginBottom: iconMarginBottom ?? this.iconMarginBottom,
-      iconMarginRight: iconMarginRight ?? this.iconMarginRight,
-      iconMarginLeft: iconMarginLeft ?? this.iconMarginLeft,
-      iconMarginVertical: iconMarginVertical ?? this.iconMarginVertical,
-      iconMarginHorizontal: iconMarginHorizontal ?? this.iconMarginHorizontal,
-      fontColor: fontColor ?? this.fontColor,
-      backgroundColor: backgroundColor ?? this.backgroundColor,
-      decorationColor: decorationColor ?? this.decorationColor,
-      iconColor: iconColor ?? this.iconColor,
-      textDecoration: textDecoration ?? this.textDecoration,
-      decoration: decoration ?? this.decoration,
-      decorationStyle: decorationStyle ?? this.decorationStyle,
-      fontweight: fontweight ?? this.fontweight,
-      textAlign: textAlign ?? this.textAlign,
-      fontStyle: fontStyle ?? this.fontStyle,
-      textBaseline: textBaseline ?? this.textBaseline,
-      leadingDistribution: leadingDistribution ?? this.leadingDistribution,
-      locale: locale ?? this.locale,
-      foreground: foreground ?? this.foreground,
-      background: background ?? this.background,
-      shadows: shadows ?? this.shadows,
-      fontFeatures: fontFeatures ?? this.fontFeatures,
-      debugLabel: debugLabel ?? this.debugLabel,
-      fontFamilyFallback: fontFamilyFallback ?? this.fontFamilyFallback,
-      fontFamily: fontFamily ?? this.fontFamily,
-    );
-  }
 }
