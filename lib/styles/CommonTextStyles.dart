@@ -1,35 +1,35 @@
 import '../index.dart';
 
 class CommonTextStyles {
-  CommonTextStyle bodyStyle() => CommonTextStyle(
+  CommonTextModel bodyStyle() => CommonTextModel(
         fontSize: BODY_FONT,
       );
 
-  CommonTextStyle headerStyle() => CommonTextStyle(
+  CommonTextModel headerStyle() => CommonTextModel(
         fontSize: HEADER_FONT,
       );
 
-  CommonTextStyle h1Style() => CommonTextStyle(
+  CommonTextModel h1Style() => CommonTextModel(
         fontSize: H1_FONT,
       );
 
-  CommonTextStyle h2Style() => CommonTextStyle(
+  CommonTextModel h2Style() => CommonTextModel(
         fontSize: H2_FONT,
       );
 
-  CommonTextStyle h3Style() => CommonTextStyle(
+  CommonTextModel h3Style() => CommonTextModel(
         fontSize: H3_FONT,
       );
 
-  CommonTextStyle h4Style() => CommonTextStyle(
+  CommonTextModel h4Style() => CommonTextModel(
         fontSize: H4_FONT,
       );
 
-  CommonTextStyle h5Style() => CommonTextStyle(
+  CommonTextModel h5Style() => CommonTextModel(
         fontSize: H5_FONT,
       );
 
-  CommonTextStyle h6Style() => CommonTextStyle(
+  CommonTextModel h6Style() => CommonTextModel(
         fontSize: H6_FONT,
       );
 }

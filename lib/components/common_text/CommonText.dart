@@ -1,7 +1,7 @@
 import '../../index.dart';
 
 class CommonText extends StatelessWidget {
-  CommonTextStyle? style;
+  CommonTextModel? style;
   Function? onPress;
   String? text, iconPath;
 
@@ -14,7 +14,7 @@ class CommonText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    style = style ?? CommonTextStyle();
+    style = style ?? CommonTextModel();
     return GestureDetector(
       onTap: () {
         if (onPress != null) onPress!();

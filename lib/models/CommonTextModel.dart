@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:common_ui_toolkit/index.dart';
 
-class CommonTextStyle {
+class CommonTextModel {
   //sizes
   double? height;
   double? letterSpacing;
@@ -68,7 +68,7 @@ class CommonTextStyle {
   String? fontFamily;
   String? debugLabel;
 
-  CommonTextStyle({
+  CommonTextModel({
     //sizes
     this.height,
     this.letterSpacing = 0.0,
@@ -136,7 +136,7 @@ class CommonTextStyle {
     this.fontFamilyFallback,
   });
 
-  CommonTextStyle copyWith({
+  CommonTextModel copyWith({
     double? height,
     double? letterSpacing,
     double? wordSpacing,
@@ -194,7 +194,7 @@ class CommonTextStyle {
     String? fontFamily,
     String? debugLabel,
   }) {
-    return CommonTextStyle(
+    return CommonTextModel(
       height: height ?? this.height,
       letterSpacing: letterSpacing ?? this.letterSpacing,
       wordSpacing: wordSpacing ?? this.wordSpacing,

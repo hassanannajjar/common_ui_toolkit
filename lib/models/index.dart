@@ -1,1 +1,1 @@
-export './CommonTextStyle.dart';
+export './CommonTextModel.dart';
