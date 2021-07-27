@@ -75,7 +75,8 @@ class ContainerStyle {
 
   Border? customeBorder;
 
-  BoxDecoration? foregroundDecoration;
+  Decoration? foregroundDecoration;
+  Decoration? decoration;
 
   BoxShape? boxShape;
 
@@ -220,6 +221,7 @@ class ContainerStyle {
     this.borderLeftColor,
     this.customeBorder,
     this.foregroundDecoration,
+    this.decoration,
     this.boxShape = BoxShape.rectangle,
     this.backgroundBlendMode,
     this.boxGradient,
@@ -283,7 +285,8 @@ class ContainerStyle {
     BorderStyle? borderRightStyle,
     BorderStyle? borderLeftStyle,
     Border? customeBorder,
-    BoxDecoration? foregroundDecoration,
+    Decoration? foregroundDecoration,
+    Decoration? decoration,
     BoxShape? boxShape,
     BlendMode? backgroundBlendMode,
     LinearGradient? boxGradient,
@@ -346,6 +349,7 @@ class ContainerStyle {
       borderLeftStyle: borderLeftStyle ?? this.borderLeftStyle,
       customeBorder: customeBorder ?? this.customeBorder,
       foregroundDecoration: foregroundDecoration ?? this.foregroundDecoration,
+      decoration: decoration ?? this.decoration,
       boxShape: boxShape ?? this.boxShape,
       backgroundBlendMode: backgroundBlendMode ?? this.backgroundBlendMode,
       boxGradient: boxGradient ?? this.boxGradient,

@@ -41,27 +41,28 @@ class CommonContainer extends StatelessWidget {
       transformAlignment: style!.transformAlignment,
       transform: style!.transform,
       clipBehavior: style!.clipBehavior!,
-      decoration: BoxDecoration(
-        image: style!.backgroundImage,
-        gradient: style!.boxGradient,
-        backgroundBlendMode: style!.backgroundBlendMode,
-        shape: style!.boxShape!,
-        border: style!.getBorder(),
-        borderRadius: style!.getBorderRaduis(),
-        color: Color(style!.backgroundColor!),
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color:
-                Color(style!.shadowColor!).withOpacity(style!.shadowOpacity!),
-            spreadRadius: style!.shadowSpreadRadius!,
-            blurRadius: style!.shadowbBlurRadius!,
-            offset: Offset(
-              style!.shadowOffsetDX!,
-              style!.shadowOffsetDY!,
-            ),
-          )
-        ],
-      ),
+      decoration: style!.decoration ??
+          BoxDecoration(
+            image: style!.backgroundImage,
+            gradient: style!.boxGradient,
+            backgroundBlendMode: style!.backgroundBlendMode,
+            shape: style!.boxShape!,
+            border: style!.getBorder(),
+            borderRadius: style!.getBorderRaduis(),
+            color: Color(style!.backgroundColor!),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                color: Color(style!.shadowColor!)
+                    .withOpacity(style!.shadowOpacity!),
+                spreadRadius: style!.shadowSpreadRadius!,
+                blurRadius: style!.shadowbBlurRadius!,
+                offset: Offset(
+                  style!.shadowOffsetDX!,
+                  style!.shadowOffsetDY!,
+                ),
+              )
+            ],
+          ),
     );
   }
 }
