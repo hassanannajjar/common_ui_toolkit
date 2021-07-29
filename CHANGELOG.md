@@ -3,3 +3,6 @@
 
 ## 0.0.3
 * Updated CommonContainer.
+
+## 0.0.4
+* Updated Common Text.
