@@ -1,12 +1,34 @@
-import 'package:common_ui_toolkit/utils/Helper.dart';
 import 'package:flutter/material.dart';
 
-import '../../models/ContainerStyle.dart';
+import '../../utils/Helper.dart';
+import '../../models/CommonContainerModel.dart';
 
 class CommonContainer extends StatelessWidget {
+  /// child widget.
   final Widget? child;
+
+  /// custome loading widget.
   final Widget? loadingWidget;
-  ContainerStyle? style;
+
+  /// to use it import the CommonContainerModel or use defaults style from CommonContainerStyle.
+  /// example :
+  /// using CommonContainerModel
+  /// ```dart
+  ///  CommonContainerModel(
+  ///   alignment: Alignment.center,
+  ///   loadingColor: 0xff123155,
+  /// )
+  /// ```
+  /// using defaults style
+  ///
+  /// ```dart
+  /// CommonContainer().bottomShadow
+  /// or
+  /// CommonContainer().fullShadow
+  /// ```
+  CommonContainerModel? style;
+
+  /// handel the data after loading and check if the data null or not.
   bool? isLoading;
 
   CommonContainer({
@@ -18,7 +40,7 @@ class CommonContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (style == null) style = ContainerStyle();
+    style = style ?? CommonContainerModel();
 
     return Container(
       child: isLoading!

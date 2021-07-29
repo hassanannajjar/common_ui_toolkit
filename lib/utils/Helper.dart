@@ -2,6 +2,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../index.dart';
 
+/// handel margin, vertical, horizontal, top, bottom, left and right.
 getMarginEdgeInsets(style) => EdgeInsets.fromLTRB(
       style.margin ?? style.marginHorizontal ?? style.marginLeft!,
       style.margin ?? style.marginVertical ?? style.marginTop!,
@@ -9,6 +10,7 @@ getMarginEdgeInsets(style) => EdgeInsets.fromLTRB(
       style.margin ?? style.marginVertical ?? style.marginBottom!,
     );
 
+/// handel padding, vertical, horizontal, left, right, top and bottom.
 getPaddingEdgeInsets(style) => EdgeInsets.fromLTRB(
       style.padding ?? style.paddingHorizontal ?? style.paddingLeft!,
       style.padding ?? style.paddingVertical ?? style.paddingTop!,
@@ -16,6 +18,7 @@ getPaddingEdgeInsets(style) => EdgeInsets.fromLTRB(
       style.padding ?? style.paddingVertical ?? style.paddingBottom!,
     );
 
+/// handel icon margin, vertical, horizontal, top, bottom, left and right.
 getIconMarginEdgeInsets(style) => EdgeInsets.fromLTRB(
       style.iconMargin ?? style.iconMarginHorizontal ?? style.iconMarginLeft!,
       style.iconMargin ?? style.iconMarginVertical ?? style.iconMarginTop!,
@@ -23,6 +26,7 @@ getIconMarginEdgeInsets(style) => EdgeInsets.fromLTRB(
       style.iconMargin ?? style.iconMarginVertical ?? style.iconMarginBottom!,
     );
 
+/// return the icon and style with custom function.
 getIcon(path, style) {
   if (path != null) {
     return Container(

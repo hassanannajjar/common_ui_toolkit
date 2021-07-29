@@ -1,3 +1,4 @@
+import 'package:common_ui_toolkit/index.dart';
 import 'package:flutter/material.dart';
 import 'package:common_ui_toolkit/models/index.dart';
 import 'package:common_ui_toolkit/components/index.dart';
@@ -26,29 +27,32 @@ class MyHomePage extends StatelessWidget {
       body: CommonContainer(
         // isLoading: true,
         // loadingWidget: /,
-        style: ContainerStyle(
-          alignment: Alignment.center,
-          loadingColor: 0xff123155,
-        ),
+        // style: CommonContainerModel(
+        //   alignment: Alignment.center,
+        //   loadingColor: 0xff123155,
+        // ),
+        style: CommonContainerStyle()
+            .fullShadow
+            .copyWith(alignment: Alignment.center),
         child: CommonContainer(
           child: Text(
             'Test Data',
             textDirection: TextDirection.ltr,
           ),
-          style: ContainerStyle(
-            // alignment: Alignment.center,
-            backgroundColor: 4255967295,
-            // transform: Matrix4.skewX(0.3),
-            // borderWidth: 5,
-            // borderRaduis: 50,
-            // topLeftRadius: 50,
-            boxShape: BoxShape.circle,
-            // borderRightWidth: 10,
-            // borderRightStyle: BorderStyle.solid,
-            // borderRightColor: 4258997295,
-            width: 0.5,
-            height: 0.3,
-          ),
+          style: CommonContainerStyle().fullShadow.copyWith(
+                // alignment: Alignment.center,
+                backgroundColor: 4255967295,
+                // transform: Matrix4.skewX(0.3),
+                // borderWidth: 5,
+                // borderRaduis: 50,
+                // topLeftRadius: 50,
+                boxShape: BoxShape.circle,
+                // borderRightWidth: 10,
+                // borderRightStyle: BorderStyle.solid,
+                // borderRightColor: 4258997295,
+                width: 0.5,
+                height: 0.3,
+              ),
         ),
       ),
     );

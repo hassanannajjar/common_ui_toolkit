@@ -1,8 +1,33 @@
 import '../../index.dart';
 
 class CommonText extends StatelessWidget {
+  /// to use it import the CommonTextModel or use defaults style from CommonTextStyles.
+  /// example :
+  /// using CommonTextStyles model
+  /// ```dart
+  ///  CommonTextStyles(
+  ///   fontSize: 12,
+  ///  fontFamily: 'Roboto',
+  /// fontWeight: 'bold',
+  /// fontStyle: 'italic',
+  /// color: '#ff0000',
+  /// textAlign: 'center',
+  /// )
+  /// ```
+  /// using defaults style
+  ///
+  /// ```dart
+  /// CommonTextStyles().h5Style
+  /// or
+  /// CommonTextStyles().bodyStyle
+  /// or etc...
+  /// ```
   CommonTextModel? style;
+
+  /// handel opPress function
   Function? onPress;
+
+  /// text and iconPath
   String? text, iconPath;
 
   CommonText({

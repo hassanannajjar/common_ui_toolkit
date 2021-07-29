@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 
 import '../utils/index.dart';
 
-class ContainerStyle {
+class CommonContainerModel {
   //sizes
   double? width;
   double? height;
@@ -86,12 +86,14 @@ class ContainerStyle {
 
   DecorationImage? backgroundImage;
 
+  /// check if the border is null or not.
   checkBorderNull() =>
       borderTopWidth != null ||
       borderBottomWidth != null ||
       borderRightWidth != null ||
       borderLeftWidth != null;
 
+  /// get border Raduis.
   getBorderRaduis() => (boxShape == BoxShape.circle || checkBorderNull())
       ? null
       : (borderRaduis == 0
@@ -105,6 +107,7 @@ class ContainerStyle {
               Radius.circular(borderRaduis!),
             ));
 
+  /// get border width and color.
   getBorder() => (borderWidth! > 0 || checkBorderNull())
       ? Border(
           top: BorderSide(
@@ -130,19 +133,21 @@ class ContainerStyle {
         )
       : null;
 
+  /// handel container width.
   getWidth() => width! < 1.0 && width! > 0.0
       ? DEVICE_WIDTH * width!
       : width! > 1
           ? width!
           : null;
 
+  /// handel container height.
   getHeight() => height! < 1.0 && height! > 0.0
       ? DEVICE_HEIGHT * height!
       : height! > 0.0
           ? height!
           : null;
 
-  ContainerStyle({
+  CommonContainerModel({
     //sizes
     this.width = 0.0,
     this.height = 0.0,
@@ -214,7 +219,7 @@ class ContainerStyle {
     this.backgroundImage,
   });
 
-  ContainerStyle copyWith({
+  CommonContainerModel copyWith({
     double? width,
     double? height,
     double? minWidth,
@@ -278,7 +283,7 @@ class ContainerStyle {
     LinearGradient? boxGradient,
     DecorationImage? backgroundImage,
   }) {
-    return ContainerStyle(
+    return CommonContainerModel(
       width: width ?? this.width,
       height: height ?? this.height,
       minWidth: minWidth ?? this.minWidth,
