@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:common_ui_toolkit/models/index.dart';
-import 'package:common_ui_toolkit/components/CommonContainer.dart';
+import 'package:common_ui_toolkit/components/index.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,8 +25,10 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       body: CommonContainer(
         // isLoading: true,
+        // loadingWidget: /,
         style: ContainerStyle(
           alignment: Alignment.center,
+          loadingColor: 0xff123155,
         ),
         child: CommonContainer(
           child: Text(
@@ -34,14 +36,14 @@ class MyHomePage extends StatelessWidget {
             textDirection: TextDirection.ltr,
           ),
           style: ContainerStyle(
-            alignment: Alignment.center,
+            // alignment: Alignment.center,
             backgroundColor: 4255967295,
-            transform: Matrix4.skewX(0.3),
-            borderWidth: 5,
-            borderRaduis: 50,
-            topLeftRadius: 50,
-            // boxShape: BoxShape.circle,
-            borderRightWidth: 10,
+            // transform: Matrix4.skewX(0.3),
+            // borderWidth: 5,
+            // borderRaduis: 50,
+            // topLeftRadius: 50,
+            boxShape: BoxShape.circle,
+            // borderRightWidth: 10,
             // borderRightStyle: BorderStyle.solid,
             // borderRightColor: 4258997295,
             width: 0.5,

@@ -4,6 +4,7 @@ import 'dart:ui';
 
 //   **** Colors *****
 const BLACK_COLOR = 0xFF1D2029;
+const WHITE_COLOR = 0xFFFFFFFF;
 const TRANSPARENT_COLOR = 0x00444445;
 
 // ----------------------------------------

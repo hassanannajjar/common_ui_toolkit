@@ -1,6 +1,7 @@
+import 'package:common_ui_toolkit/utils/Helper.dart';
 import 'package:flutter/material.dart';
 
-import '../models/ContainerStyle.dart';
+import '../../models/ContainerStyle.dart';
 
 class CommonContainer extends StatelessWidget {
   final Widget? child;
@@ -28,8 +29,8 @@ class CommonContainer extends StatelessWidget {
           : (child ?? Center()),
       width: style!.getWidth(),
       height: style!.getHeight(),
-      margin: style!.getMarginEdgeInsets(),
-      padding: style!.getPaddingEdgeInsets(),
+      margin: getMarginEdgeInsets(style),
+      padding: getPaddingEdgeInsets(style),
       alignment: style!.alignment!,
       foregroundDecoration: style!.foregroundDecoration,
       constraints: BoxConstraints(

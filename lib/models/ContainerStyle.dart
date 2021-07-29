@@ -92,20 +92,6 @@ class ContainerStyle {
       borderRightWidth != null ||
       borderLeftWidth != null;
 
-  getMarginEdgeInsets() => EdgeInsets.fromLTRB(
-        (margin ?? marginHorizontal ?? marginLeft)!,
-        (margin ?? marginVertical ?? marginTop)!,
-        (margin ?? marginHorizontal ?? marginRight)!,
-        (margin ?? marginVertical ?? marginBottom)!,
-      );
-
-  getPaddingEdgeInsets() => EdgeInsets.fromLTRB(
-        padding ?? paddingHorizontal ?? paddingLeft!,
-        padding ?? paddingVertical ?? paddingTop!,
-        padding ?? paddingHorizontal ?? paddingRight!,
-        padding ?? paddingVertical ?? paddingBottom!,
-      );
-
   getBorderRaduis() => (boxShape == BoxShape.circle || checkBorderNull())
       ? null
       : (borderRaduis == 0
