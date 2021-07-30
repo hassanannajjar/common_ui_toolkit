@@ -53,7 +53,7 @@ class CommonContainer extends StatelessWidget {
       height: style!.getHeight(),
       margin: getMarginEdgeInsets(style),
       padding: getPaddingEdgeInsets(style),
-      alignment: style!.alignment!,
+      alignment: style!.alignment,
       foregroundDecoration: style!.foregroundDecoration,
       constraints: BoxConstraints(
         minWidth: style!.minWidth!,

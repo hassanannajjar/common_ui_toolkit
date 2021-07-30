@@ -155,7 +155,7 @@ class CommonContainerModel {
     this.minHieght = 0.0,
     this.maxWidth = double.infinity,
     this.maxHieght = double.infinity,
-    this.alignment = Alignment.topLeft,
+    this.alignment,
     // padding
     this.padding,
     this.paddingTop = 0.0,
