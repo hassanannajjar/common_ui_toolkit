@@ -11,3 +11,6 @@
 * Updated Readme file.
 ## 0.0.6
 * added functions command.
+
+## 0.0.7
+* Updated Readme file.
