@@ -24,36 +24,71 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CommonContainer(
-        // isLoading: true,
-        // loadingWidget: /,
-        // style: CommonContainerModel(
-        //   alignment: Alignment.center,
-        //   loadingColor: 0xff123155,
-        // ),
-        style: CommonContainerStyle()
-            .fullShadow
-            .copyWith(alignment: Alignment.center),
-        child: CommonContainer(
-          child: Text(
-            'Test Data',
-            textDirection: TextDirection.ltr,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CommonText(
+            containerStyle: CommonContainerModel(
+              padding: 16.0,
+              borderRaduis: 16.0,
+              backgroundColor: BLACK_COLOR,
+            ),
+            style: CommonTextStyles().h2Style().copyWith(
+                  fontColor: WHITE_COLOR,
+                  // backgroundColor: WHITE_COLOR,
+                  // fontweight: FontWeight.bold,
+                ),
+            text: 'Simple common text',
           ),
-          style: CommonContainerStyle().fullShadow.copyWith(
-                // alignment: Alignment.center,
-                backgroundColor: 4255967295,
-                // transform: Matrix4.skewX(0.3),
-                // borderWidth: 5,
-                // borderRaduis: 50,
-                // topLeftRadius: 50,
-                boxShape: BoxShape.circle,
-                // borderRightWidth: 10,
-                // borderRightStyle: BorderStyle.solid,
-                // borderRightColor: 4258997295,
-                width: 0.5,
-                height: 0.3,
+          CommonContainer(
+            // isLoading: true,
+            // loadingWidget: /,
+            // style: CommonContainerModel(
+            //   alignment: Alignment.center,
+            //   loadingColor: 0xff123155,
+            // ),
+            style: CommonContainerStyle().fullShadow.copyWith(
+                  alignment: Alignment.center,
+                  backgroundColor: 4255967295,
+                  // transform: Matrix4.skewX(0.3),
+                  // borderWidth: 5,
+                  // borderRaduis: 50,
+                  // topLeftRadius: 50,
+                  boxShape: BoxShape.circle,
+                  // borderRightWidth: 10,
+                  // borderRightStyle: BorderStyle.solid,
+                  // borderRightColor: 4258997295,
+                  width: 0.5,
+                  height: 0.3,
+                ),
+          ),
+          CommonText(
+            iconPath: 'assets/icons/account_icon.svg',
+            text: 'Common text!',
+            containerStyle: CommonContainerModel(
+              alignment: Alignment.center,
+              backgroundColor: TRANSPARENT_COLOR,
+            ),
+            topChild: CommonText(
+              text: 'Top child',
+              containerStyle: CommonContainerModel(
+                alignment: Alignment.center,
+                backgroundColor: TRANSPARENT_COLOR,
               ),
-        ),
+            ),
+            leftChild: CommonText(
+              containerStyle: CommonContainerModel(marginHorizontal: 8.0),
+              text: 'Left child',
+            ),
+            rightChild: CommonText(
+              containerStyle: CommonContainerModel(marginHorizontal: 8.0),
+              text: 'Right child',
+            ),
+            bottomChild: CommonText(
+              text: 'Bottom child',
+            ),
+          ),
+        ],
       ),
     );
   }

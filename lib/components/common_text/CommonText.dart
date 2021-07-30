@@ -23,6 +23,7 @@ class CommonText extends StatelessWidget {
   /// or etc...
   /// ```
   CommonTextModel? style;
+  CommonContainerModel? containerStyle;
 
   /// handel opPress function
   Function? onPress;
@@ -30,69 +31,39 @@ class CommonText extends StatelessWidget {
   /// text and iconPath
   String? text, iconPath;
 
+  /// left, right, top and bottom children widgets around the common text
+  Widget? leftChild, rightChild, topChild, bottomChild;
+
   CommonText({
     this.text,
     this.onPress,
     this.iconPath,
+    this.leftChild,
+    this.rightChild,
+    this.topChild,
+    this.bottomChild,
     this.style,
+    this.containerStyle,
   });
 
   @override
   Widget build(BuildContext context) {
     style = style ?? CommonTextModel();
+    containerStyle = containerStyle ?? CommonContainerModel();
     return GestureDetector(
       onTap: () {
         if (onPress != null) onPress!();
       },
-      child: Container(
-        padding: getPaddingEdgeInsets(style),
-        margin: getMarginEdgeInsets(style),
-        decoration: style!.decoration,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            getIcon(iconPath, style),
-            Flexible(
-              child: RichText(
-                maxLines: style!.maxlines,
-                textAlign: style!.textAlign,
-                textDirection: style!.textDirection,
-                overflow: style!.overflow,
-                softWrap: style!.softWrap,
-                strutStyle: style!.strutStyle,
-                textHeightBehavior: style!.textHeightBehavior,
-                textScaleFactor: style!.textScaleFactor,
-                textWidthBasis: style!.textWidthBasis,
-                text: TextSpan(
-                  text: text,
-                  style: TextStyle(
-                    decoration: style!.textDecoration,
-                    color: Color(style!.fontColor!),
-                    decorationThickness: style!.decorationThickness,
-                    fontWeight: style!.fontweight,
-                    fontSize: style!.fontSize,
-                    fontFamily: style!.fontFamily,
-                    wordSpacing: style!.wordSpacing,
-                    fontStyle: style!.fontStyle,
-                    letterSpacing: style!.letterSpacing,
-                    backgroundColor: Color(style!.backgroundColor!),
-                    height: style!.height,
-                    textBaseline: style!.textBaseline,
-                    leadingDistribution: style!.leadingDistribution,
-                    locale: style!.locale,
-                    foreground: style!.foreground,
-                    background: style!.background,
-                    shadows: style!.shadows,
-                    fontFeatures: style!.fontFeatures,
-                    decorationColor: Color(style!.decorationColor!),
-                    decorationStyle: style!.decorationStyle,
-                    debugLabel: style!.debugLabel,
-                    fontFamilyFallback: style!.fontFamilyFallback,
-                  ),
-                ),
-              ),
-            ),
-          ],
+      child: CommonContainer(
+        style: containerStyle,
+        child: renderCommonTextTree(
+          topChild,
+          rightChild,
+          bottomChild,
+          leftChild,
+          iconPath,
+          style,
+          text,
         ),
       ),
     );
