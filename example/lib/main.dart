@@ -39,8 +39,14 @@ class MyHomePage extends StatelessWidget {
                   // fontweight: FontWeight.bold,
                 ),
             text: 'Simple common text',
+            onPress: () {
+              print('Simple common text pressed');
+            },
           ),
           CommonContainer(
+            onPress: () {
+              print('Circle container pressed');
+            },
             // isLoading: true,
             // loadingWidget: /,
             // style: CommonContainerModel(
@@ -49,6 +55,7 @@ class MyHomePage extends StatelessWidget {
             // ),
             style: CommonContainerStyle().fullShadow.copyWith(
                   alignment: Alignment.center,
+                  marginTop: 16.0,
                   backgroundColor: 4255967295,
                   // transform: Matrix4.skewX(0.3),
                   // borderWidth: 5,
