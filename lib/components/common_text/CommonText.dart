@@ -50,21 +50,17 @@ class CommonText extends StatelessWidget {
   Widget build(BuildContext context) {
     style = style ?? CommonTextModel();
     containerStyle = containerStyle ?? CommonContainerModel();
-    return GestureDetector(
-      onTap: () {
-        if (onPress != null) onPress!();
-      },
-      child: CommonContainer(
-        style: containerStyle,
-        child: renderCommonTextTree(
-          topChild,
-          rightChild,
-          bottomChild,
-          leftChild,
-          iconPath,
-          style,
-          text,
-        ),
+    return CommonContainer(
+      onPress: onPress,
+      style: containerStyle,
+      child: renderCommonTextTree(
+        topChild,
+        rightChild,
+        bottomChild,
+        leftChild,
+        iconPath,
+        style,
+        text,
       ),
     );
   }
