@@ -2,6 +2,13 @@
 
 A new Flutter package that accelerates building UI process.
 
+Get it from:
+[![pub package](https://img.shields.io/pub/v/common_ui_toolkit.svg)](https://pub.dev/packages/common_ui_toolkit)
+
+[![pub points](https://badges.bar/common_ui_toolkit/pub%20points)](https://pub.dev/packages/common_ui_toolkit/score) 
+[![popularity](https://badges.bar/common_ui_toolkit/popularity)](https://pub.dev/packages/common_ui_toolkit/score)
+[![likes](https://badges.bar/common_ui_toolkit/likes)](https://pub.dev/packages/common_ui_toolkit/score) 
+
 ## About this package
 
 This package contains the most common components used in flutter projects such as Container, Text, TextFields and so on.
