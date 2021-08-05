@@ -12,9 +12,8 @@ class TouchableOpacity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoButton(
-      padding: EdgeInsets.zero,
-      onPressed: onPress != null
+    return InkWell(
+      onTap: onPress != null
           ? () {
               onPress!();
             }
