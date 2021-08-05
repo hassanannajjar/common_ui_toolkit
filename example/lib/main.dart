@@ -31,6 +31,7 @@ class MyHomePage extends StatelessWidget {
             containerStyle: CommonContainerModel(
               padding: 16.0,
               borderRaduis: 16.0,
+              marginBottom: 16.0,
               backgroundColor: BLACK_COLOR,
             ),
             style: CommonTextStyles().h2Style().copyWith(
@@ -42,6 +43,22 @@ class MyHomePage extends StatelessWidget {
             onPress: () {
               print('Simple common text pressed');
             },
+          ),
+          CommonText(
+            containerStyle: CommonContainerModel(marginHorizontal: 16.0),
+            text:
+                'We have sent you a verification code through this number, Bla Bla Bla Bla ',
+            inlineSpans: [
+              WidgetSpan(
+                child: CommonText(
+                  text: '+970595131066',
+                  style: CommonTextModel(fontColor: RED_COLOR),
+                  containerStyle: CommonContainerModel(marginHorizontal: 8.0),
+                ),
+              ),
+              // TextSpan(
+              //     text: '+970595131066', style: TextStyle(color: Colors.red))
+            ],
           ),
           CommonContainer(
             onPress: () {
@@ -70,6 +87,7 @@ class MyHomePage extends StatelessWidget {
                 ),
           ),
           CommonText(
+            onPress: () {},
             iconPath: 'assets/icons/account_icon.svg',
             text: 'Common text!',
             containerStyle: CommonContainerModel(

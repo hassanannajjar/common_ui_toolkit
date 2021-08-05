@@ -31,6 +31,8 @@ class CommonText extends StatelessWidget {
   /// text and iconPath
   String? text, iconPath;
 
+  List<InlineSpan>? inlineSpans;
+
   /// left, right, top and bottom children widgets around the common text
   Widget? leftChild, rightChild, topChild, bottomChild;
 
@@ -42,6 +44,7 @@ class CommonText extends StatelessWidget {
     this.rightChild,
     this.topChild,
     this.bottomChild,
+    this.inlineSpans,
     this.style,
     this.containerStyle,
   });
@@ -61,6 +64,7 @@ class CommonText extends StatelessWidget {
         iconPath,
         style,
         text,
+        inlineSpans,
       ),
     );
   }
