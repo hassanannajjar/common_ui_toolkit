@@ -14,23 +14,6 @@ class CommonTextModel {
   double textScaleFactor;
   int? maxlines;
 
-  // padding
-  double? padding;
-  double? paddingTop;
-  double? paddingBottom;
-  double? paddingRight;
-  double? paddingLeft;
-  double? paddingVertical;
-  double? paddingHorizontal;
-
-  // margin
-  double? margin;
-  double? marginTop;
-  double? marginBottom;
-  double? marginRight;
-  double? marginLeft;
-  double? marginVertical;
-  double? marginHorizontal;
   double? iconMargin;
   double? iconMarginTop;
   double? iconMarginBottom;
@@ -79,24 +62,6 @@ class CommonTextModel {
     this.decorationThickness,
     this.maxlines,
     this.textScaleFactor = 1.0,
-
-    // padding
-    this.padding,
-    this.paddingTop = 0.0,
-    this.paddingBottom = 0.0,
-    this.paddingRight = 0.0,
-    this.paddingLeft = 0.0,
-    this.paddingVertical,
-    this.paddingHorizontal,
-
-    // margin
-    this.margin,
-    this.marginTop = 0.0,
-    this.marginBottom = 0.0,
-    this.marginRight = 0.0,
-    this.marginLeft = 0.0,
-    this.marginVertical,
-    this.marginHorizontal,
     this.iconMargin,
     this.iconMarginTop = 0.0,
     this.iconMarginBottom = 0.0,
@@ -204,20 +169,6 @@ class CommonTextModel {
       fontSize: fontSize ?? this.fontSize,
       textScaleFactor: textScaleFactor ?? this.textScaleFactor,
       maxlines: maxlines ?? this.maxlines,
-      padding: padding ?? this.padding,
-      paddingTop: paddingTop ?? this.paddingTop,
-      paddingBottom: paddingBottom ?? this.paddingBottom,
-      paddingRight: paddingRight ?? this.paddingRight,
-      paddingLeft: paddingLeft ?? this.paddingLeft,
-      paddingVertical: paddingVertical ?? this.paddingVertical,
-      paddingHorizontal: paddingHorizontal ?? this.paddingHorizontal,
-      margin: margin ?? this.margin,
-      marginTop: marginTop ?? this.marginTop,
-      marginBottom: marginBottom ?? this.marginBottom,
-      marginRight: marginRight ?? this.marginRight,
-      marginLeft: marginLeft ?? this.marginLeft,
-      marginVertical: marginVertical ?? this.marginVertical,
-      marginHorizontal: marginHorizontal ?? this.marginHorizontal,
       iconMargin: iconMargin ?? this.iconMargin,
       iconMarginTop: iconMarginTop ?? this.iconMarginTop,
       iconMarginBottom: iconMarginBottom ?? this.iconMarginBottom,
