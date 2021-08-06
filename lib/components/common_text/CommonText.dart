@@ -31,6 +31,8 @@ class CommonText extends StatelessWidget {
   /// text and iconPath
   String? text, iconPath;
 
+  List<InlineSpan>? inlineSpans;
+
   /// left, right, top and bottom children widgets around the common text
   Widget? leftChild, rightChild, topChild, bottomChild;
 
@@ -42,6 +44,7 @@ class CommonText extends StatelessWidget {
     this.rightChild,
     this.topChild,
     this.bottomChild,
+    this.inlineSpans,
     this.style,
     this.containerStyle,
   });
@@ -50,21 +53,18 @@ class CommonText extends StatelessWidget {
   Widget build(BuildContext context) {
     style = style ?? CommonTextModel();
     containerStyle = containerStyle ?? CommonContainerModel();
-    return GestureDetector(
-      onTap: () {
-        if (onPress != null) onPress!();
-      },
-      child: CommonContainer(
-        style: containerStyle,
-        child: renderCommonTextTree(
-          topChild,
-          rightChild,
-          bottomChild,
-          leftChild,
-          iconPath,
-          style,
-          text,
-        ),
+    return CommonContainer(
+      onPress: onPress,
+      style: containerStyle,
+      child: renderCommonTextTree(
+        topChild,
+        rightChild,
+        bottomChild,
+        leftChild,
+        iconPath,
+        style,
+        text,
+        inlineSpans,
       ),
     );
   }

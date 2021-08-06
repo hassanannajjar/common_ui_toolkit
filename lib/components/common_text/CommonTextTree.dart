@@ -9,6 +9,7 @@ renderCommonTextTree(
   iconPath,
   style,
   text,
+  inlineSpans,
 ) =>
     Column(
       children: [
@@ -31,6 +32,7 @@ renderCommonTextTree(
                 textWidthBasis: style!.textWidthBasis,
                 text: TextSpan(
                   text: text,
+                  children: inlineSpans,
                   style: TextStyle(
                     decoration: style!.textDecoration,
                     color: Color(style!.fontColor!),

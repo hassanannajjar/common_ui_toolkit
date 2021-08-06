@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../index.dart';
 import '../../utils/Helper.dart';
 import '../../models/CommonContainerModel.dart';
 
@@ -31,8 +32,12 @@ class CommonContainer extends StatelessWidget {
   /// handel the data after loading and check if the data null or not.
   bool? isLoading;
 
+  /// handel opPress function
+  Function? onPress;
+
   CommonContainer({
     this.style,
+    this.onPress,
     this.child,
     this.loadingWidget,
     this.isLoading = false,
@@ -42,50 +47,53 @@ class CommonContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     style = style ?? CommonContainerModel();
 
-    return Container(
-      child: isLoading!
-          ? (loadingWidget ??
-              CircularProgressIndicator(
-                color: Color(style!.loadingColor!),
-              ))
-          : (child ?? Center()),
-      width: style!.getWidth(),
-      height: style!.getHeight(),
-      margin: getMarginEdgeInsets(style),
-      padding: getPaddingEdgeInsets(style),
-      alignment: style!.alignment,
-      foregroundDecoration: style!.foregroundDecoration,
-      constraints: BoxConstraints(
-        minWidth: style!.minWidth!,
-        minHeight: style!.minHieght!,
-        maxWidth: style!.maxWidth!,
-        maxHeight: style!.maxHieght!,
+    return TouchableOpacity(
+      onPress: onPress,
+      child: Container(
+        child: isLoading!
+            ? (loadingWidget ??
+                CircularProgressIndicator(
+                  color: Color(style!.loadingColor!),
+                ))
+            : (child ?? Center()),
+        width: style!.getWidth(),
+        height: style!.getHeight(),
+        margin: getMarginEdgeInsets(style),
+        padding: getPaddingEdgeInsets(style),
+        alignment: style!.alignment,
+        foregroundDecoration: style!.foregroundDecoration,
+        constraints: BoxConstraints(
+          minWidth: style!.minWidth!,
+          minHeight: style!.minHieght!,
+          maxWidth: style!.maxWidth!,
+          maxHeight: style!.maxHieght!,
+        ),
+        transformAlignment: style!.transformAlignment,
+        transform: style!.transform,
+        clipBehavior: style!.clipBehavior!,
+        decoration: style!.decoration ??
+            BoxDecoration(
+              image: style!.backgroundImage,
+              gradient: style!.boxGradient,
+              backgroundBlendMode: style!.backgroundBlendMode,
+              shape: style!.boxShape!,
+              border: style!.getBorder(),
+              borderRadius: style!.getBorderRaduis(),
+              color: Color(style!.backgroundColor!),
+              boxShadow: <BoxShadow>[
+                BoxShadow(
+                  color: Color(style!.shadowColor!)
+                      .withOpacity(style!.shadowOpacity!),
+                  spreadRadius: style!.shadowSpreadRadius!,
+                  blurRadius: style!.shadowbBlurRadius!,
+                  offset: Offset(
+                    style!.shadowOffsetDX!,
+                    style!.shadowOffsetDY!,
+                  ),
+                )
+              ],
+            ),
       ),
-      transformAlignment: style!.transformAlignment,
-      transform: style!.transform,
-      clipBehavior: style!.clipBehavior!,
-      decoration: style!.decoration ??
-          BoxDecoration(
-            image: style!.backgroundImage,
-            gradient: style!.boxGradient,
-            backgroundBlendMode: style!.backgroundBlendMode,
-            shape: style!.boxShape!,
-            border: style!.getBorder(),
-            borderRadius: style!.getBorderRaduis(),
-            color: Color(style!.backgroundColor!),
-            boxShadow: <BoxShadow>[
-              BoxShadow(
-                color: Color(style!.shadowColor!)
-                    .withOpacity(style!.shadowOpacity!),
-                spreadRadius: style!.shadowSpreadRadius!,
-                blurRadius: style!.shadowbBlurRadius!,
-                offset: Offset(
-                  style!.shadowOffsetDX!,
-                  style!.shadowOffsetDY!,
-                ),
-              )
-            ],
-          ),
     );
   }
 }
