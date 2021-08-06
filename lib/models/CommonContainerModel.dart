@@ -19,8 +19,6 @@ class CommonContainerModel {
   double? paddingLeft;
   double? paddingVertical;
   double? paddingHorizontal;
-  double? iconPaddingLeft;
-  double? iconPaddingRight;
 
   // margin
   double? margin;
@@ -157,23 +155,22 @@ class CommonContainerModel {
     this.maxHieght = double.infinity,
     this.alignment,
     // padding
-    this.padding,
-    this.paddingTop = 0.0,
-    this.paddingBottom = 0.0,
-    this.paddingRight = 0.0,
-    this.paddingLeft = 0.0,
+    this.padding = 0.0,
+    this.paddingTop,
+    this.paddingBottom,
+    this.paddingRight,
+    this.paddingLeft,
     this.paddingVertical,
     this.paddingHorizontal,
     // margin
-    this.margin,
-    this.marginTop = 0.0,
-    this.marginBottom = 0.0,
-    this.marginRight = 0.0,
-    this.marginLeft = 0.0,
+    this.margin = 0.0,
+    this.marginTop,
+    this.marginBottom,
+    this.marginRight,
+    this.marginLeft,
     this.marginVertical,
     this.marginHorizontal,
-    this.iconPaddingLeft = 0.0,
-    this.iconPaddingRight = 0.0,
+
     // colors
     this.backgroundColor = 0xFFFFFFFF,
     this.raduisColor = 0xFF000000,
@@ -233,8 +230,6 @@ class CommonContainerModel {
     double? paddingLeft,
     double? paddingVertical,
     double? paddingHorizontal,
-    double? iconPaddingLeft,
-    double? iconPaddingRight,
     double? margin,
     double? marginTop,
     double? marginBottom,
@@ -297,8 +292,6 @@ class CommonContainerModel {
       paddingLeft: paddingLeft ?? this.paddingLeft,
       paddingVertical: paddingVertical ?? this.paddingVertical,
       paddingHorizontal: paddingHorizontal ?? this.paddingHorizontal,
-      iconPaddingLeft: iconPaddingLeft ?? this.iconPaddingLeft,
-      iconPaddingRight: iconPaddingRight ?? this.iconPaddingRight,
       margin: margin ?? this.margin,
       marginTop: marginTop ?? this.marginTop,
       marginBottom: marginBottom ?? this.marginBottom,

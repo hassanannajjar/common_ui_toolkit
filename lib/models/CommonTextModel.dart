@@ -14,7 +14,7 @@ class CommonTextModel {
   double textScaleFactor;
   int? maxlines;
 
-  double? iconMargin;
+  double? iconMargin = 0.0;
   double? iconMarginTop;
   double? iconMarginBottom;
   double? iconMarginRight;
