@@ -72,6 +72,7 @@ class MyHomePage extends StatelessWidget {
             // ),
             style: CommonContainerStyle().fullShadow.copyWith(
                   alignment: Alignment.center,
+                  withTapEffect: false,
                   marginTop: 16.0,
                   backgroundColor: 4255967295,
                   // transform: Matrix4.skewX(0.3),

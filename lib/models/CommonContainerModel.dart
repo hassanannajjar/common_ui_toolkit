@@ -78,6 +78,8 @@ class CommonContainerModel {
 
   BoxShape? boxShape;
 
+  bool withTapEffect;
+
   BlendMode? backgroundBlendMode;
 
   LinearGradient? boxGradient;
@@ -211,6 +213,7 @@ class CommonContainerModel {
     this.foregroundDecoration,
     this.decoration,
     this.boxShape = BoxShape.rectangle,
+    this.withTapEffect = true,
     this.backgroundBlendMode,
     this.boxGradient,
     this.backgroundImage,
@@ -274,6 +277,7 @@ class CommonContainerModel {
     Decoration? foregroundDecoration,
     Decoration? decoration,
     BoxShape? boxShape,
+    bool? withTapEffect,
     BlendMode? backgroundBlendMode,
     LinearGradient? boxGradient,
     DecorationImage? backgroundImage,
@@ -335,6 +339,7 @@ class CommonContainerModel {
       foregroundDecoration: foregroundDecoration ?? this.foregroundDecoration,
       decoration: decoration ?? this.decoration,
       boxShape: boxShape ?? this.boxShape,
+      withTapEffect: withTapEffect ?? this.withTapEffect,
       backgroundBlendMode: backgroundBlendMode ?? this.backgroundBlendMode,
       boxGradient: boxGradient ?? this.boxGradient,
       backgroundImage: backgroundImage ?? this.backgroundImage,

@@ -7,12 +7,14 @@ class CommonTouchable extends StatefulWidget {
   final Function? onTap;
 
   double lowerBound, upperBound;
+  bool withTapEffect;
 
   CommonTouchable({
     @required this.child,
     @required this.onTap,
     this.lowerBound = 0.8,
     this.upperBound = 1.0,
+    this.withTapEffect = true,
   });
 
   @override
@@ -45,11 +47,17 @@ class _CommonTouchableState extends State<CommonTouchable>
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
-        _controllerA!.reverse();
-        widget.onTap!();
+        if (widget.onTap != null) {
+          if (widget.withTapEffect) {
+            _controllerA!.reverse();
+          }
+          widget.onTap!();
+        }
       },
       onTapDown: (dp) {
-        _controllerA!.reverse();
+        if (widget.onTap != null && widget.withTapEffect) {
+          _controllerA!.reverse();
+        }
       },
       onTapUp: (dp) {
         Timer(Duration(milliseconds: 10), () {
