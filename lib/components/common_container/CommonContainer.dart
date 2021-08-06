@@ -47,8 +47,8 @@ class CommonContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     style = style ?? CommonContainerModel();
 
-    return TouchableOpacity(
-      onPress: onPress,
+    return CommonTouchable(
+      onTap: onPress,
       child: Container(
         child: isLoading!
             ? (loadingWidget ??
