@@ -23,3 +23,7 @@
 * touchEffect: TouchableEffect.scaleAndFade,
 * ```
 * Added more examples and example screen for all component in package
+
+## 0.0.9
+* Fix TouchableEffect in Commontouchable to enable hot reload
+* Set mainAxisSize to min for CommonText column
