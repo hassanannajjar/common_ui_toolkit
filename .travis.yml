@@ -2,9 +2,9 @@ language: dart
 dart:
 # Install the latest stable release
 - stable
-dart_task:
-- test: --platform vm
-- test: --platform chrome
+# dart_task:
+# - test: --platform vm
+# - test: --platform chrome
 # Install the latest beta release
 # - beta
 # Install the latest dev release
