@@ -33,6 +33,7 @@ class MyHomePage extends StatelessWidget {
               borderRaduis: 16.0,
               marginBottom: 16.0,
               backgroundColor: BLACK_COLOR,
+              touchEffect: TouchableEffect.scaleAndFade,
             ),
             style: CommonTextStyles().h2Style().copyWith(
                   fontColor: WHITE_COLOR,
@@ -88,11 +89,22 @@ class MyHomePage extends StatelessWidget {
           ),
           CommonText(
             onPress: () {},
+            style: CommonTextModel(iconColor: RED_COLOR),
             iconPath: 'assets/icons/account_icon.svg',
-            text: 'Common text!',
+            text: 'Common text with',
+            inlineSpans: [
+              TextSpan(
+                text: ' RED ',
+                style: TextStyle(
+                  color: Color(RED_COLOR),
+                ),
+              ),
+              TextSpan(text: 'icon color!'),
+            ],
             containerStyle: CommonContainerModel(
               alignment: Alignment.center,
               backgroundColor: TRANSPARENT_COLOR,
+              touchEffect: TouchableEffect.scaleAndFade,
             ),
             topChild: CommonText(
               text: 'Top child',
@@ -111,6 +123,20 @@ class MyHomePage extends StatelessWidget {
             ),
             bottomChild: CommonText(
               text: 'Bottom child',
+            ),
+          ),
+          CommonText(
+            text: 'Underlined text',
+            containerStyle: CommonContainerModel(
+              marginTop: 16.0,
+            ),
+            style: CommonTextModel(
+              decoration: TextDecoration.underline,
+              decorationThickness: 3.0,
+              decorationColor: RED_COLOR,
+              decorationStyle: TextDecorationStyle.dotted,
+              fontweight: FontWeight.bold,
+              fontSize: H1_FONT,
             ),
           ),
         ],

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:common_ui_toolkit/components/common_touchable/TouchableEffect.dart';
 import 'package:flutter/cupertino.dart';
 
 class CommonTouchable extends StatefulWidget {
@@ -7,12 +8,14 @@ class CommonTouchable extends StatefulWidget {
   final Function? onTap;
 
   double lowerBound, upperBound;
+  TouchableEffect? touchEffect;
 
   CommonTouchable({
     @required this.child,
     @required this.onTap,
     this.lowerBound = 0.8,
     this.upperBound = 1.0,
+    this.touchEffect = TouchableEffect.none,
   });
 
   @override
@@ -22,21 +25,26 @@ class CommonTouchable extends StatefulWidget {
 class _CommonTouchableState extends State<CommonTouchable>
     with TickerProviderStateMixin {
   double squareScaleA = 1;
-  AnimationController? _controllerA;
+  AnimationController? _animationController;
   @override
   void initState() {
-    _controllerA = AnimationController(
-      vsync: this,
-      lowerBound: widget.lowerBound,
-      upperBound: widget.upperBound,
-      value: 1,
-      duration: Duration(milliseconds: 10),
-    );
-    _controllerA!.addListener(() {
-      setState(() {
-        squareScaleA = _controllerA!.value;
-      });
-    });
+    switch (widget.touchEffect) {
+      case TouchableEffect.scaleAndFade:
+        _animationController = AnimationController(
+          vsync: this,
+          lowerBound: widget.lowerBound,
+          upperBound: widget.upperBound,
+          value: 1,
+          duration: Duration(milliseconds: 10),
+        );
+        _animationController!.addListener(() {
+          setState(() {
+            squareScaleA = _animationController!.value;
+          });
+        });
+        break;
+      default:
+    }
     super.initState();
   }
 
@@ -45,19 +53,23 @@ class _CommonTouchableState extends State<CommonTouchable>
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
-        _controllerA!.reverse();
-        widget.onTap!();
+        if (_animationController != null) _animationController!.reverse();
+        if (widget.onTap != null) widget.onTap!();
       },
       onTapDown: (dp) {
-        _controllerA!.reverse();
+        if (widget.onTap != null && _animationController != null) {
+          _animationController!.reverse();
+        }
       },
       onTapUp: (dp) {
         Timer(Duration(milliseconds: 10), () {
-          _controllerA!.fling();
+          if (_animationController != null) {
+            _animationController!.fling();
+          }
         });
       },
       onTapCancel: () {
-        _controllerA!.fling();
+        if (_animationController != null) _animationController!.fling();
       },
       child: Transform.scale(
         scale: squareScaleA,
@@ -68,7 +80,7 @@ class _CommonTouchableState extends State<CommonTouchable>
 
   @override
   void dispose() {
-    _controllerA!.dispose();
+    if (_animationController != null) _animationController!.dispose();
     super.dispose();
   }
 }
