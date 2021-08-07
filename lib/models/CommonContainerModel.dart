@@ -1,3 +1,4 @@
+import 'package:common_ui_toolkit/components/common_touchable/TouchableEffect.dart';
 import 'package:flutter/widgets.dart';
 
 import '../utils/index.dart';
@@ -78,7 +79,7 @@ class CommonContainerModel {
 
   BoxShape? boxShape;
 
-  bool withTapEffect;
+  TouchableEffect? touchEffect;
 
   BlendMode? backgroundBlendMode;
 
@@ -213,7 +214,7 @@ class CommonContainerModel {
     this.foregroundDecoration,
     this.decoration,
     this.boxShape = BoxShape.rectangle,
-    this.withTapEffect = true,
+    this.touchEffect = TouchableEffect.none,
     this.backgroundBlendMode,
     this.boxGradient,
     this.backgroundImage,
@@ -277,7 +278,7 @@ class CommonContainerModel {
     Decoration? foregroundDecoration,
     Decoration? decoration,
     BoxShape? boxShape,
-    bool? withTapEffect,
+    TouchableEffect? touchEffect,
     BlendMode? backgroundBlendMode,
     LinearGradient? boxGradient,
     DecorationImage? backgroundImage,
@@ -339,7 +340,7 @@ class CommonContainerModel {
       foregroundDecoration: foregroundDecoration ?? this.foregroundDecoration,
       decoration: decoration ?? this.decoration,
       boxShape: boxShape ?? this.boxShape,
-      withTapEffect: withTapEffect ?? this.withTapEffect,
+      touchEffect: touchEffect ?? this.touchEffect,
       backgroundBlendMode: backgroundBlendMode ?? this.backgroundBlendMode,
       boxGradient: boxGradient ?? this.boxGradient,
       backgroundImage: backgroundImage ?? this.backgroundImage,

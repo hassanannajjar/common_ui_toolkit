@@ -33,6 +33,7 @@ class MyHomePage extends StatelessWidget {
               borderRaduis: 16.0,
               marginBottom: 16.0,
               backgroundColor: BLACK_COLOR,
+              touchEffect: TouchableEffect.scaleAndFade,
             ),
             style: CommonTextStyles().h2Style().copyWith(
                   fontColor: WHITE_COLOR,
@@ -72,7 +73,6 @@ class MyHomePage extends StatelessWidget {
             // ),
             style: CommonContainerStyle().fullShadow.copyWith(
                   alignment: Alignment.center,
-                  withTapEffect: false,
                   marginTop: 16.0,
                   backgroundColor: 4255967295,
                   // transform: Matrix4.skewX(0.3),
@@ -104,6 +104,7 @@ class MyHomePage extends StatelessWidget {
             containerStyle: CommonContainerModel(
               alignment: Alignment.center,
               backgroundColor: TRANSPARENT_COLOR,
+              touchEffect: TouchableEffect.scaleAndFade,
             ),
             topChild: CommonText(
               text: 'Top child',

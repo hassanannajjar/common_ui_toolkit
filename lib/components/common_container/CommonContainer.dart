@@ -49,7 +49,7 @@ class CommonContainer extends StatelessWidget {
 
     return CommonTouchable(
       onTap: onPress,
-      withTapEffect: style!.withTapEffect,
+      touchEffect: style!.touchEffect,
       child: Container(
         child: isLoading!
             ? (loadingWidget ??
