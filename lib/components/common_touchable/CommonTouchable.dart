@@ -43,43 +43,34 @@ class _CommonTouchableState extends State<CommonTouchable>
   void checkAnimationType() {
     switch (widget.touchEffect) {
       case TouchableEffect.scaleAndFade:
-        _animationController = AnimationController(
-          vsync: this,
-          lowerBound: widget.lowerBound,
-          upperBound: widget.upperBound,
-          value: 1,
-          duration: Duration(milliseconds: 10),
-        );
-        _animationController!.addListener(() {
-          setState(() {
-            squareScaleA = _animationController!.value;
-          });
-        });
+        createAnimationcontroller();
         break;
       case TouchableEffect.scaleAndUp:
-        _animationController = AnimationController(
-          vsync: this,
+        createAnimationcontroller(
           lowerBound: 0.4,
-          upperBound: 0.5,
-          value: 1,
-          duration: Duration(milliseconds: 10),
         );
-        _animationController!.addListener(() {
-          setState(() {
-            squareScaleA = _animationController!.value;
-          });
-        });
         break;
       default:
-        _animationController = AnimationController(
-          vsync: this,
-        );
-        _animationController!.addListener(() {
-          setState(() {
-            squareScaleA = _animationController!.value;
-          });
-        });
+        createAnimationcontroller();
+        break;
     }
+  }
+
+  createAnimationcontroller({lowerBound}) {
+    _animationController = AnimationController(
+      vsync: this,
+      lowerBound: lowerBound ?? widget.lowerBound,
+      upperBound: widget.upperBound,
+      value: 1,
+      duration: Duration(milliseconds: 10),
+    );
+    _animationController!.addListener(() {
+      if (widget.touchEffect != TouchableEffect.none) {
+        setState(() {
+          squareScaleA = _animationController!.value;
+        });
+      }
+    });
   }
 
   @override
@@ -97,9 +88,7 @@ class _CommonTouchableState extends State<CommonTouchable>
       },
       onTapUp: (dp) {
         Timer(Duration(milliseconds: 10), () {
-          if (_animationController != null) {
-            _animationController!.fling();
-          }
+          if (_animationController != null) _animationController!.fling();
         });
       },
       onTapCancel: () {
