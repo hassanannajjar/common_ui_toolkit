@@ -25,5 +25,10 @@
 * Added more examples and example screen for all component in package
 
 ## 0.0.9
-* Fix TouchableEffect in Commontouchable to enable hot reload
+* Fixed TouchableEffect in Commontouchable to enable hot reload
 * Set mainAxisSize to min for CommonText column
+* Fixed TouchableEffect re-render.
+
+## 0.1.0
+* Added more examples.
+* Fixed TouchableEffect re-render.

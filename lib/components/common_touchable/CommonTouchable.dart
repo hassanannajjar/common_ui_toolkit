@@ -51,7 +51,7 @@ class _CommonTouchableState extends State<CommonTouchable>
         );
         break;
       default:
-        createAnimationcontroller();
+        _animationController = null;
         break;
     }
   }
