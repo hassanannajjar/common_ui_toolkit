@@ -34,7 +34,7 @@ renderCommonTextTree(
                   text: text,
                   children: inlineSpans,
                   style: TextStyle(
-                    decoration: style!.textDecoration,
+                    decoration: style!.decoration,
                     color: Color(style!.fontColor!),
                     decorationThickness: style!.decorationThickness,
                     fontWeight: style!.fontweight,
