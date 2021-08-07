@@ -13,4 +13,13 @@
 * added functions command.
 
 ## 0.0.7
-* Updated Readme file.
+* Updated documentation and added more examples.
+
+## 0.0.8
+* Added onPress to CommonContainer and CommonText and CommonTouchable 
+* also we added touchable effects like animation to your CommonContainer 
+* to use it you can add the touchEffect attribute to CommonContainerModel 
+* ```dart
+* touchEffect: TouchableEffect.scaleAndFade,
+* ```
+* Added more examples and example screen for all component in package

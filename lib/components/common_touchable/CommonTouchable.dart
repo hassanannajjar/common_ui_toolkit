@@ -35,7 +35,7 @@ class _CommonTouchableState extends State<CommonTouchable>
   @override
   void didUpdateWidget(covariant CommonTouchable oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (this.widget.touchEffect != oldWidget.touchEffect) {
+    if (this.widget != oldWidget) {
       checkAnimationType();
     }
   }
