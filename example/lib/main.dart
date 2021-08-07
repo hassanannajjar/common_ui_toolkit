@@ -47,6 +47,9 @@ class MyHomePage extends StatelessWidget {
                   fontColor: 0xFF123123,
                 ),
             text: 'Common UI toolKit',
+            onPress: () {
+              print('Simple common text pressed');
+            },
           ),
         ],
       ),
