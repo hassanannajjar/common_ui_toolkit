@@ -12,6 +12,7 @@ renderCommonTextTree(
   inlineSpans,
 ) =>
     Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         if (topChild != null) topChild!,
         Row(
