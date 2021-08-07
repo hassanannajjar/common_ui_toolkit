@@ -53,10 +53,8 @@ class _CommonTouchableState extends State<CommonTouchable>
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () {
-        if (widget.onTap != null) {
-          if (_animationController != null) _animationController!.reverse();
-          widget.onTap!();
-        }
+        if (_animationController != null) _animationController!.reverse();
+        if (widget.onTap != null) widget.onTap!();
       },
       onTapDown: (dp) {
         if (widget.onTap != null && _animationController != null) {
