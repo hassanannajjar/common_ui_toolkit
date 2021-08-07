@@ -12,6 +12,7 @@ renderCommonTextTree(
   inlineSpans,
 ) =>
     Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         if (topChild != null) topChild!,
         Row(
