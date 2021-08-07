@@ -23,9 +23,9 @@ class CommonContainer extends StatelessWidget {
   /// using defaults style
   ///
   /// ```dart
-  /// CommonContainer().bottomShadow
+  /// CommonContainerStyle().bottomShadow
   /// or
-  /// CommonContainer().fullShadow
+  /// CommonContainerStyle().fullShadow
   /// ```
   CommonContainerModel? style;
 

@@ -28,6 +28,19 @@ class _CommonTouchableState extends State<CommonTouchable>
   AnimationController? _animationController;
   @override
   void initState() {
+    super.initState();
+    checkAnimationType();
+  }
+
+  @override
+  void didUpdateWidget(covariant CommonTouchable oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (this.widget != oldWidget) {
+      checkAnimationType();
+    }
+  }
+
+  void checkAnimationType() {
     switch (widget.touchEffect) {
       case TouchableEffect.scaleAndFade:
         _animationController = AnimationController(
@@ -43,9 +56,30 @@ class _CommonTouchableState extends State<CommonTouchable>
           });
         });
         break;
+      case TouchableEffect.scaleAndUp:
+        _animationController = AnimationController(
+          vsync: this,
+          lowerBound: 0.4,
+          upperBound: 0.5,
+          value: 1,
+          duration: Duration(milliseconds: 10),
+        );
+        _animationController!.addListener(() {
+          setState(() {
+            squareScaleA = _animationController!.value;
+          });
+        });
+        break;
       default:
+        _animationController = AnimationController(
+          vsync: this,
+        );
+        _animationController!.addListener(() {
+          setState(() {
+            squareScaleA = _animationController!.value;
+          });
+        });
     }
-    super.initState();
   }
 
   @override
@@ -57,7 +91,7 @@ class _CommonTouchableState extends State<CommonTouchable>
         if (widget.onTap != null) widget.onTap!();
       },
       onTapDown: (dp) {
-        if (widget.onTap != null && _animationController != null) {
+        if (_animationController != null) {
           _animationController!.reverse();
         }
       },

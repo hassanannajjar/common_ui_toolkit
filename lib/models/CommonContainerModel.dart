@@ -175,7 +175,7 @@ class CommonContainerModel {
     this.marginHorizontal,
 
     // colors
-    this.backgroundColor = 0xFFFFFFFF,
+    this.backgroundColor = TRANSPARENT_COLOR,
     this.raduisColor = 0xFF000000,
     this.loadingColor = 0xFF1DD005,
 
