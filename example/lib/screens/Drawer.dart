@@ -10,7 +10,7 @@ class DrawerContainer extends StatelessWidget {
     },
     {
       'name': 'Texts',
-      'route': CONTAINERS_ROUTE,
+      'route': TEXTS_ROUTE,
     },
     {
       'name': 'Buttons',

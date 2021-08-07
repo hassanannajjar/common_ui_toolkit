@@ -28,14 +28,13 @@ class CommonTextModel {
   int? decorationColor;
   int? iconColor;
 
-  TextDecoration? textDecoration;
+  TextDecoration? decoration;
   TextDirection? textDirection;
   TextOverflow overflow;
   bool softWrap;
   StrutStyle? strutStyle;
   TextHeightBehavior? textHeightBehavior;
   TextWidthBasis textWidthBasis;
-  Decoration? decoration;
   TextDecorationStyle? decorationStyle;
   FontWeight? fontweight;
   TextAlign textAlign;
@@ -62,19 +61,19 @@ class CommonTextModel {
     this.decorationThickness,
     this.maxlines,
     this.textScaleFactor = 1.0,
-    this.iconMargin,
-    this.iconMarginTop = 0.0,
-    this.iconMarginBottom = 0.0,
-    this.iconMarginRight = 0.0,
-    this.iconMarginLeft = 0.0,
+    this.iconMargin = 0.0,
+    this.iconMarginTop,
+    this.iconMarginBottom,
+    this.iconMarginRight,
+    this.iconMarginLeft,
     this.iconMarginVertical,
-    this.iconMarginHorizontal = 10.0,
+    this.iconMarginHorizontal,
 
     // colors
     this.fontColor = BLACK_COLOR,
     this.backgroundColor = TRANSPARENT_COLOR,
     this.decorationColor = BLACK_COLOR,
-    this.textDecoration = TextDecoration.none,
+    this.decoration = TextDecoration.none,
     this.textDirection,
     this.overflow = TextOverflow.clip,
     this.softWrap = true,
@@ -84,7 +83,6 @@ class CommonTextModel {
     this.iconColor = BLACK_COLOR,
 
     // -------------------
-    this.decoration,
     this.fontweight = FontWeight.normal,
     this.fontFamily,
     this.fontStyle = FontStyle.normal,
@@ -180,14 +178,13 @@ class CommonTextModel {
       backgroundColor: backgroundColor ?? this.backgroundColor,
       decorationColor: decorationColor ?? this.decorationColor,
       iconColor: iconColor ?? this.iconColor,
-      textDecoration: textDecoration ?? this.textDecoration,
+      decoration: textDecoration ?? this.decoration,
       textDirection: textDirection ?? this.textDirection,
       overflow: overflow ?? this.overflow,
       softWrap: softWrap ?? this.softWrap,
       strutStyle: strutStyle ?? this.strutStyle,
       textHeightBehavior: textHeightBehavior ?? this.textHeightBehavior,
       textWidthBasis: textWidthBasis ?? this.textWidthBasis,
-      decoration: decoration ?? this.decoration,
       decorationStyle: decorationStyle ?? this.decorationStyle,
       fontweight: fontweight ?? this.fontweight,
       textAlign: textAlign ?? this.textAlign,

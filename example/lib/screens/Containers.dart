@@ -28,10 +28,11 @@ class Containers extends StatelessWidget {
               // circle shape
               CommonContainer(
                 style: CommonContainerStyle().fullShadow.copyWith(
-                      backgroundColor: 0xFF0DFF05,
+                      backgroundColor: 0xFF255224,
                       boxShape: BoxShape.circle,
                       width: 0.5,
                       height: 0.3,
+                      touchEffect: TouchableEffect.scaleAndFade,
                     ),
               ),
 

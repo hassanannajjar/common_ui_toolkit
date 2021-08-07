@@ -2,7 +2,7 @@ import 'package:common_ui_toolkit/index.dart';
 import 'package:example/screens/Containers.dart';
 import 'package:example/utils/Constants.dart';
 import 'package:flutter/material.dart';
-import './screens/Drawer.dart';
+import './screens/index.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       home: MyHomePage(),
       routes: {
         CONTAINERS_ROUTE: (context) => Containers(),
+        TEXTS_ROUTE: (context) => Texts(),
       },
     );
   }
@@ -42,6 +43,7 @@ class MyHomePage extends StatelessWidget {
                   padding: 16,
                   alignment: Alignment.center,
                   margin: 20,
+                  touchEffect: TouchableEffect.none,
                 ),
             style: CommonTextStyles().h2Style().copyWith(
                   fontColor: 0xFF123123,
