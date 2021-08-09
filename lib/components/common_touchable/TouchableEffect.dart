@@ -6,8 +6,20 @@ enum TouchTypes {
 }
 
 class TouchableEffect {
+  /// the typesof
   TouchTypes type;
-  double scaleValue, opacity, lowerBound, upperBound;
+
+  /// The value at which this animation is deemed to be dismissed.
+  final double scaleValue;
+
+  /// The value at which this animation is deemed to be dismissed.
+  final double opacity;
+
+  /// The value at which this animation is deemed to be dismissed.
+  final double lowerBound;
+
+  /// The value at which this animation is deemed to be dismissed.
+  final double upperBound;
   int duration;
 
   TouchableEffect({
@@ -15,7 +27,7 @@ class TouchableEffect {
     this.opacity = 0.5,
     this.scaleValue = 0,
     this.duration = 20,
-    this.lowerBound = 0.8,
-    this.upperBound = 1.0,
+    this.lowerBound = 0.5,
+    this.upperBound = 1,
   });
 }

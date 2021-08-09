@@ -46,7 +46,9 @@ class MyHomePage extends StatelessWidget {
                   touchEffect: TouchableEffect(
                     type: TouchTypes.scaleAndFade,
                     opacity: 0.05,
-                    duration: 10,
+                    duration: 5,
+                    lowerBound: 0.8,
+                    upperBound: 1,
                   ),
                 ),
             style: CommonTextStyles().h2Style().copyWith(
