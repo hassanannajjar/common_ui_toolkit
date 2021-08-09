@@ -43,7 +43,13 @@ class MyHomePage extends StatelessWidget {
                   padding: 16,
                   alignment: Alignment.center,
                   margin: 20,
-                  touchEffect: TouchableEffect.scaleAndFade,
+                  touchEffect: TouchableEffect(
+                    type: TouchTypes.scaleAndFade,
+                    opacity: 0.05,
+                    duration: 5,
+                    lowerBound: 0.8,
+                    upperBound: 1,
+                  ),
                 ),
             style: CommonTextStyles().h2Style().copyWith(
                   fontColor: 0xFF123123,

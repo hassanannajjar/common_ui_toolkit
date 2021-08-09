@@ -214,7 +214,7 @@ class CommonContainerModel {
     this.foregroundDecoration,
     this.decoration,
     this.boxShape = BoxShape.rectangle,
-    this.touchEffect = TouchableEffect.none,
+    this.touchEffect,
     this.backgroundBlendMode,
     this.boxGradient,
     this.backgroundImage,

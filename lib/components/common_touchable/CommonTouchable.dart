@@ -7,15 +7,12 @@ class CommonTouchable extends StatefulWidget {
   final Widget? child;
   final Function? onTap;
 
-  double lowerBound, upperBound;
   TouchableEffect? touchEffect;
 
   CommonTouchable({
     @required this.child,
     @required this.onTap,
-    this.lowerBound = 0.8,
-    this.upperBound = 1.0,
-    this.touchEffect = TouchableEffect.none,
+    this.touchEffect,
   });
 
   @override
@@ -25,7 +22,10 @@ class CommonTouchable extends StatefulWidget {
 class _CommonTouchableState extends State<CommonTouchable>
     with TickerProviderStateMixin {
   double squareScaleA = 1;
+  bool isDown = false;
   AnimationController? _animationController;
+  checkIsOpacity() => widget.touchEffect!.type == TouchTypes.opacity;
+
   @override
   void initState() {
     super.initState();
@@ -41,31 +41,29 @@ class _CommonTouchableState extends State<CommonTouchable>
   }
 
   void checkAnimationType() {
-    switch (widget.touchEffect) {
-      case TouchableEffect.scaleAndFade:
+    switch (widget.touchEffect!.type) {
+      case TouchTypes.scaleAndFade:
         createAnimationcontroller();
         break;
-      case TouchableEffect.scaleAndUp:
-        createAnimationcontroller(
-          lowerBound: 0.4,
-        );
+      case TouchTypes.scaleAndUp:
+        createAnimationcontroller();
         break;
       default:
-        createAnimationcontroller();
+        _animationController = null;
         break;
     }
   }
 
-  createAnimationcontroller({lowerBound}) {
+  createAnimationcontroller() {
     _animationController = AnimationController(
       vsync: this,
-      lowerBound: lowerBound ?? widget.lowerBound,
-      upperBound: widget.upperBound,
+      lowerBound: widget.touchEffect!.lowerBound,
+      upperBound: widget.touchEffect!.upperBound,
       value: 1,
-      duration: Duration(milliseconds: 10),
+      duration: Duration(milliseconds: widget.touchEffect!.duration),
     );
     _animationController!.addListener(() {
-      if (widget.touchEffect != TouchableEffect.none) {
+      if (widget.touchEffect!.type != TouchTypes.none) {
         setState(() {
           squareScaleA = _animationController!.value;
         });
@@ -77,27 +75,52 @@ class _CommonTouchableState extends State<CommonTouchable>
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
-      onTap: () {
-        if (_animationController != null) _animationController!.reverse();
-        if (widget.onTap != null) widget.onTap!();
-      },
-      onTapDown: (dp) {
-        if (_animationController != null) {
-          _animationController!.reverse();
-        }
-      },
-      onTapUp: (dp) {
-        Timer(Duration(milliseconds: 10), () {
-          if (_animationController != null) _animationController!.fling();
-        });
-      },
-      onTapCancel: () {
-        if (_animationController != null) _animationController!.fling();
-      },
-      child: Transform.scale(
-        scale: squareScaleA,
-        child: widget.child,
-      ),
+      onTap: widget.onTap != null
+          ? () {
+              widget.onTap!();
+            }
+          : null,
+      onTapDown: widget.onTap != null
+          ? (dp) {
+              if (_animationController != null) {
+                _animationController!.reverse();
+              }
+              if (checkIsOpacity())
+                setState(() {
+                  isDown = true;
+                });
+            }
+          : null,
+      onTapUp: widget.onTap != null
+          ? (dp) {
+              Timer(Duration(milliseconds: widget.touchEffect!.duration), () {
+                if (_animationController != null) _animationController!.fling();
+              });
+              if (checkIsOpacity())
+                setState(() {
+                  isDown = false;
+                });
+            }
+          : null,
+      onTapCancel: widget.onTap != null
+          ? () {
+              if (_animationController != null) _animationController!.fling();
+              if (checkIsOpacity())
+                setState(() {
+                  isDown = false;
+                });
+            }
+          : null,
+      child: checkIsOpacity()
+          ? AnimatedOpacity(
+              child: widget.child,
+              duration: Duration(milliseconds: widget.touchEffect!.duration),
+              opacity: isDown ? widget.touchEffect!.opacity : 1,
+            )
+          : Transform.scale(
+              scale: squareScaleA,
+              child: widget.child,
+            ),
     );
   }
 

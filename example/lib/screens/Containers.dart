@@ -32,7 +32,7 @@ class Containers extends StatelessWidget {
                       boxShape: BoxShape.circle,
                       width: 0.5,
                       height: 0.3,
-                      touchEffect: TouchableEffect.scaleAndFade,
+                      touchEffect: TouchableEffect(),
                     ),
               ),
 
