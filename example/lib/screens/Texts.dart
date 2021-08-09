@@ -48,7 +48,7 @@ class Texts extends StatelessWidget {
                   style: CommonTextModel(fontColor: RED_COLOR),
                   containerStyle: CommonContainerModel(
                     marginHorizontal: 8.0,
-                    touchEffect: TouchableEffect.scaleAndFade,
+                    touchEffect: TouchableEffect(),
                   ),
                 ),
               ),
@@ -84,7 +84,7 @@ class Texts extends StatelessWidget {
               marginBottom: 16.0,
               marginVertical: 16.0,
               backgroundColor: BLACK_COLOR,
-              touchEffect: TouchableEffect.scaleAndFade,
+              touchEffect: TouchableEffect(),
             ),
             style: CommonTextStyles().h2Style().copyWith(
                   fontColor: WHITE_COLOR,
@@ -114,7 +114,9 @@ class Texts extends StatelessWidget {
               TextSpan(text: 'icon color!'),
             ],
             containerStyle: CommonContainerModel(
-              touchEffect: TouchableEffect.scaleAndFade,
+              touchEffect: TouchableEffect(
+                type: TouchTypes.scaleAndFade,
+              ),
               marginVertical: 16.0,
             ),
             topChild: CommonText(
