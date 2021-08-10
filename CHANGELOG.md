@@ -36,3 +36,7 @@
 ## 0.1.1
 * Added more touch type and animations.
 * Changed TouchableEffect to be class and added more attribute to customize the animation.
+
+## 0.1.2
+* Added CommonDatePicker component.
+* Added more examples for Date picker.

@@ -13,8 +13,8 @@ class DrawerContainer extends StatelessWidget {
       'route': TEXTS_ROUTE,
     },
     {
-      'name': 'Buttons',
-      'route': CONTAINERS_ROUTE,
+      'name': 'Date Pickers',
+      'route': DATE_PICKERS_ROUTE,
     },
     {
       'name': 'Text inputs',
