@@ -8,6 +8,7 @@ const WHITE_COLOR = 0xFFFFFFFF;
 const PR_COLOR = 0xFF071FF8;
 const RED_COLOR = 0xFFE40000;
 const TRANSPARENT_COLOR = 0x00000000;
+const GREY_COLOR = 0xFF707070;
 
 // ----------------------------------------
 

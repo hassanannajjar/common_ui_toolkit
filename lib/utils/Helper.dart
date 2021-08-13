@@ -28,6 +28,22 @@ getIconMarginEdgeInsets(style) => EdgeInsets.fromLTRB(
       style.iconMarginBottom ?? style.iconMarginVertical ?? style.iconMargin!,
     );
 
+/// handel icon margin, vertical, horizontal, top, bottom, left and right.
+getContentPaddingEdgeInsets(style) => EdgeInsets.fromLTRB(
+      style.contentPaddingLeft ??
+          style.contentPaddingHorizontal ??
+          style.contentPadding!,
+      style.contentPaddingTop ??
+          style.contentPaddingVertical ??
+          style.contentPadding!,
+      style.contentPaddingRight ??
+          style.contentPaddingHorizontal ??
+          style.contentPadding!,
+      style.contentPaddingBottom ??
+          style.contentPaddingVertical ??
+          style.contentPadding!,
+    );
+
 /// return the icon and style with custom function.
 getIcon(path, style) {
   if (path != null) {
