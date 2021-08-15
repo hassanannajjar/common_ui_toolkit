@@ -22,13 +22,40 @@ class CommonContainerModel {
   double? paddingVertical;
   double? paddingHorizontal;
 
-  // margin
+  ///
+  /// margin for all container
+  ///
+  ///
   double? margin;
+
+  ///
+  /// margin for top container
+  ///
   double? marginTop;
+
+  ///
+  /// margin for bottom container
+  ///
   double? marginBottom;
+
+  ///
+  /// margin for right container
+  ///
   double? marginRight;
+
+  ///
+  /// margin for left container
+  ///
   double? marginLeft;
+
+  ///
+  /// margin for (top and bottom|| Vertical)  container
+  ///
   double? marginVertical;
+
+  ///
+  /// margin for (right and left || Horizontal) container
+  ///
   double? marginHorizontal;
 
   // shadow
@@ -87,11 +114,50 @@ class CommonContainerModel {
   int? foregroundborderRightColor;
   int? foregroundborderLeftColor;
 
+  ///
+  /// Align the [child] within the container.
+  ///
+  /// If non-null, the container will expand to fill its parent and position its
+  /// child within itself according to the given value. If the incoming
+  /// constraints are unbounded, then the child will be shrink-wrapped instead.
+  ///
+  /// Ignored if [child] is null.
+  ///
+  /// See also:
+  ///
+  ///  * [Alignment], a class with convenient constants typically used to
+  ///    specify an [AlignmentGeometry].
+  ///  * [AlignmentDirectional], like [Alignment] for specifying alignments
+  ///    relative to text direction.
+  ///
   Alignment? alignment;
+
+  ///
+  /// The alignment of the origin, relative to the size of the container, if [transform] is specified.
+  ///
+  /// When [transform] is null, the value of this property is ignored.
+  ///
+  /// See also:
+  ///
+  ///  * [Transform.alignment], which is set by this property.
+  ///
   Alignment? transformAlignment;
 
+  ///
+  ///  /// The clip behavior when [Container.decoration] is not null.
+  ///
+  /// Defaults to [Clip.none]. Must be [Clip.none] if [decoration] is null.
+  ///
+  /// If a clip is to be applied, the [Decoration.getClipPath] method
+  /// for the provided decoration must return a clip path. (This is not
+  /// supported by all decorations; the default implementation of that
+  /// method throws an [UnsupportedError].)
+  ///
   Clip? clipBehavior;
 
+  ///
+  /// The transformation matrix to apply before painting the container.
+  ///
   Matrix4? transform;
 
   BorderStyle? borderStyle;
@@ -106,43 +172,226 @@ class CommonContainerModel {
   BorderStyle? foregroundborderRightStyle;
   BorderStyle? foregroundborderLeftStyle;
 
+  ///
+  /// this is for custom Decoration as you want.
+  ///
+  /// example :
+  /// ```dart
+  // BoxDecoration(
+  //             image: image,
+  //             gradient: gradient,
+  //             backgroundBlendMode: backgroundBlendMode,
+  //             shape: shape,
+  //             border: border,
+  //             borderRadius: borderRadius,
+  //             color: color,
+  //             boxShadow: <BoxShadow>[
+  //               BoxShadow(
+  //                 color: color,
+  //                 spreadRadius: spreadRadius,
+  //                 blurRadius: blurRadius,
+  //                 offset:offset,
+  //               )
+  //             ],
+  //           ),
+  /// ```
+  ///
   Decoration? foregroundDecoration;
+
+  ///
+  /// this is for custom Decoration as you want.
+  ///
+  /// example :
+  /// ```dart
+  // BoxDecoration(
+  //             image: image,
+  //             gradient: gradient,
+  //             backgroundBlendMode: backgroundBlendMode,
+  //             shape: shape,
+  //             border: border,
+  //             borderRadius: borderRadius,
+  //             color: color,
+  //             boxShadow: <BoxShadow>[
+  //               BoxShadow(
+  //                 color: color,
+  //                 spreadRadius: spreadRadius,
+  //                 blurRadius: blurRadius,
+  //                 offset:offset,
+  //               )
+  //             ],
+  //           ),
+  /// ```
+  ///
   Decoration? decoration;
 
+  ///
+  /// BoxShape
+  /// default value its [BoxShape.rectangle]
+  /// example :
+  /// ```dart
+  /// boxShape: BoxShape.circle
   BoxShape? boxShape;
+
+  /// or
+  /// foregroundboxShape: BoxShape.circle
   BoxShape? foregroundboxShape;
 
+  /// ```
+  ///
+
+  ///
+  /// render the touchEffect when press the container.
+  /// and you must use onPress function to use touchEffect.
+  /// example :
+  /// ```dart
+  /// touchEffect: TouchEffect(
+  ///  type: TouchTypes.scaleAndFade,
+  ///  duration: 50,
+  ///  lowerBound:0.9,
+  ///  upperBound:1.3,
+  ///  scaleValue:1.3,
+  /// )
+  /// ```
+  ///
   TouchableEffect? touchEffect;
 
+  ///
+  /// BlendMode for background image
+  ///
   BlendMode? backgroundBlendMode;
+
+  ///
+  /// BlendMode for foreground image
+  ///
   BlendMode? foregroundBlendMode;
 
+  ///
+  ///boxGradient
+  ///
+  ///```dart
+  ///LinearGradient(
+  /// begin: FractionalOffset.topCenter,
+  /// end: FractionalOffset.bottomCenter,
+  /// colors: [
+  ///   Color(0x3F000000),
+  ///   Color(0x3F000000),
+  ///   Color(0x3F000000),
+  ///   Color(0x7C000000),
+  ///   Color(0x3F000000),
+  /// ],
+  /// stops: [
+  ///   0.0,
+  ///   0.25,
+  ///   0.5,
+  ///   0.75,
+  ///   1.0
+  /// ]),
+  /// ```
+  ///
   LinearGradient? boxGradient;
+  //
+  ///foregroundboxGradient
+  ///
+  ///```dart
+  ///LinearGradient(
+  /// begin: FractionalOffset.topCenter,
+  /// end: FractionalOffset.bottomCenter,
+  /// colors: [
+  ///   Color(0x3F000000),
+  ///   Color(0x3F000000),
+  ///   Color(0x3F000000),
+  ///   Color(0x7C000000),
+  ///   Color(0x3F000000),
+  /// ],
+  /// stops: [
+  ///   0.0,
+  ///   0.25,
+  ///   0.5,
+  ///   0.75,
+  ///   1.0
+  /// ]),
+  /// ```
+  ///
   LinearGradient? foregroundboxGradient;
 
+  ///backgroundImage image
+  /// - internet image
+  ///```dart
+  /// DecorationImage(
+  //   image: NetworkImage(
+  //     image,
+  //   ),
+  //   fit: BoxFit.fitWidth,
+  // ),
+  ///```
+  ///
+  ////// - local image
+  ///```dart
+  /// DecorationImage(
+  //   image: AssetImage(
+  //     image,
+  //   ),
+  //   fit: BoxFit.fitWidth,
+  // ),
+  ///```
+  ///
   DecorationImage? backgroundImage;
+
+  ///foregroundImage image
+  /// - internet image
+  ///```dart
+  /// DecorationImage(
+  //   image: NetworkImage(
+  //     image,
+  //   ),
+  //   fit: BoxFit.fitWidth,
+  // ),
+  ///```
+  ///
+  ////// - local image
+  ///```dart
+  /// DecorationImage(
+  //   image: AssetImage(
+  //     image,
+  //   ),
+  //   fit: BoxFit.fitWidth,
+  // ),
+  ///```
+  ///
   DecorationImage? foregroundImage;
 
+  ///
   /// check if the border is null or not.
+  ///
   checkBorderNull() =>
       borderTopWidth != null ||
       borderBottomWidth != null ||
       borderRightWidth != null ||
       borderLeftWidth != null;
 
+  ///
   /// check if the foregroundborder is null or not.
+  ///
   checkforegroundBorderNull() =>
+
+      ///
+      /// foreground border widths.
+      ///
       foregroundborderTopWidth != null ||
       foregroundborderBottomWidth != null ||
       foregroundborderRightWidth != null ||
       foregroundborderLeftWidth != null;
 
+  ///
   /// get border Raduis.
+  ///
   getBorderRaduis() => (boxShape == BoxShape.circle || checkBorderNull())
       ? null
       : (borderRaduis == 0
 
+          ///
           /// return every single raduis.
+          ///
           ? BorderRadius.only(
               topRight: Radius.circular(topRightRadius!),
               topLeft: Radius.circular(topLeftRadius!),
@@ -150,18 +399,24 @@ class CommonContainerModel {
               bottomRight: Radius.circular(bottomRightRadius!),
             )
 
+          ///
           /// return all raduis.
+          ///
           : BorderRadius.all(
               Radius.circular(borderRaduis!),
             ));
 
+  ///
   /// get border Raduis.
+  ///
   getForegroundBorderRaduis() =>
       (foregroundboxShape == BoxShape.circle || checkforegroundBorderNull())
           ? null
           : (foregroundborderRaduis == 0
 
+              ///
               /// return every single raduis.
+              ///
               ? BorderRadius.only(
                   topRight: Radius.circular(foregroundtopRightRadius!),
                   topLeft: Radius.circular(foregroundtopLeftRadius!),
@@ -169,36 +424,48 @@ class CommonContainerModel {
                   bottomRight: Radius.circular(foregroundbottomRightRadius!),
                 )
 
+              ///
               /// return all raduis.
+              ///
               : BorderRadius.all(
                   Radius.circular(foregroundborderRaduis!),
                 ));
 
+  ///
   /// get border width and color.
+  ///
   getBorder() => (borderWidth! > 0 || checkBorderNull())
       ? Border(
+          ///
           /// handel top border.
+          ///
           top: BorderSide(
             color: Color(borderTopColor ?? borderColor!),
             width: borderTopWidth ?? borderWidth!,
             style: borderTopStyle ?? borderStyle!,
           ),
 
+          ///
           /// handel right border.
+          ///
           right: BorderSide(
             color: Color(borderRightColor ?? borderColor!),
             width: borderRightWidth ?? borderWidth!,
             style: borderRightStyle ?? borderStyle!,
           ),
 
+          ///
           /// handel bottom border.
+          ///
           bottom: BorderSide(
             color: Color(borderBottomColor ?? borderColor!),
             width: borderBottomWidth ?? borderWidth!,
             style: borderBottomStyle ?? borderStyle!,
           ),
 
+          ///
           /// handel left border.
+          ///
           left: BorderSide(
             color: Color(borderLeftColor ?? borderColor!),
             width: borderLeftWidth ?? borderWidth!,
@@ -206,35 +473,47 @@ class CommonContainerModel {
           ),
         )
 
+      ///
       /// or return null.
+      ///
       : null;
 
+  ///
   /// get border width and color.
+  ///
   getforegroundBorder() => (foregroundborderWidth! > 0 ||
           checkforegroundBorderNull())
       ? Border(
+          ///
           /// handel top border.
+          ///
           top: BorderSide(
             color: Color(foregroundborderTopColor ?? foregroundborderColor!),
             width: foregroundborderTopWidth ?? foregroundborderWidth!,
             style: foregroundborderTopStyle ?? foregroundborderStyle!,
           ),
 
+          ///
           /// handel right border.
+          ///
           right: BorderSide(
             color: Color(foregroundborderRightColor ?? foregroundborderColor!),
             width: foregroundborderRightWidth ?? foregroundborderWidth!,
             style: foregroundborderRightStyle ?? foregroundborderStyle!,
           ),
 
+          ///
           /// handel bottom border.
+          ///
           bottom: BorderSide(
             color: Color(foregroundborderBottomColor ?? foregroundborderColor!),
             width: foregroundborderBottomWidth ?? foregroundborderWidth!,
             style: foregroundborderBottomStyle ?? foregroundborderStyle!,
           ),
 
+          ///
           /// handel left border.
+          ///
           left: BorderSide(
             color: Color(foregroundborderLeftColor ?? foregroundborderColor!),
             width: foregroundborderLeftWidth ?? foregroundborderWidth!,
@@ -242,7 +521,9 @@ class CommonContainerModel {
           ),
         )
 
+      ///
       /// or return null.
+      ///
       : null;
 
   /// handel container width.
@@ -278,10 +559,21 @@ class CommonContainerModel {
     this.maxWidth = double.infinity,
     this.maxHieght = double.infinity,
 
-    // alignnment
+    ///
+    ///  * [Alignment], a class with convenient constants typically used to
+    ///    specify an [AlignmentGeometry].
+    ///  * [AlignmentDirectional], like [Alignment] for specifying alignments
+    ///    relative to text direction.
+    ///
     this.alignment,
 
-    // padding
+    ///
+    /// Empty space to inscribe inside the [decoration]. The [child], if any, is
+    /// placed inside this padding.
+    ///
+    /// This padding is in addition to any padding inherent in the [decoration];
+    /// see [Decoration.padding].
+    ///
     this.padding = 0.0,
     this.paddingTop,
     this.paddingBottom,
@@ -290,7 +582,9 @@ class CommonContainerModel {
     this.paddingVertical,
     this.paddingHorizontal,
 
-    // margin
+    ///
+    /// Empty space to surround the [decoration] and [child].
+    ///
     this.margin = 0.0,
     this.marginTop,
     this.marginBottom,
@@ -299,7 +593,17 @@ class CommonContainerModel {
     this.marginVertical,
     this.marginHorizontal,
 
-    // colors
+    ///
+    /// The color to paint behind the [child].
+    ///
+    /// This property should be preferred when the background is a simple color.
+    /// For other cases, such as gradients or images, use the [decoration]
+    /// property.
+    ///
+    /// If the [decoration] is used, this property must be null. A background
+    /// color may still be painted by the [decoration] even if this property is
+    /// null.
+    ///
     this.backgroundColor = TRANSPARENT_COLOR,
     this.foregroundColor = TRANSPARENT_COLOR,
     this.raduisColor = 0xFF000000,
@@ -371,8 +675,19 @@ class CommonContainerModel {
     this.foregroundborderBottomColor,
     this.foregroundborderLeftColor,
 
-    // decoration
+    ///
+    /// The decoration to paint in front of the [child].
+    ///
     this.foregroundDecoration,
+
+    ///
+    /// The decoration to paint behind the [child].
+    ///
+    /// Use the [color] property to specify a simple solid color.
+    ///
+    /// The [child] is not clipped to the decoration. To clip a child to the shape
+    /// of a particular [ShapeDecoration], consider using a [ClipPath] widget.
+    ///
     this.decoration,
 
     // boxShape

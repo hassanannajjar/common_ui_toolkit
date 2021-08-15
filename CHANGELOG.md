@@ -44,3 +44,6 @@
 ## 0.1.3
 * Added foreground decoration and handel custom foreground decoration.
 * Added new documentation with full examples and biggest update.
+
+## 0.1.6
+* Added more Comments and updated documentation.
