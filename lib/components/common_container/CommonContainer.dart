@@ -45,33 +45,100 @@ class CommonContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// handel default style if the style null.
     style = style ?? CommonContainerModel();
 
     return CommonTouchable(
+      /// render function you can set (){} just to ebable touchEffect animation.
       onTap: onPress,
+
+      /// render the touchEffect when press the container.
+      /// and you must use onPress function to use touchEffect.
+      /// example :
+      /// ```dart
+      /// touchEffect: TouchEffect(
+      ///  type: TouchTypes.scaleAndFade,
+      ///  duration: 50,
+      ///  lowerBound:0.9,
+      ///  upperBound:1.3,
+      ///  scaleValue:1.3,
+      /// )
+      /// ```
+      ///
       touchEffect: style!.touchEffect ?? TouchableEffect(),
       child: Container(
+        /// you can use loading condition to handel render error
+        /// if data still null or you want wait the data from api.
         child: isLoading!
+
+            /// you can render custome loading widget or use the default loading.
             ? (loadingWidget ??
                 CircularProgressIndicator(
                   color: Color(style!.loadingColor!),
                 ))
+
+            /// the default value if loading false will be center widget.
             : (child ?? Center()),
+
+        /// get the width.
         width: style!.getWidth(),
+
+        /// get the height.
         height: style!.getHeight(),
+
+        /// get the margin.
         margin: getMarginEdgeInsets(style),
+
+        /// get the padding.
         padding: getPaddingEdgeInsets(style),
+
+        /// get the alignment for content.
         alignment: style!.alignment,
-        foregroundDecoration: style!.foregroundDecoration,
+
+        /// get the foreground decoration or
+        ///  you can customer foregroundDecoration as you want.
+        foregroundDecoration: style!.foregroundDecoration ??
+            BoxDecoration(
+              image: style!.foregroundImage,
+              gradient: style!.foregroundboxGradient,
+              backgroundBlendMode: style!.foregroundBlendMode,
+              shape: style!.foregroundboxShape!,
+              border: style!.getforegroundBorder(),
+              borderRadius: style!.getForegroundBorderRaduis(),
+              color: Color(style!.foregroundColor!),
+              boxShadow: <BoxShadow>[
+                BoxShadow(
+                  color: Color(style!.foregroundshadowColor!)
+                      .withOpacity(style!.foregroundshadowOpacity!),
+                  spreadRadius: style!.foregroundshadowSpreadRadius!,
+                  blurRadius: style!.foregroundshadowbBlurRadius!,
+                  offset: Offset(
+                    style!.foregroundshadowOffsetDX!,
+                    style!.foregroundshadowOffsetDY!,
+                  ),
+                )
+              ],
+            ),
+
+        /// render minwidth, minheight, maxwidth and maxhight.
         constraints: BoxConstraints(
           minWidth: style!.minWidth!,
           minHeight: style!.minHieght!,
           maxWidth: style!.maxWidth!,
           maxHeight: style!.maxHieght!,
         ),
+
+        /// transofrm alignment for content.
         transformAlignment: style!.transformAlignment,
+
+        /// transofrm  for content.
         transform: style!.transform,
+
+        /// clipBehavior alignment for content.
         clipBehavior: style!.clipBehavior!,
+
+        /// get the (decoration || backdecoration) decoration or
+        ///  you can customer (decoration || backdecoration) as you want.
         decoration: style!.decoration ??
             BoxDecoration(
               image: style!.backgroundImage,
