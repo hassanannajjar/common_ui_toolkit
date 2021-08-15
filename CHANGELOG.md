@@ -40,3 +40,7 @@
 ## 0.1.2
 * Added CommonDatePicker component.
 * Added more examples for Date picker.
+
+## 0.1.3
+* Added foreground decoration and handel custom foreground decoration.
+* Added new documentation with full examples and biggest update.
