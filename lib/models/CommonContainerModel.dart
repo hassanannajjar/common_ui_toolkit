@@ -439,38 +439,46 @@ class CommonContainerModel {
           ///
           /// handel top border.
           ///
-          top: BorderSide(
-            color: Color(borderTopColor ?? borderColor!),
-            width: borderTopWidth ?? borderWidth!,
-            style: borderTopStyle ?? borderStyle!,
-          ),
+          top: ((borderTopWidth ?? borderWidth!) > 0)
+              ? BorderSide(
+                  color: Color(borderTopColor ?? borderColor!),
+                  width: borderTopWidth ?? borderWidth!,
+                  style: borderTopStyle ?? borderStyle!,
+                )
+              : BorderSide(color: Color(TRANSPARENT_COLOR)),
 
-          ///
-          /// handel right border.
-          ///
-          right: BorderSide(
-            color: Color(borderRightColor ?? borderColor!),
-            width: borderRightWidth ?? borderWidth!,
-            style: borderRightStyle ?? borderStyle!,
-          ),
+          // ///
+          // /// handel right border.
+          // ///
+          right: ((borderRightWidth ?? borderWidth!) > 0)
+              ? BorderSide(
+                  color: Color(borderRightColor ?? borderColor!),
+                  width: borderRightWidth ?? borderWidth!,
+                  style: borderRightStyle ?? borderStyle!,
+                )
+              : BorderSide(color: Color(TRANSPARENT_COLOR)),
 
           ///
           /// handel bottom border.
           ///
-          bottom: BorderSide(
-            color: Color(borderBottomColor ?? borderColor!),
-            width: borderBottomWidth ?? borderWidth!,
-            style: borderBottomStyle ?? borderStyle!,
-          ),
+          bottom: ((borderBottomWidth ?? borderWidth!) > 0)
+              ? BorderSide(
+                  color: Color(borderBottomColor ?? borderColor!),
+                  width: borderBottomWidth ?? borderWidth!,
+                  style: borderBottomStyle ?? borderStyle!,
+                )
+              : BorderSide(color: Color(TRANSPARENT_COLOR)),
 
           ///
           /// handel left border.
-          ///
-          left: BorderSide(
-            color: Color(borderLeftColor ?? borderColor!),
-            width: borderLeftWidth ?? borderWidth!,
-            style: borderLeftStyle ?? borderStyle!,
-          ),
+          // ///
+          left: ((borderLeftWidth ?? borderWidth!) > 0)
+              ? BorderSide(
+                  color: Color(borderLeftColor ?? borderColor!),
+                  width: borderLeftWidth ?? borderWidth!,
+                  style: borderLeftStyle ?? borderStyle!,
+                )
+              : BorderSide(color: Color(TRANSPARENT_COLOR)),
         )
 
       ///
