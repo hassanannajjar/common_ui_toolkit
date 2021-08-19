@@ -1,5 +1,4 @@
 import 'package:example/utils/Constants.dart';
-import 'package:flutter/material.dart';
 import 'package:common_ui_toolkit/index.dart';
 
 class DatePickers extends StatelessWidget {
@@ -35,6 +34,32 @@ class DatePickers extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              CommonPickerTimeLine(
+                DateTime.now(),
+                // dayTextStyle: TextStyle(
+                //   fontSize: 15,
+                // ),
+                // dateTextStyle: TextStyle(
+                //   fontSize: 20,
+                // ),
+                headerTextStyle: CommonTextStyles().h3Style().copyWith(
+                      fontweight: FontWeight.bold,
+                    ),
+
+                containerStyle:
+                    CommonContainerStyle().datePickerTimeLineStyle().copyWith(
+                          marginVertical: 15,
+                        ),
+                initialSelectedDate: DateTime.now(),
+                inactiveDates: [
+                  DateTime.now().add(Duration(days: 3)),
+                  DateTime.now().add(Duration(days: 4)),
+                  DateTime.now().add(Duration(days: 7))
+                ],
+                onDateChange: (date) {
+                  print(date);
+                },
+              ),
               CommonText(
                 style: textStyle,
                 containerStyle: containerStyle,

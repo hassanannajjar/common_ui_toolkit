@@ -1,0 +1,72 @@
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+import '../../index.dart';
+import './tap.dart';
+
+class DateWidget extends StatelessWidget {
+  final double? width;
+  final DateTime date;
+  final TextStyle? monthTextStyle, dayTextStyle, dateTextStyle;
+  final Color selectionColor;
+  final DateSelectionCallback? onDateSelected;
+  final String? locale;
+  CommonContainerModel? selectedContainerStyle;
+
+  DateWidget({
+    required this.date,
+    required this.monthTextStyle,
+    required this.dayTextStyle,
+    required this.dateTextStyle,
+    required this.selectionColor,
+    this.width,
+    this.onDateSelected,
+    this.locale,
+    this.selectedContainerStyle,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    if (selectedContainerStyle == null) {
+      selectedContainerStyle = CommonContainerModel(
+        borderRaduis: 25,
+        padding: 10,
+      );
+    }
+    return CommonContainer(
+      onPress: () {
+        // Check if onDateSelected is not null
+        if (onDateSelected != null) {
+          // Call the onDateSelected Function
+          onDateSelected!(this.date);
+        }
+      },
+      style: CommonContainerModel(
+        width: width,
+        padding: DEVICE_WIDTH * 0.008,
+        paddingBottom: DEVICE_WIDTH * 0.013,
+        margin: 3,
+        touchEffect: TouchableEffect(
+          type: TouchTypes.opacity,
+        ),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Text(
+            new DateFormat("E", locale).format(date).toUpperCase(), // WeekDay
+            style: dayTextStyle,
+          ),
+          CommonContainer(
+            style: selectedContainerStyle!,
+            child: Text(
+              date.day.toString(), // Date
+              style: dateTextStyle,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
