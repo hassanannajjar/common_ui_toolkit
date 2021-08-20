@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       routes: {
         CONTAINERS_ROUTE: (context) => Containers(),
         TEXTS_ROUTE: (context) => Texts(),
+        TEXT_INPUTS_ROUTE: (context) => TextInputs(),
         DATE_PICKERS_ROUTE: (context) => DatePickers(),
       },
     );

@@ -12,7 +12,6 @@ import '../../utils/index.dart';
 class CommonTextInput extends StatelessWidget {
   CommonTextInputModel? style;
   CommonContainerModel? containerStyle;
-  TextAlign? textAlign;
   Function? onChanged;
 
   Function? onTap;
@@ -27,7 +26,6 @@ class CommonTextInput extends StatelessWidget {
 
   CommonTextInput({
     this.style,
-    this.textAlign,
     this.onChanged,
     this.text,
     this.prefixWidget,
@@ -38,13 +36,14 @@ class CommonTextInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    style = style ?? CommonTextInputModel();
     textEditingController = TextEditingController(text: text);
     return CommonContainer(
       style: containerStyle,
       child: TextFormField(
         controller: textEditingController,
         textInputAction: style!.textInputAction,
-        textAlign: textAlign!,
+        textAlign: style!.textAlign!,
         focusNode: style!.foucsNode,
         style: style!.textStyle ??
             TextStyle(
@@ -137,24 +136,26 @@ class CommonTextInput extends StatelessWidget {
   }
 
   getIcon(icon, {color}) {
-    if (icon.runtimeType == IconData) {
-      return Icon(
-        icon,
-        color: generateIconColor(color),
-      );
-    } else {
-      //Icon type is a string
-      if (icon.contains('svg')) {
-        return SvgPicture.asset(
+    if (icon != null) {
+      if (icon.runtimeType == IconData) {
+        return Icon(
           icon,
           color: generateIconColor(color),
-          fit: BoxFit.none,
         );
       } else {
-        return Image.asset(
-          icon,
-          fit: BoxFit.fill,
-        );
+        //Icon type is a string
+        if (icon.contains('svg')) {
+          return SvgPicture.asset(
+            icon,
+            color: generateIconColor(color),
+            fit: BoxFit.none,
+          );
+        } else {
+          return Image.asset(
+            icon,
+            fit: BoxFit.fill,
+          );
+        }
       }
     }
   }
