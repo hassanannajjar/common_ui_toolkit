@@ -63,6 +63,7 @@ class _CommonTextInputState extends State<CommonTextInput> {
         enabled: style!.enabled,
         decoration: style!.inputDecoration ??
             InputDecoration(
+              counterText: '',
               fillColor: Color(style!.fillColor!),
               filled: style!.fillColor != null,
               contentPadding: getContentPaddingEdgeInsets(style),
@@ -156,8 +157,8 @@ class _CommonTextInputState extends State<CommonTextInput> {
     return style!.underlined!
         ? UnderlineInputBorder(
             borderSide: BorderSide(
-              color: Color(style!.underlineColor!),
-              width: style!.underlineThikness!,
+              color: Color(borderColor),
+              width: style!.borderWidth!,
             ),
           )
         : OutlineInputBorder(

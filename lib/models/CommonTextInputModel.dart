@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 
 class CommonTextInputModel {
   /// Sizes
-  double? underlineThikness;
   double? borderWidth;
   double? fontSize;
   double? radius;
@@ -26,7 +25,6 @@ class CommonTextInputModel {
 
   // Colors
   int? textColor;
-  int? underlineColor;
   int? disabledColor;
   int? errorColor;
   int? focusBorderColor;
@@ -101,8 +99,6 @@ class CommonTextInputModel {
     this.suffixMinHeight = 0.0,
     this.suffixMaxWidth = 0.0,
     this.suffixMaxHeight = 0.0,
-    this.underlineColor = BLACK_COLOR,
-    this.underlineThikness = 3.0,
     this.borderWidth = 1.0,
     this.radius = 24.0,
     this.hintColor = GREY_COLOR,

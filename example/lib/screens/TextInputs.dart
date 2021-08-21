@@ -57,6 +57,9 @@ class TextInputs extends StatelessWidget {
                 ),
               ),
               CommonText(
+                containerStyle: CommonContainerModel(
+                  marginTop: DEVICE_WIDTH * 0.03,
+                ),
                 text: 'CommonTextInput with prefix and suffix widgets',
               ),
               CommonTextInput(
@@ -87,16 +90,38 @@ class TextInputs extends StatelessWidget {
                   ),
                 ),
               ),
+              CommonText(
+                containerStyle: CommonContainerModel(
+                  marginTop: DEVICE_WIDTH * 0.03,
+                ),
+                text: 'Disabled text input with 0 radius',
+              ),
               CommonTextInput(
                 style: CommonTextInputModel(
                   radius: 0,
                   enabled: false,
                   borderWidth: 2,
-                  focusBorderColor: RED_COLOR,
                   disabledColor: RED_COLOR,
                   hint: 'Search',
                 ),
-              )
+              ),
+              CommonTextInput(
+                containerStyle: CommonContainerModel(
+                  marginTop: DEVICE_WIDTH * 0.03,
+                ),
+                style: CommonTextInputModel(
+                  underlined: true,
+                  hint: 'Search',
+                  borderWidth: 3,
+                  focusBorderColor: RED_COLOR,
+                  prefixIcon: CommonIcon(
+                    containerStyle: CommonContainerModel(
+                      marginHorizontal: 16.0,
+                    ),
+                    path: Icons.search,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
