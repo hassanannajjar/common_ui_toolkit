@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:common_ui_toolkit/models/CommonIcon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -9,39 +9,34 @@ import 'package:common_ui_toolkit/models/CommonTextInputModel.dart';
 import '../../index.dart';
 import '../../utils/index.dart';
 
-class CommonTextInput extends StatelessWidget {
+class CommonTextInput extends StatefulWidget {
   CommonTextInputModel? style;
   CommonContainerModel? containerStyle;
   Function? onChanged;
-
-  Function? onTap;
   TextEditingController? textEditingController;
-  String? text;
-  String? prefixIcon;
-  String? suffixIcon;
-
-  // Widgets
-  Widget? prefixWidget;
-  Widget? suffixWidget;
 
   CommonTextInput({
     this.style,
+    this.containerStyle,
     this.onChanged,
-    this.text,
-    this.prefixWidget,
-    this.suffixWidget,
-    this.prefixIcon,
-    this.suffixIcon,
+    this.textEditingController,
   });
 
   @override
+  _CommonTextInputState createState() => _CommonTextInputState();
+}
+
+class _CommonTextInputState extends State<CommonTextInput> {
+  CommonTextInputModel? style;
+
+  @override
   Widget build(BuildContext context) {
-    style = style ?? CommonTextInputModel();
-    textEditingController = TextEditingController(text: text);
+    style = widget.style ?? CommonTextInputModel();
+    widget.textEditingController = TextEditingController(text: style!.text);
     return CommonContainer(
-      style: containerStyle,
+      style: widget.containerStyle,
       child: TextFormField(
-        controller: textEditingController,
+        controller: widget.textEditingController,
         textInputAction: style!.textInputAction,
         textAlign: style!.textAlign!,
         focusNode: style!.foucsNode,
@@ -70,14 +65,6 @@ class CommonTextInput extends StatelessWidget {
             InputDecoration(
               fillColor: Color(style!.fillColor!),
               filled: style!.fillColor != null,
-              suffixIconConstraints: BoxConstraints(
-                minHeight: style!.suffixIconHight!,
-                minWidth: style!.suffixIconWidth!,
-              ),
-              prefixIconConstraints: BoxConstraints(
-                minHeight: style!.prefixIconHight!,
-                minWidth: style!.prefixIconWidth!,
-              ),
               contentPadding: getContentPaddingEdgeInsets(style),
               hintText: style!.hint,
               hintStyle: style!.hintStyle ??
@@ -87,16 +74,26 @@ class CommonTextInput extends StatelessWidget {
                         : Color(style!.disabledColor!),
                   ),
               isCollapsed: style!.isCollapsed!,
-              prefixIcon: prefixWidget ??
-                  getIcon(
-                    prefixIcon,
-                    color: style!.prefixIconColor,
-                  ),
-              suffixIcon: suffixWidget ??
-                  getIcon(
-                    suffixIcon,
-                    color: style!.suffixIconColor,
-                  ),
+              prefixIcon: style!.prefixWidget ??
+                  (style!.prefixIcon != null
+                      ? getIcon(
+                          style!.prefixIcon!,
+                        )
+                      : null),
+              suffixIcon: style!.suffixWidget ??
+                  (style!.suffixIcon != null
+                      ? getIcon(
+                          style!.suffixIcon!,
+                        )
+                      : null),
+              prefixIconConstraints: BoxConstraints(
+                minWidth: style!.prefixMinWidth!,
+                minHeight: style!.prefixMinHeight!,
+              ),
+              suffixIconConstraints: BoxConstraints(
+                minWidth: style!.suffixMinWidth!,
+                minHeight: style!.suffixMinHeight!,
+              ),
               border: getOutlineInputBorder(
                 borderColor: style!.disabledColor!,
               ),
@@ -105,59 +102,50 @@ class CommonTextInput extends StatelessWidget {
                 borderColor: style!.focusBorderColor!,
               ),
               enabledBorder: getOutlineInputBorder(
-                borderColor: style!.focusBorderColor!,
+                borderColor: style!.enabledBorderColor!,
+              ),
+              disabledBorder: getOutlineInputBorder(
+                borderColor: style!.disabledBorderColor!,
+              ),
+              errorBorder: getOutlineInputBorder(
+                borderColor: style!.errorBorderColor!,
               ),
               alignLabelWithHint: true,
             ),
         onChanged: (value) {
-          onChanged!(value);
-          // if ((value.length >= maxLenght && inputType == NUMBER_INPUT_TYPE) ||
-          //     (inputType == EMAIL_INPUT_TYPE &&
-          //         RegExp(r'^[^@]+@[^@]+\.(com|net)').hasMatch(value))) {
-          //   if (withDoneIcon) {
-          //     controller.setSuffixIcon(Icons.done);
-          //   }
-          //   controller.isContentVerified = true;
-          //   if (value.length == maxLenght && inputType == NUMBER_INPUT_TYPE) {
-          //     if (closeKeyboardAfterVerifiedLength)
-          //       FocusScope.of(context).requestFocus(FocusNode());
-          //     if (afterVerifiyed != null) afterVerifiyed();
-          //   }
-          // } else {
-          //   controller.setSuffixIcon(null);
-          //   controller.isContentVerified = false;
-          // }
-          // if (onChanged != null) {
-          //   onChanged(value);
-          // }
+          widget.onChanged!(value);
         },
       ),
     );
   }
 
-  getIcon(icon, {color}) {
-    if (icon != null) {
-      if (icon.runtimeType == IconData) {
-        return Icon(
-          icon,
-          color: generateIconColor(color),
-        );
-      } else {
-        //Icon type is a string
-        if (icon.contains('svg')) {
-          return SvgPicture.asset(
-            icon,
-            color: generateIconColor(color),
-            fit: BoxFit.none,
-          );
-        } else {
-          return Image.asset(
-            icon,
-            fit: BoxFit.fill,
-          );
-        }
-      }
-    }
+  getIcon(CommonIcon icon) {
+    return CommonContainer(
+      style: icon.containerStyle ?? CommonContainerModel(),
+      child: icon.path.runtimeType == IconData
+          ? Icon(
+              icon.path, // icon data takes only size without width and height, so we need to use size instead. we pass the width to be the size of the icon.
+              size: icon.iconDataSize,
+              color: generateIconColor(icon.color),
+            )
+          : icon.path.startsWith('http')
+              ? icon.path.endsWith('svg')
+                  ? SvgPicture.network(
+                      icon.path,
+                      color: generateIconColor(icon.color),
+                    )
+                  : Image.network(
+                      icon.path,
+                    )
+              : icon.path.endsWith('svg')
+                  ? SvgPicture.asset(
+                      icon.path,
+                      color: generateIconColor(icon.color),
+                    )
+                  : Image.asset(
+                      icon.path,
+                    ),
+    );
   }
 
   generateIconColor(color) => Color(

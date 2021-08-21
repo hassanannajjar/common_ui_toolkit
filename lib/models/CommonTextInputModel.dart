@@ -1,12 +1,9 @@
 import 'package:common_ui_toolkit/index.dart';
+import 'package:common_ui_toolkit/models/CommonIcon.dart';
 import 'package:flutter/services.dart';
 
 class CommonTextInputModel {
   /// Sizes
-  double? prefixIconWidth;
-  double? prefixIconHight;
-  double? suffixIconWidth;
-  double? suffixIconHight;
   double? underlineThikness;
   double? borderWidth;
   double? fontSize;
@@ -18,14 +15,24 @@ class CommonTextInputModel {
   double? contentPaddingLeft;
   double? contentPaddingVertical;
   double? contentPaddingHorizontal;
+  double? prefixMinWidth;
+  double? prefixMinHeight;
+  double? prefixMaxWidth;
+  double? prefixMaxHeight;
+  double? suffixMinWidth;
+  double? suffixMinHeight;
+  double? suffixMaxWidth;
+  double? suffixMaxHeight;
 
   // Colors
   int? textColor;
-  int? prefixIconColor;
-  int? suffixIconColor;
   int? underlineColor;
   int? disabledColor;
+  int? errorColor;
   int? focusBorderColor;
+  int? enabledBorderColor;
+  int? disabledBorderColor;
+  int? errorBorderColor;
   int? hintColor;
   int? fillColor;
 
@@ -35,12 +42,21 @@ class CommonTextInputModel {
   int? minLines;
   int? maxLines;
 
+  // Widgets
+  Widget? prefixWidget;
+  Widget? suffixWidget;
+
+  // If you pass prefixWidget then prefixIcon is ignored.
+  // Icons
+  CommonIcon? prefixIcon;
+  CommonIcon? suffixIcon;
+
   FocusNode? foucsNode;
   int? fontWeight;
 
   String? hint;
   String? fontFamily;
-  String? prefixIcon;
+  String? text;
 
   bool? isRequired;
   bool? withBorderSide;
@@ -75,40 +91,48 @@ class CommonTextInputModel {
     this.enabled = true,
     this.minLength = 6,
     this.maxLength = 100,
-    // ex: (prefixIcon || suffixIcon) = Icons.done ( runtimeType: TypeIconData)
-    //      (prefixIcon || suffixIcon) = assets/icons/done.svg (runtimeType: String)
-    this.prefixIcon,
     this.fillColor = TRANSPARENT_COLOR,
     this.foucsNode,
-    this.suffixIconColor = BLACK_COLOR,
+    this.prefixMinWidth = 0.0,
+    this.prefixMinHeight = 0.0,
+    this.prefixMaxWidth = 0.0,
+    this.prefixMaxHeight = 0.0,
+    this.suffixMinWidth = 0.0,
+    this.suffixMinHeight = 0.0,
+    this.suffixMaxWidth = 0.0,
+    this.suffixMaxHeight = 0.0,
     this.underlineColor = BLACK_COLOR,
-    this.prefixIconColor = BLACK_COLOR,
-    this.suffixIconHight = 10,
-    this.suffixIconWidth = 10,
-    this.prefixIconHight = 40,
-    this.prefixIconWidth = 40,
     this.underlineThikness = 3.0,
     this.borderWidth = 1.0,
     this.radius = 24.0,
     this.hintColor = GREY_COLOR,
     this.disabledColor = GREY_COLOR,
     this.focusBorderColor = GREY_COLOR,
+    this.enabledBorderColor = GREY_COLOR,
+    this.disabledBorderColor = GREY_COLOR,
+    this.errorBorderColor = GREY_COLOR,
+    this.errorColor = RED_COLOR,
     this.textColor = BLACK_COLOR,
     this.textAlign = TextAlign.start,
     this.fontFamily,
     this.fontSize,
     this.fontWeight,
-    this.contentPadding,
+    this.contentPadding = 15.0,
     this.contentPaddingTop,
     this.contentPaddingBottom,
     this.contentPaddingRight,
     this.contentPaddingLeft,
-    this.contentPaddingVertical = 15.0,
-    this.contentPaddingHorizontal = 15.0,
+    this.contentPaddingVertical,
+    this.contentPaddingHorizontal,
     this.textInputAction,
     this.textStyle,
     this.hintStyle,
     this.textInputPattern,
     this.inputDecoration,
+    this.text,
+    this.prefixWidget,
+    this.suffixWidget,
+    this.prefixIcon,
+    this.suffixIcon,
   });
 }

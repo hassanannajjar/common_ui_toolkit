@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: TextInputs(),
       routes: {
         CONTAINERS_ROUTE: (context) => Containers(),
         TEXTS_ROUTE: (context) => Texts(),
