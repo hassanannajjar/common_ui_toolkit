@@ -94,7 +94,7 @@ class TextInputs extends StatelessWidget {
                 containerStyle: CommonContainerModel(
                   marginTop: DEVICE_WIDTH * 0.03,
                 ),
-                text: 'Disabled text input with 0 radius',
+                text: 'Disabled text input with zero radius',
               ),
               CommonTextInput(
                 style: CommonTextInputModel(
@@ -105,21 +105,45 @@ class TextInputs extends StatelessWidget {
                   hint: 'Search',
                 ),
               ),
-              CommonTextInput(
+              Align(
+                alignment: Alignment.center,
+                child: CommonTextInput(
+                  containerStyle: CommonContainerModel(
+                    marginTop: DEVICE_WIDTH * 0.03,
+                    width: DEVICE_WIDTH * 0.5,
+                  ),
+                  style: CommonTextInputModel(
+                    underlined: true,
+                    cursorWidth: 10,
+                    cursorColor: RED_COLOR,
+                    // showCursor: false,
+                    cursorRadius: Radius.circular(100),
+                    hint: 'Search',
+                    cursorHeight: 30,
+                    borderWidth: 3,
+                    focusBorderColor: RED_COLOR,
+                    prefixIcon: CommonIcon(
+                      containerStyle: CommonContainerModel(
+                        marginHorizontal: 16.0,
+                      ),
+                      path: Icons.search,
+                    ),
+                  ),
+                ),
+              ),
+              CommonText(
+                text: 'Multiline text input',
                 containerStyle: CommonContainerModel(
                   marginTop: DEVICE_WIDTH * 0.03,
                 ),
+              ),
+              CommonTextInput(
                 style: CommonTextInputModel(
-                  underlined: true,
-                  hint: 'Search',
-                  borderWidth: 3,
+                  cursorColor: RED_COLOR,
                   focusBorderColor: RED_COLOR,
-                  prefixIcon: CommonIcon(
-                    containerStyle: CommonContainerModel(
-                      marginHorizontal: 16.0,
-                    ),
-                    path: Icons.search,
-                  ),
+                  hint: 'Type...',
+                  textInputType: TextInputType.multiline,
+                  minLines: 7,
                 ),
               ),
             ],

@@ -61,6 +61,11 @@ class _CommonTextInputState extends State<CommonTextInput> {
         obscureText: style!.obscureText!,
         keyboardType: style!.textInputType,
         enabled: style!.enabled,
+        cursorHeight: style!.cursorHeight,
+        cursorWidth: style!.cursorWidth!,
+        showCursor: style!.showCursor,
+        cursorColor: Color(style!.cursorColor!),
+        cursorRadius: style!.cursorRadius,
         decoration: style!.inputDecoration ??
             InputDecoration(
               counterText: '',

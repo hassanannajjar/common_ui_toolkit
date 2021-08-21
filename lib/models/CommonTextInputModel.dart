@@ -22,6 +22,8 @@ class CommonTextInputModel {
   double? suffixMinHeight;
   double? suffixMaxWidth;
   double? suffixMaxHeight;
+  double? cursorHeight;
+  double? cursorWidth;
 
   // Colors
   int? textColor;
@@ -33,6 +35,7 @@ class CommonTextInputModel {
   int? errorBorderColor;
   int? hintColor;
   int? fillColor;
+  int? cursorColor;
 
   // Lengths
   int? maxLength;
@@ -63,6 +66,7 @@ class CommonTextInputModel {
   bool? readOnly;
   bool? obscureText;
   bool? enabled;
+  bool? showCursor;
   // This is a hack to make the text input verified when user finishs typing the right crospondign content based on input type
   bool? withInputVerification;
 
@@ -75,6 +79,7 @@ class CommonTextInputModel {
   Pattern? textInputPattern;
   List<TextInputFormatter>? textInputFormatters;
   InputDecoration? inputDecoration;
+  Radius? cursorRadius;
 
   CommonTextInputModel({
     this.hint,
@@ -86,11 +91,18 @@ class CommonTextInputModel {
     this.isCollapsed = false,
     this.readOnly = false,
     this.obscureText = false,
+    this.showCursor = true,
     this.enabled = true,
     this.minLength = 6,
     this.maxLength = 100,
     this.fillColor = TRANSPARENT_COLOR,
+    this.cursorColor = PR_COLOR,
     this.foucsNode,
+    this.maxLines,
+    this.minLines,
+    this.cursorRadius,
+    this.cursorHeight,
+    this.cursorWidth = 2.0,
     this.prefixMinWidth = 0.0,
     this.prefixMinHeight = 0.0,
     this.prefixMaxWidth = 0.0,
