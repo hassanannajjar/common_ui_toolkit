@@ -1,6 +1,6 @@
 name: common_ui_toolkit
 description: common UI toolkit to clean your code and use it easily and reusable code.
-version: 0.1.7
+version: 0.1.9
 homepage: https://github.com/HROKA/common_ui_toolkit
 
 environment:
@@ -12,6 +12,7 @@ dependencies:
     sdk: flutter
   flutter_svg: ^0.22.0
   intl: ^0.17.0
+  visibility_detector: ^0.2.0
 
 dev_dependencies:
   flutter_test:
