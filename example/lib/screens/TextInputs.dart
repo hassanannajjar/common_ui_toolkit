@@ -36,6 +36,7 @@ class TextInputs extends StatelessWidget {
               CommonTextInput(
                 style: CommonTextInputModel(
                   text: 'Intial text input value',
+                  counterText: null,
                   focusBorderColor: BLACK_COLOR,
                   prefixIcon: CommonIcon(
                     containerStyle: CommonContainerModel(
@@ -67,6 +68,10 @@ class TextInputs extends StatelessWidget {
                   marginTop: DEVICE_HEIGHT * 0.01,
                 ),
                 style: CommonTextInputModel(
+                  counterText: 'Styled counter Text',
+                  counterStyle: TextStyle(
+                    color: Colors.red,
+                  ),
                   borderWidth: 3,
                   focusBorderColor: RED_COLOR,
                   fillColor: GREY_COLOR,

@@ -68,7 +68,10 @@ class _CommonTextInputState extends State<CommonTextInput> {
         cursorRadius: style!.cursorRadius,
         decoration: style!.inputDecoration ??
             InputDecoration(
-              counterText: '',
+              // Send it as null to set the value of the counter to 100
+              counterText: style!.counterText,
+              counterStyle: style!.counterStyle,
+              semanticCounterText: style!.semanticCounterText,
               fillColor: Color(style!.fillColor!),
               filled: style!.fillColor != null,
               contentPadding: getContentPaddingEdgeInsets(style),
@@ -86,6 +89,7 @@ class _CommonTextInputState extends State<CommonTextInput> {
               suffixStyle: style!.suffixStyle,
               prefix: style!.prefix,
               suffix: style!.suffix,
+              counter: style!.counterWidget,
               prefixIcon: style!.prefixWidget ??
                   (style!.prefixIcon != null
                       ? getIcon(

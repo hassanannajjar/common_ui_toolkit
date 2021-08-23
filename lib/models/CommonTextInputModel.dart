@@ -48,6 +48,7 @@ class CommonTextInputModel {
   Widget? suffixWidget;
   Widget? prefix;
   Widget? suffix;
+  Widget? counterWidget;
 
   // If you pass prefixWidget then prefixIcon is ignored.
   // Icons
@@ -62,6 +63,8 @@ class CommonTextInputModel {
   String? text;
   String? prefixText;
   String? suffixText;
+  String? counterText;
+  String? semanticCounterText;
 
   bool? isRequired;
   bool? withBorderSide;
@@ -81,6 +84,7 @@ class CommonTextInputModel {
   TextStyle? hintStyle;
   TextStyle? prefixStyle;
   TextStyle? suffixStyle;
+  TextStyle? counterStyle;
   // ex: RegExp(r'^\d*')
   Pattern? textInputPattern;
   List<TextInputFormatter>? textInputFormatters;
@@ -107,6 +111,8 @@ class CommonTextInputModel {
     this.maxLines,
     this.prefixText,
     this.suffixText,
+    this.counterText = '',
+    this.semanticCounterText,
     this.prefix,
     this.suffix,
     this.minLines,
@@ -147,11 +153,13 @@ class CommonTextInputModel {
     this.hintStyle,
     this.prefixStyle,
     this.suffixStyle,
+    this.counterStyle,
     this.textInputPattern,
     this.inputDecoration,
     this.text,
     this.prefixWidget,
     this.suffixWidget,
+    this.counterWidget,
     this.prefixIcon,
     this.suffixIcon,
   });
