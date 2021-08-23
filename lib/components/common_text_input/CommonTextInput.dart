@@ -80,6 +80,12 @@ class _CommonTextInputState extends State<CommonTextInput> {
                         : Color(style!.disabledColor!),
                   ),
               isCollapsed: style!.isCollapsed!,
+              prefixText: style!.prefixText,
+              suffixText: style!.suffixText,
+              prefixStyle: style!.prefixStyle,
+              suffixStyle: style!.suffixStyle,
+              prefix: style!.prefix,
+              suffix: style!.suffix,
               prefixIcon: style!.prefixWidget ??
                   (style!.prefixIcon != null
                       ? getIcon(

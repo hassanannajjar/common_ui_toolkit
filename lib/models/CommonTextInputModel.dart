@@ -46,6 +46,8 @@ class CommonTextInputModel {
   // Widgets
   Widget? prefixWidget;
   Widget? suffixWidget;
+  Widget? prefix;
+  Widget? suffix;
 
   // If you pass prefixWidget then prefixIcon is ignored.
   // Icons
@@ -58,6 +60,8 @@ class CommonTextInputModel {
   String? hint;
   String? fontFamily;
   String? text;
+  String? prefixText;
+  String? suffixText;
 
   bool? isRequired;
   bool? withBorderSide;
@@ -75,6 +79,8 @@ class CommonTextInputModel {
   TextInputAction? textInputAction;
   TextStyle? textStyle;
   TextStyle? hintStyle;
+  TextStyle? prefixStyle;
+  TextStyle? suffixStyle;
   // ex: RegExp(r'^\d*')
   Pattern? textInputPattern;
   List<TextInputFormatter>? textInputFormatters;
@@ -99,6 +105,10 @@ class CommonTextInputModel {
     this.cursorColor = PR_COLOR,
     this.foucsNode,
     this.maxLines,
+    this.prefixText,
+    this.suffixText,
+    this.prefix,
+    this.suffix,
     this.minLines,
     this.cursorRadius,
     this.cursorHeight,
@@ -135,6 +145,8 @@ class CommonTextInputModel {
     this.textInputAction,
     this.textStyle,
     this.hintStyle,
+    this.prefixStyle,
+    this.suffixStyle,
     this.textInputPattern,
     this.inputDecoration,
     this.text,
