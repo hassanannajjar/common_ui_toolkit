@@ -6,6 +6,7 @@ class CommonIcon {
   // Flutter built in icons take `size` not width and height, so this attribute is ignored in case you use assets or network icon
   double? iconDataSize;
   CommonContainerModel? containerStyle;
+  Function? onPress;
 
   CommonIcon({
     // ex: (prefixIcon || suffixIcon) = Icons.done ( runtimeType: TypeIconData)
@@ -14,5 +15,6 @@ class CommonIcon {
     this.containerStyle,
     this.color = COMMON_BLACK_COLOR,
     this.iconDataSize = 24.0,
+    this.onPress,
   });
 }

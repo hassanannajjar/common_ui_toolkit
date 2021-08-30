@@ -39,6 +39,9 @@ class TextInputs extends StatelessWidget {
                   counterText: null,
                   focusBorderColor: COMMON_BLACK_COLOR,
                   prefixIcon: CommonIcon(
+                    onPress: () {
+                      print('Prefix icon pressed');
+                    },
                     containerStyle: CommonContainerModel(
                       marginHorizontal: DEVICE_WIDTH * 0.01,
                     ),

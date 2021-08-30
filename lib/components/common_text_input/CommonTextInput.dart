@@ -140,6 +140,11 @@ class _CommonTextInputState extends State<CommonTextInput> {
 
   getIcon(CommonIcon icon) {
     return CommonContainer(
+      onPress: () {
+        if (icon.onPress != null) {
+          icon.onPress!();
+        }
+      },
       style: icon.containerStyle ?? CommonContainerModel(),
       child: icon.path.runtimeType == IconData
           ? Icon(
