@@ -45,7 +45,7 @@ class Texts extends StatelessWidget {
               WidgetSpan(
                 child: CommonText(
                   text: '+970595131066',
-                  style: CommonTextModel(fontColor: RED_COLOR),
+                  style: CommonTextModel(fontColor: COMMON_RED_COLOR),
                   containerStyle: CommonContainerModel(
                     marginHorizontal: 8.0,
                     touchEffect: TouchableEffect(),
@@ -67,12 +67,12 @@ class Texts extends StatelessWidget {
             style: CommonTextModel(
               decoration: TextDecoration.underline,
               decorationThickness: 3.0,
-              decorationColor: RED_COLOR,
+              decorationColor: COMMON_RED_COLOR,
               decorationStyle: TextDecorationStyle.dotted,
 
               /// decorationStyle: TextDecorationStyle.wavy,
               fontweight: FontWeight.bold,
-              fontSize: H1_FONT,
+              fontSize: COMMON_H1_FONT,
             ),
           ),
 
@@ -83,12 +83,12 @@ class Texts extends StatelessWidget {
               borderRaduis: 16.0,
               marginBottom: 16.0,
               marginVertical: 16.0,
-              backgroundColor: BLACK_COLOR,
+              backgroundColor: COMMON_BLACK_COLOR,
               touchEffect: TouchableEffect(),
             ),
             style: CommonTextStyles().h2Style().copyWith(
-                  fontColor: WHITE_COLOR,
-                  // backgroundColor: WHITE_COLOR,
+                  fontColor: COMMON_WHITE_COLOR,
+                  // backgroundColor: COMMON_WHITE_COLOR,
                   // fontweight: FontWeight.bold,
                 ),
             text: 'Simple common text',
@@ -100,7 +100,7 @@ class Texts extends StatelessWidget {
           /// Text with all side children with an icon
           CommonText(
             style: CommonTextModel(
-              iconColor: RED_COLOR,
+              iconColor: COMMON_RED_COLOR,
             ),
             iconPath: 'assets/icons/account_icon.svg',
             text: 'Common text with',
@@ -108,7 +108,7 @@ class Texts extends StatelessWidget {
               TextSpan(
                 text: ' RED ',
                 style: TextStyle(
-                  color: Color(RED_COLOR),
+                  color: Color(COMMON_RED_COLOR),
                 ),
               ),
               TextSpan(text: 'icon color!'),

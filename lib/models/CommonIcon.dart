@@ -12,7 +12,7 @@ class CommonIcon {
     //      (prefixIcon || suffixIcon) = assets/icons/done.svg (runtimeType: String)
     @required this.path,
     this.containerStyle,
-    this.color = BLACK_COLOR,
+    this.color = COMMON_BLACK_COLOR,
     this.iconDataSize = 24.0,
   });
 }

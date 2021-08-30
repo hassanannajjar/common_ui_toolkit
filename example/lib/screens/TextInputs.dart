@@ -37,14 +37,14 @@ class TextInputs extends StatelessWidget {
                 style: CommonTextInputModel(
                   text: 'Intial text input value',
                   counterText: null,
-                  focusBorderColor: BLACK_COLOR,
+                  focusBorderColor: COMMON_BLACK_COLOR,
                   prefixIcon: CommonIcon(
                     containerStyle: CommonContainerModel(
                       marginHorizontal: DEVICE_WIDTH * 0.01,
                     ),
                     path: Icons.ac_unit_rounded,
                     iconDataSize: DEVICE_WIDTH * 0.05,
-                    color: RED_COLOR,
+                    color: COMMON_RED_COLOR,
                   ),
                   suffixIcon: CommonIcon(
                     containerStyle: CommonContainerModel(
@@ -52,7 +52,7 @@ class TextInputs extends StatelessWidget {
                       height: DEVICE_WIDTH * 0.04,
                       marginHorizontal: DEVICE_WIDTH * 0.01,
                     ),
-                    color: RED_COLOR,
+                    color: COMMON_RED_COLOR,
                     path: 'assets/icons/account_icon.svg',
                   ),
                 ),
@@ -73,14 +73,14 @@ class TextInputs extends StatelessWidget {
                     color: Colors.red,
                   ),
                   borderWidth: 3,
-                  focusBorderColor: RED_COLOR,
-                  fillColor: GREY_COLOR,
+                  focusBorderColor: COMMON_RED_COLOR,
+                  fillColor: COMMON_GREY_COLOR,
                   prefixWidget: CommonText(
                     containerStyle: CommonContainerModel(
                       marginHorizontal: DEVICE_WIDTH * 0.03,
                     ),
                     style: CommonTextModel(
-                      fontColor: WHITE_COLOR,
+                      fontColor: COMMON_WHITE_COLOR,
                     ),
                     text: '+966',
                   ),
@@ -89,7 +89,7 @@ class TextInputs extends StatelessWidget {
                       marginHorizontal: DEVICE_WIDTH * 0.03,
                     ),
                     style: CommonTextModel(
-                      fontColor: WHITE_COLOR,
+                      fontColor: COMMON_WHITE_COLOR,
                     ),
                     text: 'Palestine',
                   ),
@@ -106,7 +106,7 @@ class TextInputs extends StatelessWidget {
                   radius: 0,
                   enabled: false,
                   borderWidth: 2,
-                  disabledColor: RED_COLOR,
+                  disabledColor: COMMON_RED_COLOR,
                   hint: 'Search',
                 ),
               ),
@@ -120,13 +120,13 @@ class TextInputs extends StatelessWidget {
                   style: CommonTextInputModel(
                     underlined: true,
                     cursorWidth: 10,
-                    cursorColor: RED_COLOR,
+                    cursorColor: COMMON_RED_COLOR,
                     // showCursor: false,
                     cursorRadius: Radius.circular(100),
                     hint: 'Search',
                     cursorHeight: 30,
                     borderWidth: 3,
-                    focusBorderColor: RED_COLOR,
+                    focusBorderColor: COMMON_RED_COLOR,
                     prefixIcon: CommonIcon(
                       containerStyle: CommonContainerModel(
                         marginHorizontal: 16.0,
@@ -144,8 +144,8 @@ class TextInputs extends StatelessWidget {
               ),
               CommonTextInput(
                 style: CommonTextInputModel(
-                  cursorColor: RED_COLOR,
-                  focusBorderColor: RED_COLOR,
+                  cursorColor: COMMON_RED_COLOR,
+                  focusBorderColor: COMMON_RED_COLOR,
                   hint: 'Type...',
                   textInputType: TextInputType.multiline,
                   minLines: 7,

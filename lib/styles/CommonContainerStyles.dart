@@ -9,7 +9,7 @@ class CommonContainerStyle {
     shadowOffsetDX: 0.0,
     shadowOffsetDY: 30.0,
     shadowOpacity: 0.2,
-    backgroundColor: WHITE_COLOR,
+    backgroundColor: COMMON_WHITE_COLOR,
   );
 
   /// container style with full shadow custome CommonContainerModel.
@@ -20,8 +20,8 @@ class CommonContainerStyle {
     shadowOffsetDX: 0.6,
     shadowOffsetDY: 0.5,
     shadowOpacity: 0.2,
-    backgroundColor: WHITE_COLOR,
-    shadowColor: BLACK_COLOR,
+    backgroundColor: COMMON_WHITE_COLOR,
+    shadowColor: COMMON_BLACK_COLOR,
   );
 
   /// container style with no shadow custome CommonContainerModel.

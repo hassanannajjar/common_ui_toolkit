@@ -3,7 +3,7 @@ import 'package:common_ui_toolkit/index.dart';
 
 class DatePickers extends StatelessWidget {
   CommonTextModel textStyle = CommonTextStyles().h3Style().copyWith(
-        fontColor: PR_COLOR,
+        fontColor: COMMON_PR_COLOR,
       );
   CommonContainerModel containerStyle = CommonContainerModel(
     marginVertical: 25,

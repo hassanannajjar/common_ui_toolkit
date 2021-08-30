@@ -445,7 +445,7 @@ class CommonContainerModel {
                   width: borderTopWidth ?? borderWidth!,
                   style: borderTopStyle ?? borderStyle!,
                 )
-              : BorderSide(color: Color(TRANSPARENT_COLOR)),
+              : BorderSide(color: Color(COMMON_TRANSPARENT_COLOR)),
 
           // ///
           // /// handel right border.
@@ -456,7 +456,7 @@ class CommonContainerModel {
                   width: borderRightWidth ?? borderWidth!,
                   style: borderRightStyle ?? borderStyle!,
                 )
-              : BorderSide(color: Color(TRANSPARENT_COLOR)),
+              : BorderSide(color: Color(COMMON_TRANSPARENT_COLOR)),
 
           ///
           /// handel bottom border.
@@ -467,7 +467,7 @@ class CommonContainerModel {
                   width: borderBottomWidth ?? borderWidth!,
                   style: borderBottomStyle ?? borderStyle!,
                 )
-              : BorderSide(color: Color(TRANSPARENT_COLOR)),
+              : BorderSide(color: Color(COMMON_TRANSPARENT_COLOR)),
 
           ///
           /// handel left border.
@@ -478,7 +478,7 @@ class CommonContainerModel {
                   width: borderLeftWidth ?? borderWidth!,
                   style: borderLeftStyle ?? borderStyle!,
                 )
-              : BorderSide(color: Color(TRANSPARENT_COLOR)),
+              : BorderSide(color: Color(COMMON_TRANSPARENT_COLOR)),
         )
 
       ///
@@ -612,8 +612,8 @@ class CommonContainerModel {
     /// color may still be painted by the [decoration] even if this property is
     /// null.
     ///
-    this.backgroundColor = TRANSPARENT_COLOR,
-    this.foregroundColor = TRANSPARENT_COLOR,
+    this.backgroundColor = COMMON_TRANSPARENT_COLOR,
+    this.foregroundColor = COMMON_TRANSPARENT_COLOR,
     this.raduisColor = 0xFF000000,
     this.foregroundraduisColor = 0xFF000000,
     this.loadingColor = 0xFF1DD005,

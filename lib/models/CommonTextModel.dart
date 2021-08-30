@@ -57,7 +57,7 @@ class CommonTextModel {
     this.wordSpacing = 0.0,
     this.iconWidth = 20.0,
     this.iconHeight = 20.0,
-    this.fontSize = H4_FONT,
+    this.fontSize = COMMON_H4_FONT,
     this.decorationThickness,
     this.maxlines,
     this.textScaleFactor = 1.0,
@@ -70,9 +70,9 @@ class CommonTextModel {
     this.iconMarginHorizontal,
 
     // colors
-    this.fontColor = BLACK_COLOR,
-    this.backgroundColor = TRANSPARENT_COLOR,
-    this.decorationColor = BLACK_COLOR,
+    this.fontColor = COMMON_BLACK_COLOR,
+    this.backgroundColor = COMMON_TRANSPARENT_COLOR,
+    this.decorationColor = COMMON_BLACK_COLOR,
     this.decoration = TextDecoration.none,
     this.textDirection,
     this.overflow = TextOverflow.clip,
@@ -80,7 +80,7 @@ class CommonTextModel {
     this.strutStyle,
     this.textHeightBehavior,
     this.textWidthBasis = TextWidthBasis.parent,
-    this.iconColor = BLACK_COLOR,
+    this.iconColor = COMMON_BLACK_COLOR,
 
     // -------------------
     this.fontweight = FontWeight.normal,
