@@ -1,3 +1,5 @@
+library common_ui_toolkit;
+
 export 'package:flutter/material.dart';
 
 export './models/index.dart';

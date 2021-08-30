@@ -1,5 +1,4 @@
 import 'package:example/utils/Constants.dart';
-import 'package:flutter/material.dart';
 import 'package:common_ui_toolkit/index.dart';
 
 class DatePickers extends StatelessWidget {
@@ -35,11 +34,39 @@ class DatePickers extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              CommonPickerTimeLine(
+                DateTime.now(),
+                // dayTextStyle: TextStyle(
+                //   fontSize: 15,
+                // ),
+                // dateTextStyle: TextStyle(
+                //   fontSize: 20,
+                // ),
+
+                headerTextStyle: CommonTextStyles().h3Style().copyWith(
+                      fontweight: FontWeight.bold,
+                    ),
+
+                containerStyle:
+                    CommonContainerStyle().datePickerTimeLineStyle().copyWith(
+                          marginVertical: 15,
+                          width: DEVICE_WIDTH * 0.9,
+                        ),
+                initialSelectedDate: DateTime.now(),
+                inactiveDates: [
+                  DateTime.now().add(Duration(days: 3)),
+                  DateTime.now().add(Duration(days: 4)),
+                  DateTime.now().add(Duration(days: 7))
+                ],
+                onDateChange: (date) {
+                  print(date);
+                },
+              ),
               CommonText(
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
-                  commonDatePicker.showDatePicker(context,
+                  CommonDatePicker.showDatePicker(context,
                       showTitleActions: true,
                       minTime: DateTime(2018, 3, 5),
                       maxTime: DateTime(2019, 6, 7),
@@ -65,7 +92,7 @@ class DatePickers extends StatelessWidget {
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
-                  commonDatePicker.showTimePicker(context,
+                  CommonDatePicker.showTimePicker(context,
                       showTitleActions: true, onChanged: (date) {
                     print('change $date in time zone ' +
                         date.timeZoneOffset.inHours.toString());
@@ -79,7 +106,7 @@ class DatePickers extends StatelessWidget {
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
-                  commonDatePicker.showTime12hPicker(context,
+                  CommonDatePicker.showTime12hPicker(context,
                       showTitleActions: true, onChanged: (date) {
                     print('change $date in time zone ' +
                         date.timeZoneOffset.inHours.toString());
@@ -93,7 +120,7 @@ class DatePickers extends StatelessWidget {
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
-                  commonDatePicker.showDateTimePicker(context,
+                  CommonDatePicker.showDateTimePicker(context,
                       showTitleActions: true,
                       minTime: DateTime(2020, 5, 5, 20, 50),
                       maxTime: DateTime(2020, 6, 7, 05, 09), onChanged: (date) {
@@ -109,7 +136,7 @@ class DatePickers extends StatelessWidget {
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
-                  commonDatePicker.showDateTimePicker(context,
+                  CommonDatePicker.showDateTimePicker(context,
                       showTitleActions: true, onChanged: (date) {
                     print('change $date in time zone ' +
                         date.timeZoneOffset.inHours.toString());
@@ -123,7 +150,7 @@ class DatePickers extends StatelessWidget {
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
-                  commonDatePicker.showDateTimePicker(context,
+                  CommonDatePicker.showDateTimePicker(context,
                       showTitleActions: true, onChanged: (date) {
                     print('change $date in time zone ' +
                         date.timeZoneOffset.inHours.toString());
@@ -139,7 +166,7 @@ class DatePickers extends StatelessWidget {
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
-                  commonDatePicker.showDateTimePicker(context,
+                  CommonDatePicker.showDateTimePicker(context,
                       showTitleActions: true, onChanged: (date) {
                     print('change $date in time zone ' +
                         date.timeZoneOffset.inHours.toString());
@@ -155,7 +182,7 @@ class DatePickers extends StatelessWidget {
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
-                  commonDatePicker.showDateTimePicker(context,
+                  CommonDatePicker.showDateTimePicker(context,
                       showTitleActions: true, onChanged: (date) {
                     print('change $date in time zone ' +
                         date.timeZoneOffset.inHours.toString());
@@ -171,7 +198,7 @@ class DatePickers extends StatelessWidget {
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
-                  commonDatePicker.showPicker(
+                  CommonDatePicker.showPicker(
                     context,
                     showTitleActions: true,
                     onChanged: (date) {
