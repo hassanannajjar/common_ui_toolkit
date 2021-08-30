@@ -53,3 +53,7 @@
 
 ## 0.1.9
 * fixed date picker time line problem width problem.
+
+## 0.2.0
+* Added text input component.
+* Added examples in text inputs screen 
