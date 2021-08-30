@@ -51,9 +51,13 @@
 ## 0.1.7
 * Added date picker time line and fixed border width problem.
 
-## 0.1.9
-* fixed date picker time line problem width problem.
+
+## 0.2.1
+* fixed date picker time line problem width problem .
 
 ## 0.2.2
 * Added text input component.
 * Added examples in text inputs screen 
+
+## 0.2.3
+* Added constants keyword before constants attributes.
