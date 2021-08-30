@@ -48,7 +48,7 @@ class _CommonTextInputState extends State<CommonTextInput> {
             ),
         scrollPhysics: BouncingScrollPhysics(),
         minLines: style!.minLines,
-        maxLines: style!.maxLines,
+        maxLines: style!.obscureText! ? 1 : style!.maxLines,
         maxLength: style!.maxLength,
 
         /// If there is only textInputPattern then we create a list that handles only one item of input formatters,

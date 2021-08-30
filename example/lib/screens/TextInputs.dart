@@ -154,6 +154,18 @@ class TextInputs extends StatelessWidget {
                   minLines: 7,
                 ),
               ),
+              CommonText(
+                text: 'Password text input',
+                containerStyle: CommonContainerModel(
+                  marginTop: DEVICE_WIDTH * 0.03,
+                ),
+              ),
+              CommonTextInput(
+                style: CommonTextInputModel(
+                  hint: '******',
+                  obscureText: true,
+                ),
+              ),
             ],
           ),
         ),

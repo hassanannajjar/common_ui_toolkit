@@ -106,7 +106,7 @@ class CommonTextInputModel {
     this.showCursor = true,
     this.enabled = true,
     this.minLength = 6,
-    this.maxLength = 100,
+    this.maxLength,
     this.fillColor = COMMON_TRANSPARENT_COLOR,
     this.cursorColor = COMMON_PR_COLOR,
     this.foucsNode,
