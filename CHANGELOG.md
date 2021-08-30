@@ -61,3 +61,7 @@
 
 ## 0.2.3
 * Added constants keyword before constants attributes.
+
+## 0.2.4
+* Added on press to common icon.
+* Added missing copy with function to text input field.
