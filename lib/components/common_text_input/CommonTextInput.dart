@@ -32,7 +32,8 @@ class _CommonTextInputState extends State<CommonTextInput> {
   @override
   Widget build(BuildContext context) {
     style = widget.style ?? CommonTextInputModel();
-    widget.textEditingController = TextEditingController(text: style!.text);
+    widget.textEditingController = widget.textEditingController ??
+        TextEditingController(text: style!.text);
     return CommonContainer(
       style: widget.containerStyle,
       child: TextFormField(
@@ -129,7 +130,9 @@ class _CommonTextInputState extends State<CommonTextInput> {
               alignLabelWithHint: true,
             ),
         onChanged: (value) {
-          widget.onChanged!(value);
+          if (widget.onChanged != null) {
+            widget.onChanged!(value);
+          }
         },
       ),
     );
