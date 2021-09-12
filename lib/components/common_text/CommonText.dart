@@ -28,8 +28,8 @@ class CommonText extends StatelessWidget {
   /// handel opPress function
   Function? onPress;
 
-  /// text and iconPath
-  String? text, iconPath;
+  /// text
+  String? text;
 
   List<InlineSpan>? inlineSpans;
 
@@ -39,7 +39,6 @@ class CommonText extends StatelessWidget {
   CommonText({
     this.text,
     this.onPress,
-    this.iconPath,
     this.leftChild,
     this.rightChild,
     this.topChild,
@@ -63,7 +62,7 @@ class CommonText extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              getIcon(iconPath, style),
+              if (style!.prefixIcon != null) getIcon(style!.prefixIcon!),
               if (leftChild != null) leftChild!,
               Flexible(
                 child: RichText(

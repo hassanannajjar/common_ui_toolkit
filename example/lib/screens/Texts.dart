@@ -100,9 +100,11 @@ class Texts extends StatelessWidget {
           /// Text with all side children with an icon
           CommonText(
             style: CommonTextModel(
-              iconColor: COMMON_RED_COLOR,
+              prefixIcon: CommonIcon(
+                path: 'assets/icons/account_icon.svg',
+                color: COMMON_RED_COLOR,
+              ),
             ),
-            iconPath: 'assets/icons/account_icon.svg',
             text: 'Common text with',
             inlineSpans: [
               TextSpan(

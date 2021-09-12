@@ -138,44 +138,6 @@ class _CommonTextInputState extends State<CommonTextInput> {
     );
   }
 
-  getIcon(CommonIcon icon) {
-    return CommonContainer(
-      onPress: () {
-        if (icon.onPress != null) {
-          icon.onPress!();
-        }
-      },
-      style: icon.containerStyle ?? CommonContainerModel(),
-      child: icon.path.runtimeType == IconData
-          ? Icon(
-              icon.path, // icon data takes only size without width and height, so we need to use size instead. we pass the width to be the size of the icon.
-              size: icon.iconDataSize,
-              color: generateIconColor(icon.color),
-            )
-          : icon.path.startsWith('http')
-              ? icon.path.endsWith('svg')
-                  ? SvgPicture.network(
-                      icon.path,
-                      color: generateIconColor(icon.color),
-                    )
-                  : Image.network(
-                      icon.path,
-                    )
-              : icon.path.endsWith('svg')
-                  ? SvgPicture.asset(
-                      icon.path,
-                      color: generateIconColor(icon.color),
-                    )
-                  : Image.asset(
-                      icon.path,
-                    ),
-    );
-  }
-
-  generateIconColor(color) => Color(
-        style!.enabled! ? color : style!.disabledColor!,
-      );
-
   getOutlineInputBorder({borderColor}) {
     return style!.underlined!
         ? UnderlineInputBorder(

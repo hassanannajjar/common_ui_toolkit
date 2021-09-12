@@ -45,22 +45,39 @@ getContentPaddingEdgeInsets(style) => EdgeInsets.fromLTRB(
     );
 
 /// return the icon and style with custom function.
-getIcon(path, style) {
-  if (path != null) {
-    return Container(
-      width: style!.iconWidth,
-      height: style!.iconHeight,
-      margin: getIconMarginEdgeInsets(style),
-      child: path!.contains('png') || path!.contains('jpg')
-          ? Image.asset(path!)
-          : SvgPicture.asset(
-              path,
-              color: style!.iconColor != null ? Color(style!.iconColor!) : null,
-            ),
-    );
-  } else {
-    return Padding(padding: EdgeInsets.zero);
-  }
+
+getIcon(CommonIcon icon) {
+  return CommonContainer(
+    onPress: () {
+      if (icon.onPress != null) {
+        icon.onPress!();
+      }
+    },
+    style: icon.containerStyle ?? CommonContainerModel(),
+    child: icon.path.runtimeType == IconData
+        ? Icon(
+            icon.path, // icon data takes only size without width and height, so we need to use size instead. we pass the width to be the size of the icon.
+            size: icon.iconDataSize,
+            color: Color(icon.color!),
+          )
+        : icon.path.startsWith('http')
+            ? icon.path.endsWith('svg')
+                ? SvgPicture.network(
+                    icon.path,
+                    color: Color(icon.color!),
+                  )
+                : Image.network(
+                    icon.path,
+                  )
+            : icon.path.endsWith('svg')
+                ? SvgPicture.asset(
+                    icon.path,
+                    color: Color(icon.color!),
+                  )
+                : Image.asset(
+                    icon.path,
+                  ),
+  );
 }
 
 int calculateDateCount(int year, int month) {

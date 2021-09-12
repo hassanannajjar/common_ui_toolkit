@@ -8,25 +8,15 @@ class CommonTextModel {
   double? letterSpacing;
   double? wordSpacing;
   double? decorationThickness;
-  double? iconWidth;
-  double? iconHeight;
+
   double? fontSize;
   double textScaleFactor;
   int? maxlines;
-
-  double? iconMargin = 0.0;
-  double? iconMarginTop;
-  double? iconMarginBottom;
-  double? iconMarginRight;
-  double? iconMarginLeft;
-  double? iconMarginVertical;
-  double? iconMarginHorizontal;
 
   // colors
   int? fontColor;
   int? backgroundColor;
   int? decorationColor;
-  int? iconColor;
 
   TextDecoration? decoration;
   TextDirection? textDirection;
@@ -50,24 +40,18 @@ class CommonTextModel {
   String? fontFamily;
   String? debugLabel;
 
+  // Icons
+  CommonIcon? prefixIcon;
+
   CommonTextModel({
     //sizes
     this.height,
     this.letterSpacing = 0.0,
     this.wordSpacing = 0.0,
-    this.iconWidth = 20.0,
-    this.iconHeight = 20.0,
     this.fontSize = COMMON_H4_FONT,
     this.decorationThickness,
     this.maxlines,
     this.textScaleFactor = 1.0,
-    this.iconMargin = 0.0,
-    this.iconMarginTop,
-    this.iconMarginBottom,
-    this.iconMarginRight,
-    this.iconMarginLeft,
-    this.iconMarginVertical,
-    this.iconMarginHorizontal,
 
     // colors
     this.fontColor = COMMON_BLACK_COLOR,
@@ -80,7 +64,6 @@ class CommonTextModel {
     this.strutStyle,
     this.textHeightBehavior,
     this.textWidthBasis = TextWidthBasis.parent,
-    this.iconColor = COMMON_BLACK_COLOR,
 
     // -------------------
     this.fontweight = FontWeight.normal,
@@ -97,6 +80,7 @@ class CommonTextModel {
     this.decorationStyle,
     this.debugLabel,
     this.fontFamilyFallback,
+    this.prefixIcon,
   });
 
   CommonTextModel copyWith({
@@ -156,28 +140,19 @@ class CommonTextModel {
     List<String>? fontFamilyFallback,
     String? fontFamily,
     String? debugLabel,
+    CommonIcon? prefixIcon,
   }) {
     return CommonTextModel(
       height: height ?? this.height,
       letterSpacing: letterSpacing ?? this.letterSpacing,
       wordSpacing: wordSpacing ?? this.wordSpacing,
       decorationThickness: decorationThickness ?? this.decorationThickness,
-      iconWidth: iconWidth ?? this.iconWidth,
-      iconHeight: iconHeight ?? this.iconHeight,
       fontSize: fontSize ?? this.fontSize,
       textScaleFactor: textScaleFactor ?? this.textScaleFactor,
       maxlines: maxlines ?? this.maxlines,
-      iconMargin: iconMargin ?? this.iconMargin,
-      iconMarginTop: iconMarginTop ?? this.iconMarginTop,
-      iconMarginBottom: iconMarginBottom ?? this.iconMarginBottom,
-      iconMarginRight: iconMarginRight ?? this.iconMarginRight,
-      iconMarginLeft: iconMarginLeft ?? this.iconMarginLeft,
-      iconMarginVertical: iconMarginVertical ?? this.iconMarginVertical,
-      iconMarginHorizontal: iconMarginHorizontal ?? this.iconMarginHorizontal,
       fontColor: fontColor ?? this.fontColor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       decorationColor: decorationColor ?? this.decorationColor,
-      iconColor: iconColor ?? this.iconColor,
       decoration: textDecoration ?? this.decoration,
       textDirection: textDirection ?? this.textDirection,
       overflow: overflow ?? this.overflow,
@@ -199,6 +174,7 @@ class CommonTextModel {
       fontFamilyFallback: fontFamilyFallback ?? this.fontFamilyFallback,
       fontFamily: fontFamily ?? this.fontFamily,
       debugLabel: debugLabel ?? this.debugLabel,
+      prefixIcon: prefixIcon ?? this.prefixIcon,
     );
   }
 }
