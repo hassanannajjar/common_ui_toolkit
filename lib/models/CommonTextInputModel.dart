@@ -4,10 +4,24 @@ import 'package:common_ui_toolkit/index.dart';
 import 'package:common_ui_toolkit/models/CommonIcon.dart';
 
 class CommonTextInputModel {
-  /// Sizes
+  ///
+  /// border width
+  ///
   double? borderWidth;
+
+  ///
+  /// fontSize
+  ///
   double? fontSize;
+
+  ///
+  /// radius
+  ///
   double? radius;
+
+  ///
+  /// contentPadding from all sides
+  ///
   double? contentPadding;
   double? contentPaddingTop;
   double? contentPaddingBottom;
@@ -15,6 +29,10 @@ class CommonTextInputModel {
   double? contentPaddingLeft;
   double? contentPaddingVertical;
   double? contentPaddingHorizontal;
+
+  ///
+  /// prefix & suffix min & max width & height
+  ///
   double? prefixMinWidth;
   double? prefixMinHeight;
   double? prefixMaxWidth;
@@ -23,6 +41,10 @@ class CommonTextInputModel {
   double? suffixMinHeight;
   double? suffixMaxWidth;
   double? suffixMaxHeight;
+
+  ///
+  /// cursor width and height
+  ///
   double? cursorHeight;
   double? cursorWidth;
 
@@ -52,19 +74,49 @@ class CommonTextInputModel {
   Widget? counterWidget;
 
   // If you pass prefixWidget then prefixIcon is ignored.
-  // Icons
+  // prefix and suffix icons
   CommonIcon? prefixIcon;
   CommonIcon? suffixIcon;
 
+  ///
+  /// focus node
+  ///
   FocusNode? foucsNode;
+
+  ///
+  /// font weight
+  ///
   int? fontWeight;
 
+  ///
+  /// hint
+  ///
   String? hint;
+
+  ///
+  /// font family
+  ///
   String? fontFamily;
+
+  ///
+  /// text
+  ///
   String? text;
+
+  ///
+  /// prefix and suffix texts
+  ///
   String? prefixText;
   String? suffixText;
+
+  ///
+  /// counter text
+  ///
   String? counterText;
+
+  ///
+  /// semantic counter text
+  ///
   String? semanticCounterText;
 
   bool? isRequired;
@@ -78,6 +130,7 @@ class CommonTextInputModel {
   // This is a hack to make the text input verified when user finishs typing the right crospondign content based on input type
   bool? withInputVerification;
 
+  // types: (EMAIL_INPUT_TYPE, TEXT_INPUT_TYPE , NUMBER_INPUT_TYPE, PASSWORD_INPUT_TYPE)
   TextInputType? textInputType;
   TextAlign? textAlign;
   TextInputAction? textInputAction;
@@ -94,7 +147,6 @@ class CommonTextInputModel {
 
   CommonTextInputModel({
     this.hint,
-    // types: (EMAIL_INPUT_TYPE, TEXT_INPUT_TYPE , NUMBER_INPUT_TYPE, PASSWORD_INPUT_TYPE)
     this.textInputType,
     this.isRequired = false,
     this.withBorderSide = true,
