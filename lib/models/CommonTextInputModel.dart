@@ -119,26 +119,87 @@ class CommonTextInputModel {
   ///
   String? semanticCounterText;
 
+  ///
+  /// is required
+  ///
   bool? isRequired;
+
+  ///
+  /// with border side
+  ///
   bool? withBorderSide;
+
+  ///
+  /// underlined
+  ///
   bool? underlined;
+
+  ///
+  /// is collapsed
+  ///
   bool? isCollapsed;
+
+  ///
+  /// read only
+  ///
   bool? readOnly;
+
+  ///
+  /// obscure text
+  ///
   bool? obscureText;
+
+  ///
+  /// enabled
+  ///
   bool? enabled;
+
+  ///
+  /// show cursor
+  ///
   bool? showCursor;
+
   // This is a hack to make the text input verified when user finishs typing the right crospondign content based on input type
   bool? withInputVerification;
 
   // types: (EMAIL_INPUT_TYPE, TEXT_INPUT_TYPE , NUMBER_INPUT_TYPE, PASSWORD_INPUT_TYPE)
   TextInputType? textInputType;
+
+  ///
+  /// text align
+  ///
   TextAlign? textAlign;
+
+  ///
+  /// text input action
+  ///
   TextInputAction? textInputAction;
+
+  ///
+  /// text style
+  ///
   TextStyle? textStyle;
+
+  ///
+  /// hint style
+  ///
   TextStyle? hintStyle;
+
+  ///
+  /// prefix style
+  ///
   TextStyle? prefixStyle;
+
+  ///
+  /// suffix style
+  ///
   TextStyle? suffixStyle;
+
+  ///
+  /// counter style
+  ///
   TextStyle? counterStyle;
+
   // ex: RegExp(r'^\d*')
   Pattern? textInputPattern;
   List<TextInputFormatter>? textInputFormatters;
