@@ -36,7 +36,6 @@ class TextInputs extends StatelessWidget {
               CommonTextInput(
                 style: CommonTextInputModel(
                   text: 'Intial text input value',
-                  counterText: null,
                   focusBorderColor: COMMON_BLACK_COLOR,
                   prefixIcon: CommonIcon(
                     onPress: () {

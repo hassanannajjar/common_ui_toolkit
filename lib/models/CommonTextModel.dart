@@ -3,41 +3,127 @@ import 'dart:ui';
 import 'package:common_ui_toolkit/index.dart';
 
 class CommonTextModel {
-  //sizes
+  ///
+  /// sizes
+  ///
   double? height;
   double? letterSpacing;
   double? wordSpacing;
   double? decorationThickness;
-
   double? fontSize;
   double textScaleFactor;
   int? maxlines;
 
-  // colors
+  ///
+  /// colors
+  ///
   int? fontColor;
   int? backgroundColor;
   int? decorationColor;
 
+  ///
+  /// decoration
+  ///
   TextDecoration? decoration;
+
+  ///
+  /// text direction
+  ///
   TextDirection? textDirection;
+
+  ///
+  /// overflow
+  ///
   TextOverflow overflow;
+
+  ///
+  /// soft wrap
+  ///
   bool softWrap;
+
+  ///
+  /// struct style
+  ///
   StrutStyle? strutStyle;
+
+  ///
+  /// text height behavior
+  ///
   TextHeightBehavior? textHeightBehavior;
+
+  ///
+  /// text width basis
+  ///
   TextWidthBasis textWidthBasis;
+
+  ///
+  /// decoration style
+  ///
   TextDecorationStyle? decorationStyle;
+
+  ///
+  /// font weight
+  ///
   FontWeight? fontweight;
+
+  ///
+  /// text align
+  ///
   TextAlign textAlign;
+
+  ///
+  /// font style
+  ///
   FontStyle? fontStyle;
+
+  ///
+  /// text base line
+  ///
   TextBaseline? textBaseline;
+
+  ///
+  /// leading distribution
+  ///
   TextLeadingDistribution? leadingDistribution;
+
+  ///
+  /// locale
+  ///
   Locale? locale;
+
+  ///
+  /// forground
+  ///
   Paint? foreground;
+
+  ///
+  /// background
+  ///
   Paint? background;
+
+  ///
+  /// shadows
+  ///
   List<Shadow>? shadows;
+
+  ///
+  /// font features
+  ///
   List<FontFeature>? fontFeatures;
+
+  ///
+  /// font family fallback
+  ///
   List<String>? fontFamilyFallback;
+
+  ///
+  /// font family
+  ///
   String? fontFamily;
+
+  ///
+  /// debug label
+  ///
   String? debugLabel;
 
   // Icons
@@ -88,44 +174,19 @@ class CommonTextModel {
     double? letterSpacing,
     double? wordSpacing,
     double? decorationThickness,
-    double? iconWidth,
-    double? iconHeight,
     double? fontSize,
     double? textScaleFactor,
     int? maxlines,
-    double? padding,
-    double? paddingTop,
-    double? paddingBottom,
-    double? paddingRight,
-    double? paddingLeft,
-    double? paddingVertical,
-    double? paddingHorizontal,
-    double? margin,
-    double? marginTop,
-    double? marginBottom,
-    double? marginRight,
-    double? marginLeft,
-    double? marginVertical,
-    double? marginHorizontal,
-    double? iconMargin,
-    double? iconMarginTop,
-    double? iconMarginBottom,
-    double? iconMarginRight,
-    double? iconMarginLeft,
-    double? iconMarginVertical,
-    double? iconMarginHorizontal,
     int? fontColor,
     int? backgroundColor,
     int? decorationColor,
-    int? iconColor,
-    TextDecoration? textDecoration,
+    TextDecoration? decoration,
     TextDirection? textDirection,
     TextOverflow? overflow,
     bool? softWrap,
     StrutStyle? strutStyle,
     TextHeightBehavior? textHeightBehavior,
     TextWidthBasis? textWidthBasis,
-    Decoration? decoration,
     TextDecorationStyle? decorationStyle,
     FontWeight? fontweight,
     TextAlign? textAlign,
@@ -153,7 +214,7 @@ class CommonTextModel {
       fontColor: fontColor ?? this.fontColor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       decorationColor: decorationColor ?? this.decorationColor,
-      decoration: textDecoration ?? this.decoration,
+      decoration: decoration ?? this.decoration,
       textDirection: textDirection ?? this.textDirection,
       overflow: overflow ?? this.overflow,
       softWrap: softWrap ?? this.softWrap,

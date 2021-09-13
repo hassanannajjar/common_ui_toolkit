@@ -200,10 +200,25 @@ class CommonTextInputModel {
   ///
   TextStyle? counterStyle;
 
-  // ex: RegExp(r'^\d*')
+  ///
+  /// ex: RegExp(r'^\d*')
+  /// text input pattern
+  ///
   Pattern? textInputPattern;
+
+  ///
+  /// text input formatters
+  ///
   List<TextInputFormatter>? textInputFormatters;
+
+  ///
+  /// input decoration
+  ///
   InputDecoration? inputDecoration;
+
+  ///
+  /// cursor radius
+  ///
   Radius? cursorRadius;
 
   CommonTextInputModel({
