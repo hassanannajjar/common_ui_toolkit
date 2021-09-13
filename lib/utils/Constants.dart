@@ -29,13 +29,14 @@ var pixelRatio = window.devicePixelRatio;
 
 // ----------------------------------------
 
-//Size in physical pixels
+/// Size in physical pixels
 var physicalScreenSize = window.physicalSize;
 var physicalWidth = physicalScreenSize.width;
 var physicalHeight = physicalScreenSize.height;
 
-//Size in logical pixels
+/// Size in logical pixels
 var logicalScreenSize = window.physicalSize / pixelRatio;
-// ignore: duplicate_ignore
+
+///  ignore: duplicate_ignore
 var DEVICE_WIDTH = logicalScreenSize.width;
 var DEVICE_HEIGHT = logicalScreenSize.height;
