@@ -1,5 +1,3 @@
-import 'package:common_ui_toolkit/components/common_text_input/CommonTextInput.dart';
-import 'package:common_ui_toolkit/models/CommonTextInputModel.dart';
 import 'package:flutter/material.dart';
 import 'package:common_ui_toolkit/index.dart';
 
