@@ -126,11 +126,11 @@ class CommonTextModel {
   ///
   String? debugLabel;
 
-  // Icons
+  /// prefix icon
   CommonIcon? prefixIcon;
 
   CommonTextModel({
-    //sizes
+    ///sizes
     this.height,
     this.letterSpacing = 0.0,
     this.wordSpacing = 0.0,
@@ -139,7 +139,7 @@ class CommonTextModel {
     this.maxlines,
     this.textScaleFactor = 1.0,
 
-    // colors
+    /// colors
     this.fontColor = COMMON_BLACK_COLOR,
     this.backgroundColor = COMMON_TRANSPARENT_COLOR,
     this.decorationColor = COMMON_BLACK_COLOR,

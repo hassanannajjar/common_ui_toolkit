@@ -48,7 +48,7 @@ class CommonTextInputModel {
   double? cursorHeight;
   double? cursorWidth;
 
-  // Colors
+  /// Colors
   int? textColor;
   int? disabledColor;
   int? errorColor;
@@ -60,21 +60,21 @@ class CommonTextInputModel {
   int? fillColor;
   int? cursorColor;
 
-  // Lengths
+  /// Lengths
   int? maxLength;
   int? minLength;
   int? minLines;
   int? maxLines;
 
-  // Widgets
+  /// Widgets
   Widget? prefixWidget;
   Widget? suffixWidget;
   Widget? prefix;
   Widget? suffix;
   Widget? counterWidget;
 
-  // If you pass prefixWidget then prefixIcon is ignored.
-  // prefix and suffix icons
+  /// If you pass prefixWidget then prefixIcon is ignored.
+  /// prefix and suffix icons
   CommonIcon? prefixIcon;
   CommonIcon? suffixIcon;
 
