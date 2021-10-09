@@ -145,7 +145,7 @@ class CommonContainer extends StatelessWidget {
               backgroundBlendMode: style!.foregroundBlendMode,
               shape: style!.foregroundboxShape!,
               border: style!.getforegroundBorder(),
-              borderRadius: style!.getForegroundBorderRaduis(),
+              borderRadius: style!.getForegroundBorderRadius(),
               color: Color(style!.foregroundColor!),
               boxShadow: <BoxShadow>[
                 BoxShadow(
@@ -197,7 +197,7 @@ class CommonContainer extends StatelessWidget {
               backgroundBlendMode: style!.backgroundBlendMode,
               shape: style!.boxShape!,
               border: style!.getBorder(),
-              borderRadius: style!.getBorderRaduis(),
+              borderRadius: style!.getBorderRadius(),
               color: Color(style!.backgroundColor!),
               boxShadow: <BoxShadow>[
                 BoxShadow(

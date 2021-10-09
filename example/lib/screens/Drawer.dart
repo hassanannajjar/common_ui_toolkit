@@ -76,7 +76,7 @@ class DrawerHeader extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             shadowOffsetDY: 10,
             backgroundColor: PRIMARY_COLOR,
-            borderRaduis: 0,
+            borderRadius: 0,
             bottomLeftRadius: 30,
             bottomRightRadius: 30,
           ),

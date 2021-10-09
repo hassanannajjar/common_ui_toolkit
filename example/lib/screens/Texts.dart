@@ -80,7 +80,7 @@ class Texts extends StatelessWidget {
           CommonText(
             containerStyle: CommonContainerModel(
               padding: 16.0,
-              borderRaduis: 16.0,
+              borderRadius: 16.0,
               marginBottom: 16.0,
               marginVertical: 16.0,
               backgroundColor: COMMON_BLACK_COLOR,

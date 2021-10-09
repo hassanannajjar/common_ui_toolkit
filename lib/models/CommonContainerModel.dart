@@ -71,12 +71,12 @@ class CommonContainerModel {
   double? foregroundshadowOffsetDY;
   double? foregroundshadowOpacity;
 
-  // raduis
+  // Radius
   double? bottomLeftRadius;
   double? bottomRightRadius;
   double? topLeftRadius;
   double? topRightRadius;
-  double? borderRaduis;
+  double? borderRadius;
   double? borderWidth;
   double? borderTopWidth;
   double? borderBottomWidth;
@@ -87,7 +87,7 @@ class CommonContainerModel {
   double? foregroundbottomRightRadius;
   double? foregroundtopLeftRadius;
   double? foregroundtopRightRadius;
-  double? foregroundborderRaduis;
+  double? foregroundborderRadius;
   double? foregroundborderWidth;
   double? foregroundborderTopWidth;
   double? foregroundborderBottomWidth;
@@ -95,7 +95,7 @@ class CommonContainerModel {
   double? foregroundborderLeftWidth;
 
   // colors
-  int? raduisColor;
+  int? RadiusColor;
   int? shadowColor;
   int? backgroundColor;
   int? borderColor;
@@ -105,7 +105,7 @@ class CommonContainerModel {
   int? borderLeftColor;
   int? loadingColor;
 
-  int? foregroundraduisColor;
+  int? foregroundRadiusColor;
   int? foregroundshadowColor;
   int? foregroundColor;
   int? foregroundborderColor;
@@ -383,14 +383,14 @@ class CommonContainerModel {
       foregroundborderLeftWidth != null;
 
   ///
-  /// get border Raduis.
+  /// get border Radius.
   ///
-  getBorderRaduis() => (boxShape == BoxShape.circle || checkBorderNull())
+  getBorderRadius() => (boxShape == BoxShape.circle || checkBorderNull())
       ? null
-      : (borderRaduis == 0
+      : (borderRadius == 0
 
           ///
-          /// return every single raduis.
+          /// return every single Radius.
           ///
           ? BorderRadius.only(
               topRight: Radius.circular(topRightRadius!),
@@ -400,22 +400,22 @@ class CommonContainerModel {
             )
 
           ///
-          /// return all raduis.
+          /// return all Radius.
           ///
           : BorderRadius.all(
-              Radius.circular(borderRaduis!),
+              Radius.circular(borderRadius!),
             ));
 
   ///
-  /// get border Raduis.
+  /// get border Radius.
   ///
-  getForegroundBorderRaduis() =>
+  getForegroundBorderRadius() =>
       (foregroundboxShape == BoxShape.circle || checkforegroundBorderNull())
           ? null
-          : (foregroundborderRaduis == 0
+          : (foregroundborderRadius == 0
 
               ///
-              /// return every single raduis.
+              /// return every single Radius.
               ///
               ? BorderRadius.only(
                   topRight: Radius.circular(foregroundtopRightRadius!),
@@ -425,10 +425,10 @@ class CommonContainerModel {
                 )
 
               ///
-              /// return all raduis.
+              /// return all Radius.
               ///
               : BorderRadius.all(
-                  Radius.circular(foregroundborderRaduis!),
+                  Radius.circular(foregroundborderRadius!),
                 ));
 
   ///
@@ -614,8 +614,8 @@ class CommonContainerModel {
     ///
     this.backgroundColor = COMMON_TRANSPARENT_COLOR,
     this.foregroundColor = COMMON_TRANSPARENT_COLOR,
-    this.raduisColor = 0xFF000000,
-    this.foregroundraduisColor = 0xFF000000,
+    this.RadiusColor = 0xFF000000,
+    this.foregroundRadiusColor = 0xFF000000,
     this.loadingColor = 0xFF1DD005,
 
     // shadow
@@ -632,17 +632,17 @@ class CommonContainerModel {
     this.foregroundshadowColor = 0xFF000000,
     this.foregroundshadowOpacity = 0.0,
 
-    // raduis
+    // Radius
     this.bottomLeftRadius = 0.0,
     this.bottomRightRadius = 0.0,
     this.topLeftRadius = 0.0,
     this.topRightRadius = 0.0,
-    this.borderRaduis = 0.0,
+    this.borderRadius = 0.0,
     this.foregroundbottomLeftRadius = 0.0,
     this.foregroundbottomRightRadius = 0.0,
     this.foregroundtopLeftRadius = 0.0,
     this.foregroundtopRightRadius = 0.0,
-    this.foregroundborderRaduis = 0.0,
+    this.foregroundborderRadius = 0.0,
 
     // clipBehavior
     this.clipBehavior = Clip.none,
@@ -753,7 +753,7 @@ class CommonContainerModel {
     double? bottomRightRadius,
     double? topLeftRadius,
     double? topRightRadius,
-    double? borderRaduis,
+    double? borderRadius,
     double? borderWidth,
     double? borderTopWidth,
     double? borderBottomWidth,
@@ -763,13 +763,13 @@ class CommonContainerModel {
     double? foregroundbottomRightRadius,
     double? foregroundtopLeftRadius,
     double? foregroundtopRightRadius,
-    double? foregroundborderRaduis,
+    double? foregroundborderRadius,
     double? foregroundborderWidth,
     double? foregroundborderTopWidth,
     double? foregroundborderBottomWidth,
     double? foregroundborderRightWidth,
     double? foregroundborderLeftWidth,
-    int? raduisColor,
+    int? RadiusColor,
     int? shadowColor,
     int? backgroundColor,
     int? borderColor,
@@ -778,7 +778,7 @@ class CommonContainerModel {
     int? borderRightColor,
     int? borderLeftColor,
     int? loadingColor,
-    int? foregroundraduisColor,
+    int? foregroundRadiusColor,
     int? foregroundshadowColor,
     int? foregroundColor,
     int? foregroundborderColor,
@@ -852,7 +852,7 @@ class CommonContainerModel {
       bottomRightRadius: bottomRightRadius ?? this.bottomRightRadius,
       topLeftRadius: topLeftRadius ?? this.topLeftRadius,
       topRightRadius: topRightRadius ?? this.topRightRadius,
-      borderRaduis: borderRaduis ?? this.borderRaduis,
+      borderRadius: borderRadius ?? this.borderRadius,
       borderWidth: borderWidth ?? this.borderWidth,
       borderTopWidth: borderTopWidth ?? this.borderTopWidth,
       borderBottomWidth: borderBottomWidth ?? this.borderBottomWidth,
@@ -866,8 +866,8 @@ class CommonContainerModel {
           foregroundtopLeftRadius ?? this.foregroundtopLeftRadius,
       foregroundtopRightRadius:
           foregroundtopRightRadius ?? this.foregroundtopRightRadius,
-      foregroundborderRaduis:
-          foregroundborderRaduis ?? this.foregroundborderRaduis,
+      foregroundborderRadius:
+          foregroundborderRadius ?? this.foregroundborderRadius,
       foregroundborderWidth:
           foregroundborderWidth ?? this.foregroundborderWidth,
       foregroundborderTopWidth:
@@ -878,7 +878,7 @@ class CommonContainerModel {
           foregroundborderRightWidth ?? this.foregroundborderRightWidth,
       foregroundborderLeftWidth:
           foregroundborderLeftWidth ?? this.foregroundborderLeftWidth,
-      raduisColor: raduisColor ?? this.raduisColor,
+      RadiusColor: RadiusColor ?? this.RadiusColor,
       shadowColor: shadowColor ?? this.shadowColor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       borderColor: borderColor ?? this.borderColor,
@@ -887,8 +887,8 @@ class CommonContainerModel {
       borderRightColor: borderRightColor ?? this.borderRightColor,
       borderLeftColor: borderLeftColor ?? this.borderLeftColor,
       loadingColor: loadingColor ?? this.loadingColor,
-      foregroundraduisColor:
-          foregroundraduisColor ?? this.foregroundraduisColor,
+      foregroundRadiusColor:
+          foregroundRadiusColor ?? this.foregroundRadiusColor,
       foregroundshadowColor:
           foregroundshadowColor ?? this.foregroundshadowColor,
       foregroundColor: foregroundColor ?? this.foregroundColor,
