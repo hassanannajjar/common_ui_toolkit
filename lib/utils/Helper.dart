@@ -57,13 +57,13 @@ getIcon(CommonIcon icon) {
         ? Icon(
             icon.path, // icon data takes only size without width and height, so we need to use size instead. we pass the width to be the size of the icon.
             size: icon.iconDataSize,
-            color: Color(icon.color!),
+            color: getColorType(icon.color!),
           )
         : icon.path.startsWith('http')
             ? icon.path.endsWith('svg')
                 ? SvgPicture.network(
                     icon.path,
-                    color: Color(icon.color!),
+                    color: getColorType(icon.color!),
                   )
                 : Image.network(
                     icon.path,
@@ -71,7 +71,7 @@ getIcon(CommonIcon icon) {
             : icon.path.endsWith('svg')
                 ? SvgPicture.asset(
                     icon.path,
-                    color: Color(icon.color!),
+                    color: getColorType(icon.color!),
                   )
                 : Image.asset(
                     icon.path,

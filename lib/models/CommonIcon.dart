@@ -1,7 +1,7 @@
 import '../index.dart';
 
 class CommonIcon {
-  int? color;
+  dynamic color;
   var path;
 
   /// Flutter built-in icons take `size` not width and height, so this attribute is ignored in case you use assets or network icon
