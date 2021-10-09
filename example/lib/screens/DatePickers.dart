@@ -198,6 +198,26 @@ class DatePickers extends StatelessWidget {
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
+                  CommonDatePicker.showDateTimePicker(
+                    context,
+                    showTitleActions: true,
+                    onChanged: (date) {
+                      print('change $date in time zone ' +
+                          date.timeZoneOffset.inHours.toString());
+                    },
+                    onConfirm: (date) {
+                      print('confirm $date');
+                    },
+                    currentTime: DateTime.utc(2019, 12, 31, 23, 12, 34),
+                    locale: LocaleType.ar,
+                  );
+                },
+                text: 'show date time picker in UTC (AR)',
+              ),
+              CommonText(
+                style: textStyle,
+                containerStyle: containerStyle,
+                onPress: () {
                   CommonDatePicker.showPicker(
                     context,
                     showTitleActions: true,

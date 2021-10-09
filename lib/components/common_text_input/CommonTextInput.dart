@@ -1,5 +1,7 @@
+import 'package:common_ui_toolkit/models/CommonIcon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:common_ui_toolkit/index.dart';
 import 'package:common_ui_toolkit/models/CommonTextInputModel.dart';
@@ -7,10 +9,11 @@ import 'package:common_ui_toolkit/models/CommonTextInputModel.dart';
 import '../../index.dart';
 import '../../utils/index.dart';
 
-class CommonTextInput extends StatelessWidget {
+class CommonTextInput extends StatefulWidget {
   CommonTextInputModel? style;
   CommonContainerModel? containerStyle;
   Function? onChanged;
+  Function? onTap;
   TextEditingController? textEditingController;
 
   CommonTextInput({
@@ -18,17 +21,30 @@ class CommonTextInput extends StatelessWidget {
     this.containerStyle,
     this.onChanged,
     this.textEditingController,
+    this.onTap,
   });
 
   @override
+  _CommonTextInputState createState() => _CommonTextInputState();
+}
+
+class _CommonTextInputState extends State<CommonTextInput> {
+  CommonTextInputModel? style;
+
+  @override
   Widget build(BuildContext context) {
-    style = style ?? CommonTextInputModel();
-    textEditingController =
-        textEditingController ?? TextEditingController(text: style!.text);
+    style = widget.style ?? CommonTextInputModel();
+    widget.textEditingController = widget.textEditingController ??
+        TextEditingController(text: style!.text);
     return CommonContainer(
-      style: containerStyle,
+      style: widget.containerStyle,
       child: TextFormField(
-        controller: textEditingController,
+        onTap: () {
+          if (widget.onTap != null) {
+            widget.onTap!();
+          }
+        },
+        controller: widget.textEditingController,
         textInputAction: style!.textInputAction,
         textAlign: style!.textAlign!,
         focusNode: style!.foucsNode,
@@ -121,13 +137,51 @@ class CommonTextInput extends StatelessWidget {
               alignLabelWithHint: true,
             ),
         onChanged: (value) {
-          if (onChanged != null) {
-            onChanged!(value);
+          if (widget.onChanged != null) {
+            widget.onChanged!(value);
           }
         },
       ),
     );
   }
+
+  getIcon(CommonIcon icon) {
+    return CommonContainer(
+      onPress: () {
+        if (icon.onPress != null) {
+          icon.onPress!();
+        }
+      },
+      style: icon.containerStyle ?? CommonContainerModel(),
+      child: icon.path.runtimeType == IconData
+          ? Icon(
+              icon.path, // icon data takes only size without width and height, so we need to use size instead. we pass the width to be the size of the icon.
+              size: icon.iconDataSize,
+              color: generateIconColor(icon.color),
+            )
+          : icon.path.startsWith('http')
+              ? icon.path.endsWith('svg')
+                  ? SvgPicture.network(
+                      icon.path,
+                      color: generateIconColor(icon.color),
+                    )
+                  : Image.network(
+                      icon.path,
+                    )
+              : icon.path.endsWith('svg')
+                  ? SvgPicture.asset(
+                      icon.path,
+                      color: generateIconColor(icon.color),
+                    )
+                  : Image.asset(
+                      icon.path,
+                    ),
+    );
+  }
+
+  generateIconColor(color) => Color(
+        style!.enabled! ? color : style!.disabledColor!,
+      );
 
   getOutlineInputBorder({borderColor}) {
     return style!.underlined!
