@@ -71,7 +71,7 @@ class Texts extends StatelessWidget {
               decorationStyle: TextDecorationStyle.dotted,
 
               /// decorationStyle: TextDecorationStyle.wavy,
-              fontweight: FontWeight.bold,
+              fontWeight: FontWeight.bold,
               fontSize: COMMON_H1_FONT,
             ),
           ),
@@ -89,7 +89,7 @@ class Texts extends StatelessWidget {
             style: CommonTextStyles().h2Style().copyWith(
                   fontColor: COMMON_WHITE_COLOR,
                   // backgroundColor: COMMON_WHITE_COLOR,
-                  // fontweight: FontWeight.bold,
+                  // fontWeight: FontWeight.bold,
                 ),
             text: 'Simple common text',
             onPress: () {

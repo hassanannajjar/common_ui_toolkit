@@ -44,7 +44,7 @@ class DatePickers extends StatelessWidget {
                 // ),
 
                 headerTextStyle: CommonTextStyles().h3Style().copyWith(
-                      fontweight: FontWeight.bold,
+                      fontWeight: FontWeight.bold,
                     ),
 
                 containerStyle:
@@ -74,9 +74,10 @@ class DatePickers extends StatelessWidget {
                           headerColor: Colors.orange,
                           backgroundColor: Colors.blue,
                           itemStyle: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
                           doneStyle:
                               TextStyle(color: Colors.white, fontSize: 16)),
                       onChanged: (date) {

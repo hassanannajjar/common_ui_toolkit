@@ -121,7 +121,7 @@ class _DatePickerState extends State<CommonPickerTimeLine> {
     _currentDate = widget.initialSelectedDate;
     if (widget.headerTextStyle == null) {
       widget.headerTextStyle = CommonTextStyles().h3Style().copyWith(
-            fontweight: FontWeight.w500,
+            fontWeight: FontWeight.w500,
           );
     }
 
