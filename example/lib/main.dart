@@ -45,6 +45,9 @@ class MyHomePage extends StatelessWidget {
                   padding: 16,
                   alignment: Alignment.center,
                   margin: 20,
+                  backgroundColor: Color(PRIMARY_COLOR),
+                  shadowOpacity: 0.5,
+                  shadowColor: Color(COMMON_RED_COLOR),
                   touchEffect: TouchableEffect(
                     type: TouchTypes.scaleAndFade,
                     opacity: 0.05,

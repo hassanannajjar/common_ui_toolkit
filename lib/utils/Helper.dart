@@ -45,7 +45,6 @@ getContentPaddingEdgeInsets(style) => EdgeInsets.fromLTRB(
     );
 
 /// return the icon and style with custom function.
-
 getIcon(CommonIcon icon) {
   return CommonContainer(
     onPress: () {
@@ -78,6 +77,17 @@ getIcon(CommonIcon icon) {
                     icon.path,
                   ),
   );
+}
+
+/// render Color Type
+getColorType(color) {
+  if (color.runtimeType == Color || color.runtimeType == MaterialColor) {
+    return color;
+  } else if (color.runtimeType == int) {
+    return Color(color);
+  } else {
+    return Colors.transparent;
+  }
 }
 
 int calculateDateCount(int year, int month) {
