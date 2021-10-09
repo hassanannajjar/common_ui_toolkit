@@ -17,9 +17,9 @@ class CommonTextModel {
   ///
   /// colors
   ///
-  int? fontColor;
-  int? backgroundColor;
-  int? decorationColor;
+  dynamic fontColor;
+  dynamic backgroundColor;
+  dynamic decorationColor;
 
   ///
   /// decoration
@@ -177,9 +177,9 @@ class CommonTextModel {
     double? fontSize,
     double? textScaleFactor,
     int? maxlines,
-    int? fontColor,
-    int? backgroundColor,
-    int? decorationColor,
+    dynamic fontColor,
+    dynamic backgroundColor,
+    dynamic decorationColor,
     TextDecoration? decoration,
     TextDirection? textDirection,
     TextOverflow? overflow,
