@@ -50,7 +50,7 @@ class _CommonTextInputState extends State<CommonTextInput> {
         focusNode: style!.foucsNode,
         style: style!.textStyle ??
             TextStyle(
-              color: Color(style!.textColor!),
+              color: getColorType(style!.textColor!),
               fontSize: style!.fontSize,
             ),
         scrollPhysics: BouncingScrollPhysics(),
@@ -72,7 +72,7 @@ class _CommonTextInputState extends State<CommonTextInput> {
         cursorHeight: style!.cursorHeight,
         cursorWidth: style!.cursorWidth!,
         showCursor: style!.showCursor,
-        cursorColor: Color(style!.cursorColor!),
+        cursorColor: getColorType(style!.cursorColor!),
         cursorRadius: style!.cursorRadius,
         decoration: style!.inputDecoration ??
             InputDecoration(
@@ -80,15 +80,15 @@ class _CommonTextInputState extends State<CommonTextInput> {
               counterText: style!.counterText,
               counterStyle: style!.counterStyle,
               semanticCounterText: style!.semanticCounterText,
-              fillColor: Color(style!.fillColor!),
+              fillColor: getColorType(style!.fillColor!),
               filled: style!.fillColor != null,
               contentPadding: getContentPaddingEdgeInsets(style),
               hintText: style!.hint,
               hintStyle: style!.hintStyle ??
                   TextStyle(
                     color: style!.enabled!
-                        ? Color(style!.hintColor!)
-                        : Color(style!.disabledColor!),
+                        ? getColorType(style!.hintColor!)
+                        : getColorType(style!.disabledColor!),
                   ),
               isCollapsed: style!.isCollapsed!,
               prefixText: style!.prefixText,
@@ -179,7 +179,7 @@ class _CommonTextInputState extends State<CommonTextInput> {
     );
   }
 
-  generateIconColor(color) => Color(
+  generateIconColor(color) => getColorType(
         style!.enabled! ? color : style!.disabledColor!,
       );
 
@@ -187,7 +187,7 @@ class _CommonTextInputState extends State<CommonTextInput> {
     return style!.underlined!
         ? UnderlineInputBorder(
             borderSide: BorderSide(
-              color: Color(borderColor),
+              color: getColorType(borderColor),
               width: style!.borderWidth!,
             ),
           )
@@ -197,7 +197,7 @@ class _CommonTextInputState extends State<CommonTextInput> {
             ),
             borderSide: style!.withBorderSide!
                 ? BorderSide(
-                    color: Color(borderColor),
+                    color: getColorType(borderColor),
                     width: style!.borderWidth!,
                   )
                 : BorderSide.none,
