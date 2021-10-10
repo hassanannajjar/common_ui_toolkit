@@ -54,16 +54,16 @@ class CommonTextInputModel {
   double? cursorWidth;
 
   /// Colors
-  int? textColor;
-  int? disabledColor;
-  int? errorColor;
-  int? focusBorderColor;
-  int? enabledBorderColor;
-  int? disabledBorderColor;
-  int? errorBorderColor;
-  int? hintColor;
-  int? fillColor;
-  int? cursorColor;
+  dynamic textColor;
+  dynamic disabledColor;
+  dynamic errorColor;
+  dynamic focusBorderColor;
+  dynamic enabledBorderColor;
+  dynamic disabledBorderColor;
+  dynamic errorBorderColor;
+  dynamic hintColor;
+  dynamic fillColor;
+  dynamic cursorColor;
 
   /// Lengths
   int? maxLength;
@@ -485,16 +485,16 @@ class CommonTextInputModel {
     double? suffixMaxHeight,
     double? cursorHeight,
     double? cursorWidth,
-    int? textColor,
-    int? disabledColor,
-    int? errorColor,
-    int? focusBorderColor,
-    int? enabledBorderColor,
-    int? disabledBorderColor,
-    int? errorBorderColor,
-    int? hintColor,
-    int? fillColor,
-    int? cursorColor,
+    dynamic textColor,
+    dynamic disabledColor,
+    dynamic errorColor,
+    dynamic focusBorderColor,
+    dynamic enabledBorderColor,
+    dynamic disabledBorderColor,
+    dynamic errorBorderColor,
+    dynamic hintColor,
+    dynamic fillColor,
+    dynamic cursorColor,
     int? maxLength,
     int? minLength,
     int? minLines,

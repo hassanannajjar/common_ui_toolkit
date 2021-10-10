@@ -1,12 +1,15 @@
+import 'package:common_ui_toolkit/models/CommonIcon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:common_ui_toolkit/index.dart';
 
-class CommonTextInput extends StatelessWidget {
+class CommonTextInput extends StatefulWidget {
   CommonTextInputModel? style;
   CommonContainerModel? containerStyle;
   Function? onChanged;
+  Function? onTap;
   TextEditingController? textEditingController;
 
   CommonTextInput({
@@ -14,23 +17,36 @@ class CommonTextInput extends StatelessWidget {
     this.containerStyle,
     this.onChanged,
     this.textEditingController,
+    this.onTap,
   });
 
   @override
+  _CommonTextInputState createState() => _CommonTextInputState();
+}
+
+class _CommonTextInputState extends State<CommonTextInput> {
+  CommonTextInputModel? style;
+
+  @override
   Widget build(BuildContext context) {
-    style = style ?? CommonTextInputModel();
-    textEditingController =
-        textEditingController ?? TextEditingController(text: style!.text);
+    style = widget.style ?? CommonTextInputModel();
+    widget.textEditingController = widget.textEditingController ??
+        TextEditingController(text: style!.text);
     return CommonContainer(
-      style: containerStyle,
+      style: widget.containerStyle,
       child: TextFormField(
-        controller: textEditingController,
+        onTap: () {
+          if (widget.onTap != null) {
+            widget.onTap!();
+          }
+        },
+        controller: widget.textEditingController,
         textInputAction: style!.textInputAction,
         textAlign: style!.textAlign!,
         focusNode: style!.foucsNode,
         style: style!.textStyle ??
             TextStyle(
-              color: Color(style!.textColor!),
+              color: getColorType(style!.textColor!),
               fontSize: style!.fontSize,
             ),
         scrollPhysics: BouncingScrollPhysics(),
@@ -52,7 +68,7 @@ class CommonTextInput extends StatelessWidget {
         cursorHeight: style!.cursorHeight,
         cursorWidth: style!.cursorWidth!,
         showCursor: style!.showCursor,
-        cursorColor: Color(style!.cursorColor!),
+        cursorColor: getColorType(style!.cursorColor!),
         cursorRadius: style!.cursorRadius,
         decoration: style!.inputDecoration ??
             InputDecoration(
@@ -60,15 +76,15 @@ class CommonTextInput extends StatelessWidget {
               counterText: style!.counterText,
               counterStyle: style!.counterStyle,
               semanticCounterText: style!.semanticCounterText,
-              fillColor: Color(style!.fillColor!),
+              fillColor: getColorType(style!.fillColor!),
               filled: style!.fillColor != null,
               contentPadding: getContentPaddingEdgeInsets(style),
               hintText: style!.hint,
               hintStyle: style!.hintStyle ??
                   TextStyle(
                     color: style!.enabled!
-                        ? Color(style!.hintColor!)
-                        : Color(style!.disabledColor!),
+                        ? getColorType(style!.hintColor!)
+                        : getColorType(style!.disabledColor!),
                   ),
               isCollapsed: style!.isCollapsed!,
               prefixText: style!.prefixText,
@@ -117,8 +133,8 @@ class CommonTextInput extends StatelessWidget {
               alignLabelWithHint: true,
             ),
         onChanged: (value) {
-          if (onChanged != null) {
-            onChanged!(value);
+          if (widget.onChanged != null) {
+            widget.onChanged!(value);
           }
         },
         autocorrect: style!.autocorrect!,
@@ -153,11 +169,49 @@ class CommonTextInput extends StatelessWidget {
     );
   }
 
+  getIcon(CommonIcon icon) {
+    return CommonContainer(
+      onPress: () {
+        if (icon.onPress != null) {
+          icon.onPress!();
+        }
+      },
+      style: icon.containerStyle ?? CommonContainerModel(),
+      child: icon.path.runtimeType == IconData
+          ? Icon(
+              icon.path, // icon data takes only size without width and height, so we need to use size instead. we pass the width to be the size of the icon.
+              size: icon.iconDataSize,
+              color: generateIconColor(icon.color),
+            )
+          : icon.path.startsWith('http')
+              ? icon.path.endsWith('svg')
+                  ? SvgPicture.network(
+                      icon.path,
+                      color: generateIconColor(icon.color),
+                    )
+                  : Image.network(
+                      icon.path,
+                    )
+              : icon.path.endsWith('svg')
+                  ? SvgPicture.asset(
+                      icon.path,
+                      color: generateIconColor(icon.color),
+                    )
+                  : Image.asset(
+                      icon.path,
+                    ),
+    );
+  }
+
+  generateIconColor(color) => getColorType(
+        style!.enabled! ? color : style!.disabledColor!,
+      );
+
   getOutlineInputBorder({borderColor}) {
     return style!.underlined!
         ? UnderlineInputBorder(
             borderSide: BorderSide(
-              color: Color(borderColor),
+              color: getColorType(borderColor),
               width: style!.borderWidth!,
             ),
           )
@@ -167,7 +221,7 @@ class CommonTextInput extends StatelessWidget {
             ),
             borderSide: style!.withBorderSide!
                 ? BorderSide(
-                    color: Color(borderColor),
+                    color: getColorType(borderColor),
                     width: style!.borderWidth!,
                   )
                 : BorderSide.none,

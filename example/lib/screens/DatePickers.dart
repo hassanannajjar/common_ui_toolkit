@@ -44,7 +44,7 @@ class DatePickers extends StatelessWidget {
                 // ),
 
                 headerTextStyle: CommonTextStyles().h3Style().copyWith(
-                      fontweight: FontWeight.bold,
+                      fontWeight: FontWeight.bold,
                     ),
 
                 containerStyle:
@@ -74,9 +74,10 @@ class DatePickers extends StatelessWidget {
                           headerColor: Colors.orange,
                           backgroundColor: Colors.blue,
                           itemStyle: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
                           doneStyle:
                               TextStyle(color: Colors.white, fontSize: 16)),
                       onChanged: (date) {
@@ -193,6 +194,26 @@ class DatePickers extends StatelessWidget {
                       locale: LocaleType.de);
                 },
                 text: 'show date time picker in UTC (German)',
+              ),
+              CommonText(
+                style: textStyle,
+                containerStyle: containerStyle,
+                onPress: () {
+                  CommonDatePicker.showDateTimePicker(
+                    context,
+                    showTitleActions: true,
+                    onChanged: (date) {
+                      print('change $date in time zone ' +
+                          date.timeZoneOffset.inHours.toString());
+                    },
+                    onConfirm: (date) {
+                      print('confirm $date');
+                    },
+                    currentTime: DateTime.utc(2019, 12, 31, 23, 12, 34),
+                    locale: LocaleType.ar,
+                  );
+                },
+                text: 'show date time picker in UTC (AR)',
               ),
               CommonText(
                 style: textStyle,

@@ -45,6 +45,9 @@ class MyHomePage extends StatelessWidget {
                   padding: 16,
                   alignment: Alignment.center,
                   margin: 20,
+                  backgroundColor: Color(PRIMARY_COLOR),
+                  shadowOpacity: 0.5,
+                  shadowColor: Color(PRIMARY_COLOR),
                   touchEffect: TouchableEffect(
                     type: TouchTypes.scaleAndFade,
                     opacity: 0.05,
@@ -54,7 +57,7 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ),
             style: CommonTextStyles().h2Style().copyWith(
-                  fontColor: 0xFF123123,
+                  fontColor: Color(COMMON_WHITE_COLOR),
                 ),
             text: 'Common UI toolKit',
             onPress: () {

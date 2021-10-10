@@ -17,9 +17,9 @@ class CommonTextModel {
   ///
   /// colors
   ///
-  int? fontColor;
-  int? backgroundColor;
-  int? decorationColor;
+  dynamic fontColor;
+  dynamic backgroundColor;
+  dynamic decorationColor;
 
   ///
   /// decoration
@@ -64,7 +64,7 @@ class CommonTextModel {
   ///
   /// font weight
   ///
-  FontWeight? fontweight;
+  FontWeight? fontWeight;
 
   ///
   /// text align
@@ -152,7 +152,7 @@ class CommonTextModel {
     this.textWidthBasis = TextWidthBasis.parent,
 
     // -------------------
-    this.fontweight = FontWeight.normal,
+    this.fontWeight = FontWeight.normal,
     this.fontFamily,
     this.fontStyle = FontStyle.normal,
     this.textAlign = TextAlign.center,
@@ -177,9 +177,9 @@ class CommonTextModel {
     double? fontSize,
     double? textScaleFactor,
     int? maxlines,
-    int? fontColor,
-    int? backgroundColor,
-    int? decorationColor,
+    dynamic fontColor,
+    dynamic backgroundColor,
+    dynamic decorationColor,
     TextDecoration? decoration,
     TextDirection? textDirection,
     TextOverflow? overflow,
@@ -188,7 +188,7 @@ class CommonTextModel {
     TextHeightBehavior? textHeightBehavior,
     TextWidthBasis? textWidthBasis,
     TextDecorationStyle? decorationStyle,
-    FontWeight? fontweight,
+    FontWeight? fontWeight,
     TextAlign? textAlign,
     FontStyle? fontStyle,
     TextBaseline? textBaseline,
@@ -222,7 +222,7 @@ class CommonTextModel {
       textHeightBehavior: textHeightBehavior ?? this.textHeightBehavior,
       textWidthBasis: textWidthBasis ?? this.textWidthBasis,
       decorationStyle: decorationStyle ?? this.decorationStyle,
-      fontweight: fontweight ?? this.fontweight,
+      fontWeight: fontWeight ?? this.fontWeight,
       textAlign: textAlign ?? this.textAlign,
       fontStyle: fontStyle ?? this.fontStyle,
       textBaseline: textBaseline ?? this.textBaseline,

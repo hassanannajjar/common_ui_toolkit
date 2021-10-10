@@ -101,7 +101,7 @@ class CommonContainer extends StatelessWidget {
             ///
             ? (loadingWidget ??
                 CircularProgressIndicator(
-                  color: Color(style!.loadingColor!),
+                  color: getColorType(style!.loadingColor!),
                 ))
 
             ///
@@ -145,12 +145,16 @@ class CommonContainer extends StatelessWidget {
               backgroundBlendMode: style!.foregroundBlendMode,
               shape: style!.foregroundboxShape!,
               border: style!.getforegroundBorder(),
-              borderRadius: style!.getForegroundBorderRaduis(),
-              color: Color(style!.foregroundColor!),
+              borderRadius: style!.getForegroundBorderRadius(),
+              color: getColorType(style!.foregroundColor!),
               boxShadow: <BoxShadow>[
                 BoxShadow(
-                  color: Color(style!.foregroundshadowColor!)
-                      .withOpacity(style!.foregroundshadowOpacity!),
+                  color:
+                      getColorType(style!.foregroundshadowColor!).runtimeType ==
+                              MaterialColor
+                          ? getColorType(style!.foregroundshadowColor!)
+                          : getColorType(style!.foregroundshadowColor!)
+                              .withOpacity(style!.foregroundshadowOpacity!),
                   spreadRadius: style!.foregroundshadowSpreadRadius!,
                   blurRadius: style!.foregroundshadowbBlurRadius!,
                   offset: Offset(
@@ -197,12 +201,15 @@ class CommonContainer extends StatelessWidget {
               backgroundBlendMode: style!.backgroundBlendMode,
               shape: style!.boxShape!,
               border: style!.getBorder(),
-              borderRadius: style!.getBorderRaduis(),
-              color: Color(style!.backgroundColor!),
+              borderRadius: style!.getBorderRadius(),
+              color: getColorType(style!.backgroundColor!),
               boxShadow: <BoxShadow>[
                 BoxShadow(
-                  color: Color(style!.shadowColor!)
-                      .withOpacity(style!.shadowOpacity!),
+                  color: getColorType(style!.shadowColor!).runtimeType ==
+                          MaterialColor
+                      ? getColorType(style!.shadowColor!)
+                      : getColorType(style!.shadowColor!)
+                          .withOpacity(style!.shadowOpacity!),
                   spreadRadius: style!.shadowSpreadRadius!,
                   blurRadius: style!.shadowbBlurRadius!,
                   offset: Offset(
