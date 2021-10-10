@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:common_ui_toolkit/index.dart';
-import 'package:common_ui_toolkit/models/CommonTextInputModel.dart';
-
-import '../../index.dart';
-import '../../utils/index.dart';
 
 class CommonTextInput extends StatelessWidget {
   CommonTextInputModel? style;
@@ -125,6 +121,34 @@ class CommonTextInput extends StatelessWidget {
             onChanged!(value);
           }
         },
+        autocorrect: style!.autocorrect!,
+        autofillHints: style!.autofillHints,
+        autofocus: style!.autofocus!,
+        autovalidateMode: style!.autovalidateMode,
+        buildCounter: style!.buildCounter,
+        enableInteractiveSelection: style!.enableInteractiveSelection!,
+        enableSuggestions: style!.enableSuggestions!,
+        expands: style!.expands!,
+        key: style!.key,
+        keyboardAppearance: style!.keyboardAppearance,
+        maxLengthEnforcement: style!.maxLengthEnforcement,
+        initialValue: style!.initialValue,
+        obscuringCharacter: style!.obscuringCharacter,
+        onEditingComplete: style!.onEditingComplete,
+        onFieldSubmitted: style!.onFieldSubmitted,
+        onSaved: style!.onSaved,
+        onTap: style!.onTap,
+        scrollController: style!.scrollController,
+        scrollPadding: style!.scrollPadding,
+        selectionControls: style!.selectionControls,
+        smartDashesType: style!.smartDashesType,
+        smartQuotesType: style!.smartQuotesType,
+        strutStyle: style!.strutStyle,
+        textAlignVertical: style!.textAlignVertical,
+        textCapitalization: style!.textCapitalization,
+        textDirection: style!.textDirection,
+        toolbarOptions: style!.toolbarOptions,
+        validator: style!.validator,
       ),
     );
   }

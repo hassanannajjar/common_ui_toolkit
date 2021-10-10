@@ -10,6 +10,11 @@ class CommonTextInputModel {
   double? borderWidth;
 
   ///
+  /// border width
+  ///
+  Key? key;
+
+  ///
   /// fontSize
   ///
   double? fontSize;
@@ -159,6 +164,11 @@ class CommonTextInputModel {
   ///
   bool? showCursor;
 
+  ///
+  /// show cursor
+  ///
+  bool? autocorrect;
+
   // This is a hack to make the text input verified when user finishs typing the right crospondign content based on input type
   bool? withInputVerification;
 
@@ -221,7 +231,138 @@ class CommonTextInputModel {
   ///
   Radius? cursorRadius;
 
+  ///
+  /// auto fill hints
+  ///
+  Iterable<String>? autofillHints;
+
+  ///
+  /// auto focus
+  ///
+  bool? autofocus;
+
+  ///
+  /// auto validate mode
+  ///
+  AutovalidateMode? autovalidateMode;
+
+  ///
+  /// build counter
+  ///
+  InputCounterWidgetBuilder? buildCounter;
+
+  ///
+  /// enable interactive selection
+  ///
+  bool? enableInteractiveSelection;
+
+  ///
+  /// enable suggestions
+  ///
+  bool? enableSuggestions;
+
+  ///
+  /// expands
+  ///
+  bool? expands;
+
+  ///
+  /// initial value
+  ///
+  String? initialValue;
+
+  ///
+  /// obscuring Character
+  ///
+  String obscuringCharacter;
+
+  ///
+  /// keyboard appearance
+  ///
+  Brightness? keyboardAppearance;
+
+  ///
+  /// on editing complete
+  ///
+  VoidCallback? onEditingComplete;
+
+  ///
+  /// on field submitted
+  ///
+  ValueChanged<String>? onFieldSubmitted;
+
+  ///
+  /// on saved
+  ///
+  FormFieldSetter<String>? onSaved;
+
+  ///
+  /// on tap
+  ///
+  GestureTapCallback? onTap;
+
+  ///
+  /// scroll controller
+  ///
+  ScrollController? scrollController;
+
+  ///
+  /// scroll padding
+  ///
+  EdgeInsets scrollPadding;
+
+  ///
+  /// selection controls
+  ///
+  TextSelectionControls? selectionControls;
+
+  ///
+  /// smart dashes type
+  ///
+  SmartDashesType? smartDashesType;
+
+  ///
+  /// smart quotes type
+  ///
+  SmartQuotesType? smartQuotesType;
+
+  ///
+  /// struct style
+  ///
+  StrutStyle? strutStyle;
+
+  ///
+  /// text align vertical
+  ///
+  TextAlignVertical? textAlignVertical;
+
+  ///
+  /// text align vertical
+  ///
+  TextCapitalization textCapitalization;
+
+  ///
+  /// text direction
+  ///
+  TextDirection? textDirection;
+
+  ///
+  /// toolbar options
+  ///
+  ToolbarOptions? toolbarOptions;
+
+  ///
+  /// form field validator
+  ///
+  FormFieldValidator<String>? validator;
+
+  ///
+  /// max length enforcement
+  ///
+  MaxLengthEnforcement? maxLengthEnforcement;
+
   CommonTextInputModel({
+    this.key,
     this.hint,
     this.textInputType,
     this.isRequired = false,
@@ -233,6 +374,8 @@ class CommonTextInputModel {
     this.obscureText = false,
     this.showCursor = true,
     this.enabled = true,
+    this.autocorrect = true,
+    this.autofocus = false,
     this.minLength = 6,
     this.maxLength,
     this.fillColor = COMMON_TRANSPARENT_COLOR,
@@ -293,10 +436,36 @@ class CommonTextInputModel {
     this.prefixIcon,
     this.suffixIcon,
     this.textInputFormatters,
+    this.autofillHints,
+    this.autovalidateMode,
+    this.buildCounter,
+    this.enableInteractiveSelection = true,
+    this.enableSuggestions = true,
+    this.expands = false,
+    this.initialValue,
+    this.keyboardAppearance,
+    this.maxLengthEnforcement,
+    this.obscuringCharacter = '•',
+    this.onEditingComplete,
+    this.onFieldSubmitted,
+    this.onSaved,
+    this.onTap,
+    this.scrollController,
+    this.scrollPadding = const EdgeInsets.all(20.0),
+    this.selectionControls,
+    this.smartDashesType,
+    this.smartQuotesType,
+    this.strutStyle,
+    this.textAlignVertical,
+    this.textCapitalization = TextCapitalization.none,
+    this.textDirection,
+    this.toolbarOptions,
+    this.validator,
   });
 
   CommonTextInputModel copyWith({
     double? borderWidth,
+    Key? key,
     double? fontSize,
     double? radius,
     double? contentPadding,
@@ -354,6 +523,7 @@ class CommonTextInputModel {
     bool? obscureText,
     bool? enabled,
     bool? showCursor,
+    bool? autocorrect,
     bool? withInputVerification,
     TextInputType? textInputType,
     TextAlign? textAlign,
@@ -367,9 +537,36 @@ class CommonTextInputModel {
     List<TextInputFormatter>? textInputFormatters,
     InputDecoration? inputDecoration,
     Radius? cursorRadius,
+    Iterable<String>? autofillHints,
+    bool? autofocus,
+    AutovalidateMode? autovalidateMode,
+    InputCounterWidgetBuilder? buildCounter,
+    bool? enableInteractiveSelection,
+    bool? enableSuggestions,
+    bool? expands,
+    String? initialValue,
+    String? obscuringCharacter,
+    Brightness? keyboardAppearance,
+    VoidCallback? onEditingComplete,
+    ValueChanged<String>? onFieldSubmitted,
+    FormFieldSetter<String>? onSaved,
+    GestureTapCallback? onTap,
+    ScrollController? scrollController,
+    EdgeInsets? scrollPadding,
+    TextSelectionControls? selectionControls,
+    SmartDashesType? smartDashesType,
+    SmartQuotesType? smartQuotesType,
+    StrutStyle? strutStyle,
+    TextAlignVertical? textAlignVertical,
+    TextCapitalization? textCapitalization,
+    TextDirection? textDirection,
+    ToolbarOptions? toolbarOptions,
+    FormFieldValidator<String>? validator,
+    MaxLengthEnforcement? maxLengthEnforcement,
   }) {
     return CommonTextInputModel(
       borderWidth: borderWidth ?? this.borderWidth,
+      key: key ?? this.key,
       fontSize: fontSize ?? this.fontSize,
       radius: radius ?? this.radius,
       contentPadding: contentPadding ?? this.contentPadding,
@@ -429,6 +626,7 @@ class CommonTextInputModel {
       obscureText: obscureText ?? this.obscureText,
       enabled: enabled ?? this.enabled,
       showCursor: showCursor ?? this.showCursor,
+      autocorrect: autocorrect ?? this.autocorrect,
       withInputVerification:
           withInputVerification ?? this.withInputVerification,
       textInputType: textInputType ?? this.textInputType,
@@ -443,6 +641,33 @@ class CommonTextInputModel {
       textInputFormatters: textInputFormatters ?? this.textInputFormatters,
       inputDecoration: inputDecoration ?? this.inputDecoration,
       cursorRadius: cursorRadius ?? this.cursorRadius,
+      autofillHints: autofillHints ?? this.autofillHints,
+      autofocus: autofocus ?? this.autofocus,
+      autovalidateMode: autovalidateMode ?? this.autovalidateMode,
+      buildCounter: buildCounter ?? this.buildCounter,
+      enableInteractiveSelection:
+          enableInteractiveSelection ?? this.enableInteractiveSelection,
+      enableSuggestions: enableSuggestions ?? this.enableSuggestions,
+      expands: expands ?? this.expands,
+      initialValue: initialValue ?? this.initialValue,
+      obscuringCharacter: obscuringCharacter ?? this.obscuringCharacter,
+      keyboardAppearance: keyboardAppearance ?? this.keyboardAppearance,
+      onEditingComplete: onEditingComplete ?? this.onEditingComplete,
+      onFieldSubmitted: onFieldSubmitted ?? this.onFieldSubmitted,
+      onSaved: onSaved ?? this.onSaved,
+      onTap: onTap ?? this.onTap,
+      scrollController: scrollController ?? this.scrollController,
+      scrollPadding: scrollPadding ?? this.scrollPadding,
+      selectionControls: selectionControls ?? this.selectionControls,
+      smartDashesType: smartDashesType ?? this.smartDashesType,
+      smartQuotesType: smartQuotesType ?? this.smartQuotesType,
+      strutStyle: strutStyle ?? this.strutStyle,
+      textAlignVertical: textAlignVertical ?? this.textAlignVertical,
+      textCapitalization: textCapitalization ?? this.textCapitalization,
+      textDirection: textDirection ?? this.textDirection,
+      toolbarOptions: toolbarOptions ?? this.toolbarOptions,
+      validator: validator ?? this.validator,
+      maxLengthEnforcement: maxLengthEnforcement ?? this.maxLengthEnforcement,
     );
   }
 }
