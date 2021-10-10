@@ -153,7 +153,6 @@ class _CommonTextInputState extends State<CommonTextInput> {
         onEditingComplete: style!.onEditingComplete,
         onFieldSubmitted: style!.onFieldSubmitted,
         onSaved: style!.onSaved,
-        onTap: style!.onTap,
         scrollController: style!.scrollController,
         scrollPadding: style!.scrollPadding,
         selectionControls: style!.selectionControls,
