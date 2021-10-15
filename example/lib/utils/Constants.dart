@@ -1,6 +1,7 @@
 //   **** Routes *****
 const CONTAINERS_ROUTE = '/containers';
 const TEXTS_ROUTE = '/texts';
+const TEXT_INPUTS_ROUTE = '/textInputs';
 const DATE_PICKERS_ROUTE = '/datePicker';
 
 //   **** Colors *****

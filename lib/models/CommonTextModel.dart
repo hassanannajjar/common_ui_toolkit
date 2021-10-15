@@ -3,76 +3,146 @@ import 'dart:ui';
 import 'package:common_ui_toolkit/index.dart';
 
 class CommonTextModel {
-  //sizes
+  ///
+  /// sizes
+  ///
   double? height;
   double? letterSpacing;
   double? wordSpacing;
   double? decorationThickness;
-  double? iconWidth;
-  double? iconHeight;
   double? fontSize;
   double textScaleFactor;
   int? maxlines;
 
-  double? iconMargin = 0.0;
-  double? iconMarginTop;
-  double? iconMarginBottom;
-  double? iconMarginRight;
-  double? iconMarginLeft;
-  double? iconMarginVertical;
-  double? iconMarginHorizontal;
+  ///
+  /// colors
+  ///
+  dynamic fontColor;
+  dynamic backgroundColor;
+  dynamic decorationColor;
 
-  // colors
-  int? fontColor;
-  int? backgroundColor;
-  int? decorationColor;
-  int? iconColor;
-
+  ///
+  /// decoration
+  ///
   TextDecoration? decoration;
+
+  ///
+  /// text direction
+  ///
   TextDirection? textDirection;
+
+  ///
+  /// overflow
+  ///
   TextOverflow overflow;
+
+  ///
+  /// soft wrap
+  ///
   bool softWrap;
+
+  ///
+  /// struct style
+  ///
   StrutStyle? strutStyle;
+
+  ///
+  /// text height behavior
+  ///
   TextHeightBehavior? textHeightBehavior;
+
+  ///
+  /// text width basis
+  ///
   TextWidthBasis textWidthBasis;
+
+  ///
+  /// decoration style
+  ///
   TextDecorationStyle? decorationStyle;
-  FontWeight? fontweight;
+
+  ///
+  /// font weight
+  ///
+  FontWeight? fontWeight;
+
+  ///
+  /// text align
+  ///
   TextAlign textAlign;
+
+  ///
+  /// font style
+  ///
   FontStyle? fontStyle;
+
+  ///
+  /// text base line
+  ///
   TextBaseline? textBaseline;
+
+  ///
+  /// leading distribution
+  ///
   TextLeadingDistribution? leadingDistribution;
+
+  ///
+  /// locale
+  ///
   Locale? locale;
+
+  ///
+  /// forground
+  ///
   Paint? foreground;
+
+  ///
+  /// background
+  ///
   Paint? background;
+
+  ///
+  /// shadows
+  ///
   List<Shadow>? shadows;
+
+  ///
+  /// font features
+  ///
   List<FontFeature>? fontFeatures;
+
+  ///
+  /// font family fallback
+  ///
   List<String>? fontFamilyFallback;
+
+  ///
+  /// font family
+  ///
   String? fontFamily;
+
+  ///
+  /// debug label
+  ///
   String? debugLabel;
 
+  /// prefix icon
+  CommonIcon? prefixIcon;
+
   CommonTextModel({
-    //sizes
+    ///sizes
     this.height,
     this.letterSpacing = 0.0,
     this.wordSpacing = 0.0,
-    this.iconWidth = 20.0,
-    this.iconHeight = 20.0,
-    this.fontSize = H4_FONT,
+    this.fontSize = COMMON_H4_FONT,
     this.decorationThickness,
     this.maxlines,
     this.textScaleFactor = 1.0,
-    this.iconMargin = 0.0,
-    this.iconMarginTop,
-    this.iconMarginBottom,
-    this.iconMarginRight,
-    this.iconMarginLeft,
-    this.iconMarginVertical,
-    this.iconMarginHorizontal,
 
-    // colors
-    this.fontColor = BLACK_COLOR,
-    this.backgroundColor = TRANSPARENT_COLOR,
-    this.decorationColor = BLACK_COLOR,
+    /// colors
+    this.fontColor = COMMON_BLACK_COLOR,
+    this.backgroundColor = COMMON_TRANSPARENT_COLOR,
+    this.decorationColor = COMMON_BLACK_COLOR,
     this.decoration = TextDecoration.none,
     this.textDirection,
     this.overflow = TextOverflow.clip,
@@ -80,10 +150,9 @@ class CommonTextModel {
     this.strutStyle,
     this.textHeightBehavior,
     this.textWidthBasis = TextWidthBasis.parent,
-    this.iconColor = BLACK_COLOR,
 
     // -------------------
-    this.fontweight = FontWeight.normal,
+    this.fontWeight = FontWeight.normal,
     this.fontFamily,
     this.fontStyle = FontStyle.normal,
     this.textAlign = TextAlign.center,
@@ -97,6 +166,7 @@ class CommonTextModel {
     this.decorationStyle,
     this.debugLabel,
     this.fontFamilyFallback,
+    this.prefixIcon,
   });
 
   CommonTextModel copyWith({
@@ -104,46 +174,21 @@ class CommonTextModel {
     double? letterSpacing,
     double? wordSpacing,
     double? decorationThickness,
-    double? iconWidth,
-    double? iconHeight,
     double? fontSize,
     double? textScaleFactor,
     int? maxlines,
-    double? padding,
-    double? paddingTop,
-    double? paddingBottom,
-    double? paddingRight,
-    double? paddingLeft,
-    double? paddingVertical,
-    double? paddingHorizontal,
-    double? margin,
-    double? marginTop,
-    double? marginBottom,
-    double? marginRight,
-    double? marginLeft,
-    double? marginVertical,
-    double? marginHorizontal,
-    double? iconMargin,
-    double? iconMarginTop,
-    double? iconMarginBottom,
-    double? iconMarginRight,
-    double? iconMarginLeft,
-    double? iconMarginVertical,
-    double? iconMarginHorizontal,
-    int? fontColor,
-    int? backgroundColor,
-    int? decorationColor,
-    int? iconColor,
-    TextDecoration? textDecoration,
+    dynamic fontColor,
+    dynamic backgroundColor,
+    dynamic decorationColor,
+    TextDecoration? decoration,
     TextDirection? textDirection,
     TextOverflow? overflow,
     bool? softWrap,
     StrutStyle? strutStyle,
     TextHeightBehavior? textHeightBehavior,
     TextWidthBasis? textWidthBasis,
-    Decoration? decoration,
     TextDecorationStyle? decorationStyle,
-    FontWeight? fontweight,
+    FontWeight? fontWeight,
     TextAlign? textAlign,
     FontStyle? fontStyle,
     TextBaseline? textBaseline,
@@ -156,29 +201,20 @@ class CommonTextModel {
     List<String>? fontFamilyFallback,
     String? fontFamily,
     String? debugLabel,
+    CommonIcon? prefixIcon,
   }) {
     return CommonTextModel(
       height: height ?? this.height,
       letterSpacing: letterSpacing ?? this.letterSpacing,
       wordSpacing: wordSpacing ?? this.wordSpacing,
       decorationThickness: decorationThickness ?? this.decorationThickness,
-      iconWidth: iconWidth ?? this.iconWidth,
-      iconHeight: iconHeight ?? this.iconHeight,
       fontSize: fontSize ?? this.fontSize,
       textScaleFactor: textScaleFactor ?? this.textScaleFactor,
       maxlines: maxlines ?? this.maxlines,
-      iconMargin: iconMargin ?? this.iconMargin,
-      iconMarginTop: iconMarginTop ?? this.iconMarginTop,
-      iconMarginBottom: iconMarginBottom ?? this.iconMarginBottom,
-      iconMarginRight: iconMarginRight ?? this.iconMarginRight,
-      iconMarginLeft: iconMarginLeft ?? this.iconMarginLeft,
-      iconMarginVertical: iconMarginVertical ?? this.iconMarginVertical,
-      iconMarginHorizontal: iconMarginHorizontal ?? this.iconMarginHorizontal,
       fontColor: fontColor ?? this.fontColor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       decorationColor: decorationColor ?? this.decorationColor,
-      iconColor: iconColor ?? this.iconColor,
-      decoration: textDecoration ?? this.decoration,
+      decoration: decoration ?? this.decoration,
       textDirection: textDirection ?? this.textDirection,
       overflow: overflow ?? this.overflow,
       softWrap: softWrap ?? this.softWrap,
@@ -186,7 +222,7 @@ class CommonTextModel {
       textHeightBehavior: textHeightBehavior ?? this.textHeightBehavior,
       textWidthBasis: textWidthBasis ?? this.textWidthBasis,
       decorationStyle: decorationStyle ?? this.decorationStyle,
-      fontweight: fontweight ?? this.fontweight,
+      fontWeight: fontWeight ?? this.fontWeight,
       textAlign: textAlign ?? this.textAlign,
       fontStyle: fontStyle ?? this.fontStyle,
       textBaseline: textBaseline ?? this.textBaseline,
@@ -199,6 +235,7 @@ class CommonTextModel {
       fontFamilyFallback: fontFamilyFallback ?? this.fontFamilyFallback,
       fontFamily: fontFamily ?? this.fontFamily,
       debugLabel: debugLabel ?? this.debugLabel,
+      prefixIcon: prefixIcon ?? this.prefixIcon,
     );
   }
 }

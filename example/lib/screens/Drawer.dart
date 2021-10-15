@@ -18,7 +18,7 @@ class DrawerContainer extends StatelessWidget {
     },
     {
       'name': 'Text inputs',
-      'route': CONTAINERS_ROUTE,
+      'route': TEXT_INPUTS_ROUTE,
     },
     {
       'name': 'Cards',
@@ -76,7 +76,7 @@ class DrawerHeader extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             shadowOffsetDY: 10,
             backgroundColor: PRIMARY_COLOR,
-            borderRaduis: 0,
+            borderRadius: 0,
             bottomLeftRadius: 30,
             bottomRightRadius: 30,
           ),

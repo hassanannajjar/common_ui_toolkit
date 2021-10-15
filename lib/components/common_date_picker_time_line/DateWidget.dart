@@ -29,7 +29,7 @@ class DateWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     if (selectedContainerStyle == null) {
       selectedContainerStyle = CommonContainerModel(
-        borderRaduis: 25,
+        borderRadius: 25,
         padding: 10,
       );
     }
