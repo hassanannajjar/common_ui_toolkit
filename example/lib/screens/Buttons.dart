@@ -72,6 +72,13 @@ class Buttons extends StatelessWidget {
                 ),
               ),
               CommonButton(
+                textContainerStyle: CommonContainerModel(
+                  marginVertical: DEVICE_HEIGHT * 0.1,
+                  backgroundColor: COMMON_RED_COLOR,
+                ),
+                textStyle: CommonTextModel(
+                  fontColor: COMMON_WHITE_COLOR,
+                ),
                 text: 'Disabled button',
                 style: CommonButtonModel(
                   isEnable: false,
