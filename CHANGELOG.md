@@ -85,11 +85,17 @@
 - Added missing copy with function to text input field.
 
 ## 0.2.5
+* Fix max lines bugs.
+* Fix obscure text bug.
+
+## 0.2.7
+* Fix typo error.
+* Added mutable color type to any color.
 
 - Fix max lines bugs.
 - Fix obscure text bug.
 
-## 0.2.6
+## 0.2.8
 
 - Added column Cross Axis Alignemnt
 - Added column main Axis Alignemnt
