@@ -69,3 +69,7 @@
 ## 0.2.5
 * Fix max lines bugs.
 * Fix obscure text bug.
+
+## 0.2.7
+* Fix typo error.
+* Added mutable color type to any color.
