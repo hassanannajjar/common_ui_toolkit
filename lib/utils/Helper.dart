@@ -79,6 +79,10 @@ getIcon(CommonIcon icon) {
   );
 }
 
+renderResponsiveWidth(width) {
+  return width;
+}
+
 /// render Color Type
 getColorType(color) {
   if (color.runtimeType == Color || color.runtimeType == MaterialColor) {
