@@ -87,6 +87,36 @@ class CommonTextModel {
   TextLeadingDistribution? leadingDistribution;
 
   ///
+  /// column Cross Axis Alignemnt
+  ///
+  CrossAxisAlignment columnCrossAxisAlignemnt;
+
+  ///
+  /// column main Axis Alignemnt
+  ///
+  MainAxisAlignment columnMainAxisAlignemnt;
+
+  ///
+  /// column main Axis size
+  ///
+  MainAxisSize columnMainAxisSize;
+
+  ///
+  /// row cross Axis Alignemnt
+  ///
+  CrossAxisAlignment rowCrossAxisAlignemnt;
+
+  ///
+  /// row main Axis Alignemnt
+  ///
+  MainAxisAlignment rowMainAxisAlignemnt;
+
+  ///
+  /// row main Axis size
+  ///
+  MainAxisSize rowMainAxisSize;
+
+  ///
   /// locale
   ///
   Locale? locale;
@@ -163,6 +193,12 @@ class CommonTextModel {
     this.background,
     this.shadows,
     this.fontFeatures,
+    this.columnCrossAxisAlignemnt = CrossAxisAlignment.center,
+    this.columnMainAxisAlignemnt = MainAxisAlignment.start,
+    this.columnMainAxisSize = MainAxisSize.min,
+    this.rowCrossAxisAlignemnt = CrossAxisAlignment.center,
+    this.rowMainAxisSize = MainAxisSize.min,
+    this.rowMainAxisAlignemnt = MainAxisAlignment.start,
     this.decorationStyle,
     this.debugLabel,
     this.fontFamilyFallback,
@@ -193,6 +229,12 @@ class CommonTextModel {
     FontStyle? fontStyle,
     TextBaseline? textBaseline,
     TextLeadingDistribution? leadingDistribution,
+    CrossAxisAlignment? columnCrossAxisAlignemnt,
+    MainAxisAlignment? columnMainAxisAlignemnt,
+    MainAxisSize? columnMainAxisSize,
+    CrossAxisAlignment? rowCrossAxisAlignemnt,
+    MainAxisAlignment? rowMainAxisAlignemnt,
+    MainAxisSize? rowMainAxisSize,
     Locale? locale,
     Paint? foreground,
     Paint? background,
@@ -227,6 +269,15 @@ class CommonTextModel {
       fontStyle: fontStyle ?? this.fontStyle,
       textBaseline: textBaseline ?? this.textBaseline,
       leadingDistribution: leadingDistribution ?? this.leadingDistribution,
+      columnCrossAxisAlignemnt:
+          columnCrossAxisAlignemnt ?? this.columnCrossAxisAlignemnt,
+      columnMainAxisAlignemnt:
+          columnMainAxisAlignemnt ?? this.columnMainAxisAlignemnt,
+      columnMainAxisSize: columnMainAxisSize ?? this.columnMainAxisSize,
+      rowCrossAxisAlignemnt:
+          rowCrossAxisAlignemnt ?? this.rowCrossAxisAlignemnt,
+      rowMainAxisAlignemnt: rowMainAxisAlignemnt ?? this.rowMainAxisAlignemnt,
+      rowMainAxisSize: rowMainAxisSize ?? this.rowMainAxisSize,
       locale: locale ?? this.locale,
       foreground: foreground ?? this.foreground,
       background: background ?? this.background,

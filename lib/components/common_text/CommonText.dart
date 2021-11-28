@@ -56,11 +56,15 @@ class CommonText extends StatelessWidget {
       onPress: onPress,
       style: containerStyle,
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: style!.columnCrossAxisAlignemnt,
+        mainAxisSize: style!.columnMainAxisSize,
+        mainAxisAlignment: style!.columnMainAxisAlignemnt,
         children: [
           if (topChild != null) topChild!,
           Row(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: style!.rowMainAxisSize,
+            crossAxisAlignment: style!.rowCrossAxisAlignemnt,
+            mainAxisAlignment: style!.rowMainAxisAlignemnt,
             children: [
               if (style!.prefixIcon != null) getIcon(style!.prefixIcon!),
               if (leftChild != null) leftChild!,
