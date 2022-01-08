@@ -50,6 +50,8 @@ class CommonTextModel {
   String? fontFamily;
   String? debugLabel;
 
+  responsiveFontSize() => DEVICE_WIDTH * (fontSize! / 430);
+
   CommonTextModel({
     //sizes
     this.height,

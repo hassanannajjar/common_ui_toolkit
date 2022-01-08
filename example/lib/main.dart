@@ -1,7 +1,5 @@
 import 'package:common_ui_toolkit/index.dart';
-import 'package:example/screens/Containers.dart';
 import 'package:example/utils/Constants.dart';
-import 'package:flutter/material.dart';
 import './screens/index.dart';
 
 void main() {

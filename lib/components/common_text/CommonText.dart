@@ -84,7 +84,7 @@ class CommonText extends StatelessWidget {
                       color: Color(style!.fontColor!),
                       decorationThickness: style!.decorationThickness,
                       fontWeight: style!.fontweight,
-                      fontSize: style!.fontSize,
+                      fontSize: style!.responsiveFontSize(),
                       fontFamily: style!.fontFamily,
                       wordSpacing: style!.wordSpacing,
                       fontStyle: style!.fontStyle,
