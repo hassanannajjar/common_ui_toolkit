@@ -71,12 +71,12 @@ class CommonContainerModel {
   double? foregroundshadowOffsetDY;
   double? foregroundshadowOpacity;
 
-  // raduis
+  // Radius
   double? bottomLeftRadius;
   double? bottomRightRadius;
   double? topLeftRadius;
   double? topRightRadius;
-  double? borderRaduis;
+  double? borderRadius;
   double? borderWidth;
   double? borderTopWidth;
   double? borderBottomWidth;
@@ -87,7 +87,7 @@ class CommonContainerModel {
   double? foregroundbottomRightRadius;
   double? foregroundtopLeftRadius;
   double? foregroundtopRightRadius;
-  double? foregroundborderRaduis;
+  double? foregroundborderRadius;
   double? foregroundborderWidth;
   double? foregroundborderTopWidth;
   double? foregroundborderBottomWidth;
@@ -95,24 +95,24 @@ class CommonContainerModel {
   double? foregroundborderLeftWidth;
 
   // colors
-  int? raduisColor;
-  int? shadowColor;
-  int? backgroundColor;
-  int? borderColor;
-  int? borderTopColor;
-  int? borderBottomColor;
-  int? borderRightColor;
-  int? borderLeftColor;
-  int? loadingColor;
+  dynamic radiusColor;
+  dynamic shadowColor;
+  dynamic backgroundColor;
+  dynamic borderColor;
+  dynamic borderTopColor;
+  dynamic borderBottomColor;
+  dynamic borderRightColor;
+  dynamic borderLeftColor;
+  dynamic loadingColor;
 
-  int? foregroundraduisColor;
-  int? foregroundshadowColor;
-  int? foregroundColor;
-  int? foregroundborderColor;
-  int? foregroundborderTopColor;
-  int? foregroundborderBottomColor;
-  int? foregroundborderRightColor;
-  int? foregroundborderLeftColor;
+  dynamic foregroundRadiusColor;
+  dynamic foregroundshadowColor;
+  dynamic foregroundColor;
+  dynamic foregroundborderColor;
+  dynamic foregroundborderTopColor;
+  dynamic foregroundborderBottomColor;
+  dynamic foregroundborderRightColor;
+  dynamic foregroundborderLeftColor;
 
   ///
   /// Align the [child] within the container.
@@ -383,14 +383,14 @@ class CommonContainerModel {
       foregroundborderLeftWidth != null;
 
   ///
-  /// get border Raduis.
+  /// get border Radius.
   ///
-  getBorderRaduis() => (boxShape == BoxShape.circle || checkBorderNull())
+  getBorderRadius() => (boxShape == BoxShape.circle || checkBorderNull())
       ? null
-      : (borderRaduis == 0
+      : (borderRadius == 0
 
           ///
-          /// return every single raduis.
+          /// return every single Radius.
           ///
           ? BorderRadius.only(
               topRight: Radius.circular(topRightRadius!),
@@ -400,22 +400,22 @@ class CommonContainerModel {
             )
 
           ///
-          /// return all raduis.
+          /// return all Radius.
           ///
           : BorderRadius.all(
-              Radius.circular(borderRaduis!),
+              Radius.circular(borderRadius!),
             ));
 
   ///
-  /// get border Raduis.
+  /// get border Radius.
   ///
-  getForegroundBorderRaduis() =>
+  getForegroundBorderRadius() =>
       (foregroundboxShape == BoxShape.circle || checkforegroundBorderNull())
           ? null
-          : (foregroundborderRaduis == 0
+          : (foregroundborderRadius == 0
 
               ///
-              /// return every single raduis.
+              /// return every single Radius.
               ///
               ? BorderRadius.only(
                   topRight: Radius.circular(foregroundtopRightRadius!),
@@ -425,10 +425,10 @@ class CommonContainerModel {
                 )
 
               ///
-              /// return all raduis.
+              /// return all Radius.
               ///
               : BorderRadius.all(
-                  Radius.circular(foregroundborderRaduis!),
+                  Radius.circular(foregroundborderRadius!),
                 ));
 
   ///
@@ -441,44 +441,44 @@ class CommonContainerModel {
           ///
           top: ((borderTopWidth ?? borderWidth!) > 0)
               ? BorderSide(
-                  color: Color(borderTopColor ?? borderColor!),
+                  color: getColorType(borderTopColor ?? borderColor!),
                   width: borderTopWidth ?? borderWidth!,
                   style: borderTopStyle ?? borderStyle!,
                 )
-              : BorderSide(color: Color(TRANSPARENT_COLOR)),
+              : BorderSide(color: getColorType(COMMON_TRANSPARENT_COLOR)),
 
           // ///
           // /// handel right border.
           // ///
           right: ((borderRightWidth ?? borderWidth!) > 0)
               ? BorderSide(
-                  color: Color(borderRightColor ?? borderColor!),
+                  color: getColorType(borderRightColor ?? borderColor!),
                   width: borderRightWidth ?? borderWidth!,
                   style: borderRightStyle ?? borderStyle!,
                 )
-              : BorderSide(color: Color(TRANSPARENT_COLOR)),
+              : BorderSide(color: getColorType(COMMON_TRANSPARENT_COLOR)),
 
           ///
           /// handel bottom border.
           ///
           bottom: ((borderBottomWidth ?? borderWidth!) > 0)
               ? BorderSide(
-                  color: Color(borderBottomColor ?? borderColor!),
+                  color: getColorType(borderBottomColor ?? borderColor!),
                   width: borderBottomWidth ?? borderWidth!,
                   style: borderBottomStyle ?? borderStyle!,
                 )
-              : BorderSide(color: Color(TRANSPARENT_COLOR)),
+              : BorderSide(color: getColorType(COMMON_TRANSPARENT_COLOR)),
 
           ///
           /// handel left border.
           // ///
           left: ((borderLeftWidth ?? borderWidth!) > 0)
               ? BorderSide(
-                  color: Color(borderLeftColor ?? borderColor!),
+                  color: getColorType(borderLeftColor ?? borderColor!),
                   width: borderLeftWidth ?? borderWidth!,
                   style: borderLeftStyle ?? borderStyle!,
                 )
-              : BorderSide(color: Color(TRANSPARENT_COLOR)),
+              : BorderSide(color: getColorType(COMMON_TRANSPARENT_COLOR)),
         )
 
       ///
@@ -489,50 +489,54 @@ class CommonContainerModel {
   ///
   /// get border width and color.
   ///
-  getforegroundBorder() => (foregroundborderWidth! > 0 ||
-          checkforegroundBorderNull())
-      ? Border(
-          ///
-          /// handel top border.
-          ///
-          top: BorderSide(
-            color: Color(foregroundborderTopColor ?? foregroundborderColor!),
-            width: foregroundborderTopWidth ?? foregroundborderWidth!,
-            style: foregroundborderTopStyle ?? foregroundborderStyle!,
-          ),
+  getforegroundBorder() =>
+      (foregroundborderWidth! > 0 || checkforegroundBorderNull())
+          ? Border(
+              ///
+              /// handel top border.
+              ///
+              top: BorderSide(
+                color: getColorType(
+                    foregroundborderTopColor ?? foregroundborderColor!),
+                width: foregroundborderTopWidth ?? foregroundborderWidth!,
+                style: foregroundborderTopStyle ?? foregroundborderStyle!,
+              ),
+
+              ///
+              /// handel right border.
+              ///
+              right: BorderSide(
+                color: getColorType(
+                    foregroundborderRightColor ?? foregroundborderColor!),
+                width: foregroundborderRightWidth ?? foregroundborderWidth!,
+                style: foregroundborderRightStyle ?? foregroundborderStyle!,
+              ),
+
+              ///
+              /// handel bottom border.
+              ///
+              bottom: BorderSide(
+                color: getColorType(
+                    foregroundborderBottomColor ?? foregroundborderColor!),
+                width: foregroundborderBottomWidth ?? foregroundborderWidth!,
+                style: foregroundborderBottomStyle ?? foregroundborderStyle!,
+              ),
+
+              ///
+              /// handel left border.
+              ///
+              left: BorderSide(
+                color: getColorType(
+                    foregroundborderLeftColor ?? foregroundborderColor!),
+                width: foregroundborderLeftWidth ?? foregroundborderWidth!,
+                style: foregroundborderLeftStyle ?? foregroundborderStyle!,
+              ),
+            )
 
           ///
-          /// handel right border.
+          /// or return null.
           ///
-          right: BorderSide(
-            color: Color(foregroundborderRightColor ?? foregroundborderColor!),
-            width: foregroundborderRightWidth ?? foregroundborderWidth!,
-            style: foregroundborderRightStyle ?? foregroundborderStyle!,
-          ),
-
-          ///
-          /// handel bottom border.
-          ///
-          bottom: BorderSide(
-            color: Color(foregroundborderBottomColor ?? foregroundborderColor!),
-            width: foregroundborderBottomWidth ?? foregroundborderWidth!,
-            style: foregroundborderBottomStyle ?? foregroundborderStyle!,
-          ),
-
-          ///
-          /// handel left border.
-          ///
-          left: BorderSide(
-            color: Color(foregroundborderLeftColor ?? foregroundborderColor!),
-            width: foregroundborderLeftWidth ?? foregroundborderWidth!,
-            style: foregroundborderLeftStyle ?? foregroundborderStyle!,
-          ),
-        )
-
-      ///
-      /// or return null.
-      ///
-      : null;
+          : null;
 
   /// handel container width.
   /// and return the container width
@@ -612,10 +616,10 @@ class CommonContainerModel {
     /// color may still be painted by the [decoration] even if this property is
     /// null.
     ///
-    this.backgroundColor = TRANSPARENT_COLOR,
-    this.foregroundColor = TRANSPARENT_COLOR,
-    this.raduisColor = 0xFF000000,
-    this.foregroundraduisColor = 0xFF000000,
+    this.backgroundColor = COMMON_TRANSPARENT_COLOR,
+    this.foregroundColor = COMMON_TRANSPARENT_COLOR,
+    this.radiusColor = 0xFF000000,
+    this.foregroundRadiusColor = 0xFF000000,
     this.loadingColor = 0xFF1DD005,
 
     // shadow
@@ -632,17 +636,17 @@ class CommonContainerModel {
     this.foregroundshadowColor = 0xFF000000,
     this.foregroundshadowOpacity = 0.0,
 
-    // raduis
+    // Radius
     this.bottomLeftRadius = 0.0,
     this.bottomRightRadius = 0.0,
     this.topLeftRadius = 0.0,
     this.topRightRadius = 0.0,
-    this.borderRaduis = 0.0,
+    this.borderRadius = 0.0,
     this.foregroundbottomLeftRadius = 0.0,
     this.foregroundbottomRightRadius = 0.0,
     this.foregroundtopLeftRadius = 0.0,
     this.foregroundtopRightRadius = 0.0,
-    this.foregroundborderRaduis = 0.0,
+    this.foregroundborderRadius = 0.0,
 
     // clipBehavior
     this.clipBehavior = Clip.none,
@@ -743,6 +747,13 @@ class CommonContainerModel {
     double? shadowbBlurRadius,
     double? shadowOffsetDX,
     double? shadowOffsetDY,
+
+    /// To use shadow opacity the color must be Color type not Material Color type
+    /// Color Type
+    /// (e.g. Color(0xFF000000))
+    /// Material Color Type
+    /// in material color type you can add your opacity with the color name like this
+    /// (e.g. Colors.black87)
     double? shadowOpacity,
     double? foregroundshadowSpreadRadius,
     double? foregroundshadowbBlurRadius,
@@ -753,7 +764,7 @@ class CommonContainerModel {
     double? bottomRightRadius,
     double? topLeftRadius,
     double? topRightRadius,
-    double? borderRaduis,
+    double? borderRadius,
     double? borderWidth,
     double? borderTopWidth,
     double? borderBottomWidth,
@@ -763,29 +774,29 @@ class CommonContainerModel {
     double? foregroundbottomRightRadius,
     double? foregroundtopLeftRadius,
     double? foregroundtopRightRadius,
-    double? foregroundborderRaduis,
+    double? foregroundborderRadius,
     double? foregroundborderWidth,
     double? foregroundborderTopWidth,
     double? foregroundborderBottomWidth,
     double? foregroundborderRightWidth,
     double? foregroundborderLeftWidth,
-    int? raduisColor,
-    int? shadowColor,
-    int? backgroundColor,
-    int? borderColor,
-    int? borderTopColor,
-    int? borderBottomColor,
-    int? borderRightColor,
-    int? borderLeftColor,
-    int? loadingColor,
-    int? foregroundraduisColor,
-    int? foregroundshadowColor,
-    int? foregroundColor,
-    int? foregroundborderColor,
-    int? foregroundborderTopColor,
-    int? foregroundborderBottomColor,
-    int? foregroundborderRightColor,
-    int? foregroundborderLeftColor,
+    dynamic radiusColor,
+    dynamic shadowColor,
+    dynamic backgroundColor,
+    dynamic borderColor,
+    dynamic borderTopColor,
+    dynamic borderBottomColor,
+    dynamic borderRightColor,
+    dynamic borderLeftColor,
+    dynamic loadingColor,
+    dynamic foregroundRadiusColor,
+    dynamic foregroundshadowColor,
+    dynamic foregroundColor,
+    dynamic foregroundborderColor,
+    dynamic foregroundborderTopColor,
+    dynamic foregroundborderBottomColor,
+    dynamic foregroundborderRightColor,
+    dynamic foregroundborderLeftColor,
     Alignment? alignment,
     Alignment? transformAlignment,
     Clip? clipBehavior,
@@ -852,7 +863,7 @@ class CommonContainerModel {
       bottomRightRadius: bottomRightRadius ?? this.bottomRightRadius,
       topLeftRadius: topLeftRadius ?? this.topLeftRadius,
       topRightRadius: topRightRadius ?? this.topRightRadius,
-      borderRaduis: borderRaduis ?? this.borderRaduis,
+      borderRadius: borderRadius ?? this.borderRadius,
       borderWidth: borderWidth ?? this.borderWidth,
       borderTopWidth: borderTopWidth ?? this.borderTopWidth,
       borderBottomWidth: borderBottomWidth ?? this.borderBottomWidth,
@@ -866,8 +877,8 @@ class CommonContainerModel {
           foregroundtopLeftRadius ?? this.foregroundtopLeftRadius,
       foregroundtopRightRadius:
           foregroundtopRightRadius ?? this.foregroundtopRightRadius,
-      foregroundborderRaduis:
-          foregroundborderRaduis ?? this.foregroundborderRaduis,
+      foregroundborderRadius:
+          foregroundborderRadius ?? this.foregroundborderRadius,
       foregroundborderWidth:
           foregroundborderWidth ?? this.foregroundborderWidth,
       foregroundborderTopWidth:
@@ -878,7 +889,7 @@ class CommonContainerModel {
           foregroundborderRightWidth ?? this.foregroundborderRightWidth,
       foregroundborderLeftWidth:
           foregroundborderLeftWidth ?? this.foregroundborderLeftWidth,
-      raduisColor: raduisColor ?? this.raduisColor,
+      radiusColor: radiusColor ?? this.radiusColor,
       shadowColor: shadowColor ?? this.shadowColor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       borderColor: borderColor ?? this.borderColor,
@@ -887,8 +898,8 @@ class CommonContainerModel {
       borderRightColor: borderRightColor ?? this.borderRightColor,
       borderLeftColor: borderLeftColor ?? this.borderLeftColor,
       loadingColor: loadingColor ?? this.loadingColor,
-      foregroundraduisColor:
-          foregroundraduisColor ?? this.foregroundraduisColor,
+      foregroundRadiusColor:
+          foregroundRadiusColor ?? this.foregroundRadiusColor,
       foregroundshadowColor:
           foregroundshadowColor ?? this.foregroundshadowColor,
       foregroundColor: foregroundColor ?? this.foregroundColor,

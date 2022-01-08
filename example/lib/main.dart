@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       routes: {
         CONTAINERS_ROUTE: (context) => Containers(),
         TEXTS_ROUTE: (context) => Texts(),
+        TEXT_INPUTS_ROUTE: (context) => TextInputs(),
         DATE_PICKERS_ROUTE: (context) => DatePickers(),
       },
     );
@@ -42,6 +43,9 @@ class MyHomePage extends StatelessWidget {
                   padding: 16,
                   alignment: Alignment.center,
                   margin: 20,
+                  backgroundColor: Color(PRIMARY_COLOR),
+                  shadowOpacity: 0.5,
+                  shadowColor: COMMON_BLACK_COLOR,
                   touchEffect: TouchableEffect(
                     type: TouchTypes.scaleAndFade,
                     opacity: 0.05,
@@ -51,7 +55,7 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ),
             style: CommonTextStyles().h2Style().copyWith(
-                  fontColor: 0xFF123123,
+                  fontColor: Color(COMMON_WHITE_COLOR),
                 ),
             text: 'Common UI toolKit',
             onPress: () {

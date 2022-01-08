@@ -28,8 +28,8 @@ class CommonText extends StatelessWidget {
   /// handel opPress function
   Function? onPress;
 
-  /// text and iconPath
-  String? text, iconPath;
+  /// text
+  String? text;
 
   List<InlineSpan>? inlineSpans;
 
@@ -39,7 +39,6 @@ class CommonText extends StatelessWidget {
   CommonText({
     this.text,
     this.onPress,
-    this.iconPath,
     this.leftChild,
     this.rightChild,
     this.topChild,
@@ -57,13 +56,17 @@ class CommonText extends StatelessWidget {
       onPress: onPress,
       style: containerStyle,
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: style!.columnCrossAxisAlignemnt,
+        mainAxisSize: style!.columnMainAxisSize,
+        mainAxisAlignment: style!.columnMainAxisAlignemnt,
         children: [
           if (topChild != null) topChild!,
           Row(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: style!.rowMainAxisSize,
+            crossAxisAlignment: style!.rowCrossAxisAlignemnt,
+            mainAxisAlignment: style!.rowMainAxisAlignemnt,
             children: [
-              getIcon(iconPath, style),
+              if (style!.prefixIcon != null) getIcon(style!.prefixIcon!),
               if (leftChild != null) leftChild!,
               Flexible(
                 child: RichText(
@@ -81,15 +84,15 @@ class CommonText extends StatelessWidget {
                     children: inlineSpans,
                     style: TextStyle(
                       decoration: style!.decoration,
-                      color: Color(style!.fontColor!),
+                      color: getColorType(style!.fontColor!),
                       decorationThickness: style!.decorationThickness,
-                      fontWeight: style!.fontweight,
                       fontSize: style!.responsiveFontSize(),
+                      fontWeight: style!.fontWeight,
                       fontFamily: style!.fontFamily,
                       wordSpacing: style!.wordSpacing,
                       fontStyle: style!.fontStyle,
                       letterSpacing: style!.letterSpacing,
-                      backgroundColor: Color(style!.backgroundColor!),
+                      backgroundColor: getColorType(style!.backgroundColor!),
                       height: style!.height,
                       textBaseline: style!.textBaseline,
                       leadingDistribution: style!.leadingDistribution,
@@ -98,7 +101,7 @@ class CommonText extends StatelessWidget {
                       background: style!.background,
                       shadows: style!.shadows,
                       fontFeatures: style!.fontFeatures,
-                      decorationColor: Color(style!.decorationColor!),
+                      decorationColor: getColorType(style!.decorationColor!),
                       decorationStyle: style!.decorationStyle,
                       debugLabel: style!.debugLabel,
                       fontFamilyFallback: style!.fontFamilyFallback,

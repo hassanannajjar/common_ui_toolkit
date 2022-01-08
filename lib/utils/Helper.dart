@@ -28,22 +28,69 @@ getIconMarginEdgeInsets(style) => EdgeInsets.fromLTRB(
       style.iconMarginBottom ?? style.iconMarginVertical ?? style.iconMargin!,
     );
 
-/// return the icon and style with custom function.
-getIcon(path, style) {
-  if (path != null) {
-    return Container(
-      width: style!.iconWidth,
-      height: style!.iconHeight,
-      margin: getIconMarginEdgeInsets(style),
-      child: path!.contains('png') || path!.contains('jpg')
-          ? Image.asset(path!)
-          : SvgPicture.asset(
-              path,
-              color: style!.iconColor != null ? Color(style!.iconColor!) : null,
-            ),
+/// handel icon margin, vertical, horizontal, top, bottom, left and right.
+getContentPaddingEdgeInsets(style) => EdgeInsets.fromLTRB(
+      style.contentPaddingLeft ??
+          style.contentPaddingHorizontal ??
+          style.contentPadding!,
+      style.contentPaddingTop ??
+          style.contentPaddingVertical ??
+          style.contentPadding!,
+      style.contentPaddingRight ??
+          style.contentPaddingHorizontal ??
+          style.contentPadding!,
+      style.contentPaddingBottom ??
+          style.contentPaddingVertical ??
+          style.contentPadding!,
     );
+
+/// return the icon and style with custom function.
+getIcon(CommonIcon icon) {
+  return CommonContainer(
+    onPress: () {
+      if (icon.onPress != null) {
+        icon.onPress!();
+      }
+    },
+    style: icon.containerStyle ?? CommonContainerModel(),
+    child: icon.path.runtimeType == IconData
+        ? Icon(
+            icon.path, // icon data takes only size without width and height, so we need to use size instead. we pass the width to be the size of the icon.
+            size: icon.iconDataSize,
+            color: getColorType(icon.color!),
+          )
+        : icon.path.startsWith('http')
+            ? icon.path.endsWith('svg')
+                ? SvgPicture.network(
+                    icon.path,
+                    color: getColorType(icon.color!),
+                  )
+                : Image.network(
+                    icon.path,
+                  )
+            : icon.path.endsWith('svg')
+                ? SvgPicture.asset(
+                    icon.path,
+                    color: getColorType(icon.color!),
+                  )
+                : Image.asset(
+                    icon.path,
+                  ),
+  );
+}
+
+renderResponsiveWidth(width) {
+  return width;
+}
+
+/// render Color Type
+getColorType(color) {
+  if (color.runtimeType == Color || color.runtimeType == MaterialColor) {
+    return color;
+  } else if (color.runtimeType == int) {
+    return Color(color);
   } else {
-    return Padding(padding: EdgeInsets.zero);
+    return Colors.transparent;
   }
 }
 
