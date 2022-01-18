@@ -31,6 +31,8 @@ class CommonButton extends StatelessWidget {
       style: containerStyle,
       onPress: () {},
       child: ElevatedButton(
+        onFocusChange: style!.onFocusChange,
+        onHover: style!.onHover,
         autofocus: style!.autofocus,
         clipBehavior: style!.clipBehavior,
         focusNode: style!.focusNode,

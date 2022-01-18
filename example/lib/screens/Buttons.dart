@@ -54,7 +54,6 @@ class Buttons extends StatelessWidget {
               CommonButton(
                 text: 'Customized radius button with different press effect',
                 containerStyle: CommonContainerModel(
-                  marginVertical: DEVICE_HEIGHT * 0.1,
                   touchEffect: TouchableEffect(
                     type: TouchTypes.opacity,
                   ),

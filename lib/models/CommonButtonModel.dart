@@ -1,5 +1,3 @@
-import 'package:common_ui_toolkit/components/common_date_picker/index.dart';
-
 import '../index.dart';
 
 class CommonButtonModel {
@@ -84,6 +82,16 @@ class CommonButtonModel {
   MaterialStateProperty<MouseCursor?>? mouseCursor;
 
   ///
+  /// onFocusChange
+  ///
+  ValueChanged<bool>? onFocusChange;
+
+  ///
+  /// onHover
+  ///
+  ValueChanged<bool>? onHover;
+
+  ///
   /// padding
   ///
   MaterialStateProperty<EdgeInsetsGeometry?>? padding;
@@ -138,6 +146,8 @@ class CommonButtonModel {
     this.autofocus = false,
     this.backgroundColor = COMMON_WHITE_COLOR,
     this.cutomBackgroundColor,
+    this.onFocusChange,
+    this.onHover,
     this.disabledColor = COMMON_DISABLED_COLOR,
     this.overlayColor = Colors.black12,
     this.customOverlayColor,
@@ -215,6 +225,8 @@ class CommonButtonModel {
     MaterialStateProperty<Size?>? maximumSize,
     MaterialStateProperty<Size?>? minimumSize,
     MaterialStateProperty<MouseCursor?>? mouseCursor,
+    ValueChanged<bool>? onFocusChange,
+    ValueChanged<bool>? onHover,
     MaterialStateProperty<EdgeInsetsGeometry?>? padding,
     MaterialStateProperty<Color?>? shadowColor,
     MaterialStateProperty<BorderSide?>? side,
@@ -250,6 +262,8 @@ class CommonButtonModel {
       maximumSize: maximumSize ?? this.maximumSize,
       minimumSize: minimumSize ?? this.minimumSize,
       mouseCursor: mouseCursor ?? this.mouseCursor,
+      onFocusChange: onFocusChange ?? this.onFocusChange,
+      onHover: onHover ?? this.onHover,
       padding: padding ?? this.padding,
       shadowColor: shadowColor ?? this.shadowColor,
       side: side ?? this.side,
