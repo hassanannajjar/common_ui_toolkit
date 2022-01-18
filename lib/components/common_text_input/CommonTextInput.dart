@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:common_ui_toolkit/index.dart';
 
-class CommonTextInput extends StatefulWidget {
+class CommonTextInput extends StatelessWidget {
   CommonTextInputModel? style;
   CommonContainerModel? containerStyle;
   Function? onChanged;
@@ -21,26 +21,19 @@ class CommonTextInput extends StatefulWidget {
   });
 
   @override
-  _CommonTextInputState createState() => _CommonTextInputState();
-}
-
-class _CommonTextInputState extends State<CommonTextInput> {
-  CommonTextInputModel? style;
-
-  @override
   Widget build(BuildContext context) {
-    style = widget.style ?? CommonTextInputModel();
-    widget.textEditingController = widget.textEditingController ??
-        TextEditingController(text: style!.text);
+    style = style ?? CommonTextInputModel();
+    textEditingController =
+        textEditingController ?? TextEditingController(text: style!.text);
     return CommonContainer(
-      style: widget.containerStyle,
+      style: containerStyle,
       child: TextFormField(
         onTap: () {
-          if (widget.onTap != null) {
-            widget.onTap!();
+          if (onTap != null) {
+            onTap!();
           }
         },
-        controller: widget.textEditingController,
+        controller: textEditingController,
         textInputAction: style!.textInputAction,
         textAlign: style!.textAlign!,
         focusNode: style!.foucsNode,
@@ -133,8 +126,8 @@ class _CommonTextInputState extends State<CommonTextInput> {
               alignLabelWithHint: true,
             ),
         onChanged: (value) {
-          if (widget.onChanged != null) {
-            widget.onChanged!(value);
+          if (onChanged != null) {
+            onChanged!(value);
           }
         },
         autocorrect: style!.autocorrect!,

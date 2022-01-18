@@ -9,6 +9,7 @@ const COMMON_PR_COLOR = 0xFF071FF8;
 const COMMON_RED_COLOR = 0xFFE40000;
 const COMMON_TRANSPARENT_COLOR = 0x00000000;
 const COMMON_GREY_COLOR = 0xFF707070;
+const COMMON_DISABLED_COLOR = 0xFFCBCBCB;
 
 // ----------------------------------------
 
