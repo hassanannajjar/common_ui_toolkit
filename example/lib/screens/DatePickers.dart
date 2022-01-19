@@ -6,7 +6,7 @@ class DatePickers extends StatelessWidget {
         fontColor: COMMON_PR_COLOR,
       );
   CommonContainerModel containerStyle = CommonContainerModel(
-    marginVertical: 25,
+    margin: 0.02,
     touchEffect: TouchableEffect(
       type: TouchTypes.scaleAndFade,
     ),
@@ -28,7 +28,7 @@ class DatePickers extends StatelessWidget {
         ),
       ),
       body: CommonContainer(
-        style: CommonContainerModel().copyWith(width: 0.99),
+        style: CommonContainerModel().copyWith(width: 1),
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: Column(
@@ -46,11 +46,12 @@ class DatePickers extends StatelessWidget {
                 headerTextStyle: CommonTextStyles().h3Style().copyWith(
                       fontWeight: FontWeight.bold,
                     ),
-
+                height: 0.11,
                 containerStyle:
                     CommonContainerStyle().datePickerTimeLineStyle().copyWith(
-                          marginVertical: 15,
-                          width: DEVICE_WIDTH * 0.9,
+                          marginVertical: 0.015,
+                          height: 0.19,
+                          width: 0.9,
                         ),
                 initialSelectedDate: DateTime.now(),
                 inactiveDates: [
@@ -66,26 +67,34 @@ class DatePickers extends StatelessWidget {
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
-                  CommonDatePicker.showDatePicker(context,
-                      showTitleActions: true,
-                      minTime: DateTime(2018, 3, 5),
-                      maxTime: DateTime(2019, 6, 7),
-                      theme: DatePickerTheme(
-                          headerColor: Colors.orange,
-                          backgroundColor: Colors.blue,
-                          itemStyle: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                          doneStyle:
-                              TextStyle(color: Colors.white, fontSize: 16)),
-                      onChanged: (date) {
-                    print('change $date in time zone ' +
-                        date.timeZoneOffset.inHours.toString());
-                  }, onConfirm: (date) {
-                    print('confirm $date');
-                  }, currentTime: DateTime.now(), locale: LocaleType.en);
+                  CommonDatePicker.showDatePicker(
+                    context,
+                    showTitleActions: true,
+                    minTime: DateTime(2018, 3, 5),
+                    maxTime: DateTime(2019, 6, 7),
+                    theme: DatePickerTheme(
+                      headerColor: Colors.orange,
+                      backgroundColor: Colors.blue,
+                      itemStyle: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                      doneStyle: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                    ),
+                    onChanged: (date) {
+                      print('change $date in time zone ' +
+                          date.timeZoneOffset.inHours.toString());
+                    },
+                    onConfirm: (date) {
+                      print('confirm $date');
+                    },
+                    currentTime: DateTime.now(),
+                    locale: LocaleType.en,
+                  );
                 },
                 text: 'show date picker(custom theme &date time range)',
               ),
