@@ -27,8 +27,8 @@ class CommonContainerStyle {
   /// container style with no shadow custome CommonContainerModel.
   CommonContainerModel datePickerTimeLineStyle() =>
       CommonContainerStyle().fullShadow.copyWith(
-            paddingHorizontal: 10,
-            paddingVertical: 10,
-            marginHorizontal: 15,
+            paddingHorizontal: 0.01,
+            paddingVertical: 0.01,
+            marginHorizontal: 0.015,
           );
 }
