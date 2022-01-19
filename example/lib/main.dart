@@ -30,20 +30,26 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(PRIMARY_COLOR),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(DEVICE_HEIGHT * 0.06),
+        child: AppBar(
+          iconTheme: IconThemeData(
+            size: DEVICE_WIDTH * 0.06,
+            color: Colors.white,
+          ),
+          backgroundColor: Color(PRIMARY_COLOR),
+        ),
       ),
-      drawer: Drawer(
-        child: DrawerContainer(),
-      ),
+      drawer: DrawerContainer(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           CommonText(
             containerStyle: CommonContainerStyle().fullShadow.copyWith(
-                  padding: 16,
+                  padding: 0.016,
                   alignment: Alignment.center,
-                  margin: 20,
+                  margin: 0.04,
+                  marginHorizontal: 0.1,
                   backgroundColor: Color(PRIMARY_COLOR),
                   shadowOpacity: 0.5,
                   shadowColor: COMMON_BLACK_COLOR,
