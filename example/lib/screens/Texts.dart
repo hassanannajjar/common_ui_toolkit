@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:common_ui_toolkit/index.dart';
 
 import '../utils/Constants.dart';
@@ -26,7 +25,7 @@ class Texts extends StatelessWidget {
               /// Common UI toolkit with full shadow border around the text, you can customize the containeras you like
               CommonText(
                 containerStyle: CommonContainerStyle().fullShadow.copyWith(
-                      padding: 16,
+                      padding: 0.016,
                     ),
                 style: CommonTextStyles().h2Style().copyWith(
                       fontColor: 0xFF123123,
@@ -37,8 +36,8 @@ class Texts extends StatelessWidget {
               /// This is an example of the verification code text with inlinSpans (Another text with different text color)
               CommonText(
                 containerStyle: CommonContainerModel(
-                  marginHorizontal: 16.0,
-                  marginVertical: 16.0,
+                  marginHorizontal: 0.016,
+                  marginVertical: 0.016,
                 ),
                 text:
                     'We have sent you a verification code through this number, Bla Bla Bla Bla ',
@@ -48,7 +47,7 @@ class Texts extends StatelessWidget {
                       text: '+970595131066',
                       style: CommonTextModel(fontColor: COMMON_RED_COLOR),
                       containerStyle: CommonContainerModel(
-                        marginHorizontal: 8.0,
+                        marginHorizontal: 0.008,
                         touchEffect: TouchableEffect(),
                       ),
                     ),
@@ -63,7 +62,7 @@ class Texts extends StatelessWidget {
               CommonText(
                 text: 'Underlined text',
                 containerStyle: CommonContainerModel(
-                  marginTop: 16.0,
+                  marginTop: 0.016,
                 ),
                 style: CommonTextModel(
                   decoration: TextDecoration.underline,
@@ -80,10 +79,10 @@ class Texts extends StatelessWidget {
               /// Custom container around the text with a touchable effect and a custom background color
               CommonText(
                 containerStyle: CommonContainerModel(
-                  padding: 16.0,
-                  borderRadius: 16.0,
-                  marginBottom: 16.0,
-                  marginVertical: 16.0,
+                  padding: 0.016,
+                  borderRadius: 0.016,
+                  marginBottom: 0.016,
+                  marginVertical: 0.016,
                   backgroundColor: COMMON_BLACK_COLOR,
                   touchEffect: TouchableEffect(),
                 ),
@@ -120,17 +119,17 @@ class Texts extends StatelessWidget {
                   touchEffect: TouchableEffect(
                     type: TouchTypes.scaleAndFade,
                   ),
-                  marginVertical: 16.0,
+                  marginVertical: 0.016,
                 ),
                 topChild: CommonText(
                   text: 'Top child',
                 ),
                 leftChild: CommonText(
-                  containerStyle: CommonContainerModel(marginHorizontal: 8.0),
+                  containerStyle: CommonContainerModel(marginHorizontal: 0.008),
                   text: 'Left child',
                 ),
                 rightChild: CommonText(
-                  containerStyle: CommonContainerModel(marginHorizontal: 8.0),
+                  containerStyle: CommonContainerModel(marginHorizontal: 0.008),
                   text: 'Right child',
                   style: CommonTextModel(
                     decoration: TextDecoration.lineThrough,
