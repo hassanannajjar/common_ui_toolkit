@@ -30,7 +30,7 @@ class DateWidget extends StatelessWidget {
     if (selectedContainerStyle == null) {
       selectedContainerStyle = CommonContainerModel(
         borderRadius: 25,
-        padding: 10,
+        padding: 0.1,
       );
     }
     return CommonContainer(
@@ -43,9 +43,9 @@ class DateWidget extends StatelessWidget {
       },
       style: CommonContainerModel(
         width: width,
-        padding: DEVICE_WIDTH * 0.008,
-        paddingBottom: DEVICE_WIDTH * 0.013,
-        margin: 3,
+        padding: 0.008,
+        paddingBottom: 0.013,
+        margin: 0.003,
         touchEffect: TouchableEffect(
           type: TouchTypes.opacity,
         ),
