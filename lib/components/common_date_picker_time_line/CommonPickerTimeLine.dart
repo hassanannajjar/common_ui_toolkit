@@ -71,8 +71,8 @@ class CommonPickerTimeLine extends StatefulWidget {
   CommonPickerTimeLine(
     this.startDate, {
     Key? key,
-    this.width = 60,
-    this.height = 80,
+    this.width = 0.2,
+    this.height = 0.11,
     this.controller,
     this.monthTextStyle = defaultMonthTextStyle,
     this.dayTextStyle = defaultDayTextStyle,
@@ -202,7 +202,7 @@ class _DatePickerState extends State<CommonPickerTimeLine> {
             style: CommonContainerModel(
               borderBottomWidth: 0.2,
               borderBottomColor: 0xA9707070,
-              marginVertical: 10,
+              marginVertical: 0.01,
             ),
           ),
 
@@ -256,16 +256,18 @@ class _DatePickerState extends State<CommonPickerTimeLine> {
                 return VisibilityDetector(
                   key: Key('$index'),
                   onVisibilityChanged: (visibilityInfo) {
-                    if (index >= 0) {
-                      if (allDates[index]['Month'] != currentMonth) {
-                        setState(() {
-                          currentMonth = allDates[index]['Month'];
-                        });
-                      }
-                      if (allDates[index]['Year'] != currentYear) {
-                        setState(() {
-                          currentYear = allDates[index]['Year'];
-                        });
+                    if (this.mounted) {
+                      if (index >= 0) {
+                        if (allDates[index]['Month'] != currentMonth) {
+                          setState(() {
+                            currentMonth = allDates[index]['Month'];
+                          });
+                        }
+                        if (allDates[index]['Year'] != currentYear) {
+                          setState(() {
+                            currentYear = allDates[index]['Year'];
+                          });
+                        }
                       }
                     }
                   },
@@ -288,14 +290,14 @@ class _DatePickerState extends State<CommonPickerTimeLine> {
                         ? CommonContainerModel(
                             backgroundColor: 0xff096637,
                             borderRadius: 25,
-                            padding: 10,
-                            width: DEVICE_WIDTH * 0.1,
+                            padding: 0.01,
+                            width: 0.1,
                             alignment: Alignment.center,
                           )
                         : CommonContainerModel(
                             borderRadius: 25,
-                            padding: 10,
-                            width: DEVICE_WIDTH * 0.1,
+                            padding: 0.01,
+                            width: 0.1,
                             alignment: Alignment.center,
                           ),
                     width: widget.width,
