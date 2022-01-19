@@ -37,6 +37,10 @@ class DrawerContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CommonContainer(
+      style: CommonContainerModel(
+        width: 0.7,
+        backgroundColor: Colors.white,
+      ),
       child: Column(
         children: [
           DrawerHeader(),
@@ -50,11 +54,15 @@ class DrawerContainer extends StatelessWidget {
                               Navigator.pushNamed(context, e['route']),
                           containerStyle:
                               CommonContainerStyle().fullShadow.copyWith(
-                                    padding: 10,
-                                    margin: 15,
+                                    padding: 0.01,
+                                    margin: 0.015,
                                     width: 0.6,
+                                    borderRadius: DEVICE_WIDTH * 0.02,
+                                    touchEffect: TouchableEffect(
+                                      type: TouchTypes.opacity,
+                                    ),
                                   ),
-                          style: CommonTextStyles().h2Style().copyWith(
+                          style: CommonTextStyles().h3Style().copyWith(
                                 fontColor: 0xFF000000,
                               ),
                           text: e['name'],
@@ -74,7 +82,8 @@ class DrawerHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return CommonText(
       containerStyle: CommonContainerStyle().fullShadow.copyWith(
-            paddingTop: DEVICE_HEIGHT * 0.06,
+            paddingVertical: 0.02,
+            marginBottom: 0.02,
             width: 0.9,
             height: 0.13,
             alignment: Alignment.bottomCenter,

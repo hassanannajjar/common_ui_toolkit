@@ -1,5 +1,4 @@
 import 'package:example/utils/Constants.dart';
-import 'package:flutter/material.dart';
 import 'package:common_ui_toolkit/index.dart';
 
 class Containers extends StatelessWidget {
@@ -19,7 +18,7 @@ class Containers extends StatelessWidget {
         ),
       ),
       body: CommonContainer(
-        style: CommonContainerModel().copyWith(width: 0.99),
+        style: CommonContainerModel().copyWith(width: 1),
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: Column(
@@ -61,7 +60,7 @@ class Containers extends StatelessWidget {
                       backgroundColor: 4255967295,
                       width: 0.5,
                       height: 0.3,
-                      marginTop: 15,
+                      marginTop: 0.015,
                     ),
               ),
 
