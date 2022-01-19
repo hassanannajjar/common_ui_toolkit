@@ -361,6 +361,12 @@ class CommonContainerModel {
   DecorationImage? foregroundImage;
 
   ///
+  /// add true or false to enable or disable responsive numbers in the container.
+  ///   default value is true
+  ///
+  bool? isResponsive;
+
+  ///
   /// check if the border is null or not.
   ///
   checkBorderNull() =>
@@ -541,26 +547,26 @@ class CommonContainerModel {
   /// handel container width.
   /// and return the container width
   ///  like responsive design if the value smaller than 1.
-  getWidth() => width! < 1.0 && width! > 0.0
-      ? DEVICE_WIDTH * width!
-      : width! > 1
-          ? width!
+  getWidth() => width! <= 0.0
+      ? null
+      : isResponsive!
+          ? DEVICE_WIDTH * width!
 
           /// the defaul value for witdh is null
           ///  and this mean expanded as contet.
-          : null;
+          : width!;
 
   /// handel container hight.
   /// and return the container hight
   ///  like responsive design if the value smaller than 1.
-  getHeight() => height! < 1.0 && height! > 0.0
-      ? DEVICE_HEIGHT * height!
-      : height! > 0.0
-          ? height!
+  getHeight() => height! <= 0.0
+      ? null
+      : isResponsive!
+          ? DEVICE_HEIGHT * height!
 
-          /// the defaul value for hight is null
+          /// the defaul value for witdh is null
           ///  and this mean expanded as contet.
-          : null;
+          : height!;
 
   CommonContainerModel({
     //sizes
@@ -720,6 +726,9 @@ class CommonContainerModel {
     // image
     this.foregroundImage,
     this.backgroundImage,
+
+    // responsive numbers
+    this.isResponsive = true,
   });
 
   CommonContainerModel copyWith({
@@ -822,6 +831,7 @@ class CommonContainerModel {
     LinearGradient? foregroundboxGradient,
     DecorationImage? backgroundImage,
     DecorationImage? foregroundImage,
+    bool? isResponsive,
   }) {
     return CommonContainerModel(
       width: width ?? this.width,
@@ -944,6 +954,7 @@ class CommonContainerModel {
           foregroundboxGradient ?? this.foregroundboxGradient,
       backgroundImage: backgroundImage ?? this.backgroundImage,
       foregroundImage: foregroundImage ?? this.foregroundImage,
+      isResponsive: isResponsive ?? this.isResponsive,
     );
   }
 }
