@@ -26,8 +26,8 @@ class Buttons extends StatelessWidget {
               CommonButton(
                 text: 'Button with elevation and custom size',
                 containerStyle: CommonContainerModel(
-                  width: DEVICE_WIDTH * 0.4,
-                  height: DEVICE_HEIGHT * 0.1,
+                  width: 0.4,
+                  height: 0.1,
                 ),
                 style: CommonButtonModel(
                   elevation: 10.0,
@@ -72,7 +72,7 @@ class Buttons extends StatelessWidget {
               ),
               CommonButton(
                 textContainerStyle: CommonContainerModel(
-                  marginVertical: DEVICE_HEIGHT * 0.1,
+                  marginVertical: 0.1,
                   backgroundColor: COMMON_RED_COLOR,
                 ),
                 textStyle: CommonTextModel(
