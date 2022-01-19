@@ -4,21 +4,73 @@ import '../index.dart';
 
 List<int> _leapYearMonths = const <int>[1, 3, 5, 7, 8, 10, 12];
 
+/// get responsive device width
+getResponsiveDeviceWidth(double? value, bool? isResponsive) => value == null
+    ? null
+    : isResponsive!
+        ? DEVICE_WIDTH * value
+        : value;
+
+/// get responsive device height
+getResponsiveDeviceHeight(double? value, bool? isResponsive) => value == null
+    ? null
+    : isResponsive!
+        ? DEVICE_HEIGHT * value
+        : value;
+
 /// handel margin, vertical, horizontal, top, bottom, left and right.
-getMarginEdgeInsets(style) => EdgeInsets.fromLTRB(
-      style.marginLeft ?? style.marginHorizontal ?? style.margin!,
-      style.marginTop ?? style.marginVertical ?? style.margin!,
-      style.marginRight ?? style.marginHorizontal ?? style.margin!,
-      style.marginBottom ?? style.marginVertical ?? style.margin!,
-    );
+EdgeInsets getMarginEdgeInsets(CommonContainerModel? style) {
+  bool? rs = style!.isResponsive;
+  double? left = style.marginLeft;
+  double? right = style.marginRight;
+  double? top = style.marginTop;
+  double? bottom = style.marginBottom;
+  double? vertical = style.marginVertical;
+  double? horizontal = style.marginHorizontal;
+  double? margin = style.margin;
+
+  return EdgeInsets.fromLTRB(
+    getResponsiveDeviceWidth(left, rs) ??
+        getResponsiveDeviceWidth(horizontal, rs) ??
+        getResponsiveDeviceWidth(margin!, rs),
+    getResponsiveDeviceHeight(top, rs) ??
+        getResponsiveDeviceHeight(vertical, rs) ??
+        getResponsiveDeviceHeight(margin!, rs),
+    getResponsiveDeviceWidth(right, rs) ??
+        getResponsiveDeviceWidth(horizontal, rs) ??
+        getResponsiveDeviceWidth(margin!, rs),
+    getResponsiveDeviceHeight(bottom, rs) ??
+        getResponsiveDeviceHeight(vertical, rs) ??
+        getResponsiveDeviceHeight(margin!, rs),
+  );
+}
 
 /// handel padding, vertical, horizontal, left, right, top and bottom.
-getPaddingEdgeInsets(style) => EdgeInsets.fromLTRB(
-      style.paddingLeft ?? style.paddingHorizontal ?? style.padding!,
-      style.paddingTop ?? style.paddingVertical ?? style.padding!,
-      style.paddingRight ?? style.paddingHorizontal ?? style.padding!,
-      style.paddingBottom ?? style.paddingVertical ?? style.padding!,
-    );
+EdgeInsets getPaddingEdgeInsets(style) {
+  bool? rs = style!.isResponsive;
+  double? left = style.paddingLeft;
+  double? right = style.paddingRight;
+  double? top = style.paddingTop;
+  double? bottom = style.paddingBottom;
+  double? vertical = style.paddingVertical;
+  double? horizontal = style.paddingHorizontal;
+  double? padding = style.padding;
+
+  return EdgeInsets.fromLTRB(
+    getResponsiveDeviceWidth(left, rs) ??
+        getResponsiveDeviceWidth(horizontal, rs) ??
+        getResponsiveDeviceWidth(padding!, rs),
+    getResponsiveDeviceHeight(top, rs) ??
+        getResponsiveDeviceHeight(vertical, rs) ??
+        getResponsiveDeviceHeight(padding!, rs),
+    getResponsiveDeviceWidth(right, rs) ??
+        getResponsiveDeviceWidth(horizontal, rs) ??
+        getResponsiveDeviceWidth(padding!, rs),
+    getResponsiveDeviceHeight(bottom, rs) ??
+        getResponsiveDeviceHeight(vertical, rs) ??
+        getResponsiveDeviceHeight(padding!, rs),
+  );
+}
 
 /// handel icon margin, vertical, horizontal, top, bottom, left and right.
 getIconMarginEdgeInsets(style) => EdgeInsets.fromLTRB(
