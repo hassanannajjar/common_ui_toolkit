@@ -103,3 +103,11 @@
 - Added row cross Axis Alignemnt
 - Added row main Axis Alignemnt
 - Added row main Axis size
+
+## 0.2.9
+
+- Added isResponsive value for CommonContainerModle and the default value is [true]
+- Used isResponsive value in 
+  - width, height, minWidth, minHeight, maxWidth and maxHeight.
+  - borderRadius.
+  - margin and padding, left, right, bottom, top, vertical and horizontal.
