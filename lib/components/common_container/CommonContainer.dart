@@ -165,10 +165,10 @@ class CommonContainer extends StatelessWidget {
         /// render minwidth, minheight, maxwidth and maxhight.
         ///
         constraints: BoxConstraints(
-          minWidth: style!.minWidth!,
-          minHeight: style!.minHieght!,
-          maxWidth: style!.maxWidth!,
-          maxHeight: style!.maxHieght!,
+          minWidth: style!.getResponsiveMinWidth(),
+          minHeight: style!.getResponsiveMinHieght(),
+          maxWidth: style!.getResponsiveMaxWidth(),
+          maxHeight: style!.getResponsiveMaxHieght(),
         ),
 
         ///

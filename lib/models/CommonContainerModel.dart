@@ -580,6 +580,17 @@ class CommonContainerModel {
           ///  and this mean expanded as contet.
           : height!;
 
+  getResponsiveMinWidth() =>
+      isResponsive! ? DEVICE_WIDTH * minWidth! : minWidth!;
+  getResponsiveMaxWidth() => isResponsive! && maxWidth != double.infinity
+      ? DEVICE_WIDTH * maxWidth!
+      : maxWidth!;
+  getResponsiveMinHieght() =>
+      isResponsive! ? DEVICE_HEIGHT * minHieght! : minHieght!;
+  getResponsiveMaxHieght() => isResponsive! && maxHieght != double.infinity
+      ? DEVICE_HEIGHT * maxHieght!
+      : maxHieght!;
+
   CommonContainerModel({
     //sizes
     this.width = 0.0,
