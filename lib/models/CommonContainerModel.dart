@@ -388,6 +388,9 @@ class CommonContainerModel {
       foregroundborderRightWidth != null ||
       foregroundborderLeftWidth != null;
 
+  getResponsivBorderRadius(value) =>
+      isResponsive! ? DEVICE_WIDTH * value : value;
+
   ///
   /// get border Radius.
   ///
@@ -399,17 +402,21 @@ class CommonContainerModel {
           /// return every single Radius.
           ///
           ? BorderRadius.only(
-              topRight: Radius.circular(topRightRadius!),
-              topLeft: Radius.circular(topLeftRadius!),
-              bottomLeft: Radius.circular(bottomLeftRadius!),
-              bottomRight: Radius.circular(bottomRightRadius!),
+              topRight:
+                  Radius.circular(getResponsivBorderRadius(topRightRadius!)),
+              topLeft:
+                  Radius.circular(getResponsivBorderRadius(topLeftRadius!)),
+              bottomLeft:
+                  Radius.circular(getResponsivBorderRadius(bottomLeftRadius!)),
+              bottomRight:
+                  Radius.circular(getResponsivBorderRadius(bottomRightRadius!)),
             )
 
           ///
           /// return all Radius.
           ///
           : BorderRadius.all(
-              Radius.circular(borderRadius!),
+              Radius.circular(getResponsivBorderRadius(borderRadius!)),
             ));
 
   ///
@@ -424,17 +431,22 @@ class CommonContainerModel {
               /// return every single Radius.
               ///
               ? BorderRadius.only(
-                  topRight: Radius.circular(foregroundtopRightRadius!),
-                  topLeft: Radius.circular(foregroundtopLeftRadius!),
-                  bottomLeft: Radius.circular(foregroundbottomLeftRadius!),
-                  bottomRight: Radius.circular(foregroundbottomRightRadius!),
+                  topRight: Radius.circular(
+                      getResponsivBorderRadius(foregroundtopRightRadius!)),
+                  topLeft: Radius.circular(
+                      getResponsivBorderRadius(foregroundtopLeftRadius!)),
+                  bottomLeft: Radius.circular(
+                      getResponsivBorderRadius(foregroundbottomLeftRadius!)),
+                  bottomRight: Radius.circular(
+                      getResponsivBorderRadius(foregroundbottomRightRadius!)),
                 )
 
               ///
               /// return all Radius.
               ///
               : BorderRadius.all(
-                  Radius.circular(foregroundborderRadius!),
+                  Radius.circular(
+                      getResponsivBorderRadius(foregroundborderRadius!)),
                 ));
 
   ///
