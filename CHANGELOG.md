@@ -106,7 +106,7 @@
 
 ## 0.2.9
 
-- Added isResponsive value for CommonContainerModle and the default value is [true]
+- Added isResponsive value for CommonContainerModel and the default value is [true]
 - Used isResponsive value in 
   - width, height, minWidth, minHeight, maxWidth and maxHeight.
   - borderRadius.
