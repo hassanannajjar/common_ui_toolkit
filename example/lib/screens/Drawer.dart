@@ -57,7 +57,7 @@ class DrawerContainer extends StatelessWidget {
                                     padding: 0.01,
                                     margin: 0.015,
                                     width: 0.6,
-                                    borderRadius: DEVICE_WIDTH * 0.02,
+                                    borderRadius: 0.02,
                                     touchEffect: TouchableEffect(
                                       type: TouchTypes.opacity,
                                     ),

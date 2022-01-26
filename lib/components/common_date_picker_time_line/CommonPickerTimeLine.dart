@@ -289,13 +289,13 @@ class _DatePickerState extends State<CommonPickerTimeLine> {
                     selectedContainerStyle: isSelected
                         ? CommonContainerModel(
                             backgroundColor: 0xff096637,
-                            borderRadius: 25,
+                            borderRadius: 0.25,
                             padding: 0.01,
                             width: 0.1,
                             alignment: Alignment.center,
                           )
                         : CommonContainerModel(
-                            borderRadius: 25,
+                            borderRadius: 0.25,
                             padding: 0.01,
                             width: 0.1,
                             alignment: Alignment.center,

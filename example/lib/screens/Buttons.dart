@@ -31,7 +31,7 @@ class Buttons extends StatelessWidget {
                 ),
                 style: CommonButtonModel(
                   elevation: 10.0,
-                  borderRadius: 10.0,
+                  borderRadius: 0.1,
 
                   // You can customize the button elecation OR use the default one
                   // customElevation: MaterialStateProperty.all(100)
@@ -64,10 +64,10 @@ class Buttons extends StatelessWidget {
                 style: CommonButtonModel(
                   overlayColor: COMMON_TRANSPARENT_COLOR,
                   backgroundColor: COMMON_PR_COLOR,
-                  topLeftRadius: 5,
-                  topRightRadius: 10,
-                  bottomLeftRadius: 15,
-                  bottomRightRadius: 20,
+                  topLeftRadius: 0.05,
+                  topRightRadius: 0.01,
+                  bottomLeftRadius: 0.15,
+                  bottomRightRadius: 0.2,
                 ),
               ),
               CommonButton(

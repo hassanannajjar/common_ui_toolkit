@@ -3,7 +3,7 @@ import 'package:common_ui_toolkit/index.dart';
 class CommonContainerStyle {
   /// container style with bottom shadow custome CommonContainerModel.
   CommonContainerModel bottomShadow = CommonContainerModel(
-    borderRadius: 20.0,
+    borderRadius: 0.02,
     shadowSpreadRadius: -10.0,
     shadowbBlurRadius: 10.0,
     shadowOffsetDX: 0.0,
@@ -14,7 +14,7 @@ class CommonContainerStyle {
 
   /// container style with full shadow custome CommonContainerModel.
   CommonContainerModel fullShadow = CommonContainerModel(
-    borderRadius: 20.0,
+    borderRadius: 0.02,
     shadowSpreadRadius: 1,
     shadowbBlurRadius: 10.0,
     shadowOffsetDX: 0.6,
