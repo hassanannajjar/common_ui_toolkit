@@ -85,15 +85,17 @@
 - Added missing copy with function to text input field.
 
 ## 0.2.5
-* Fix max lines bugs.
-* Fix obscure text bug.
-
-## 0.2.7
-* Fix typo error.
-* Added mutable color type to any color.
 
 - Fix max lines bugs.
 - Fix obscure text bug.
+
+## 0.2.7
+
+- Fix typo error.
+- Added mutable color type to any color.
+
+* Fix max lines bugs.
+* Fix obscure text bug.
 
 ## 0.2.8
 
@@ -107,7 +109,11 @@
 ## 0.2.9
 
 - Added isResponsive value for CommonContainerModel and the default value is [true]
-- Used isResponsive value in 
+- Used isResponsive value in
   - width, height, minWidth, minHeight, maxWidth and maxHeight.
   - borderRadius.
   - margin and padding, left, right, bottom, top, vertical and horizontal.
+
+## 0.3.0
+
+- Added Common button style to common button
