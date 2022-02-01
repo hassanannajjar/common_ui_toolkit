@@ -1,19 +1,13 @@
 import '../../index.dart';
 
 class CommonButton extends StatelessWidget {
-  CommonButtonModel? style;
-  CommonContainerModel? containerStyle;
-  CommonContainerModel? textContainerStyle;
-  CommonTextModel? textStyle;
+  CommonButtonStyle? buttonStyle;
   Function? onPress, onLongPress;
   String? text;
   Widget? child;
 
   CommonButton({
-    this.style,
-    this.containerStyle,
-    this.textContainerStyle,
-    this.textStyle,
+    this.buttonStyle,
     this.text = 'Click',
     this.onPress,
     this.onLongPress,
@@ -22,69 +16,66 @@ class CommonButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    style = style ?? CommonButtonModel();
-    containerStyle = containerStyle ?? CommonContainerModel();
-    textContainerStyle = textContainerStyle ?? CommonContainerModel();
-    textStyle = textStyle ?? CommonTextModel();
+    buttonStyle = buttonStyle ?? CommonButtonStyle();
 
     return CommonContainer(
-      style: containerStyle,
+      style: buttonStyle!.containerStyle,
       onPress: () {},
       child: ElevatedButton(
-        onFocusChange: style!.onFocusChange,
-        onHover: style!.onHover,
-        autofocus: style!.autofocus,
-        clipBehavior: style!.clipBehavior,
-        focusNode: style!.focusNode,
-        key: style!.key,
-        onLongPress: (style!.isEnable && onLongPress != null)
+        onFocusChange: buttonStyle!.style!.onFocusChange,
+        onHover: buttonStyle!.style!.onHover,
+        autofocus: buttonStyle!.style!.autofocus,
+        clipBehavior: buttonStyle!.style!.clipBehavior,
+        focusNode: buttonStyle!.style!.focusNode,
+        key: buttonStyle!.style!.key,
+        onLongPress: (buttonStyle!.style!.isEnable && onLongPress != null)
             ? () {
                 onLongPress!();
               }
             : null,
         style: ButtonStyle(
-          alignment: style!.alignment,
-          animationDuration: style!.animationDuration,
-          enableFeedback: style!.enableFeedback,
-          fixedSize: style!.fixedSize,
-          foregroundColor: style!.foregroundColor,
-          maximumSize: style!.maximumSize,
-          minimumSize: style!.minimumSize,
-          mouseCursor: style!.mouseCursor,
-          padding: style!.padding,
-          shadowColor: style!.shadowColor,
-          side: style!.side,
-          splashFactory: style!.splashFactory,
-          tapTargetSize: style!.tapTargetSize,
-          textStyle: style!.textStyle,
-          visualDensity: style!.visualDensity,
-          elevation: style!.customElevation ??
+          alignment: buttonStyle!.style!.alignment,
+          animationDuration: buttonStyle!.style!.animationDuration,
+          enableFeedback: buttonStyle!.style!.enableFeedback,
+          fixedSize: buttonStyle!.style!.fixedSize,
+          foregroundColor: buttonStyle!.style!.foregroundColor,
+          maximumSize: buttonStyle!.style!.maximumSize,
+          minimumSize: buttonStyle!.style!.minimumSize,
+          mouseCursor: buttonStyle!.style!.mouseCursor,
+          padding: buttonStyle!.style!.padding,
+          shadowColor: buttonStyle!.style!.shadowColor,
+          side: buttonStyle!.style!.side,
+          splashFactory: buttonStyle!.style!.splashFactory,
+          tapTargetSize: buttonStyle!.style!.tapTargetSize,
+          textStyle: buttonStyle!.style!.textStyle,
+          visualDensity: buttonStyle!.style!.visualDensity,
+          elevation: buttonStyle!.style!.customElevation ??
               MaterialStateProperty.all(
-                style!.elevation,
+                buttonStyle!.style!.elevation,
               ),
-          overlayColor: style!.customOverlayColor ??
+          overlayColor: buttonStyle!.style!.customOverlayColor ??
               MaterialStateProperty.resolveWith(
                 (states) {
                   return states.contains(MaterialState.pressed)
-                      ? getColorType(style!.overlayColor)
+                      ? getColorType(buttonStyle!.style!.overlayColor)
                       : null;
                 },
               ),
-          backgroundColor: style!.cutomBackgroundColor ??
+          backgroundColor: buttonStyle!.style!.cutomBackgroundColor ??
               MaterialStateProperty.all(
-                style!.isEnable
-                    ? getColorType(style!.backgroundColor!)
-                    : getColorType(style!.disabledColor!),
+                buttonStyle!.style!.isEnable
+                    ? getColorType(buttonStyle!.style!.backgroundColor!)
+                    : getColorType(buttonStyle!.style!.disabledColor!),
               ),
-          shape: style!.shape ??
+          shape: buttonStyle!.style!.shape ??
               MaterialStateProperty.all(
                 RoundedRectangleBorder(
-                  borderRadius: style!.getBorderRadius(),
+                  borderRadius: buttonStyle!.style!.getBorderRadius(),
                 ),
               ),
         ),
         // The on press function is empty here because it's required in the ElevatedButton, we call the on press function in the container to enable touch effects
-        onPressed: (style!.isEnable)
+        onPressed: (buttonStyle!.style!.isEnable)
             ? () {
                 if (onPress != null) {
                   onPress!();
@@ -93,9 +84,9 @@ class CommonButton extends StatelessWidget {
             : null,
         child: child ??
             CommonText(
-              containerStyle: textContainerStyle,
+              containerStyle: buttonStyle!.textContainerStyle,
               text: text,
-              style: textStyle,
+              style: buttonStyle!.textStyle,
             ),
       ),
     );
