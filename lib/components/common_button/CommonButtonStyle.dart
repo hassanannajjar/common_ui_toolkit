@@ -17,4 +17,18 @@ class CommonButtonStyle {
     textContainerStyle = textContainerStyle ?? CommonContainerModel();
     textStyle = textStyle ?? CommonTextModel();
   }
+
+  CommonButtonStyle copyWith({
+    CommonButtonModel? style,
+    CommonContainerModel? containerStyle,
+    CommonContainerModel? textContainerStyle,
+    CommonTextModel? textStyle,
+  }) {
+    return CommonButtonStyle(
+      style: style ?? this.style,
+      containerStyle: containerStyle ?? this.containerStyle,
+      textContainerStyle: textContainerStyle ?? this.textContainerStyle,
+      textStyle: textStyle ?? this.textStyle,
+    );
+  }
 }
