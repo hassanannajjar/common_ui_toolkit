@@ -130,7 +130,7 @@ class CommonContainerModel {
   ///  * [AlignmentDirectional], like [Alignment] for specifying alignments
   ///    relative to text direction.
   ///
-  Alignment? alignment;
+  AlignmentGeometry? alignment;
 
   ///
   /// The alignment of the origin, relative to the size of the container, if [transform] is specified.
@@ -829,7 +829,7 @@ class CommonContainerModel {
     dynamic foregroundborderBottomColor,
     dynamic foregroundborderRightColor,
     dynamic foregroundborderLeftColor,
-    Alignment? alignment,
+    AlignmentGeometry? alignment,
     Alignment? transformAlignment,
     Clip? clipBehavior,
     Matrix4? transform,
