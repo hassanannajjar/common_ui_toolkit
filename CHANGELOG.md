@@ -117,3 +117,7 @@
 ## 0.3.0
 
 - Added Common button style to common button
+
+## 0.3.1
+
+- Used AlignmentGeometry instead of Alignment
