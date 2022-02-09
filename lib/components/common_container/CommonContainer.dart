@@ -29,19 +29,19 @@ class CommonContainer extends StatelessWidget {
   /// CommonContainerStyle().fullShadow
   /// ```
   ///
-  CommonContainerModel? style;
+  final CommonContainerModel? style;
 
   ///
   /// handel the data after loading and check if the data null or not.
   ///
-  bool? isLoading;
+  final bool? isLoading;
 
   ///
   /// handel opPress function
   ///
-  Function? onPress;
+  final Function? onPress;
 
-  CommonContainer({
+  const CommonContainer({
     this.style,
     this.onPress,
     this.child,
@@ -51,10 +51,11 @@ class CommonContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CommonContainerModel? defaultContainerStyle = CommonContainerModel();
+
     ///
     /// handel default style if the style null.
     ///
-    style = style ?? CommonContainerModel();
 
     return CommonTouchable(
       ///
@@ -76,7 +77,8 @@ class CommonContainer extends StatelessWidget {
       /// )
       /// ```
       ///
-      touchEffect: style!.touchEffect ?? TouchableEffect(),
+      touchEffect:
+          (style ?? defaultContainerStyle).touchEffect ?? TouchableEffect(),
       child: Container(
         ///
         /// you can use loading condition to handel render error
@@ -97,7 +99,8 @@ class CommonContainer extends StatelessWidget {
             ///
             ? (loadingWidget ??
                 CircularProgressIndicator(
-                  color: getColorType(style!.loadingColor!),
+                  color: getColorType(
+                      (style ?? defaultContainerStyle).loadingColor!),
                 ))
 
             ///
@@ -108,12 +111,12 @@ class CommonContainer extends StatelessWidget {
         ///
         /// get the width.
         ///
-        width: style!.getWidth(),
+        width: (style ?? defaultContainerStyle).getWidth(),
 
         ///
         /// get the height.
         ///
-        height: style!.getHeight(),
+        height: (style ?? defaultContainerStyle).getHeight(),
 
         ///
         /// get the margin.
@@ -128,34 +131,44 @@ class CommonContainer extends StatelessWidget {
         ///
         /// get the alignment for content.
         ///
-        alignment: style!.alignment,
+        alignment: (style ?? defaultContainerStyle).alignment,
 
         ///
         /// get the foreground decoration or
         ///  you can customer foregroundDecoration as you want.
         ///
-        foregroundDecoration: style!.foregroundDecoration ??
+        foregroundDecoration: (style ?? defaultContainerStyle)
+                .foregroundDecoration ??
             BoxDecoration(
-              image: style!.foregroundImage,
-              gradient: style!.foregroundboxGradient,
-              backgroundBlendMode: style!.foregroundBlendMode,
-              shape: style!.foregroundboxShape!,
-              border: style!.getforegroundBorder(),
-              borderRadius: style!.getForegroundBorderRadius(),
-              color: getColorType(style!.foregroundColor!),
+              image: (style ?? defaultContainerStyle).foregroundImage,
+              gradient: (style ?? defaultContainerStyle).foregroundboxGradient,
+              backgroundBlendMode:
+                  (style ?? defaultContainerStyle).foregroundBlendMode,
+              shape: (style ?? defaultContainerStyle).foregroundboxShape!,
+              border: (style ?? defaultContainerStyle).getforegroundBorder(),
+              borderRadius:
+                  (style ?? defaultContainerStyle).getForegroundBorderRadius(),
+              color: getColorType(
+                  (style ?? defaultContainerStyle).foregroundColor!),
               boxShadow: <BoxShadow>[
                 BoxShadow(
-                  color:
-                      getColorType(style!.foregroundshadowColor!).runtimeType ==
-                              MaterialColor
-                          ? getColorType(style!.foregroundshadowColor!)
-                          : getColorType(style!.foregroundshadowColor!)
-                              .withOpacity(style!.foregroundshadowOpacity!),
-                  spreadRadius: style!.foregroundshadowSpreadRadius!,
-                  blurRadius: style!.foregroundshadowbBlurRadius!,
+                  color: getColorType((style ?? defaultContainerStyle)
+                                  .foregroundshadowColor!)
+                              .runtimeType ==
+                          MaterialColor
+                      ? getColorType((style ?? defaultContainerStyle)
+                          .foregroundshadowColor!)
+                      : getColorType((style ?? defaultContainerStyle)
+                              .foregroundshadowColor!)
+                          .withOpacity((style ?? defaultContainerStyle)
+                              .foregroundshadowOpacity!),
+                  spreadRadius: (style ?? defaultContainerStyle)
+                      .foregroundshadowSpreadRadius!,
+                  blurRadius: (style ?? defaultContainerStyle)
+                      .foregroundshadowbBlurRadius!,
                   offset: Offset(
-                    style!.foregroundshadowOffsetDX!,
-                    style!.foregroundshadowOffsetDY!,
+                    (style ?? defaultContainerStyle).foregroundshadowOffsetDX!,
+                    (style ?? defaultContainerStyle).foregroundshadowOffsetDY!,
                   ),
                 )
               ],
@@ -165,52 +178,61 @@ class CommonContainer extends StatelessWidget {
         /// render minwidth, minheight, maxwidth and maxhight.
         ///
         constraints: BoxConstraints(
-          minWidth: style!.getResponsiveMinWidth(),
-          minHeight: style!.getResponsiveMinHieght(),
-          maxWidth: style!.getResponsiveMaxWidth(),
-          maxHeight: style!.getResponsiveMaxHieght(),
+          minWidth: (style ?? defaultContainerStyle).getResponsiveMinWidth(),
+          minHeight: (style ?? defaultContainerStyle).getResponsiveMinHieght(),
+          maxWidth: (style ?? defaultContainerStyle).getResponsiveMaxWidth(),
+          maxHeight: (style ?? defaultContainerStyle).getResponsiveMaxHieght(),
         ),
 
         ///
         /// transofrm alignment for content.
         ///
-        transformAlignment: style!.transformAlignment,
+        transformAlignment: (style ?? defaultContainerStyle).transformAlignment,
 
         ///
         /// transofrm  for content.
         ///
-        transform: style!.transform,
+        transform: (style ?? defaultContainerStyle).transform,
 
         ///
         /// clipBehavior alignment for content.
         ///
-        clipBehavior: style!.clipBehavior!,
+        clipBehavior: (style ?? defaultContainerStyle).clipBehavior!,
 
         ///
         /// get the (decoration || backdecoration) decoration or
         ///  you can customer (decoration || backdecoration) as you want.
         ///
-        decoration: style!.decoration ??
+        decoration: (style ?? defaultContainerStyle).decoration ??
             BoxDecoration(
-              image: style!.backgroundImage,
-              gradient: style!.boxGradient,
-              backgroundBlendMode: style!.backgroundBlendMode,
-              shape: style!.boxShape!,
-              border: style!.getBorder(),
-              borderRadius: style!.getBorderRadius(),
-              color: getColorType(style!.backgroundColor!),
+              image: (style ?? defaultContainerStyle).backgroundImage,
+              gradient: (style ?? defaultContainerStyle).boxGradient,
+              backgroundBlendMode:
+                  (style ?? defaultContainerStyle).backgroundBlendMode,
+              shape: (style ?? defaultContainerStyle).boxShape!,
+              border: (style ?? defaultContainerStyle).getBorder(),
+              borderRadius: (style ?? defaultContainerStyle).getBorderRadius(),
+              color: getColorType(
+                  (style ?? defaultContainerStyle).backgroundColor!),
               boxShadow: <BoxShadow>[
                 BoxShadow(
-                  color: getColorType(style!.shadowColor!).runtimeType ==
+                  color: getColorType(
+                                  (style ?? defaultContainerStyle).shadowColor!)
+                              .runtimeType ==
                           MaterialColor
-                      ? getColorType(style!.shadowColor!)
-                      : getColorType(style!.shadowColor!)
-                          .withOpacity(style!.shadowOpacity!),
-                  spreadRadius: style!.shadowSpreadRadius!,
-                  blurRadius: style!.shadowbBlurRadius!,
+                      ? getColorType(
+                          (style ?? defaultContainerStyle).shadowColor!)
+                      : getColorType(
+                              (style ?? defaultContainerStyle).shadowColor!)
+                          .withOpacity(
+                              (style ?? defaultContainerStyle).shadowOpacity!),
+                  spreadRadius:
+                      (style ?? defaultContainerStyle).shadowSpreadRadius!,
+                  blurRadius:
+                      (style ?? defaultContainerStyle).shadowbBlurRadius!,
                   offset: Offset(
-                    style!.shadowOffsetDX!,
-                    style!.shadowOffsetDY!,
+                    (style ?? defaultContainerStyle).shadowOffsetDX!,
+                    (style ?? defaultContainerStyle).shadowOffsetDY!,
                   ),
                 )
               ],

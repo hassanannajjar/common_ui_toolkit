@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../../index.dart';
@@ -11,9 +10,9 @@ class DateWidget extends StatelessWidget {
   final Color selectionColor;
   final DateSelectionCallback? onDateSelected;
   final String? locale;
-  CommonContainerModel? selectedContainerStyle;
+  final CommonContainerModel? selectedContainerStyle;
 
-  DateWidget({
+  const DateWidget({
     required this.date,
     required this.monthTextStyle,
     required this.dayTextStyle,
@@ -27,12 +26,11 @@ class DateWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (selectedContainerStyle == null) {
-      selectedContainerStyle = CommonContainerModel(
-        borderRadius: 0.25,
-        padding: 0.1,
-      );
-    }
+    CommonContainerModel defaultContainerStyle = CommonContainerModel(
+      borderRadius: 0.25,
+      padding: 0.1,
+    );
+
     return CommonContainer(
       onPress: () {
         // Check if onDateSelected is not null
@@ -59,7 +57,7 @@ class DateWidget extends StatelessWidget {
             style: dayTextStyle,
           ),
           CommonContainer(
-            style: selectedContainerStyle!,
+            style: selectedContainerStyle ?? defaultContainerStyle,
             child: Text(
               date.day.toString(), // Date
               style: dateTextStyle,

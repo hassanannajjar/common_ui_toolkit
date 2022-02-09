@@ -6,10 +6,9 @@ import 'package:flutter/cupertino.dart';
 class CommonTouchable extends StatefulWidget {
   final Widget? child;
   final Function? onTap;
+  final TouchableEffect? touchEffect;
 
-  TouchableEffect? touchEffect;
-
-  CommonTouchable({
+  const CommonTouchable({
     @required this.child,
     @required this.onTap,
     this.touchEffect,

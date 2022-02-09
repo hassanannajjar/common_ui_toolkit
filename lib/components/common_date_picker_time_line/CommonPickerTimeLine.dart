@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:common_ui_toolkit/index.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
@@ -63,12 +62,12 @@ class CommonPickerTimeLine extends StatefulWidget {
   final String locale;
 
   /// Header Text style.
-  CommonTextModel? headerTextStyle;
+  final CommonTextModel? headerTextStyle;
 
   /// Header Text style.
-  CommonContainerModel? containerStyle;
+  final CommonContainerModel? containerStyle;
 
-  CommonPickerTimeLine(
+  const CommonPickerTimeLine(
     this.startDate, {
     Key? key,
     this.width = 0.2,
@@ -113,21 +112,19 @@ class _DatePickerState extends State<CommonPickerTimeLine> {
   late final TextStyle deactivatedMonthStyle;
   late final TextStyle deactivatedDayStyle;
 
+  CommonTextModel? defaultTextStyle = CommonTextStyles().h3Style().copyWith(
+        fontWeight: FontWeight.w500,
+      );
+
+  CommonContainerModel defaultContainerStyle =
+      CommonContainerStyle().datePickerTimeLineStyle();
+
   @override
   void initState() {
     // Init the calendar locale
     initializeDateFormatting(widget.locale, null);
     // Set initial Values
     _currentDate = widget.initialSelectedDate;
-    if (widget.headerTextStyle == null) {
-      widget.headerTextStyle = CommonTextStyles().h3Style().copyWith(
-            fontWeight: FontWeight.w500,
-          );
-    }
-
-    if (widget.containerStyle == null) {
-      widget.containerStyle = CommonContainerStyle().datePickerTimeLineStyle();
-    }
 
     if (widget.controller != null) {
       widget.controller!.setDatePickerState(this);
@@ -169,7 +166,7 @@ class _DatePickerState extends State<CommonPickerTimeLine> {
   @override
   Widget build(BuildContext context) {
     return CommonContainer(
-      style: widget.containerStyle,
+      style: widget.containerStyle ?? defaultContainerStyle,
       child: Column(
         children: [
           // --------------------------
@@ -186,11 +183,11 @@ class _DatePickerState extends State<CommonPickerTimeLine> {
                 ),
                 CommonText(
                   text: '$currentMonth, ',
-                  style: widget.headerTextStyle,
+                  style: widget.headerTextStyle ?? defaultTextStyle,
                 ),
                 CommonText(
                   text: currentYear,
-                  style: widget.headerTextStyle,
+                  style: widget.headerTextStyle ?? defaultTextStyle,
                 ),
               ],
             ),
