@@ -78,19 +78,19 @@ class Texts extends StatelessWidget {
 
               /// Custom container around the text with a touchable effect and a custom background color
               CommonText(
-                containerStyle: CommonContainerModel(
-                  padding: 0.016,
-                  borderRadius: 0.016,
-                  marginBottom: 0.016,
-                  marginVertical: 0.016,
-                  backgroundColor: COMMON_BLACK_COLOR,
-                  touchEffect: TouchableEffect(),
-                ),
-                style: CommonTextStyles().h2Style().copyWith(
-                      fontColor: COMMON_WHITE_COLOR,
-                      // backgroundColor: COMMON_WHITE_COLOR,
-                      // fontWeight: FontWeight.bold,
-                    ),
+                // containerStyle: CommonContainerModel(
+                //   padding: 0.016,
+                //   borderRadius: 0.016,
+                //   marginBottom: 0.016,
+                //   marginVertical: 0.016,
+                //   backgroundColor: COMMON_BLACK_COLOR,
+                //   touchEffect: TouchableEffect(),
+                // ),
+                // style: CommonTextStyles().h2Style().copyWith(
+                //       fontColor: COMMON_WHITE_COLOR,
+                //       // backgroundColor: COMMON_WHITE_COLOR,
+                //       // fontWeight: FontWeight.bold,
+                //     ),
                 text: 'Simple common text',
                 onPress: () {
                   print('Simple common text pressed');

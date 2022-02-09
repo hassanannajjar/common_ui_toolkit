@@ -2,10 +2,10 @@ import 'package:example/utils/Constants.dart';
 import 'package:common_ui_toolkit/index.dart';
 
 class DatePickers extends StatelessWidget {
-  CommonTextModel textStyle = CommonTextStyles().h3Style().copyWith(
+  final CommonTextModel textStyle = CommonTextStyles().h3Style().copyWith(
         fontColor: COMMON_PR_COLOR,
       );
-  CommonContainerModel containerStyle = CommonContainerModel(
+  final CommonContainerModel containerStyle = CommonContainerModel(
     margin: 0.02,
     touchEffect: TouchableEffect(
       type: TouchTypes.scaleAndFade,

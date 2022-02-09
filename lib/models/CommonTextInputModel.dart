@@ -1,7 +1,6 @@
 import 'package:flutter/services.dart';
 
 import 'package:common_ui_toolkit/index.dart';
-import 'package:common_ui_toolkit/models/CommonIcon.dart';
 
 class CommonTextInputModel {
   ///

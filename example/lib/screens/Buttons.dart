@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:common_ui_toolkit/index.dart';
 
 import '../utils/Constants.dart';
@@ -25,6 +24,9 @@ class Buttons extends StatelessWidget {
             children: [
               CommonButton(
                 text: 'Button with elevation and custom size',
+                onPress: () {
+                  print('pressed');
+                },
                 buttonStyle: CommonButtonStyle(
                   containerStyle: CommonContainerModel(
                     width: 0.4,
