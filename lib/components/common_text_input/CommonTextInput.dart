@@ -1,16 +1,15 @@
-import 'package:common_ui_toolkit/models/CommonIcon.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:common_ui_toolkit/index.dart';
 
 class CommonTextInput extends StatelessWidget {
-  CommonTextInputModel? style;
-  CommonContainerModel? containerStyle;
-  Function? onChanged;
-  Function? onTap;
-  TextEditingController? textEditingController;
+  final CommonTextInputModel? style;
+  final CommonContainerModel? containerStyle;
+  final Function? onChanged;
+  final Function? onTap;
+  final TextEditingController? textEditingController;
+  final CommonTextInputModel defalutTextInputModel = CommonTextInputModel();
 
   CommonTextInput({
     this.style,
@@ -22,106 +21,115 @@ class CommonTextInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    style = style ?? CommonTextInputModel();
-    textEditingController =
-        textEditingController ?? TextEditingController(text: style!.text);
     return CommonContainer(
-      style: containerStyle,
+      style: containerStyle ?? CommonContainerModel(),
       child: TextFormField(
         onTap: () {
           if (onTap != null) {
             onTap!();
           }
         },
-        controller: textEditingController,
-        textInputAction: style!.textInputAction,
-        textAlign: style!.textAlign!,
-        focusNode: style!.foucsNode,
-        style: style!.textStyle ??
+        controller: textEditingController ??
+            TextEditingController(text: (style ?? defalutTextInputModel).text),
+        textInputAction: (style ?? defalutTextInputModel).textInputAction,
+        textAlign: (style ?? defalutTextInputModel).textAlign!,
+        focusNode: (style ?? defalutTextInputModel).foucsNode,
+        style: (style ?? defalutTextInputModel).textStyle ??
             TextStyle(
-              color: getColorType(style!.textColor!),
-              fontSize: style!.fontSize,
+              color: getColorType((style ?? defalutTextInputModel).textColor!),
+              fontSize: (style ?? defalutTextInputModel).fontSize,
             ),
         scrollPhysics: BouncingScrollPhysics(),
-        minLines: style!.minLines,
-        maxLines: style!.obscureText! ? 1 : style!.maxLines,
-        maxLength: style!.maxLength,
+        minLines: (style ?? defalutTextInputModel).minLines,
+        maxLines: (style ?? defalutTextInputModel).obscureText!
+            ? 1
+            : (style ?? defalutTextInputModel).maxLines,
+        maxLength: (style ?? defalutTextInputModel).maxLength,
 
         /// If there is only textInputPattern then we create a list that handles only one item of input formatters,
         /// if we receive a list of input formatters, we handle it as a list of items.
-        inputFormatters: style!.textInputPattern != null
-            ? [
-                FilteringTextInputFormatter.allow(style!.textInputPattern!),
-              ]
-            : style!.textInputFormatters ?? null,
-        readOnly: style!.readOnly!,
-        obscureText: style!.obscureText!,
-        keyboardType: style!.textInputType,
-        enabled: style!.enabled,
-        cursorHeight: style!.cursorHeight,
-        cursorWidth: style!.cursorWidth!,
-        showCursor: style!.showCursor,
-        cursorColor: getColorType(style!.cursorColor!),
-        cursorRadius: style!.cursorRadius,
-        decoration: style!.inputDecoration ??
+        inputFormatters:
+            (style ?? defalutTextInputModel).textInputPattern != null
+                ? [
+                    FilteringTextInputFormatter.allow(
+                        (style ?? defalutTextInputModel).textInputPattern!),
+                  ]
+                : (style ?? defalutTextInputModel).textInputFormatters ?? null,
+        readOnly: (style ?? defalutTextInputModel).readOnly!,
+        obscureText: (style ?? defalutTextInputModel).obscureText!,
+        keyboardType: (style ?? defalutTextInputModel).textInputType,
+        enabled: (style ?? defalutTextInputModel).enabled,
+        cursorHeight: (style ?? defalutTextInputModel).cursorHeight,
+        cursorWidth: (style ?? defalutTextInputModel).cursorWidth!,
+        showCursor: (style ?? defalutTextInputModel).showCursor,
+        cursorColor:
+            getColorType((style ?? defalutTextInputModel).cursorColor!),
+        cursorRadius: (style ?? defalutTextInputModel).cursorRadius,
+        decoration: (style ?? defalutTextInputModel).inputDecoration ??
             InputDecoration(
               // Send it as null to set the value of the counter to 100
-              counterText: style!.counterText,
-              counterStyle: style!.counterStyle,
-              semanticCounterText: style!.semanticCounterText,
-              fillColor: getColorType(style!.fillColor!),
-              filled: style!.fillColor != null,
+              counterText: (style ?? defalutTextInputModel).counterText,
+              counterStyle: (style ?? defalutTextInputModel).counterStyle,
+              semanticCounterText:
+                  (style ?? defalutTextInputModel).semanticCounterText,
+              fillColor:
+                  getColorType((style ?? defalutTextInputModel).fillColor!),
+              filled: (style ?? defalutTextInputModel).fillColor != null,
               contentPadding: getContentPaddingEdgeInsets(style),
-              hintText: style!.hint,
-              hintStyle: style!.hintStyle ??
+              hintText: (style ?? defalutTextInputModel).hint,
+              hintStyle: (style ?? defalutTextInputModel).hintStyle ??
                   TextStyle(
-                    color: style!.enabled!
-                        ? getColorType(style!.hintColor!)
-                        : getColorType(style!.disabledColor!),
+                    color: (style ?? defalutTextInputModel).enabled!
+                        ? getColorType(
+                            (style ?? defalutTextInputModel).hintColor!)
+                        : getColorType(
+                            (style ?? defalutTextInputModel).disabledColor!),
                   ),
-              isCollapsed: style!.isCollapsed!,
-              prefixText: style!.prefixText,
-              suffixText: style!.suffixText,
-              prefixStyle: style!.prefixStyle,
-              suffixStyle: style!.suffixStyle,
-              prefix: style!.prefix,
-              suffix: style!.suffix,
-              counter: style!.counterWidget,
-              prefixIcon: style!.prefixWidget ??
-                  (style!.prefixIcon != null
+              isCollapsed: (style ?? defalutTextInputModel).isCollapsed!,
+              prefixText: (style ?? defalutTextInputModel).prefixText,
+              suffixText: (style ?? defalutTextInputModel).suffixText,
+              prefixStyle: (style ?? defalutTextInputModel).prefixStyle,
+              suffixStyle: (style ?? defalutTextInputModel).suffixStyle,
+              prefix: (style ?? defalutTextInputModel).prefix,
+              suffix: (style ?? defalutTextInputModel).suffix,
+              counter: (style ?? defalutTextInputModel).counterWidget,
+              prefixIcon: (style ?? defalutTextInputModel).prefixWidget ??
+                  ((style ?? defalutTextInputModel).prefixIcon != null
                       ? getIcon(
-                          style!.prefixIcon!,
+                          (style ?? defalutTextInputModel).prefixIcon!,
                         )
                       : null),
-              suffixIcon: style!.suffixWidget ??
-                  (style!.suffixIcon != null
+              suffixIcon: (style ?? defalutTextInputModel).suffixWidget ??
+                  ((style ?? defalutTextInputModel).suffixIcon != null
                       ? getIcon(
-                          style!.suffixIcon!,
+                          (style ?? defalutTextInputModel).suffixIcon!,
                         )
                       : null),
               prefixIconConstraints: BoxConstraints(
-                minWidth: style!.prefixMinWidth!,
-                minHeight: style!.prefixMinHeight!,
+                minWidth: (style ?? defalutTextInputModel).prefixMinWidth!,
+                minHeight: (style ?? defalutTextInputModel).prefixMinHeight!,
               ),
               suffixIconConstraints: BoxConstraints(
-                minWidth: style!.suffixMinWidth!,
-                minHeight: style!.suffixMinHeight!,
+                minWidth: (style ?? defalutTextInputModel).suffixMinWidth!,
+                minHeight: (style ?? defalutTextInputModel).suffixMinHeight!,
               ),
               border: getOutlineInputBorder(
-                borderColor: style!.disabledColor!,
+                borderColor: (style ?? defalutTextInputModel).disabledColor!,
               ),
               ////The border to display when the InputDecorator has the focus and is not showing an error.
               focusedBorder: getOutlineInputBorder(
-                borderColor: style!.focusBorderColor!,
+                borderColor: (style ?? defalutTextInputModel).focusBorderColor!,
               ),
               enabledBorder: getOutlineInputBorder(
-                borderColor: style!.enabledBorderColor!,
+                borderColor:
+                    (style ?? defalutTextInputModel).enabledBorderColor!,
               ),
               disabledBorder: getOutlineInputBorder(
-                borderColor: style!.disabledBorderColor!,
+                borderColor:
+                    (style ?? defalutTextInputModel).disabledBorderColor!,
               ),
               errorBorder: getOutlineInputBorder(
-                borderColor: style!.errorBorderColor!,
+                borderColor: (style ?? defalutTextInputModel).errorBorderColor!,
               ),
               alignLabelWithHint: true,
             ),
@@ -130,33 +138,35 @@ class CommonTextInput extends StatelessWidget {
             onChanged!(value);
           }
         },
-        autocorrect: style!.autocorrect!,
-        autofillHints: style!.autofillHints,
-        autofocus: style!.autofocus!,
-        autovalidateMode: style!.autovalidateMode,
-        buildCounter: style!.buildCounter,
-        enableInteractiveSelection: style!.enableInteractiveSelection!,
-        enableSuggestions: style!.enableSuggestions!,
-        expands: style!.expands!,
-        key: style!.key,
-        keyboardAppearance: style!.keyboardAppearance,
-        maxLengthEnforcement: style!.maxLengthEnforcement,
-        initialValue: style!.initialValue,
-        obscuringCharacter: style!.obscuringCharacter,
-        onEditingComplete: style!.onEditingComplete,
-        onFieldSubmitted: style!.onFieldSubmitted,
-        onSaved: style!.onSaved,
-        scrollController: style!.scrollController,
-        scrollPadding: style!.scrollPadding,
-        selectionControls: style!.selectionControls,
-        smartDashesType: style!.smartDashesType,
-        smartQuotesType: style!.smartQuotesType,
-        strutStyle: style!.strutStyle,
-        textAlignVertical: style!.textAlignVertical,
-        textCapitalization: style!.textCapitalization,
-        textDirection: style!.textDirection,
-        toolbarOptions: style!.toolbarOptions,
-        validator: style!.validator,
+        autocorrect: (style ?? defalutTextInputModel).autocorrect!,
+        autofillHints: (style ?? defalutTextInputModel).autofillHints,
+        autofocus: (style ?? defalutTextInputModel).autofocus!,
+        autovalidateMode: (style ?? defalutTextInputModel).autovalidateMode,
+        buildCounter: (style ?? defalutTextInputModel).buildCounter,
+        enableInteractiveSelection:
+            (style ?? defalutTextInputModel).enableInteractiveSelection!,
+        enableSuggestions: (style ?? defalutTextInputModel).enableSuggestions!,
+        expands: (style ?? defalutTextInputModel).expands!,
+        key: (style ?? defalutTextInputModel).key,
+        keyboardAppearance: (style ?? defalutTextInputModel).keyboardAppearance,
+        maxLengthEnforcement:
+            (style ?? defalutTextInputModel).maxLengthEnforcement,
+        initialValue: (style ?? defalutTextInputModel).initialValue,
+        obscuringCharacter: (style ?? defalutTextInputModel).obscuringCharacter,
+        onEditingComplete: (style ?? defalutTextInputModel).onEditingComplete,
+        onFieldSubmitted: (style ?? defalutTextInputModel).onFieldSubmitted,
+        onSaved: (style ?? defalutTextInputModel).onSaved,
+        scrollController: (style ?? defalutTextInputModel).scrollController,
+        scrollPadding: (style ?? defalutTextInputModel).scrollPadding,
+        selectionControls: (style ?? defalutTextInputModel).selectionControls,
+        smartDashesType: (style ?? defalutTextInputModel).smartDashesType,
+        smartQuotesType: (style ?? defalutTextInputModel).smartQuotesType,
+        strutStyle: (style ?? defalutTextInputModel).strutStyle,
+        textAlignVertical: (style ?? defalutTextInputModel).textAlignVertical,
+        textCapitalization: (style ?? defalutTextInputModel).textCapitalization,
+        textDirection: (style ?? defalutTextInputModel).textDirection,
+        toolbarOptions: (style ?? defalutTextInputModel).toolbarOptions,
+        validator: (style ?? defalutTextInputModel).validator,
       ),
     );
   }
@@ -196,25 +206,27 @@ class CommonTextInput extends StatelessWidget {
   }
 
   generateIconColor(color) => getColorType(
-        style!.enabled! ? color : style!.disabledColor!,
+        (style ?? defalutTextInputModel).enabled!
+            ? color
+            : (style ?? defalutTextInputModel).disabledColor!,
       );
 
   getOutlineInputBorder({borderColor}) {
-    return style!.underlined!
+    return (style ?? defalutTextInputModel).underlined!
         ? UnderlineInputBorder(
             borderSide: BorderSide(
               color: getColorType(borderColor),
-              width: style!.borderWidth!,
+              width: (style ?? defalutTextInputModel).borderWidth!,
             ),
           )
         : OutlineInputBorder(
             borderRadius: BorderRadius.all(
-              Radius.circular(style!.radius!),
+              Radius.circular((style ?? defalutTextInputModel).radius!),
             ),
-            borderSide: style!.withBorderSide!
+            borderSide: (style ?? defalutTextInputModel).withBorderSide!
                 ? BorderSide(
                     color: getColorType(borderColor),
-                    width: style!.borderWidth!,
+                    width: (style ?? defalutTextInputModel).borderWidth!,
                   )
                 : BorderSide.none,
           );

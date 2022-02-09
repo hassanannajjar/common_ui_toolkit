@@ -121,12 +121,12 @@ class CommonContainer extends StatelessWidget {
         ///
         /// get the margin.
         ///
-        margin: getMarginEdgeInsets(style),
+        margin: getMarginEdgeInsets(style ?? defaultContainerStyle),
 
         ///
         /// get the padding.
         ///
-        padding: getPaddingEdgeInsets(style),
+        padding: getPaddingEdgeInsets(style ?? defaultContainerStyle),
 
         ///
         /// get the alignment for content.
