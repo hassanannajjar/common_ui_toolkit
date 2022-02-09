@@ -21,7 +21,7 @@ class TextInputs extends StatelessWidget {
       body: SingleChildScrollView(
         child: CommonContainer(
           style: CommonContainerModel(
-            margin: 16.0,
+            margin: 0.016,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,17 +39,17 @@ class TextInputs extends StatelessWidget {
                       print('Prefix icon pressed');
                     },
                     containerStyle: CommonContainerModel(
-                      marginHorizontal: DEVICE_WIDTH * 0.01,
+                      marginHorizontal: 0.01,
                     ),
                     path: Icons.ac_unit_rounded,
-                    iconDataSize: DEVICE_WIDTH * 0.05,
+                    iconDataSize: 0.05,
                     color: COMMON_RED_COLOR,
                   ),
                   suffixIcon: CommonIcon(
                     containerStyle: CommonContainerModel(
-                      width: DEVICE_WIDTH * 0.04,
-                      height: DEVICE_WIDTH * 0.04,
-                      marginHorizontal: DEVICE_WIDTH * 0.01,
+                      width: 0.04,
+                      height: 0.04,
+                      marginHorizontal: 0.01,
                     ),
                     color: COMMON_RED_COLOR,
                     path: 'assets/icons/account_icon.svg',
@@ -58,13 +58,13 @@ class TextInputs extends StatelessWidget {
               ),
               CommonText(
                 containerStyle: CommonContainerModel(
-                  marginTop: DEVICE_WIDTH * 0.03,
+                  marginTop: 0.03,
                 ),
                 text: 'CommonTextInput with prefix and suffix widgets',
               ),
               CommonTextInput(
                 containerStyle: CommonContainerModel(
-                  marginTop: DEVICE_HEIGHT * 0.01,
+                  marginTop: 0.01,
                 ),
                 style: CommonTextInputModel(
                   counterText: 'Styled counter Text',
@@ -76,7 +76,7 @@ class TextInputs extends StatelessWidget {
                   fillColor: COMMON_GREY_COLOR,
                   prefixWidget: CommonText(
                     containerStyle: CommonContainerModel(
-                      marginHorizontal: DEVICE_WIDTH * 0.03,
+                      marginHorizontal: 0.03,
                     ),
                     style: CommonTextModel(
                       fontColor: COMMON_WHITE_COLOR,
@@ -85,7 +85,7 @@ class TextInputs extends StatelessWidget {
                   ),
                   suffixWidget: CommonText(
                     containerStyle: CommonContainerModel(
-                      marginHorizontal: DEVICE_WIDTH * 0.03,
+                      marginHorizontal: 0.03,
                     ),
                     style: CommonTextModel(
                       fontColor: COMMON_WHITE_COLOR,
@@ -96,7 +96,7 @@ class TextInputs extends StatelessWidget {
               ),
               CommonText(
                 containerStyle: CommonContainerModel(
-                  marginTop: DEVICE_WIDTH * 0.03,
+                  marginTop: 0.03,
                 ),
                 text: 'Disabled text input with zero radius',
               ),
@@ -113,8 +113,8 @@ class TextInputs extends StatelessWidget {
                 alignment: Alignment.center,
                 child: CommonTextInput(
                   containerStyle: CommonContainerModel(
-                    marginTop: DEVICE_WIDTH * 0.03,
-                    width: DEVICE_WIDTH * 0.5,
+                    marginTop: 0.03,
+                    width: 0.5,
                   ),
                   style: CommonTextInputModel(
                     underlined: true,
@@ -138,7 +138,7 @@ class TextInputs extends StatelessWidget {
               CommonText(
                 text: 'Multiline text input',
                 containerStyle: CommonContainerModel(
-                  marginTop: DEVICE_WIDTH * 0.03,
+                  marginTop: 0.03,
                 ),
               ),
               CommonTextInput(
@@ -153,7 +153,7 @@ class TextInputs extends StatelessWidget {
               CommonText(
                 text: 'Password text input',
                 containerStyle: CommonContainerModel(
-                  marginTop: DEVICE_WIDTH * 0.03,
+                  marginTop: 0.03,
                 ),
               ),
               CommonTextInput(
