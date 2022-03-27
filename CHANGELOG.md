@@ -1,3 +1,9 @@
+## 0.3.2
+
+- Added border radius fro CommonDatetimePicker component.
+- Added flutter_lints to package and example 
+- Updated environment sdk version to be ` sdk: ">=2.16.1 <3.0.0"`.
+
 ## 0.3.1
 
 - Used `AlignmentGeometry` instead of `Alignment`

@@ -1,6 +1,6 @@
-export './Texts.dart';
-export './Containers.dart';
-export './Drawer.dart';
-export './DatePickers.dart';
-export './TextInputs.dart';
-export './Buttons.dart';
+export 'buttons.dart';
+export 'containers.dart';
+export 'date_pickers.dart';
+export 'drawer.dart';
+export 'text_inputs.dart';
+export 'texts.dart';

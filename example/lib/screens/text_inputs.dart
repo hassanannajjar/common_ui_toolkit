@@ -1,13 +1,15 @@
 import 'package:common_ui_toolkit/index.dart';
 
-import '../utils/Constants.dart';
+import '../utils/constants.dart';
 
 class TextInputs extends StatelessWidget {
+  const TextInputs({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(PRIMARY_COLOR),
+        backgroundColor: const Color(colorPrimary),
         title: CommonText(
           containerStyle: CommonContainerModel().copyWith(
             backgroundColor: 0x00FFFFFF,
@@ -25,18 +27,18 @@ class TextInputs extends StatelessWidget {
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CommonText(
+            children: <Widget>[
+              const CommonText(
                 text:
                     'CommonTextInput with built in flutter prefix icons and assets icon',
               ),
               CommonTextInput(
                 style: CommonTextInputModel(
-                  text: 'Intial text input value',
+                  text: 'Initial text input value',
                   focusBorderColor: COMMON_BLACK_COLOR,
                   prefixIcon: CommonIcon(
                     onPress: () {
-                      print('Prefix icon pressed');
+                      consoleLog('Prefix icon pressed');
                     },
                     containerStyle: CommonContainerModel(
                       marginHorizontal: 0.01,
@@ -68,7 +70,7 @@ class TextInputs extends StatelessWidget {
                 ),
                 style: CommonTextInputModel(
                   counterText: 'Styled counter Text',
-                  counterStyle: TextStyle(
+                  counterStyle: const TextStyle(
                     color: Colors.red,
                   ),
                   borderWidth: 3,
@@ -110,7 +112,6 @@ class TextInputs extends StatelessWidget {
                 ),
               ),
               Align(
-                alignment: Alignment.center,
                 child: CommonTextInput(
                   containerStyle: CommonContainerModel(
                     marginTop: 0.03,
@@ -121,7 +122,7 @@ class TextInputs extends StatelessWidget {
                     cursorWidth: 10,
                     cursorColor: COMMON_RED_COLOR,
                     // showCursor: false,
-                    cursorRadius: Radius.circular(100),
+                    cursorRadius: const Radius.circular(100),
                     hint: 'Search',
                     cursorHeight: 30,
                     borderWidth: 3,

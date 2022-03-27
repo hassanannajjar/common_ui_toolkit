@@ -1,13 +1,15 @@
 import 'package:common_ui_toolkit/index.dart';
 
-import '../utils/Constants.dart';
+import '../utils/constants.dart';
 
 class Texts extends StatelessWidget {
+  const Texts({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(PRIMARY_COLOR),
+        backgroundColor: const Color(colorPrimary),
         title: CommonText(
           containerStyle: CommonContainerModel().copyWith(
             backgroundColor: 0x00FFFFFF,
@@ -21,8 +23,8 @@ class Texts extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Column(
-            children: [
-              /// Common UI toolkit with full shadow border around the text, you can customize the containeras you like
+            children: <Widget>[
+              /// Common UI toolkit with full shadow border around the text, you can customize the containers you like
               CommonText(
                 containerStyle: CommonContainerStyle().fullShadow.copyWith(
                       padding: 0.016,
@@ -33,7 +35,7 @@ class Texts extends StatelessWidget {
                 text: 'Common UI toolKit',
               ),
 
-              /// This is an example of the verification code text with inlinSpans (Another text with different text color)
+              /// This is an example of the verification code text with inlineSpans (Another text with different text color)
               CommonText(
                 containerStyle: CommonContainerModel(
                   marginHorizontal: 0.016,
@@ -41,7 +43,7 @@ class Texts extends StatelessWidget {
                 ),
                 text:
                     'We have sent you a verification code through this number, Bla Bla Bla Bla ',
-                inlineSpans: [
+                inlineSpans: <InlineSpan>[
                   WidgetSpan(
                     child: CommonText(
                       text: '+970595131066',
@@ -93,7 +95,7 @@ class Texts extends StatelessWidget {
                 //     ),
                 text: 'Simple common text',
                 onPress: () {
-                  print('Simple common text pressed');
+                  consoleLog('Simple common text pressed');
                 },
               ),
 
@@ -106,7 +108,7 @@ class Texts extends StatelessWidget {
                   ),
                 ),
                 text: 'Common text with',
-                inlineSpans: [
+                inlineSpans: const <InlineSpan>[
                   TextSpan(
                     text: ' RED ',
                     style: TextStyle(
@@ -121,7 +123,7 @@ class Texts extends StatelessWidget {
                   ),
                   marginVertical: 0.016,
                 ),
-                topChild: CommonText(
+                topChild: const CommonText(
                   text: 'Top child',
                 ),
                 leftChild: CommonText(

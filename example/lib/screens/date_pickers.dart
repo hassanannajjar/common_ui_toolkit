@@ -1,22 +1,24 @@
-import 'package:example/utils/Constants.dart';
 import 'package:common_ui_toolkit/index.dart';
 
+import '../utils/constants.dart';
+
 class DatePickers extends StatelessWidget {
-  final CommonTextModel textStyle = CommonTextStyles().h3Style().copyWith(
-        fontColor: COMMON_PR_COLOR,
-      );
-  final CommonContainerModel containerStyle = CommonContainerModel(
-    margin: 0.02,
-    touchEffect: TouchableEffect(
-      type: TouchTypes.scaleAndFade,
-    ),
-  );
+  const DatePickers({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final CommonTextModel textStyle = CommonTextStyles().h3Style().copyWith(
+          fontColor: COMMON_PR_COLOR,
+        );
+    final CommonContainerModel containerStyle = CommonContainerModel(
+      margin: 0.02,
+      touchEffect: TouchableEffect(
+        type: TouchTypes.scaleAndFade,
+      ),
+    );
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(PRIMARY_COLOR),
+        backgroundColor: const Color(colorPrimary),
         title: CommonText(
           containerStyle: CommonContainerModel().copyWith(
             backgroundColor: 0x00FFFFFF,
@@ -30,7 +32,7 @@ class DatePickers extends StatelessWidget {
       body: CommonContainer(
         style: CommonContainerModel().copyWith(width: 1),
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -46,7 +48,6 @@ class DatePickers extends StatelessWidget {
                 headerTextStyle: CommonTextStyles().h3Style().copyWith(
                       fontWeight: FontWeight.bold,
                     ),
-                height: 0.11,
                 containerStyle:
                     CommonContainerStyle().datePickerTimeLineStyle().copyWith(
                           marginVertical: 0.015,
@@ -54,13 +55,13 @@ class DatePickers extends StatelessWidget {
                           width: 0.9,
                         ),
                 initialSelectedDate: DateTime.now(),
-                inactiveDates: [
-                  DateTime.now().add(Duration(days: 3)),
-                  DateTime.now().add(Duration(days: 4)),
-                  DateTime.now().add(Duration(days: 7))
+                inactiveDates: <DateTime>[
+                  DateTime.now().add(const Duration(days: 3)),
+                  DateTime.now().add(const Duration(days: 4)),
+                  DateTime.now().add(const Duration(days: 7))
                 ],
-                onDateChange: (date) {
-                  print(date);
+                onDateChange: (DateTime date) {
+                  consoleLog(date);
                 },
               ),
               CommonText(
@@ -69,10 +70,9 @@ class DatePickers extends StatelessWidget {
                 onPress: () {
                   CommonDatePicker.showDatePicker(
                     context,
-                    showTitleActions: true,
                     minTime: DateTime(2018, 3, 5),
                     maxTime: DateTime(2019, 6, 7),
-                    theme: DatePickerTheme(
+                    theme: const DatePickerTheme(
                       headerColor: Colors.orange,
                       backgroundColor: Colors.blue,
                       itemStyle: TextStyle(
@@ -85,15 +85,14 @@ class DatePickers extends StatelessWidget {
                         fontSize: 16,
                       ),
                     ),
-                    onChanged: (date) {
-                      print('change $date in time zone ' +
-                          date.timeZoneOffset.inHours.toString());
+                    onChanged: (DateTime date) {
+                      consoleLog(
+                          'change $date in time zone ${date.timeZoneOffset.inHours}');
                     },
-                    onConfirm: (date) {
-                      print('confirm $date');
+                    onConfirm: (DateTime date) {
+                      consoleLog('confirm $date');
                     },
                     currentTime: DateTime.now(),
-                    locale: LocaleType.en,
                   );
                 },
                 text: 'show date picker(custom theme &date time range)',
@@ -103,11 +102,11 @@ class DatePickers extends StatelessWidget {
                 containerStyle: containerStyle,
                 onPress: () {
                   CommonDatePicker.showTimePicker(context,
-                      showTitleActions: true, onChanged: (date) {
-                    print('change $date in time zone ' +
-                        date.timeZoneOffset.inHours.toString());
-                  }, onConfirm: (date) {
-                    print('confirm $date');
+                      onChanged: (DateTime date) {
+                    consoleLog(
+                        'change $date in time zone ${date.timeZoneOffset.inHours}');
+                  }, onConfirm: (DateTime date) {
+                    consoleLog('confirm $date');
                   }, currentTime: DateTime.now());
                 },
                 text: 'show time picker',
@@ -117,11 +116,11 @@ class DatePickers extends StatelessWidget {
                 containerStyle: containerStyle,
                 onPress: () {
                   CommonDatePicker.showTime12hPicker(context,
-                      showTitleActions: true, onChanged: (date) {
-                    print('change $date in time zone ' +
-                        date.timeZoneOffset.inHours.toString());
-                  }, onConfirm: (date) {
-                    print('confirm $date');
+                      onChanged: (DateTime date) {
+                    consoleLog(
+                        'change $date in time zone ${date.timeZoneOffset.inHours}');
+                  }, onConfirm: (DateTime date) {
+                    consoleLog('confirm $date');
                   }, currentTime: DateTime.now());
                 },
                 text: 'show 12H time picker with AM/PM',
@@ -131,13 +130,13 @@ class DatePickers extends StatelessWidget {
                 containerStyle: containerStyle,
                 onPress: () {
                   CommonDatePicker.showDateTimePicker(context,
-                      showTitleActions: true,
                       minTime: DateTime(2020, 5, 5, 20, 50),
-                      maxTime: DateTime(2020, 6, 7, 05, 09), onChanged: (date) {
-                    print('change $date in time zone ' +
-                        date.timeZoneOffset.inHours.toString());
-                  }, onConfirm: (date) {
-                    print('confirm $date');
+                      maxTime: DateTime(2020, 6, 7, 05, 09),
+                      onChanged: (DateTime date) {
+                    consoleLog(
+                        'change $date in time zone ${date.timeZoneOffset.inHours}');
+                  }, onConfirm: (DateTime date) {
+                    consoleLog('confirm $date');
                   }, locale: LocaleType.zh);
                 },
                 text: 'show date time picker (Chinese)',
@@ -147,11 +146,11 @@ class DatePickers extends StatelessWidget {
                 containerStyle: containerStyle,
                 onPress: () {
                   CommonDatePicker.showDateTimePicker(context,
-                      showTitleActions: true, onChanged: (date) {
-                    print('change $date in time zone ' +
-                        date.timeZoneOffset.inHours.toString());
-                  }, onConfirm: (date) {
-                    print('confirm $date');
+                      onChanged: (DateTime date) {
+                    consoleLog(
+                        'change $date in time zone ${date.timeZoneOffset.inHours}');
+                  }, onConfirm: (DateTime date) {
+                    consoleLog('confirm $date');
                   }, currentTime: DateTime(2008, 12, 31, 23, 12, 34));
                 },
                 text: 'show date time picker (English-America)',
@@ -161,11 +160,11 @@ class DatePickers extends StatelessWidget {
                 containerStyle: containerStyle,
                 onPress: () {
                   CommonDatePicker.showDateTimePicker(context,
-                      showTitleActions: true, onChanged: (date) {
-                    print('change $date in time zone ' +
-                        date.timeZoneOffset.inHours.toString());
-                  }, onConfirm: (date) {
-                    print('confirm $date');
+                      onChanged: (DateTime date) {
+                    consoleLog(
+                        'change $date in time zone ${date.timeZoneOffset.inHours}');
+                  }, onConfirm: (DateTime date) {
+                    consoleLog('confirm $date');
                   },
                       currentTime: DateTime(2008, 12, 31, 23, 12, 34),
                       locale: LocaleType.nl);
@@ -177,11 +176,11 @@ class DatePickers extends StatelessWidget {
                 containerStyle: containerStyle,
                 onPress: () {
                   CommonDatePicker.showDateTimePicker(context,
-                      showTitleActions: true, onChanged: (date) {
-                    print('change $date in time zone ' +
-                        date.timeZoneOffset.inHours.toString());
-                  }, onConfirm: (date) {
-                    print('confirm $date');
+                      onChanged: (DateTime date) {
+                    consoleLog(
+                        'change $date in time zone ${date.timeZoneOffset.inHours}');
+                  }, onConfirm: (DateTime date) {
+                    consoleLog('confirm $date');
                   },
                       currentTime: DateTime(2008, 12, 31, 23, 12, 34),
                       locale: LocaleType.ru);
@@ -193,11 +192,11 @@ class DatePickers extends StatelessWidget {
                 containerStyle: containerStyle,
                 onPress: () {
                   CommonDatePicker.showDateTimePicker(context,
-                      showTitleActions: true, onChanged: (date) {
-                    print('change $date in time zone ' +
-                        date.timeZoneOffset.inHours.toString());
-                  }, onConfirm: (date) {
-                    print('confirm $date');
+                      onChanged: (DateTime date) {
+                    consoleLog(
+                        'change $date in time zone ${date.timeZoneOffset.inHours}');
+                  }, onConfirm: (DateTime date) {
+                    consoleLog('confirm $date');
                   },
                       currentTime: DateTime.utc(2019, 12, 31, 23, 12, 34),
                       locale: LocaleType.de);
@@ -210,13 +209,12 @@ class DatePickers extends StatelessWidget {
                 onPress: () {
                   CommonDatePicker.showDateTimePicker(
                     context,
-                    showTitleActions: true,
-                    onChanged: (date) {
-                      print('change $date in time zone ' +
-                          date.timeZoneOffset.inHours.toString());
+                    onChanged: (DateTime date) {
+                      consoleLog(
+                          'change $date in time zone ${date.timeZoneOffset.inHours}');
                     },
-                    onConfirm: (date) {
-                      print('confirm $date');
+                    onConfirm: (DateTime date) {
+                      consoleLog('confirm $date');
                     },
                     currentTime: DateTime.utc(2019, 12, 31, 23, 12, 34),
                     locale: LocaleType.ar,
@@ -230,15 +228,13 @@ class DatePickers extends StatelessWidget {
                 onPress: () {
                   CommonDatePicker.showPicker(
                     context,
-                    showTitleActions: true,
-                    onChanged: (date) {
-                      print('change $date in time zone ' +
-                          date.timeZoneOffset.inHours.toString());
+                    onChanged: (DateTime date) {
+                      consoleLog(
+                          'change $date in time zone ${date.timeZoneOffset.inHours}');
                     },
-                    onConfirm: (date) {
-                      print('confirm $date');
+                    onConfirm: (DateTime date) {
+                      consoleLog('confirm $date');
                     },
-                    locale: LocaleType.en,
                   );
                 },
                 text:

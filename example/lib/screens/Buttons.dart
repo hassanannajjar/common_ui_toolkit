@@ -1,13 +1,15 @@
 import 'package:common_ui_toolkit/index.dart';
 
-import '../utils/Constants.dart';
+import '../utils/constants.dart';
 
 class Buttons extends StatelessWidget {
+  const Buttons({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(PRIMARY_COLOR),
+        backgroundColor: const Color(colorPrimary),
         title: CommonText(
           containerStyle: CommonContainerModel().copyWith(
             backgroundColor: 0x00FFFFFF,
@@ -21,11 +23,11 @@ class Buttons extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Column(
-            children: [
+            children: <Widget>[
               CommonButton(
                 text: 'Button with elevation and custom size',
                 onPress: () {
-                  print('pressed');
+                  // print('pressed');
                 },
                 buttonStyle: CommonButtonStyle(
                   containerStyle: CommonContainerModel(
@@ -36,7 +38,7 @@ class Buttons extends StatelessWidget {
                     elevation: 10.0,
                     borderRadius: 0.1,
 
-                    // You can customize the button elecation OR use the default one
+                    // You can customize the button election OR use the default one
                     // customElevation: MaterialStateProperty.all(100)
 
                     // You can customize the overlay color as well OR use the default one
@@ -49,7 +51,7 @@ class Buttons extends StatelessWidget {
                     // ),
 
                     // You can customize the background color of the button
-                    // cutomBackgroundColor: MaterialStateProperty.all(
+                    // customBackgroundColor: MaterialStateProperty.all(
                     //   Colors.amber,
                     // ),
                   ),

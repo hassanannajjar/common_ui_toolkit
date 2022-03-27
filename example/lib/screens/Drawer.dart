@@ -1,56 +1,59 @@
 import 'package:common_ui_toolkit/index.dart';
-import 'package:example/utils/Constants.dart';
+
+import '../utils/constants.dart';
 
 class DrawerContainer extends StatelessWidget {
-  final List screens = [
-    {
-      'name': 'Containers',
-      'route': CONTAINERS_ROUTE,
-    },
-    {
-      'name': 'Texts',
-      'route': TEXTS_ROUTE,
-    },
-    {
-      'name': 'Date Pickers',
-      'route': DATE_PICKERS_ROUTE,
-    },
-    {
-      'name': 'Text inputs',
-      'route': TEXT_INPUTS_ROUTE,
-    },
-    {
-      'name': 'Buttons',
-      'route': BUTTONS_ROUTE,
-    },
-    {
-      'name': 'Cards',
-      'route': CONTAINERS_ROUTE,
-    },
-    {
-      'name': 'Avatars',
-      'route': CONTAINERS_ROUTE,
-    },
-  ];
+  const DrawerContainer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, String>> screens = <Map<String, String>>[
+      <String, String>{
+        'name': 'Containers',
+        'route': routeContainers,
+      },
+      <String, String>{
+        'name': 'Texts',
+        'route': routeTexts,
+      },
+      <String, String>{
+        'name': 'Date Pickers',
+        'route': routeDatePickers,
+      },
+      <String, String>{
+        'name': 'Text inputs',
+        'route': routeTextInputs,
+      },
+      <String, String>{
+        'name': 'Buttons',
+        'route': routeButtons,
+      },
+      <String, String>{
+        'name': 'Cards',
+        'route': routeContainers,
+      },
+      <String, String>{
+        'name': 'Avatars',
+        'route': routeContainers,
+      },
+    ];
+
     return CommonContainer(
       style: CommonContainerModel(
         width: 0.7,
         backgroundColor: Colors.white,
       ),
       child: Column(
-        children: [
-          DrawerHeader(),
+        children: <Widget>[
+          const DrawerHeader(),
           Expanded(
             child: SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               child: Column(
                 children: screens
-                    .map((e) => CommonText(
+                    .map((Map<String, String> e) => CommonText(
                           onPress: () =>
-                              Navigator.pushNamed(context, e['route']),
+                              Navigator.pushNamed(context, e['route']!),
                           containerStyle:
                               CommonContainerStyle().fullShadow.copyWith(
                                     padding: 0.01,
@@ -77,6 +80,8 @@ class DrawerContainer extends StatelessWidget {
 }
 
 class DrawerHeader extends StatelessWidget {
+  const DrawerHeader({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return CommonText(
@@ -87,7 +92,7 @@ class DrawerHeader extends StatelessWidget {
             height: 0.13,
             alignment: Alignment.bottomCenter,
             shadowOffsetDY: 10,
-            backgroundColor: PRIMARY_COLOR,
+            backgroundColor: colorPrimary,
             borderRadius: 0,
             bottomLeftRadius: 0.03,
             bottomRightRadius: 0.03,

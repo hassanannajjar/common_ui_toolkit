@@ -1,12 +1,15 @@
-import 'package:example/utils/Constants.dart';
 import 'package:common_ui_toolkit/index.dart';
 
+import '../utils/constants.dart';
+
 class Containers extends StatelessWidget {
+  const Containers({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(PRIMARY_COLOR),
+        backgroundColor: const Color(colorPrimary),
         title: CommonText(
           containerStyle: CommonContainerModel().copyWith(
             backgroundColor: 0x00FFFFFF,
@@ -20,10 +23,10 @@ class Containers extends StatelessWidget {
       body: CommonContainer(
         style: CommonContainerModel().copyWith(width: 1),
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: <Widget>[
               // circle shape
               CommonContainer(
                 style: CommonContainerStyle().fullShadow.copyWith(

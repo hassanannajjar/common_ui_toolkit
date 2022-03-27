@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:common_ui_toolkit/index.dart';
+import '../index.dart';
 
 class CommonTextModel {
   ///
@@ -156,7 +156,7 @@ class CommonTextModel {
   ///
   String? debugLabel;
 
-  responsiveFontSize() => DEVICE_WIDTH * (fontSize! / 430);
+  double responsiveFontSize() => DEVICE_WIDTH * (fontSize! / 430);
 
   /// prefix icon
   CommonIcon? prefixIcon;
