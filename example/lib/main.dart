@@ -1,12 +1,15 @@
 import 'package:common_ui_toolkit/index.dart';
-import 'package:example/utils/Constants.dart';
+
 import './screens/index.dart';
+import 'utils/Constants.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,12 +18,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(),
-      routes: {
-        CONTAINERS_ROUTE: (context) => Containers(),
-        TEXTS_ROUTE: (context) => Texts(),
-        BUTTONS_ROUTE: (context) => Buttons(),
-        TEXT_INPUTS_ROUTE: (context) => TextInputs(),
-        DATE_PICKERS_ROUTE: (context) => DatePickers(),
+      routes: <String, WidgetBuilder>{
+        CONTAINERS_ROUTE: (BuildContext context) => Containers(),
+        TEXTS_ROUTE: (BuildContext context) => Texts(),
+        BUTTONS_ROUTE: (BuildContext context) => Buttons(),
+        TEXT_INPUTS_ROUTE: (BuildContext context) => TextInputs(),
+        DATE_PICKERS_ROUTE: (BuildContext context) => DatePickers(),
       },
     );
   }
@@ -37,12 +40,11 @@ class MyHomePage extends StatelessWidget {
             size: DEVICE_WIDTH * 0.06,
             color: Colors.white,
           ),
-          backgroundColor: Color(PRIMARY_COLOR),
+          backgroundColor: const Color(PRIMARY_COLOR),
         ),
       ),
       drawer: DrawerContainer(),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           CommonText(
             containerStyle: CommonContainerStyle().fullShadow.copyWith(
@@ -50,7 +52,7 @@ class MyHomePage extends StatelessWidget {
                   alignment: Alignment.center,
                   margin: 0.04,
                   marginHorizontal: 0.1,
-                  backgroundColor: Color(PRIMARY_COLOR),
+                  backgroundColor: const Color(PRIMARY_COLOR),
                   shadowOpacity: 0.5,
                   shadowColor: COMMON_BLACK_COLOR,
                   touchEffect: TouchableEffect(
@@ -58,11 +60,10 @@ class MyHomePage extends StatelessWidget {
                     opacity: 0.05,
                     duration: 5,
                     lowerBound: 0.8,
-                    upperBound: 1,
                   ),
                 ),
             style: CommonTextStyles().h2Style().copyWith(
-                  fontColor: Color(COMMON_WHITE_COLOR),
+                  fontColor: const Color(COMMON_WHITE_COLOR),
                 ),
             text: 'Common UI toolKit',
             onPress: () {

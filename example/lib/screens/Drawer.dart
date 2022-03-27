@@ -89,8 +89,8 @@ class DrawerHeader extends StatelessWidget {
             shadowOffsetDY: 10,
             backgroundColor: PRIMARY_COLOR,
             borderRadius: 0,
-            bottomLeftRadius: 30,
-            bottomRightRadius: 30,
+            bottomLeftRadius: 0.03,
+            bottomRightRadius: 0.03,
           ),
       style: CommonTextStyles().h2Style().copyWith(
             fontColor: 0xFF1C1C1C,
