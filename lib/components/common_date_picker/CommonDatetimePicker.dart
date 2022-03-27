@@ -300,8 +300,8 @@ class _DatePickerState extends State<_DatePickerComponent> {
               ),
               child: GestureDetector(
                 child: Material(
-                  color: theme.backgroundColor,
-                  child: _renderPickerView(theme),
+                  color: Colors.transparent,
+                  child: _renderPickerView(theme, bottomPadding),
                 ),
               ),
             ),
@@ -317,8 +317,8 @@ class _DatePickerState extends State<_DatePickerComponent> {
     }
   }
 
-  Widget _renderPickerView(DatePickerTheme theme) {
-    Widget itemView = _renderItemView(theme);
+  Widget _renderPickerView(DatePickerTheme theme, double bottomPadding) {
+    Widget itemView = _renderItemView(theme, bottomPadding: bottomPadding);
     if (widget.route.showTitleActions == true) {
       return Column(
         children: <Widget>[
@@ -387,9 +387,10 @@ class _DatePickerState extends State<_DatePickerComponent> {
     );
   }
 
-  Widget _renderItemView(DatePickerTheme theme) {
+  Widget _renderItemView(DatePickerTheme theme, {double bottomPadding = 0.0}) {
     return Container(
       color: theme.backgroundColor,
+      padding: EdgeInsets.only(bottom: bottomPadding),
       child: Directionality(
         textDirection: TextDirection.ltr,
         child: Row(
@@ -470,6 +471,10 @@ class _DatePickerState extends State<_DatePickerComponent> {
       height: theme.titleHeight,
       decoration: BoxDecoration(
         color: theme.headerColor ?? theme.backgroundColor,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(theme.borderRadius!),
+          topRight: Radius.circular(theme.borderRadius!),
+        ),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
