@@ -1,6 +1,44 @@
 import '../index.dart';
 
 class CommonButtonModel {
+  CommonButtonModel({
+    this.isEnable = true,
+    this.autofocus = false,
+    this.backgroundColor = COMMON_WHITE_COLOR,
+    this.customBackgroundColor,
+    this.onFocusChange,
+    this.onHover,
+    this.disabledColor = COMMON_DISABLED_COLOR,
+    this.overlayColor = Colors.black12,
+    this.customOverlayColor,
+    this.customElevation,
+    this.elevation = 0.0,
+    this.borderRadius = 0.0,
+    this.bottomLeftRadius,
+    this.bottomRightRadius,
+    this.topLeftRadius,
+    this.topRightRadius,
+    this.shape,
+    this.fixedSize,
+    this.enableFeedback = true,
+    this.animationDuration,
+    this.maximumSize,
+    this.minimumSize,
+    this.mouseCursor,
+    this.padding,
+    this.splashFactory,
+    this.side,
+    this.tapTargetSize,
+    this.shadowColor,
+    this.textStyle,
+    this.visualDensity,
+    this.focusNode,
+    this.foregroundColor,
+    this.key,
+    this.clipBehavior = Clip.none,
+    this.alignment = Alignment.center,
+  });
+
   bool isEnable;
 
   /// The [autofocus] and [clipBehavior] arguments must not be null.
@@ -19,7 +57,7 @@ class CommonButtonModel {
   final MaterialStateProperty<double?>? customElevation;
 
   /// The button's background fill color.
-  final MaterialStateProperty<Color?>? cutomBackgroundColor;
+  final MaterialStateProperty<Color?>? customBackgroundColor;
 
   /// The shape of the button's underlying [Material].
   ///
@@ -141,65 +179,23 @@ class CommonButtonModel {
   ///
   Key? key;
 
-  CommonButtonModel({
-    this.isEnable = true,
-    this.autofocus = false,
-    this.backgroundColor = COMMON_WHITE_COLOR,
-    this.cutomBackgroundColor,
-    this.onFocusChange,
-    this.onHover,
-    this.disabledColor = COMMON_DISABLED_COLOR,
-    this.overlayColor = Colors.black12,
-    this.customOverlayColor,
-    this.customElevation,
-    this.elevation = 0.0,
-    this.borderRadius = 0.0,
-    this.bottomLeftRadius = 0.0,
-    this.bottomRightRadius = 0.0,
-    this.topLeftRadius = 0.0,
-    this.topRightRadius = 0.0,
-    this.shape,
-    this.fixedSize,
-    this.enableFeedback = true,
-    this.animationDuration,
-    this.maximumSize,
-    this.minimumSize,
-    this.mouseCursor,
-    this.padding,
-    this.splashFactory,
-    this.side,
-    this.tapTargetSize,
-    this.shadowColor,
-    this.textStyle,
-    this.visualDensity,
-    this.focusNode,
-    this.foregroundColor,
-    this.key,
-    this.clipBehavior = Clip.none,
-    this.alignment = Alignment.center,
-  });
-
   ///
   /// get border Radius.
   ///
-  getBorderRadius() => borderRadius == 0
-
-      ///
-      /// return every single Radius.
-      ///
-      ? BorderRadius.only(
-          topRight: Radius.circular(topRightRadius!),
-          topLeft: Radius.circular(topLeftRadius!),
-          bottomLeft: Radius.circular(bottomLeftRadius!),
-          bottomRight: Radius.circular(bottomRightRadius!),
-        )
-
-      ///
-      /// return all Radius.
-      ///
-      : BorderRadius.all(
-          Radius.circular(borderRadius!),
-        );
+  BorderRadius getBorderRadius() => BorderRadius.only(
+        topRight: Radius.circular(
+          (topRightRadius ?? borderRadius!) * DEVICE_WIDTH,
+        ),
+        topLeft: Radius.circular(
+          (topLeftRadius ?? borderRadius!) * DEVICE_WIDTH,
+        ),
+        bottomLeft: Radius.circular(
+          (bottomLeftRadius ?? borderRadius!) * DEVICE_WIDTH,
+        ),
+        bottomRight: Radius.circular(
+          (bottomRightRadius ?? borderRadius!) * DEVICE_WIDTH,
+        ),
+      );
 
   CommonButtonModel copyWith({
     bool? isEnable,
@@ -209,7 +205,7 @@ class CommonButtonModel {
     dynamic overlayColor,
     MaterialStateProperty<Color?>? customOverlayColor,
     MaterialStateProperty<double?>? customElevation,
-    MaterialStateProperty<Color?>? cutomBackgroundColor,
+    MaterialStateProperty<Color?>? customBackgroundColor,
     MaterialStateProperty<OutlinedBorder?>? shape,
     double? bottomLeftRadius,
     double? bottomRightRadius,
@@ -246,7 +242,8 @@ class CommonButtonModel {
       overlayColor: overlayColor ?? this.overlayColor,
       customOverlayColor: customOverlayColor ?? this.customOverlayColor,
       customElevation: customElevation ?? this.customElevation,
-      cutomBackgroundColor: cutomBackgroundColor ?? this.cutomBackgroundColor,
+      customBackgroundColor:
+          customBackgroundColor ?? this.customBackgroundColor,
       shape: shape ?? this.shape,
       bottomLeftRadius: bottomLeftRadius ?? this.bottomLeftRadius,
       bottomRightRadius: bottomRightRadius ?? this.bottomRightRadius,

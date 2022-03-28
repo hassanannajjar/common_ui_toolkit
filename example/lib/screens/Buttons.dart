@@ -36,7 +36,7 @@ class Buttons extends StatelessWidget {
                   ),
                   style: CommonButtonModel(
                     elevation: 10.0,
-                    borderRadius: 0.1,
+                    borderRadius: 0.05,
 
                     // You can customize the button election OR use the default one
                     // customElevation: MaterialStateProperty.all(100)

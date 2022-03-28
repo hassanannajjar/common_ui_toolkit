@@ -1,17 +1,179 @@
 import 'package:flutter/widgets.dart';
 
-import 'package:common_ui_toolkit/components/common_touchable/TouchableEffect.dart';
-
+import '../components/common_touchable/TouchableEffect.dart';
 import '../utils/index.dart';
 
 class CommonContainerModel {
+  CommonContainerModel({
+    //sizes
+    this.width = 0.0,
+    this.height = 0.0,
+    this.minWidth = 0.0,
+    this.minHeight = 0.0,
+    this.maxWidth = double.infinity,
+    this.maxHeight = double.infinity,
+
+    ///
+    ///  * [Alignment], a class with convenient constants typically used to
+    ///    specify an [AlignmentGeometry].
+    ///  * [AlignmentDirectional], like [Alignment] for specifying alignments
+    ///    relative to text direction.
+    ///
+    this.alignment,
+
+    ///
+    /// Empty space to inscribe inside the [decoration]. The [child], if any, is
+    /// placed inside this padding.
+    ///
+    /// This padding is in addition to any padding inherent in the [decoration];
+    /// see [Decoration.padding].
+    ///
+    this.padding = 0.0,
+    this.paddingTop,
+    this.paddingBottom,
+    this.paddingRight,
+    this.paddingLeft,
+    this.paddingVertical,
+    this.paddingHorizontal,
+
+    ///
+    /// Empty space to surround the [decoration] and [child].
+    ///
+    this.margin = 0.0,
+    this.marginTop,
+    this.marginBottom,
+    this.marginRight,
+    this.marginLeft,
+    this.marginVertical,
+    this.marginHorizontal,
+
+    ///
+    /// The color to paint behind the [child].
+    ///
+    /// This property should be preferred when the background is a simple color.
+    /// For other cases, such as gradients or images, use the [decoration]
+    /// property.
+    ///
+    /// If the [decoration] is used, this property must be null. A background
+    /// color may still be painted by the [decoration] even if this property is
+    /// null.
+    ///
+    this.backgroundColor = COMMON_TRANSPARENT_COLOR,
+    this.foregroundColor = COMMON_TRANSPARENT_COLOR,
+    this.radiusColor = 0xFF000000,
+    this.foregroundRadiusColor = 0xFF000000,
+    this.loadingColor = 0xFF1DD005,
+
+    // shadow
+    this.shadowSpreadRadius = 0.0,
+    this.shadowBlurRadius = 0.0,
+    this.shadowOffsetDX = 0.0,
+    this.shadowOffsetDY = 0.0,
+    this.shadowColor = 0xFF000000,
+    this.shadowOpacity = 0.0,
+    this.foregroundShadowSpreadRadius = 0.0,
+    this.foregroundShadowBlurRadius = 0.0,
+    this.foregroundShadowOffsetDX = 0.0,
+    this.foregroundShadowOffsetDY = 0.0,
+    this.foregroundShadowColor = 0xFF000000,
+    this.foregroundShadowOpacity = 0.0,
+
+    // Radius
+    this.bottomLeftRadius,
+    this.bottomRightRadius,
+    this.topLeftRadius,
+    this.topRightRadius,
+    this.borderRadius = 0.0,
+    this.foregroundBottomLeftRadius,
+    this.foregroundBottomRightRadius,
+    this.foregroundTopLeftRadius,
+    this.foregroundTopRightRadius,
+    this.foregroundBorderRadius = 0.0,
+
+    // clipBehavior
+    this.clipBehavior = Clip.none,
+
+    // transform
+    this.transform,
+    this.transformAlignment,
+
+    // border
+    this.borderStyle = BorderStyle.solid,
+    this.borderTopStyle,
+    this.borderRightStyle,
+    this.borderBottomStyle,
+    this.borderLeftStyle,
+    this.borderWidth = 0.0,
+    this.borderTopWidth,
+    this.borderRightWidth,
+    this.borderBottomWidth,
+    this.borderLeftWidth,
+    this.borderColor = 0xFF000000,
+    this.borderTopColor,
+    this.borderRightColor,
+    this.borderBottomColor,
+    this.borderLeftColor,
+    this.foregroundBorderStyle = BorderStyle.solid,
+    this.foregroundBorderTopStyle,
+    this.foregroundBorderRightStyle,
+    this.foregroundBorderBottomStyle,
+    this.foregroundBorderLeftStyle,
+    this.foregroundBorderWidth = 0.0,
+    this.foregroundBorderTopWidth,
+    this.foregroundBorderRightWidth,
+    this.foregroundBorderBottomWidth,
+    this.foregroundBorderLeftWidth,
+    this.foregroundBorderColor = 0xFF000000,
+    this.foregroundBorderTopColor,
+    this.foregroundBorderRightColor,
+    this.foregroundBorderBottomColor,
+    this.foregroundBorderLeftColor,
+
+    ///
+    /// The decoration to paint in front of the [child].
+    ///
+    this.foregroundDecoration,
+
+    ///
+    /// The decoration to paint behind the [child].
+    ///
+    /// Use the [color] property to specify a simple solid color.
+    ///
+    /// The [child] is not clipped to the decoration. To clip a child to the shape
+    /// of a particular [ShapeDecoration], consider using a [ClipPath] widget.
+    ///
+    this.decoration,
+
+    // boxShape
+    this.boxShape = BoxShape.rectangle,
+    this.foregroundBoxShape = BoxShape.rectangle,
+
+    // touchEffect
+    this.touchEffect,
+
+    // blendMode
+    this.backgroundBlendMode,
+    this.foregroundBlendMode,
+
+    // box gradient
+    this.boxGradient,
+    this.foregroundBoxGradient,
+
+    // image
+    this.foregroundImage,
+    this.backgroundImage,
+
+    // responsive numbers
+    this.isResponsive = true,
+  });
+
   //sizes
   double? width;
   double? height;
   double? minWidth;
-  double? minHieght;
+  double? minHeight;
   double? maxWidth;
-  double? maxHieght;
+  double? maxHeight;
 
   // padding
   double? padding;
@@ -60,16 +222,16 @@ class CommonContainerModel {
 
   // shadow
   double? shadowSpreadRadius;
-  double? shadowbBlurRadius;
+  double? shadowBlurRadius;
   double? shadowOffsetDX;
   double? shadowOffsetDY;
   double? shadowOpacity;
 
-  double? foregroundshadowSpreadRadius;
-  double? foregroundshadowbBlurRadius;
-  double? foregroundshadowOffsetDX;
-  double? foregroundshadowOffsetDY;
-  double? foregroundshadowOpacity;
+  double? foregroundShadowSpreadRadius;
+  double? foregroundShadowBlurRadius;
+  double? foregroundShadowOffsetDX;
+  double? foregroundShadowOffsetDY;
+  double? foregroundShadowOpacity;
 
   // Radius
   double? bottomLeftRadius;
@@ -83,16 +245,16 @@ class CommonContainerModel {
   double? borderRightWidth;
   double? borderLeftWidth;
 
-  double? foregroundbottomLeftRadius;
-  double? foregroundbottomRightRadius;
-  double? foregroundtopLeftRadius;
-  double? foregroundtopRightRadius;
-  double? foregroundborderRadius;
-  double? foregroundborderWidth;
-  double? foregroundborderTopWidth;
-  double? foregroundborderBottomWidth;
-  double? foregroundborderRightWidth;
-  double? foregroundborderLeftWidth;
+  double? foregroundBottomLeftRadius;
+  double? foregroundBottomRightRadius;
+  double? foregroundTopLeftRadius;
+  double? foregroundTopRightRadius;
+  double? foregroundBorderRadius;
+  double? foregroundBorderWidth;
+  double? foregroundBorderTopWidth;
+  double? foregroundBorderBottomWidth;
+  double? foregroundBorderRightWidth;
+  double? foregroundBorderLeftWidth;
 
   // colors
   dynamic radiusColor;
@@ -106,13 +268,13 @@ class CommonContainerModel {
   dynamic loadingColor;
 
   dynamic foregroundRadiusColor;
-  dynamic foregroundshadowColor;
+  dynamic foregroundShadowColor;
   dynamic foregroundColor;
-  dynamic foregroundborderColor;
-  dynamic foregroundborderTopColor;
-  dynamic foregroundborderBottomColor;
-  dynamic foregroundborderRightColor;
-  dynamic foregroundborderLeftColor;
+  dynamic foregroundBorderColor;
+  dynamic foregroundBorderTopColor;
+  dynamic foregroundBorderBottomColor;
+  dynamic foregroundBorderRightColor;
+  dynamic foregroundBorderLeftColor;
 
   ///
   /// Align the [child] within the container.
@@ -166,11 +328,11 @@ class CommonContainerModel {
   BorderStyle? borderRightStyle;
   BorderStyle? borderLeftStyle;
 
-  BorderStyle? foregroundborderStyle;
-  BorderStyle? foregroundborderTopStyle;
-  BorderStyle? foregroundborderBottomStyle;
-  BorderStyle? foregroundborderRightStyle;
-  BorderStyle? foregroundborderLeftStyle;
+  BorderStyle? foregroundBorderStyle;
+  BorderStyle? foregroundBorderTopStyle;
+  BorderStyle? foregroundBorderBottomStyle;
+  BorderStyle? foregroundBorderRightStyle;
+  BorderStyle? foregroundBorderLeftStyle;
 
   ///
   /// this is for custom Decoration as you want.
@@ -233,8 +395,8 @@ class CommonContainerModel {
   BoxShape? boxShape;
 
   /// or
-  /// foregroundboxShape: BoxShape.circle
-  BoxShape? foregroundboxShape;
+  /// foregroundBoxShape: BoxShape.circle
+  BoxShape? foregroundBoxShape;
 
   /// ```
   ///
@@ -290,7 +452,7 @@ class CommonContainerModel {
   ///
   LinearGradient? boxGradient;
   //
-  ///foregroundboxGradient
+  ///foregroundBoxGradient
   ///
   ///```dart
   ///LinearGradient(
@@ -312,7 +474,7 @@ class CommonContainerModel {
   /// ]),
   /// ```
   ///
-  LinearGradient? foregroundboxGradient;
+  LinearGradient? foregroundBoxGradient;
 
   ///backgroundImage image
   /// - internet image
@@ -369,90 +531,78 @@ class CommonContainerModel {
   ///
   /// check if the border is null or not.
   ///
-  checkBorderNull() =>
+  bool checkBorderNull() =>
       borderTopWidth != null ||
       borderBottomWidth != null ||
       borderRightWidth != null ||
       borderLeftWidth != null;
 
   ///
-  /// check if the foregroundborder is null or not.
+  /// check if the foregroundBorder is null or not.
   ///
-  checkforegroundBorderNull() =>
+  bool checkForegroundBorderNull() =>
 
       ///
       /// foreground border widths.
       ///
-      foregroundborderTopWidth != null ||
-      foregroundborderBottomWidth != null ||
-      foregroundborderRightWidth != null ||
-      foregroundborderLeftWidth != null;
+      foregroundBorderTopWidth != null ||
+      foregroundBorderBottomWidth != null ||
+      foregroundBorderRightWidth != null ||
+      foregroundBorderLeftWidth != null;
 
-  getResponsivBorderRadius(value) =>
+  dynamic getResponsiveBorderRadius(num value) =>
       isResponsive! ? DEVICE_WIDTH * value : value;
 
   ///
   /// get border Radius.
   ///
-  getBorderRadius() => (boxShape == BoxShape.circle || checkBorderNull())
-      ? null
-      : (borderRadius == 0
-
-          ///
-          /// return every single Radius.
-          ///
-          ? BorderRadius.only(
-              topRight:
-                  Radius.circular(getResponsivBorderRadius(topRightRadius!)),
-              topLeft:
-                  Radius.circular(getResponsivBorderRadius(topLeftRadius!)),
-              bottomLeft:
-                  Radius.circular(getResponsivBorderRadius(bottomLeftRadius!)),
-              bottomRight:
-                  Radius.circular(getResponsivBorderRadius(bottomRightRadius!)),
-            )
-
-          ///
-          /// return all Radius.
-          ///
-          : BorderRadius.all(
-              Radius.circular(getResponsivBorderRadius(borderRadius!)),
+  BorderRadius? getBorderRadius() =>
+      (boxShape == BoxShape.circle || checkBorderNull())
+          ? null
+          : (BorderRadius.only(
+              topRight: Radius.circular(
+                getResponsiveBorderRadius(topRightRadius ?? borderRadius!),
+              ),
+              topLeft: Radius.circular(
+                getResponsiveBorderRadius(topLeftRadius ?? borderRadius!),
+              ),
+              bottomLeft: Radius.circular(
+                getResponsiveBorderRadius(bottomLeftRadius ?? borderRadius!),
+              ),
+              bottomRight: Radius.circular(
+                getResponsiveBorderRadius(bottomRightRadius ?? borderRadius!),
+              ),
             ));
 
   ///
   /// get border Radius.
   ///
-  getForegroundBorderRadius() =>
-      (foregroundboxShape == BoxShape.circle || checkforegroundBorderNull())
+  BorderRadius? getForegroundBorderRadius() =>
+      (foregroundBoxShape == BoxShape.circle || checkForegroundBorderNull())
           ? null
-          : (foregroundborderRadius == 0
-
-              ///
-              /// return every single Radius.
-              ///
-              ? BorderRadius.only(
-                  topRight: Radius.circular(
-                      getResponsivBorderRadius(foregroundtopRightRadius!)),
-                  topLeft: Radius.circular(
-                      getResponsivBorderRadius(foregroundtopLeftRadius!)),
-                  bottomLeft: Radius.circular(
-                      getResponsivBorderRadius(foregroundbottomLeftRadius!)),
-                  bottomRight: Radius.circular(
-                      getResponsivBorderRadius(foregroundbottomRightRadius!)),
-                )
-
-              ///
-              /// return all Radius.
-              ///
-              : BorderRadius.all(
-                  Radius.circular(
-                      getResponsivBorderRadius(foregroundborderRadius!)),
-                ));
+          : (BorderRadius.only(
+              topRight: Radius.circular(
+                getResponsiveBorderRadius(
+                    foregroundTopRightRadius ?? foregroundBorderRadius!),
+              ),
+              topLeft: Radius.circular(
+                getResponsiveBorderRadius(
+                    foregroundTopLeftRadius ?? foregroundBorderRadius!),
+              ),
+              bottomLeft: Radius.circular(
+                getResponsiveBorderRadius(
+                    foregroundBottomLeftRadius ?? foregroundBorderRadius!),
+              ),
+              bottomRight: Radius.circular(
+                getResponsiveBorderRadius(
+                    foregroundBottomRightRadius ?? foregroundBorderRadius!),
+              ),
+            ));
 
   ///
   /// get border width and color.
   ///
-  getBorder() => (borderWidth! > 0 || checkBorderNull())
+  Border? getBorder() => (borderWidth! > 0 || checkBorderNull())
       ? Border(
           ///
           /// handel top border.
@@ -507,17 +657,17 @@ class CommonContainerModel {
   ///
   /// get border width and color.
   ///
-  getforegroundBorder() =>
-      (foregroundborderWidth! > 0 || checkforegroundBorderNull())
+  Border? getForegroundBorder() =>
+      (foregroundBorderWidth! > 0 || checkForegroundBorderNull())
           ? Border(
               ///
               /// handel top border.
               ///
               top: BorderSide(
                 color: getColorType(
-                    foregroundborderTopColor ?? foregroundborderColor!),
-                width: foregroundborderTopWidth ?? foregroundborderWidth!,
-                style: foregroundborderTopStyle ?? foregroundborderStyle!,
+                    foregroundBorderTopColor ?? foregroundBorderColor!),
+                width: foregroundBorderTopWidth ?? foregroundBorderWidth!,
+                style: foregroundBorderTopStyle ?? foregroundBorderStyle!,
               ),
 
               ///
@@ -525,9 +675,9 @@ class CommonContainerModel {
               ///
               right: BorderSide(
                 color: getColorType(
-                    foregroundborderRightColor ?? foregroundborderColor!),
-                width: foregroundborderRightWidth ?? foregroundborderWidth!,
-                style: foregroundborderRightStyle ?? foregroundborderStyle!,
+                    foregroundBorderRightColor ?? foregroundBorderColor!),
+                width: foregroundBorderRightWidth ?? foregroundBorderWidth!,
+                style: foregroundBorderRightStyle ?? foregroundBorderStyle!,
               ),
 
               ///
@@ -535,9 +685,9 @@ class CommonContainerModel {
               ///
               bottom: BorderSide(
                 color: getColorType(
-                    foregroundborderBottomColor ?? foregroundborderColor!),
-                width: foregroundborderBottomWidth ?? foregroundborderWidth!,
-                style: foregroundborderBottomStyle ?? foregroundborderStyle!,
+                    foregroundBorderBottomColor ?? foregroundBorderColor!),
+                width: foregroundBorderBottomWidth ?? foregroundBorderWidth!,
+                style: foregroundBorderBottomStyle ?? foregroundBorderStyle!,
               ),
 
               ///
@@ -545,9 +695,9 @@ class CommonContainerModel {
               ///
               left: BorderSide(
                 color: getColorType(
-                    foregroundborderLeftColor ?? foregroundborderColor!),
-                width: foregroundborderLeftWidth ?? foregroundborderWidth!,
-                style: foregroundborderLeftStyle ?? foregroundborderStyle!,
+                    foregroundBorderLeftColor ?? foregroundBorderColor!),
+                width: foregroundBorderLeftWidth ?? foregroundBorderWidth!,
+                style: foregroundBorderLeftStyle ?? foregroundBorderStyle!,
               ),
             )
 
@@ -559,208 +709,46 @@ class CommonContainerModel {
   /// handel container width.
   /// and return the container width
   ///  like responsive design if the value smaller than 1.
-  getWidth() => width! <= 0.0
+  double? getWidth() => width! <= 0.0
       ? null
       : isResponsive!
           ? DEVICE_WIDTH * width!
 
-          /// the defaul value for witdh is null
-          ///  and this mean expanded as contet.
+          /// the default value for width is null
+          ///  and this mean expanded as content.
           : width!;
 
   /// handel container hight.
   /// and return the container hight
   ///  like responsive design if the value smaller than 1.
-  getHeight() => height! <= 0.0
+  double? getHeight() => height! <= 0.0
       ? null
       : isResponsive!
           ? DEVICE_HEIGHT * height!
 
-          /// the defaul value for witdh is null
-          ///  and this mean expanded as contet.
+          /// the default value for width is null
+          ///  and this mean expanded as content.
           : height!;
 
-  getResponsiveMinWidth() =>
+  double getResponsiveMinWidth() =>
       isResponsive! ? DEVICE_WIDTH * minWidth! : minWidth!;
-  getResponsiveMaxWidth() => isResponsive! && maxWidth != double.infinity
+  double getResponsiveMaxWidth() => isResponsive! && maxWidth != double.infinity
       ? DEVICE_WIDTH * maxWidth!
       : maxWidth!;
-  getResponsiveMinHieght() =>
-      isResponsive! ? DEVICE_HEIGHT * minHieght! : minHieght!;
-  getResponsiveMaxHieght() => isResponsive! && maxHieght != double.infinity
-      ? DEVICE_HEIGHT * maxHieght!
-      : maxHieght!;
-
-  CommonContainerModel({
-    //sizes
-    this.width = 0.0,
-    this.height = 0.0,
-    this.minWidth = 0.0,
-    this.minHieght = 0.0,
-    this.maxWidth = double.infinity,
-    this.maxHieght = double.infinity,
-
-    ///
-    ///  * [Alignment], a class with convenient constants typically used to
-    ///    specify an [AlignmentGeometry].
-    ///  * [AlignmentDirectional], like [Alignment] for specifying alignments
-    ///    relative to text direction.
-    ///
-    this.alignment,
-
-    ///
-    /// Empty space to inscribe inside the [decoration]. The [child], if any, is
-    /// placed inside this padding.
-    ///
-    /// This padding is in addition to any padding inherent in the [decoration];
-    /// see [Decoration.padding].
-    ///
-    this.padding = 0.0,
-    this.paddingTop,
-    this.paddingBottom,
-    this.paddingRight,
-    this.paddingLeft,
-    this.paddingVertical,
-    this.paddingHorizontal,
-
-    ///
-    /// Empty space to surround the [decoration] and [child].
-    ///
-    this.margin = 0.0,
-    this.marginTop,
-    this.marginBottom,
-    this.marginRight,
-    this.marginLeft,
-    this.marginVertical,
-    this.marginHorizontal,
-
-    ///
-    /// The color to paint behind the [child].
-    ///
-    /// This property should be preferred when the background is a simple color.
-    /// For other cases, such as gradients or images, use the [decoration]
-    /// property.
-    ///
-    /// If the [decoration] is used, this property must be null. A background
-    /// color may still be painted by the [decoration] even if this property is
-    /// null.
-    ///
-    this.backgroundColor = COMMON_TRANSPARENT_COLOR,
-    this.foregroundColor = COMMON_TRANSPARENT_COLOR,
-    this.radiusColor = 0xFF000000,
-    this.foregroundRadiusColor = 0xFF000000,
-    this.loadingColor = 0xFF1DD005,
-
-    // shadow
-    this.shadowSpreadRadius = 0.0,
-    this.shadowbBlurRadius = 0.0,
-    this.shadowOffsetDX = 0.0,
-    this.shadowOffsetDY = 0.0,
-    this.shadowColor = 0xFF000000,
-    this.shadowOpacity = 0.0,
-    this.foregroundshadowSpreadRadius = 0.0,
-    this.foregroundshadowbBlurRadius = 0.0,
-    this.foregroundshadowOffsetDX = 0.0,
-    this.foregroundshadowOffsetDY = 0.0,
-    this.foregroundshadowColor = 0xFF000000,
-    this.foregroundshadowOpacity = 0.0,
-
-    // Radius
-    this.bottomLeftRadius = 0.0,
-    this.bottomRightRadius = 0.0,
-    this.topLeftRadius = 0.0,
-    this.topRightRadius = 0.0,
-    this.borderRadius = 0.0,
-    this.foregroundbottomLeftRadius = 0.0,
-    this.foregroundbottomRightRadius = 0.0,
-    this.foregroundtopLeftRadius = 0.0,
-    this.foregroundtopRightRadius = 0.0,
-    this.foregroundborderRadius = 0.0,
-
-    // clipBehavior
-    this.clipBehavior = Clip.none,
-
-    // transform
-    this.transform,
-    this.transformAlignment,
-
-    // border
-    this.borderStyle = BorderStyle.solid,
-    this.borderTopStyle,
-    this.borderRightStyle,
-    this.borderBottomStyle,
-    this.borderLeftStyle,
-    this.borderWidth = 0.0,
-    this.borderTopWidth,
-    this.borderRightWidth,
-    this.borderBottomWidth,
-    this.borderLeftWidth,
-    this.borderColor = 0xFF000000,
-    this.borderTopColor,
-    this.borderRightColor,
-    this.borderBottomColor,
-    this.borderLeftColor,
-    this.foregroundborderStyle = BorderStyle.solid,
-    this.foregroundborderTopStyle,
-    this.foregroundborderRightStyle,
-    this.foregroundborderBottomStyle,
-    this.foregroundborderLeftStyle,
-    this.foregroundborderWidth = 0.0,
-    this.foregroundborderTopWidth,
-    this.foregroundborderRightWidth,
-    this.foregroundborderBottomWidth,
-    this.foregroundborderLeftWidth,
-    this.foregroundborderColor = 0xFF000000,
-    this.foregroundborderTopColor,
-    this.foregroundborderRightColor,
-    this.foregroundborderBottomColor,
-    this.foregroundborderLeftColor,
-
-    ///
-    /// The decoration to paint in front of the [child].
-    ///
-    this.foregroundDecoration,
-
-    ///
-    /// The decoration to paint behind the [child].
-    ///
-    /// Use the [color] property to specify a simple solid color.
-    ///
-    /// The [child] is not clipped to the decoration. To clip a child to the shape
-    /// of a particular [ShapeDecoration], consider using a [ClipPath] widget.
-    ///
-    this.decoration,
-
-    // boxShape
-    this.boxShape = BoxShape.rectangle,
-    this.foregroundboxShape = BoxShape.rectangle,
-
-    // touchEffect
-    this.touchEffect,
-
-    // blendMode
-    this.backgroundBlendMode,
-    this.foregroundBlendMode,
-
-    // box gradient
-    this.boxGradient,
-    this.foregroundboxGradient,
-
-    // image
-    this.foregroundImage,
-    this.backgroundImage,
-
-    // responsive numbers
-    this.isResponsive = true,
-  });
+  double getResponsiveMinHeight() =>
+      isResponsive! ? DEVICE_HEIGHT * minHeight! : minHeight!;
+  double getResponsiveMaxHeight() =>
+      isResponsive! && maxHeight != double.infinity
+          ? DEVICE_HEIGHT * maxHeight!
+          : maxHeight!;
 
   CommonContainerModel copyWith({
     double? width,
     double? height,
     double? minWidth,
-    double? minHieght,
+    double? minHeight,
     double? maxWidth,
-    double? maxHieght,
+    double? maxHeight,
     double? padding,
     double? paddingTop,
     double? paddingBottom,
@@ -776,7 +764,7 @@ class CommonContainerModel {
     double? marginVertical,
     double? marginHorizontal,
     double? shadowSpreadRadius,
-    double? shadowbBlurRadius,
+    double? shadowBlurRadius,
     double? shadowOffsetDX,
     double? shadowOffsetDY,
 
@@ -787,11 +775,11 @@ class CommonContainerModel {
     /// in material color type you can add your opacity with the color name like this
     /// (e.g. Colors.black87)
     double? shadowOpacity,
-    double? foregroundshadowSpreadRadius,
-    double? foregroundshadowbBlurRadius,
-    double? foregroundshadowOffsetDX,
-    double? foregroundshadowOffsetDY,
-    double? foregroundshadowOpacity,
+    double? foregroundShadowSpreadRadius,
+    double? foregroundShadowBlurRadius,
+    double? foregroundShadowOffsetDX,
+    double? foregroundShadowOffsetDY,
+    double? foregroundShadowOpacity,
     double? bottomLeftRadius,
     double? bottomRightRadius,
     double? topLeftRadius,
@@ -802,16 +790,16 @@ class CommonContainerModel {
     double? borderBottomWidth,
     double? borderRightWidth,
     double? borderLeftWidth,
-    double? foregroundbottomLeftRadius,
-    double? foregroundbottomRightRadius,
-    double? foregroundtopLeftRadius,
-    double? foregroundtopRightRadius,
-    double? foregroundborderRadius,
-    double? foregroundborderWidth,
-    double? foregroundborderTopWidth,
-    double? foregroundborderBottomWidth,
-    double? foregroundborderRightWidth,
-    double? foregroundborderLeftWidth,
+    double? foregroundBottomLeftRadius,
+    double? foregroundBottomRightRadius,
+    double? foregroundTopLeftRadius,
+    double? foregroundTopRightRadius,
+    double? foregroundBorderRadius,
+    double? foregroundBorderWidth,
+    double? foregroundBorderTopWidth,
+    double? foregroundBorderBottomWidth,
+    double? foregroundBorderRightWidth,
+    double? foregroundBorderLeftWidth,
     dynamic radiusColor,
     dynamic shadowColor,
     dynamic backgroundColor,
@@ -822,13 +810,13 @@ class CommonContainerModel {
     dynamic borderLeftColor,
     dynamic loadingColor,
     dynamic foregroundRadiusColor,
-    dynamic foregroundshadowColor,
+    dynamic foregroundShadowColor,
     dynamic foregroundColor,
-    dynamic foregroundborderColor,
-    dynamic foregroundborderTopColor,
-    dynamic foregroundborderBottomColor,
-    dynamic foregroundborderRightColor,
-    dynamic foregroundborderLeftColor,
+    dynamic foregroundBorderColor,
+    dynamic foregroundBorderTopColor,
+    dynamic foregroundBorderBottomColor,
+    dynamic foregroundBorderRightColor,
+    dynamic foregroundBorderLeftColor,
     AlignmentGeometry? alignment,
     Alignment? transformAlignment,
     Clip? clipBehavior,
@@ -838,20 +826,20 @@ class CommonContainerModel {
     BorderStyle? borderBottomStyle,
     BorderStyle? borderRightStyle,
     BorderStyle? borderLeftStyle,
-    BorderStyle? foregroundborderStyle,
-    BorderStyle? foregroundborderTopStyle,
-    BorderStyle? foregroundborderBottomStyle,
-    BorderStyle? foregroundborderRightStyle,
-    BorderStyle? foregroundborderLeftStyle,
+    BorderStyle? foregroundBorderStyle,
+    BorderStyle? foregroundBorderTopStyle,
+    BorderStyle? foregroundBorderBottomStyle,
+    BorderStyle? foregroundBorderRightStyle,
+    BorderStyle? foregroundBorderLeftStyle,
     Decoration? foregroundDecoration,
     Decoration? decoration,
     BoxShape? boxShape,
-    BoxShape? foregroundboxShape,
+    BoxShape? foregroundBoxShape,
     TouchableEffect? touchEffect,
     BlendMode? backgroundBlendMode,
     BlendMode? foregroundBlendMode,
     LinearGradient? boxGradient,
-    LinearGradient? foregroundboxGradient,
+    LinearGradient? foregroundBoxGradient,
     DecorationImage? backgroundImage,
     DecorationImage? foregroundImage,
     bool? isResponsive,
@@ -860,9 +848,9 @@ class CommonContainerModel {
       width: width ?? this.width,
       height: height ?? this.height,
       minWidth: minWidth ?? this.minWidth,
-      minHieght: minHieght ?? this.minHieght,
+      minHeight: minHeight ?? this.minHeight,
       maxWidth: maxWidth ?? this.maxWidth,
-      maxHieght: maxHieght ?? this.maxHieght,
+      maxHeight: maxHeight ?? this.maxHeight,
       padding: padding ?? this.padding,
       paddingTop: paddingTop ?? this.paddingTop,
       paddingBottom: paddingBottom ?? this.paddingBottom,
@@ -878,20 +866,20 @@ class CommonContainerModel {
       marginVertical: marginVertical ?? this.marginVertical,
       marginHorizontal: marginHorizontal ?? this.marginHorizontal,
       shadowSpreadRadius: shadowSpreadRadius ?? this.shadowSpreadRadius,
-      shadowbBlurRadius: shadowbBlurRadius ?? this.shadowbBlurRadius,
+      shadowBlurRadius: shadowBlurRadius ?? this.shadowBlurRadius,
       shadowOffsetDX: shadowOffsetDX ?? this.shadowOffsetDX,
       shadowOffsetDY: shadowOffsetDY ?? this.shadowOffsetDY,
       shadowOpacity: shadowOpacity ?? this.shadowOpacity,
-      foregroundshadowSpreadRadius:
-          foregroundshadowSpreadRadius ?? this.foregroundshadowSpreadRadius,
-      foregroundshadowbBlurRadius:
-          foregroundshadowbBlurRadius ?? this.foregroundshadowbBlurRadius,
-      foregroundshadowOffsetDX:
-          foregroundshadowOffsetDX ?? this.foregroundshadowOffsetDX,
-      foregroundshadowOffsetDY:
-          foregroundshadowOffsetDY ?? this.foregroundshadowOffsetDY,
-      foregroundshadowOpacity:
-          foregroundshadowOpacity ?? this.foregroundshadowOpacity,
+      foregroundShadowSpreadRadius:
+          foregroundShadowSpreadRadius ?? this.foregroundShadowSpreadRadius,
+      foregroundShadowBlurRadius:
+          foregroundShadowBlurRadius ?? this.foregroundShadowBlurRadius,
+      foregroundShadowOffsetDX:
+          foregroundShadowOffsetDX ?? this.foregroundShadowOffsetDX,
+      foregroundShadowOffsetDY:
+          foregroundShadowOffsetDY ?? this.foregroundShadowOffsetDY,
+      foregroundShadowOpacity:
+          foregroundShadowOpacity ?? this.foregroundShadowOpacity,
       bottomLeftRadius: bottomLeftRadius ?? this.bottomLeftRadius,
       bottomRightRadius: bottomRightRadius ?? this.bottomRightRadius,
       topLeftRadius: topLeftRadius ?? this.topLeftRadius,
@@ -902,26 +890,26 @@ class CommonContainerModel {
       borderBottomWidth: borderBottomWidth ?? this.borderBottomWidth,
       borderRightWidth: borderRightWidth ?? this.borderRightWidth,
       borderLeftWidth: borderLeftWidth ?? this.borderLeftWidth,
-      foregroundbottomLeftRadius:
-          foregroundbottomLeftRadius ?? this.foregroundbottomLeftRadius,
-      foregroundbottomRightRadius:
-          foregroundbottomRightRadius ?? this.foregroundbottomRightRadius,
-      foregroundtopLeftRadius:
-          foregroundtopLeftRadius ?? this.foregroundtopLeftRadius,
-      foregroundtopRightRadius:
-          foregroundtopRightRadius ?? this.foregroundtopRightRadius,
-      foregroundborderRadius:
-          foregroundborderRadius ?? this.foregroundborderRadius,
-      foregroundborderWidth:
-          foregroundborderWidth ?? this.foregroundborderWidth,
-      foregroundborderTopWidth:
-          foregroundborderTopWidth ?? this.foregroundborderTopWidth,
-      foregroundborderBottomWidth:
-          foregroundborderBottomWidth ?? this.foregroundborderBottomWidth,
-      foregroundborderRightWidth:
-          foregroundborderRightWidth ?? this.foregroundborderRightWidth,
-      foregroundborderLeftWidth:
-          foregroundborderLeftWidth ?? this.foregroundborderLeftWidth,
+      foregroundBottomLeftRadius:
+          foregroundBottomLeftRadius ?? this.foregroundBottomLeftRadius,
+      foregroundBottomRightRadius:
+          foregroundBottomRightRadius ?? this.foregroundBottomRightRadius,
+      foregroundTopLeftRadius:
+          foregroundTopLeftRadius ?? this.foregroundTopLeftRadius,
+      foregroundTopRightRadius:
+          foregroundTopRightRadius ?? this.foregroundTopRightRadius,
+      foregroundBorderRadius:
+          foregroundBorderRadius ?? this.foregroundBorderRadius,
+      foregroundBorderWidth:
+          foregroundBorderWidth ?? this.foregroundBorderWidth,
+      foregroundBorderTopWidth:
+          foregroundBorderTopWidth ?? this.foregroundBorderTopWidth,
+      foregroundBorderBottomWidth:
+          foregroundBorderBottomWidth ?? this.foregroundBorderBottomWidth,
+      foregroundBorderRightWidth:
+          foregroundBorderRightWidth ?? this.foregroundBorderRightWidth,
+      foregroundBorderLeftWidth:
+          foregroundBorderLeftWidth ?? this.foregroundBorderLeftWidth,
       radiusColor: radiusColor ?? this.radiusColor,
       shadowColor: shadowColor ?? this.shadowColor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
@@ -933,19 +921,19 @@ class CommonContainerModel {
       loadingColor: loadingColor ?? this.loadingColor,
       foregroundRadiusColor:
           foregroundRadiusColor ?? this.foregroundRadiusColor,
-      foregroundshadowColor:
-          foregroundshadowColor ?? this.foregroundshadowColor,
+      foregroundShadowColor:
+          foregroundShadowColor ?? this.foregroundShadowColor,
       foregroundColor: foregroundColor ?? this.foregroundColor,
-      foregroundborderColor:
-          foregroundborderColor ?? this.foregroundborderColor,
-      foregroundborderTopColor:
-          foregroundborderTopColor ?? this.foregroundborderTopColor,
-      foregroundborderBottomColor:
-          foregroundborderBottomColor ?? this.foregroundborderBottomColor,
-      foregroundborderRightColor:
-          foregroundborderRightColor ?? this.foregroundborderRightColor,
-      foregroundborderLeftColor:
-          foregroundborderLeftColor ?? this.foregroundborderLeftColor,
+      foregroundBorderColor:
+          foregroundBorderColor ?? this.foregroundBorderColor,
+      foregroundBorderTopColor:
+          foregroundBorderTopColor ?? this.foregroundBorderTopColor,
+      foregroundBorderBottomColor:
+          foregroundBorderBottomColor ?? this.foregroundBorderBottomColor,
+      foregroundBorderRightColor:
+          foregroundBorderRightColor ?? this.foregroundBorderRightColor,
+      foregroundBorderLeftColor:
+          foregroundBorderLeftColor ?? this.foregroundBorderLeftColor,
       alignment: alignment ?? this.alignment,
       transformAlignment: transformAlignment ?? this.transformAlignment,
       clipBehavior: clipBehavior ?? this.clipBehavior,
@@ -955,26 +943,26 @@ class CommonContainerModel {
       borderBottomStyle: borderBottomStyle ?? this.borderBottomStyle,
       borderRightStyle: borderRightStyle ?? this.borderRightStyle,
       borderLeftStyle: borderLeftStyle ?? this.borderLeftStyle,
-      foregroundborderStyle:
-          foregroundborderStyle ?? this.foregroundborderStyle,
-      foregroundborderTopStyle:
-          foregroundborderTopStyle ?? this.foregroundborderTopStyle,
-      foregroundborderBottomStyle:
-          foregroundborderBottomStyle ?? this.foregroundborderBottomStyle,
-      foregroundborderRightStyle:
-          foregroundborderRightStyle ?? this.foregroundborderRightStyle,
-      foregroundborderLeftStyle:
-          foregroundborderLeftStyle ?? this.foregroundborderLeftStyle,
+      foregroundBorderStyle:
+          foregroundBorderStyle ?? this.foregroundBorderStyle,
+      foregroundBorderTopStyle:
+          foregroundBorderTopStyle ?? this.foregroundBorderTopStyle,
+      foregroundBorderBottomStyle:
+          foregroundBorderBottomStyle ?? this.foregroundBorderBottomStyle,
+      foregroundBorderRightStyle:
+          foregroundBorderRightStyle ?? this.foregroundBorderRightStyle,
+      foregroundBorderLeftStyle:
+          foregroundBorderLeftStyle ?? this.foregroundBorderLeftStyle,
       foregroundDecoration: foregroundDecoration ?? this.foregroundDecoration,
       decoration: decoration ?? this.decoration,
       boxShape: boxShape ?? this.boxShape,
-      foregroundboxShape: foregroundboxShape ?? this.foregroundboxShape,
+      foregroundBoxShape: foregroundBoxShape ?? this.foregroundBoxShape,
       touchEffect: touchEffect ?? this.touchEffect,
       backgroundBlendMode: backgroundBlendMode ?? this.backgroundBlendMode,
       foregroundBlendMode: foregroundBlendMode ?? this.foregroundBlendMode,
       boxGradient: boxGradient ?? this.boxGradient,
-      foregroundboxGradient:
-          foregroundboxGradient ?? this.foregroundboxGradient,
+      foregroundBoxGradient:
+          foregroundBoxGradient ?? this.foregroundBoxGradient,
       backgroundImage: backgroundImage ?? this.backgroundImage,
       foregroundImage: foregroundImage ?? this.foregroundImage,
       isResponsive: isResponsive ?? this.isResponsive,

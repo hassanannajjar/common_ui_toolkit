@@ -63,6 +63,7 @@ class MyHomePage extends StatelessWidget {
                     duration: 5,
                     lowerBound: 0.8,
                   ),
+                  borderRadius: 0.05,
                 ),
             style: CommonTextStyles().h2Style().copyWith(
                   fontColor: const Color(COMMON_WHITE_COLOR),

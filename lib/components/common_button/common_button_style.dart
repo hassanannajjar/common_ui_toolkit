@@ -1,11 +1,6 @@
 import '../../index.dart';
 
 class CommonButtonStyle {
-  CommonButtonModel? style;
-  CommonContainerModel? containerStyle;
-  CommonContainerModel? textContainerStyle;
-  CommonTextModel? textStyle;
-
   CommonButtonStyle({
     this.style,
     this.containerStyle,
@@ -17,6 +12,11 @@ class CommonButtonStyle {
     textContainerStyle = textContainerStyle ?? CommonContainerModel();
     textStyle = textStyle ?? CommonTextModel();
   }
+
+  CommonButtonModel? style;
+  CommonContainerModel? containerStyle;
+  CommonContainerModel? textContainerStyle;
+  CommonTextModel? textStyle;
 
   CommonButtonStyle copyWith({
     CommonButtonModel? style,
