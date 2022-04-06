@@ -1,8 +1,28 @@
 ## 0.3.2
 
-- Added border radius fro CommonDatetimePicker component.
+- Added parameters to be inline if you want to edit some attribute inline without update the style.
+ex: 
+before =>
+```dart 
+CommonContainerModel containerStyle = CommonContainerModel(backgroundColor:Colors.red, width:0.2,);
+
+CommonContainer(style:containerStyle);
+CommonContainer(style:containerStyle.copyWith(paddingTop:0.01,),);
+```
+
+After =>
+```dart 
+CommonContainerModel containerStyle = CommonContainerModel(backgroundColor:Colors.red, width:0.2,);
+
+CommonContainer(style:containerStyle);
+CommonContainer(style:containerStyle, paddingTop:0.01,);
+```
+
+- Added border radius attribute fro CommonDatetimePicker component.
 - Added flutter_lints to package and example 
 - Updated environment sdk version to be ` sdk: ">=2.16.1 <3.0.0"`.
+- Updated radius strong use left, right, top and bottom with border radius.
+- Fixed typo errors >_<.
 
 ## 0.3.1
 
