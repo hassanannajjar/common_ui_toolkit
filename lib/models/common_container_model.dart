@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../components/common_touchable/TouchableEffect.dart';
+import '../components/common_touchable/touchable_effect.dart';
 import '../utils/index.dart';
 
 class CommonContainerModel {
