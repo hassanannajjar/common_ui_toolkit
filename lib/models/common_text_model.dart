@@ -3,6 +3,52 @@ import 'dart:ui';
 import '../index.dart';
 
 class CommonTextModel {
+  CommonTextModel({
+    ///sizes
+    this.height,
+    this.letterSpacing = 0.0,
+    this.wordSpacing = 0.0,
+    this.fontSize = COMMON_H4_FONT,
+    this.decorationThickness,
+    this.maxlines,
+    this.textScaleFactor = 1.0,
+
+    /// colors
+    this.fontColor = COMMON_BLACK_COLOR,
+    this.backgroundColor = COMMON_TRANSPARENT_COLOR,
+    this.decorationColor = COMMON_BLACK_COLOR,
+    this.decoration = TextDecoration.none,
+    this.textDirection,
+    this.overflow = TextOverflow.clip,
+    this.softWrap = true,
+    this.strutStyle,
+    this.textHeightBehavior,
+    this.textWidthBasis = TextWidthBasis.parent,
+
+    // -------------------
+    this.fontWeight = FontWeight.normal,
+    this.fontFamily,
+    this.fontStyle = FontStyle.normal,
+    this.textAlign = TextAlign.center,
+    this.textBaseline,
+    this.leadingDistribution,
+    this.locale,
+    this.foreground,
+    this.background,
+    this.shadows,
+    this.fontFeatures,
+    this.columnCrossAxisAlignment = CrossAxisAlignment.center,
+    this.columnMainAxisAlignment = MainAxisAlignment.start,
+    this.columnMainAxisSize = MainAxisSize.min,
+    this.rowCrossAxisAlignment = CrossAxisAlignment.center,
+    this.rowMainAxisSize = MainAxisSize.min,
+    this.rowMainAxisAlignment = MainAxisAlignment.start,
+    this.decorationStyle,
+    this.debugLabel,
+    this.fontFamilyFallback,
+    this.prefixIcon,
+  });
+
   ///
   /// sizes
   ///
@@ -42,7 +88,7 @@ class CommonTextModel {
   bool softWrap;
 
   ///
-  /// struct style
+  /// strut style
   ///
   StrutStyle? strutStyle;
 
@@ -87,14 +133,14 @@ class CommonTextModel {
   TextLeadingDistribution? leadingDistribution;
 
   ///
-  /// column Cross Axis Alignemnt
+  /// column Cross Axis Alignment
   ///
-  CrossAxisAlignment columnCrossAxisAlignemnt;
+  CrossAxisAlignment columnCrossAxisAlignment;
 
   ///
-  /// column main Axis Alignemnt
+  /// column main Axis Alignment
   ///
-  MainAxisAlignment columnMainAxisAlignemnt;
+  MainAxisAlignment columnMainAxisAlignment;
 
   ///
   /// column main Axis size
@@ -102,14 +148,14 @@ class CommonTextModel {
   MainAxisSize columnMainAxisSize;
 
   ///
-  /// row cross Axis Alignemnt
+  /// row cross Axis Alignment
   ///
-  CrossAxisAlignment rowCrossAxisAlignemnt;
+  CrossAxisAlignment rowCrossAxisAlignment;
 
   ///
-  /// row main Axis Alignemnt
+  /// row main Axis Alignment
   ///
-  MainAxisAlignment rowMainAxisAlignemnt;
+  MainAxisAlignment rowMainAxisAlignment;
 
   ///
   /// row main Axis size
@@ -122,7 +168,7 @@ class CommonTextModel {
   Locale? locale;
 
   ///
-  /// forground
+  /// foreground
   ///
   Paint? foreground;
 
@@ -161,52 +207,6 @@ class CommonTextModel {
   /// prefix icon
   CommonIcon? prefixIcon;
 
-  CommonTextModel({
-    ///sizes
-    this.height,
-    this.letterSpacing = 0.0,
-    this.wordSpacing = 0.0,
-    this.fontSize = COMMON_H4_FONT,
-    this.decorationThickness,
-    this.maxlines,
-    this.textScaleFactor = 1.0,
-
-    /// colors
-    this.fontColor = COMMON_BLACK_COLOR,
-    this.backgroundColor = COMMON_TRANSPARENT_COLOR,
-    this.decorationColor = COMMON_BLACK_COLOR,
-    this.decoration = TextDecoration.none,
-    this.textDirection,
-    this.overflow = TextOverflow.clip,
-    this.softWrap = true,
-    this.strutStyle,
-    this.textHeightBehavior,
-    this.textWidthBasis = TextWidthBasis.parent,
-
-    // -------------------
-    this.fontWeight = FontWeight.normal,
-    this.fontFamily,
-    this.fontStyle = FontStyle.normal,
-    this.textAlign = TextAlign.center,
-    this.textBaseline,
-    this.leadingDistribution,
-    this.locale,
-    this.foreground,
-    this.background,
-    this.shadows,
-    this.fontFeatures,
-    this.columnCrossAxisAlignemnt = CrossAxisAlignment.center,
-    this.columnMainAxisAlignemnt = MainAxisAlignment.start,
-    this.columnMainAxisSize = MainAxisSize.min,
-    this.rowCrossAxisAlignemnt = CrossAxisAlignment.center,
-    this.rowMainAxisSize = MainAxisSize.min,
-    this.rowMainAxisAlignemnt = MainAxisAlignment.start,
-    this.decorationStyle,
-    this.debugLabel,
-    this.fontFamilyFallback,
-    this.prefixIcon,
-  });
-
   CommonTextModel copyWith({
     double? height,
     double? letterSpacing,
@@ -231,11 +231,11 @@ class CommonTextModel {
     FontStyle? fontStyle,
     TextBaseline? textBaseline,
     TextLeadingDistribution? leadingDistribution,
-    CrossAxisAlignment? columnCrossAxisAlignemnt,
-    MainAxisAlignment? columnMainAxisAlignemnt,
+    CrossAxisAlignment? columnCrossAxisAlignment,
+    MainAxisAlignment? columnMainAxisAlignment,
     MainAxisSize? columnMainAxisSize,
-    CrossAxisAlignment? rowCrossAxisAlignemnt,
-    MainAxisAlignment? rowMainAxisAlignemnt,
+    CrossAxisAlignment? rowCrossAxisAlignment,
+    MainAxisAlignment? rowMainAxisAlignment,
     MainAxisSize? rowMainAxisSize,
     Locale? locale,
     Paint? foreground,
@@ -271,14 +271,14 @@ class CommonTextModel {
       fontStyle: fontStyle ?? this.fontStyle,
       textBaseline: textBaseline ?? this.textBaseline,
       leadingDistribution: leadingDistribution ?? this.leadingDistribution,
-      columnCrossAxisAlignemnt:
-          columnCrossAxisAlignemnt ?? this.columnCrossAxisAlignemnt,
-      columnMainAxisAlignemnt:
-          columnMainAxisAlignemnt ?? this.columnMainAxisAlignemnt,
+      columnCrossAxisAlignment:
+          columnCrossAxisAlignment ?? this.columnCrossAxisAlignment,
+      columnMainAxisAlignment:
+          columnMainAxisAlignment ?? this.columnMainAxisAlignment,
       columnMainAxisSize: columnMainAxisSize ?? this.columnMainAxisSize,
-      rowCrossAxisAlignemnt:
-          rowCrossAxisAlignemnt ?? this.rowCrossAxisAlignemnt,
-      rowMainAxisAlignemnt: rowMainAxisAlignemnt ?? this.rowMainAxisAlignemnt,
+      rowCrossAxisAlignment:
+          rowCrossAxisAlignment ?? this.rowCrossAxisAlignment,
+      rowMainAxisAlignment: rowMainAxisAlignment ?? this.rowMainAxisAlignment,
       rowMainAxisSize: rowMainAxisSize ?? this.rowMainAxisSize,
       locale: locale ?? this.locale,
       foreground: foreground ?? this.foreground,

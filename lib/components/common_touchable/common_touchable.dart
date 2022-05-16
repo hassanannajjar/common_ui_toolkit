@@ -1,18 +1,24 @@
+// ignore_for_file: library_private_types_in_public_api, always_put_control_body_on_new_line
+
 import 'dart:async';
 
-import 'package:common_ui_toolkit/components/common_touchable/TouchableEffect.dart';
 import 'package:flutter/cupertino.dart';
 
-class CommonTouchable extends StatefulWidget {
-  final Widget? child;
-  final Function? onTap;
-  final TouchableEffect? touchEffect;
+import 'touchable_effect.dart';
 
+class CommonTouchable extends StatefulWidget {
   const CommonTouchable({
     @required this.child,
     @required this.onTap,
     this.touchEffect,
-  });
+    Key? key,
+  }) : super(
+          key: key,
+        );
+
+  final Widget? child;
+  final Function? onTap;
+  final TouchableEffect? touchEffect;
 
   @override
   _CommonTouchableState createState() => _CommonTouchableState();
@@ -23,7 +29,7 @@ class _CommonTouchableState extends State<CommonTouchable>
   double squareScaleA = 1;
   bool isDown = false;
   AnimationController? _animationController;
-  checkIsOpacity() => widget.touchEffect!.type == TouchTypes.opacity;
+  bool checkIsOpacity() => widget.touchEffect!.type == TouchTypes.opacity;
 
   @override
   void initState() {
@@ -34,7 +40,7 @@ class _CommonTouchableState extends State<CommonTouchable>
   @override
   void didUpdateWidget(covariant CommonTouchable oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (this.widget != oldWidget) {
+    if (widget != oldWidget) {
       checkAnimationType();
     }
   }
@@ -42,10 +48,10 @@ class _CommonTouchableState extends State<CommonTouchable>
   void checkAnimationType() {
     switch (widget.touchEffect!.type) {
       case TouchTypes.scaleAndFade:
-        createAnimationcontroller();
+        createAnimationController();
         break;
       case TouchTypes.scaleAndUp:
-        createAnimationcontroller();
+        createAnimationController();
         break;
       default:
         _animationController = null;
@@ -53,7 +59,7 @@ class _CommonTouchableState extends State<CommonTouchable>
     }
   }
 
-  createAnimationcontroller() {
+  void createAnimationController() {
     _animationController = AnimationController(
       vsync: this,
       lowerBound: widget.touchEffect!.lowerBound,
@@ -80,41 +86,44 @@ class _CommonTouchableState extends State<CommonTouchable>
             }
           : null,
       onTapDown: widget.onTap != null
-          ? (dp) {
+          ? (TapDownDetails dp) {
               if (_animationController != null) {
                 _animationController!.reverse();
               }
-              if (checkIsOpacity())
+              if (checkIsOpacity()) {
                 setState(() {
                   isDown = true;
                 });
+              }
             }
           : null,
       onTapUp: widget.onTap != null
-          ? (dp) {
+          ? (TapUpDetails dp) {
               Timer(Duration(milliseconds: widget.touchEffect!.duration), () {
                 if (_animationController != null) _animationController!.fling();
               });
-              if (checkIsOpacity())
+              if (checkIsOpacity()) {
                 setState(() {
                   isDown = false;
                 });
+              }
             }
           : null,
       onTapCancel: widget.onTap != null
           ? () {
               if (_animationController != null) _animationController!.fling();
-              if (checkIsOpacity())
+              if (checkIsOpacity()) {
                 setState(() {
                   isDown = false;
                 });
+              }
             }
           : null,
       child: checkIsOpacity()
           ? AnimatedOpacity(
-              child: widget.child,
               duration: Duration(milliseconds: widget.touchEffect!.duration),
               opacity: isDown ? widget.touchEffect!.opacity : 1,
+              child: widget.child,
             )
           : Transform.scale(
               scale: squareScaleA,

@@ -5,24 +5,33 @@ enum TouchTypes {
   none,
 
   ///
-  /// with atrubuite scaleValue, duration, lowerBound and upperBound.
+  /// with attribute scaleValue, duration, lowerBound and upperBound.
   ///
   scaleAndFade,
 
   ///
-  /// with atrubuite scaleValue, duration, lowerBound and upperBound.
+  /// with attribute scaleValue, duration, lowerBound and upperBound.
   ///
   scaleAndUp,
 
   ///
-  /// with atrubuite opacity value and duration.
+  /// with attribute opacity value and duration.
   ///
   opacity,
 }
 
 class TouchableEffect {
+  TouchableEffect({
+    this.type = TouchTypes.none,
+    this.opacity = 0.5,
+    this.scaleValue = 0,
+    this.duration = 20,
+    this.lowerBound = 0.5,
+    this.upperBound = 1,
+  });
+
   ///
-  /// the typesof
+  /// the typesOf
   ///
   TouchTypes type;
 
@@ -50,13 +59,4 @@ class TouchableEffect {
   /// duration time for animation.
   ///
   int duration;
-
-  TouchableEffect({
-    this.type = TouchTypes.none,
-    this.opacity = 0.5,
-    this.scaleValue = 0,
-    this.duration = 20,
-    this.lowerBound = 0.5,
-    this.upperBound = 1,
-  });
 }
