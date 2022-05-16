@@ -1,17 +1,9 @@
 import 'package:intl/intl.dart';
 
-import '../../index.dart';
 import './tap.dart';
+import '../../index.dart';
 
 class DateWidget extends StatelessWidget {
-  final double? width;
-  final DateTime date;
-  final TextStyle? monthTextStyle, dayTextStyle, dateTextStyle;
-  final Color selectionColor;
-  final DateSelectionCallback? onDateSelected;
-  final String? locale;
-  final CommonContainerModel? selectedContainerStyle;
-
   const DateWidget({
     required this.date,
     required this.monthTextStyle,
@@ -22,11 +14,22 @@ class DateWidget extends StatelessWidget {
     this.onDateSelected,
     this.locale,
     this.selectedContainerStyle,
-  });
+    Key? key,
+  }) : super(key: key);
+
+  final double? width;
+  final DateTime date;
+  final TextStyle? monthTextStyle;
+  final TextStyle? dayTextStyle;
+  final TextStyle? dateTextStyle;
+  final Color selectionColor;
+  final DateSelectionCallback? onDateSelected;
+  final String? locale;
+  final CommonContainerModel? selectedContainerStyle;
 
   @override
   Widget build(BuildContext context) {
-    CommonContainerModel defaultContainerStyle = CommonContainerModel(
+    final CommonContainerModel defaultContainerStyle = CommonContainerModel(
       borderRadius: 0.25,
       padding: 0.1,
     );
@@ -34,10 +37,11 @@ class DateWidget extends StatelessWidget {
     return CommonContainer(
       onPress: () {
         // Check if onDateSelected is not null
-        if (onDateSelected != null) {
-          // Call the onDateSelected Function
-          onDateSelected!(this.date);
-        }
+        // if (onDateSelected != null) {
+        //   // Call the onDateSelected Function
+        //   onDateSelected!(date);
+        // }
+        onDateSelected?.call(date);
       },
       style: CommonContainerModel(
         width: width,
@@ -50,10 +54,9 @@ class DateWidget extends StatelessWidget {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text(
-            new DateFormat("E", locale).format(date).toUpperCase(), // WeekDay
+            DateFormat('E', locale).format(date).toUpperCase(), // WeekDay
             style: dayTextStyle,
           ),
           CommonContainer(
