@@ -1,4 +1,4 @@
-import '../index.dart';
+import '../common_ui_toolkit.dart';
 
 class CommonContainerStyle {
   /// container style with bottom shadow custom CommonContainerModel.

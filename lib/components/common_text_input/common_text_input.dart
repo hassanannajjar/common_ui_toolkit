@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../index.dart';
+import '../../common_ui_toolkit.dart';
 
 final Condign defaultTextInputModel = Condign();
 

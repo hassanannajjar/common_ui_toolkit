@@ -82,7 +82,8 @@ dependencies:
 Import Common Ui Toolkit in files that it will be used:
 
 ```dart
-import 'package:common_ui_toolkit/index.dart';
+import 'package:common_ui_toolkit/common_ui_toolkit.dart';
+
 ```
 
 ## Components

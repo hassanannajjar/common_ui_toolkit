@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 
-import '../index.dart';
+import '../common_ui_toolkit.dart';
 
 class Condign {
   Condign({

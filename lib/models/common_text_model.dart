@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import '../index.dart';
+import '../common_ui_toolkit.dart';
 
 class CommonTextModel {
   CommonTextModel({
