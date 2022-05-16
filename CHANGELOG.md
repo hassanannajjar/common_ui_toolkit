@@ -1,5 +1,9 @@
 ## 0.3.2
 
+- Fixed Log error
+
+## 0.3.2
+
 <!-- - Added parameters to be inline if you want to edit some attribute inline without update the style.
 ex: 
 before =>

@@ -1,6 +1,7 @@
 import 'package:common_ui_toolkit/common_ui_toolkit.dart';
 
 import '../utils/constants.dart';
+import '../utils/log.dart';
 
 class Texts extends StatelessWidget {
   const Texts({Key? key}) : super(key: key);

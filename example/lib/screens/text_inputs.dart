@@ -1,6 +1,7 @@
 import 'package:common_ui_toolkit/common_ui_toolkit.dart';
 
 import '../utils/constants.dart';
+import '../utils/log.dart';
 
 class TextInputs extends StatelessWidget {
   const TextInputs({Key? key}) : super(key: key);
