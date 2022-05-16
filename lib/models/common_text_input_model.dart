@@ -2,8 +2,8 @@ import 'package:flutter/services.dart';
 
 import '../common_ui_toolkit.dart';
 
-class Condign {
-  Condign({
+class CommonTextInputModel {
+  CommonTextInputModel({
     this.key,
     this.hint,
     this.textInputType,
@@ -462,7 +462,7 @@ class Condign {
   ///
   MaxLengthEnforcement? maxLengthEnforcement;
 
-  Condign copyWith({
+  CommonTextInputModel copyWith({
     double? borderWidth,
     Key? key,
     double? fontSize,
@@ -563,7 +563,7 @@ class Condign {
     FormFieldValidator<String>? validator,
     MaxLengthEnforcement? maxLengthEnforcement,
   }) {
-    return Condign(
+    return CommonTextInputModel(
       borderWidth: borderWidth ?? this.borderWidth,
       key: key ?? this.key,
       fontSize: fontSize ?? this.fontSize,

@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../common_ui_toolkit.dart';
 
-final Condign defaultTextInputModel = Condign();
+final CommonTextInputModel defaultTextInputModel = CommonTextInputModel();
 
 class CommonTextInput extends StatelessWidget {
   const CommonTextInput({
@@ -16,7 +16,7 @@ class CommonTextInput extends StatelessWidget {
   }) : super(
           key: key,
         );
-  final Condign? style;
+  final CommonTextInputModel? style;
   final CommonContainerModel? containerStyle;
   final Function? onChanged;
   final Function? onTap;

@@ -34,7 +34,7 @@ class TextInputs extends StatelessWidget {
                     'CommonTextInput with built in flutter prefix icons and assets icon',
               ),
               CommonTextInput(
-                style: Condign(
+                style: CommonTextInputModel(
                   text: 'Initial text input value',
                   focusBorderColor: COMMON_BLACK_COLOR,
                   prefixIcon: CommonIcon(
@@ -69,7 +69,7 @@ class TextInputs extends StatelessWidget {
                 containerStyle: CommonContainerModel(
                   marginTop: 0.01,
                 ),
-                style: Condign(
+                style: CommonTextInputModel(
                   counterText: 'Styled counter Text',
                   counterStyle: const TextStyle(
                     color: Colors.red,
@@ -104,7 +104,7 @@ class TextInputs extends StatelessWidget {
                 text: 'Disabled text input with zero radius',
               ),
               CommonTextInput(
-                style: Condign(
+                style: CommonTextInputModel(
                   radius: 0,
                   enabled: false,
                   borderWidth: 2,
@@ -118,7 +118,7 @@ class TextInputs extends StatelessWidget {
                     marginTop: 0.03,
                     width: 0.5,
                   ),
-                  style: Condign(
+                  style: CommonTextInputModel(
                     underlined: true,
                     cursorWidth: 10,
                     cursorColor: COMMON_RED_COLOR,
@@ -144,7 +144,7 @@ class TextInputs extends StatelessWidget {
                 ),
               ),
               CommonTextInput(
-                style: Condign(
+                style: CommonTextInputModel(
                   cursorColor: COMMON_RED_COLOR,
                   focusBorderColor: COMMON_RED_COLOR,
                   hint: 'Type...',
@@ -159,7 +159,7 @@ class TextInputs extends StatelessWidget {
                 ),
               ),
               CommonTextInput(
-                style: Condign(
+                style: CommonTextInputModel(
                   hint: '******',
                   obscureText: true,
                 ),
