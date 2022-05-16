@@ -1,8 +1,110 @@
 import 'package:flutter/services.dart';
 
-import 'package:common_ui_toolkit/index.dart';
+import '../index.dart';
 
-class CommonTextInputModel {
+class Condign {
+  Condign({
+    this.key,
+    this.hint,
+    this.textInputType,
+    this.isRequired = false,
+    this.withBorderSide = true,
+    this.underlined = false,
+    this.isCollapsed = false,
+    this.readOnly = false,
+    this.withInputVerification = false,
+    this.obscureText = false,
+    this.showCursor = true,
+    this.enabled = true,
+    this.autoCorrect = true,
+    this.autofocus = false,
+    this.minLength = 6,
+    this.maxLength,
+    this.fillColor = COMMON_TRANSPARENT_COLOR,
+    this.cursorColor = COMMON_PR_COLOR,
+    this.focusNode,
+    this.maxLines,
+    this.prefixText,
+    this.suffixText,
+    this.counterText = '',
+    this.semanticCounterText,
+    this.prefix,
+    this.suffix,
+    this.minLines,
+    this.cursorRadius,
+    this.cursorHeight,
+    this.cursorWidth = 2.0,
+    this.prefixMinWidth = 0.0,
+    this.prefixMinHeight = 0.0,
+    this.prefixMaxWidth = 0.0,
+    this.prefixMaxHeight = 0.0,
+    this.suffixMinWidth = 0.0,
+    this.suffixMinHeight = 0.0,
+    this.suffixMaxWidth = 0.0,
+    this.suffixMaxHeight = 0.0,
+    this.borderWidth = 1.0,
+    this.radius = 24.0,
+    this.hintColor = COMMON_GREY_COLOR,
+    this.disabledColor = COMMON_GREY_COLOR,
+    this.focusBorderColor = COMMON_GREY_COLOR,
+    this.enabledBorderColor = COMMON_GREY_COLOR,
+    this.disabledBorderColor = COMMON_GREY_COLOR,
+    this.errorBorderColor = COMMON_GREY_COLOR,
+    this.errorColor = COMMON_RED_COLOR,
+    this.textColor = COMMON_BLACK_COLOR,
+    this.textAlign = TextAlign.start,
+    this.fontFamily,
+    this.fontSize,
+    this.fontWeight,
+    this.contentPadding = 15.0,
+    this.contentPaddingTop,
+    this.contentPaddingBottom,
+    this.contentPaddingRight,
+    this.contentPaddingLeft,
+    this.contentPaddingVertical,
+    this.contentPaddingHorizontal,
+    this.textInputAction,
+    this.textStyle,
+    this.hintStyle,
+    this.prefixStyle,
+    this.suffixStyle,
+    this.counterStyle,
+    this.textInputPattern,
+    this.inputDecoration,
+    this.text,
+    this.prefixWidget,
+    this.suffixWidget,
+    this.counterWidget,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.textInputFormatters,
+    this.autofillHints,
+    this.autoValidateMode,
+    this.buildCounter,
+    this.enableInteractiveSelection = true,
+    this.enableSuggestions = true,
+    this.expands = false,
+    this.initialValue,
+    this.keyboardAppearance,
+    this.maxLengthEnforcement,
+    this.obscuringCharacter = '•',
+    this.onEditingComplete,
+    this.onFieldSubmitted,
+    this.onSaved,
+    this.onTap,
+    this.scrollController,
+    this.scrollPadding = const EdgeInsets.all(20.0),
+    this.selectionControls,
+    this.smartDashesType,
+    this.smartQuotesType,
+    this.strutStyle,
+    this.textAlignVertical,
+    this.textCapitalization = TextCapitalization.none,
+    this.textDirection,
+    this.toolbarOptions,
+    this.validator,
+  });
+
   ///
   /// border width
   ///
@@ -85,7 +187,7 @@ class CommonTextInputModel {
   ///
   /// focus node
   ///
-  FocusNode? foucsNode;
+  FocusNode? focusNode;
 
   ///
   /// font weight
@@ -166,9 +268,9 @@ class CommonTextInputModel {
   ///
   /// show cursor
   ///
-  bool? autocorrect;
+  bool? autoCorrect;
 
-  // This is a hack to make the text input verified when user finishs typing the right crospondign content based on input type
+  // This is a hack to make the text input verified when user finish typing the right cross content based on input type
   bool? withInputVerification;
 
   // types: (EMAIL_INPUT_TYPE, TEXT_INPUT_TYPE , NUMBER_INPUT_TYPE, PASSWORD_INPUT_TYPE)
@@ -243,7 +345,7 @@ class CommonTextInputModel {
   ///
   /// auto validate mode
   ///
-  AutovalidateMode? autovalidateMode;
+  AutovalidateMode? autoValidateMode;
 
   ///
   /// build counter
@@ -326,7 +428,7 @@ class CommonTextInputModel {
   SmartQuotesType? smartQuotesType;
 
   ///
-  /// struct style
+  /// strut style
   ///
   StrutStyle? strutStyle;
 
@@ -360,109 +462,7 @@ class CommonTextInputModel {
   ///
   MaxLengthEnforcement? maxLengthEnforcement;
 
-  CommonTextInputModel({
-    this.key,
-    this.hint,
-    this.textInputType,
-    this.isRequired = false,
-    this.withBorderSide = true,
-    this.underlined = false,
-    this.isCollapsed = false,
-    this.readOnly = false,
-    this.withInputVerification = false,
-    this.obscureText = false,
-    this.showCursor = true,
-    this.enabled = true,
-    this.autocorrect = true,
-    this.autofocus = false,
-    this.minLength = 6,
-    this.maxLength,
-    this.fillColor = COMMON_TRANSPARENT_COLOR,
-    this.cursorColor = COMMON_PR_COLOR,
-    this.foucsNode,
-    this.maxLines,
-    this.prefixText,
-    this.suffixText,
-    this.counterText = '',
-    this.semanticCounterText,
-    this.prefix,
-    this.suffix,
-    this.minLines,
-    this.cursorRadius,
-    this.cursorHeight,
-    this.cursorWidth = 2.0,
-    this.prefixMinWidth = 0.0,
-    this.prefixMinHeight = 0.0,
-    this.prefixMaxWidth = 0.0,
-    this.prefixMaxHeight = 0.0,
-    this.suffixMinWidth = 0.0,
-    this.suffixMinHeight = 0.0,
-    this.suffixMaxWidth = 0.0,
-    this.suffixMaxHeight = 0.0,
-    this.borderWidth = 1.0,
-    this.radius = 24.0,
-    this.hintColor = COMMON_GREY_COLOR,
-    this.disabledColor = COMMON_GREY_COLOR,
-    this.focusBorderColor = COMMON_GREY_COLOR,
-    this.enabledBorderColor = COMMON_GREY_COLOR,
-    this.disabledBorderColor = COMMON_GREY_COLOR,
-    this.errorBorderColor = COMMON_GREY_COLOR,
-    this.errorColor = COMMON_RED_COLOR,
-    this.textColor = COMMON_BLACK_COLOR,
-    this.textAlign = TextAlign.start,
-    this.fontFamily,
-    this.fontSize,
-    this.fontWeight,
-    this.contentPadding = 15.0,
-    this.contentPaddingTop,
-    this.contentPaddingBottom,
-    this.contentPaddingRight,
-    this.contentPaddingLeft,
-    this.contentPaddingVertical,
-    this.contentPaddingHorizontal,
-    this.textInputAction,
-    this.textStyle,
-    this.hintStyle,
-    this.prefixStyle,
-    this.suffixStyle,
-    this.counterStyle,
-    this.textInputPattern,
-    this.inputDecoration,
-    this.text,
-    this.prefixWidget,
-    this.suffixWidget,
-    this.counterWidget,
-    this.prefixIcon,
-    this.suffixIcon,
-    this.textInputFormatters,
-    this.autofillHints,
-    this.autovalidateMode,
-    this.buildCounter,
-    this.enableInteractiveSelection = true,
-    this.enableSuggestions = true,
-    this.expands = false,
-    this.initialValue,
-    this.keyboardAppearance,
-    this.maxLengthEnforcement,
-    this.obscuringCharacter = '•',
-    this.onEditingComplete,
-    this.onFieldSubmitted,
-    this.onSaved,
-    this.onTap,
-    this.scrollController,
-    this.scrollPadding = const EdgeInsets.all(20.0),
-    this.selectionControls,
-    this.smartDashesType,
-    this.smartQuotesType,
-    this.strutStyle,
-    this.textAlignVertical,
-    this.textCapitalization = TextCapitalization.none,
-    this.textDirection,
-    this.toolbarOptions,
-    this.validator,
-  });
-
-  CommonTextInputModel copyWith({
+  Condign copyWith({
     double? borderWidth,
     Key? key,
     double? fontSize,
@@ -505,7 +505,7 @@ class CommonTextInputModel {
     Widget? counterWidget,
     CommonIcon? prefixIcon,
     CommonIcon? suffixIcon,
-    FocusNode? foucsNode,
+    FocusNode? focusNode,
     int? fontWeight,
     String? hint,
     String? fontFamily,
@@ -522,7 +522,7 @@ class CommonTextInputModel {
     bool? obscureText,
     bool? enabled,
     bool? showCursor,
-    bool? autocorrect,
+    bool? autoCorrect,
     bool? withInputVerification,
     TextInputType? textInputType,
     TextAlign? textAlign,
@@ -538,7 +538,7 @@ class CommonTextInputModel {
     Radius? cursorRadius,
     Iterable<String>? autofillHints,
     bool? autofocus,
-    AutovalidateMode? autovalidateMode,
+    AutovalidateMode? autoValidateMode,
     InputCounterWidgetBuilder? buildCounter,
     bool? enableInteractiveSelection,
     bool? enableSuggestions,
@@ -563,7 +563,7 @@ class CommonTextInputModel {
     FormFieldValidator<String>? validator,
     MaxLengthEnforcement? maxLengthEnforcement,
   }) {
-    return CommonTextInputModel(
+    return Condign(
       borderWidth: borderWidth ?? this.borderWidth,
       key: key ?? this.key,
       fontSize: fontSize ?? this.fontSize,
@@ -608,7 +608,7 @@ class CommonTextInputModel {
       counterWidget: counterWidget ?? this.counterWidget,
       prefixIcon: prefixIcon ?? this.prefixIcon,
       suffixIcon: suffixIcon ?? this.suffixIcon,
-      foucsNode: foucsNode ?? this.foucsNode,
+      focusNode: focusNode ?? this.focusNode,
       fontWeight: fontWeight ?? this.fontWeight,
       hint: hint ?? this.hint,
       fontFamily: fontFamily ?? this.fontFamily,
@@ -625,7 +625,7 @@ class CommonTextInputModel {
       obscureText: obscureText ?? this.obscureText,
       enabled: enabled ?? this.enabled,
       showCursor: showCursor ?? this.showCursor,
-      autocorrect: autocorrect ?? this.autocorrect,
+      autoCorrect: autoCorrect ?? this.autoCorrect,
       withInputVerification:
           withInputVerification ?? this.withInputVerification,
       textInputType: textInputType ?? this.textInputType,
@@ -642,7 +642,7 @@ class CommonTextInputModel {
       cursorRadius: cursorRadius ?? this.cursorRadius,
       autofillHints: autofillHints ?? this.autofillHints,
       autofocus: autofocus ?? this.autofocus,
-      autovalidateMode: autovalidateMode ?? this.autovalidateMode,
+      autoValidateMode: autoValidateMode ?? this.autoValidateMode,
       buildCounter: buildCounter ?? this.buildCounter,
       enableInteractiveSelection:
           enableInteractiveSelection ?? this.enableInteractiveSelection,

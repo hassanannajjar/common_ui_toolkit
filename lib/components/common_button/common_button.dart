@@ -208,71 +208,71 @@ class CommonButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CommonButtonStyle? defaultButtonStyle = CommonButtonStyle();
+    final CommonButtonStyle defaultButtonStyle = CommonButtonStyle();
 
     return CommonContainer(
       onPress: () {},
       style:
-          containerStyle ?? (buttonStyle ?? defaultButtonStyle)!.containerStyle,
+          containerStyle ?? (buttonStyle ?? defaultButtonStyle).containerStyle,
       child: ElevatedButton(
         onFocusChange: onFocusChange ??
-            (buttonStyle ?? defaultButtonStyle)!.style!.onFocusChange,
-        onHover: onHover ?? (buttonStyle ?? defaultButtonStyle)!.style!.onHover,
+            (buttonStyle ?? defaultButtonStyle).style!.onFocusChange,
+        onHover: onHover ?? (buttonStyle ?? defaultButtonStyle).style!.onHover,
         autofocus:
-            autofocus ?? (buttonStyle ?? defaultButtonStyle)!.style!.autofocus,
+            autofocus ?? (buttonStyle ?? defaultButtonStyle).style!.autofocus,
         clipBehavior: clipBehavior ??
-            (buttonStyle ?? defaultButtonStyle)!.style!.clipBehavior,
+            (buttonStyle ?? defaultButtonStyle).style!.clipBehavior,
         focusNode:
-            focusNode ?? (buttonStyle ?? defaultButtonStyle)!.style!.focusNode,
-        key: key ?? (buttonStyle ?? defaultButtonStyle)!.style!.key,
-        onLongPress: ((buttonStyle ?? defaultButtonStyle)!.style!.isEnable &&
+            focusNode ?? (buttonStyle ?? defaultButtonStyle).style!.focusNode,
+        key: key ?? (buttonStyle ?? defaultButtonStyle).style!.key,
+        onLongPress: ((buttonStyle ?? defaultButtonStyle).style!.isEnable &&
                 onLongPress != null)
             ? () {
                 onLongPress!();
               }
             : null,
         style: ButtonStyle(
-          alignment: alignment ??
-              (buttonStyle ?? defaultButtonStyle)!.style!.alignment,
+          alignment:
+              alignment ?? (buttonStyle ?? defaultButtonStyle).style!.alignment,
           animationDuration: animationDuration ??
-              (buttonStyle ?? defaultButtonStyle)!.style!.animationDuration,
+              (buttonStyle ?? defaultButtonStyle).style!.animationDuration,
           enableFeedback: enableFeedback ??
-              (buttonStyle ?? defaultButtonStyle)!.style!.enableFeedback,
-          fixedSize: fixedSize ??
-              (buttonStyle ?? defaultButtonStyle)!.style!.fixedSize,
+              (buttonStyle ?? defaultButtonStyle).style!.enableFeedback,
+          fixedSize:
+              fixedSize ?? (buttonStyle ?? defaultButtonStyle).style!.fixedSize,
           foregroundColor: foregroundColor ??
-              (buttonStyle ?? defaultButtonStyle)!.style!.foregroundColor,
+              (buttonStyle ?? defaultButtonStyle).style!.foregroundColor,
           maximumSize: maximumSize ??
-              (buttonStyle ?? defaultButtonStyle)!.style!.maximumSize,
+              (buttonStyle ?? defaultButtonStyle).style!.maximumSize,
           minimumSize: minimumSize ??
-              (buttonStyle ?? defaultButtonStyle)!.style!.minimumSize,
+              (buttonStyle ?? defaultButtonStyle).style!.minimumSize,
           mouseCursor: mouseCursor ??
-              (buttonStyle ?? defaultButtonStyle)!.style!.mouseCursor,
+              (buttonStyle ?? defaultButtonStyle).style!.mouseCursor,
           padding:
-              padding ?? (buttonStyle ?? defaultButtonStyle)!.style!.padding,
+              padding ?? (buttonStyle ?? defaultButtonStyle).style!.padding,
           shadowColor: shadowColor ??
-              (buttonStyle ?? defaultButtonStyle)!.style!.shadowColor,
-          side: side ?? (buttonStyle ?? defaultButtonStyle)!.style!.side,
+              (buttonStyle ?? defaultButtonStyle).style!.shadowColor,
+          side: side ?? (buttonStyle ?? defaultButtonStyle).style!.side,
           splashFactory: splashFactory ??
-              (buttonStyle ?? defaultButtonStyle)!.style!.splashFactory,
+              (buttonStyle ?? defaultButtonStyle).style!.splashFactory,
           tapTargetSize: tapTargetSize ??
-              (buttonStyle ?? defaultButtonStyle)!.style!.tapTargetSize,
+              (buttonStyle ?? defaultButtonStyle).style!.tapTargetSize,
           visualDensity: visualDensity ??
-              (buttonStyle ?? defaultButtonStyle)!.style!.visualDensity,
+              (buttonStyle ?? defaultButtonStyle).style!.visualDensity,
           elevation: customElevation ??
-              (buttonStyle ?? defaultButtonStyle)!.style!.customElevation ??
+              (buttonStyle ?? defaultButtonStyle).style!.customElevation ??
               MaterialStateProperty.all(
                 elevation ??
-                    (buttonStyle ?? defaultButtonStyle)!.style!.elevation,
+                    (buttonStyle ?? defaultButtonStyle).style!.elevation,
               ),
           overlayColor: customOverlayColor ??
-              (buttonStyle ?? defaultButtonStyle)!.style!.customOverlayColor ??
+              (buttonStyle ?? defaultButtonStyle).style!.customOverlayColor ??
               MaterialStateProperty.resolveWith(
                 (Set<MaterialState> states) {
                   return states.contains(MaterialState.pressed)
                       ? getColorType(
                           overlayColor ??
-                              (buttonStyle ?? defaultButtonStyle)!
+                              (buttonStyle ?? defaultButtonStyle)
                                   .style!
                                   .overlayColor,
                         )
@@ -280,30 +280,30 @@ class CommonButton extends StatelessWidget {
                 },
               ),
           backgroundColor: customBackgroundColor ??
-              (buttonStyle ?? defaultButtonStyle)!
+              (buttonStyle ?? defaultButtonStyle)
                   .style!
                   .customBackgroundColor ??
               MaterialStateProperty.all(
-                isEnable ?? (buttonStyle ?? defaultButtonStyle)!.style!.isEnable
+                isEnable ?? (buttonStyle ?? defaultButtonStyle).style!.isEnable
                     ? getColorType(
                         backgroundColor ??
-                            (buttonStyle ?? defaultButtonStyle)!
+                            (buttonStyle ?? defaultButtonStyle)
                                 .style!
                                 .backgroundColor!,
                       )
                     : getColorType(
                         disabledColor ??
-                            (buttonStyle ?? defaultButtonStyle)!
+                            (buttonStyle ?? defaultButtonStyle)
                                 .style!
                                 .disabledColor!,
                       ),
               ),
           shape: shape ??
-              (buttonStyle ?? defaultButtonStyle)!.style!.shape ??
+              (buttonStyle ?? defaultButtonStyle).style!.shape ??
               MaterialStateProperty.all(
                 RoundedRectangleBorder(
                   borderRadius: getBorderRadius() ??
-                      (buttonStyle ?? defaultButtonStyle)!
+                      (buttonStyle ?? defaultButtonStyle)
                           .style!
                           .getBorderRadius(),
                 ),
@@ -311,7 +311,7 @@ class CommonButton extends StatelessWidget {
         ),
         // The on press function is empty here because it's required in the ElevatedButton, we call the on press function in the container to enable touch effects
         onPressed:
-            (isEnable ?? (buttonStyle ?? defaultButtonStyle)!.style!.isEnable)
+            (isEnable ?? (buttonStyle ?? defaultButtonStyle).style!.isEnable)
                 ? () {
                     if (onPress != null) {
                       onPress!;
@@ -321,10 +321,9 @@ class CommonButton extends StatelessWidget {
         child: child ??
             CommonText(
               containerStyle: textContainerStyle ??
-                  (buttonStyle ?? defaultButtonStyle)!.textContainerStyle,
+                  (buttonStyle ?? defaultButtonStyle).textContainerStyle,
               text: text,
-              style:
-                  textStyle ?? (buttonStyle ?? defaultButtonStyle)!.textStyle,
+              style: textStyle ?? (buttonStyle ?? defaultButtonStyle).textStyle,
             ),
       ),
     );

@@ -1,6 +1,21 @@
 import '../../index.dart';
 
 class CommonText extends StatelessWidget {
+  const CommonText(
+      {this.text,
+      this.onPress,
+      this.leftChild,
+      this.rightChild,
+      this.topChild,
+      this.bottomChild,
+      this.inlineSpans,
+      this.style,
+      this.containerStyle,
+      Key? key})
+      : super(
+          key: key,
+        );
+
   /// to use it import the CommonTextModel or use defaults style from CommonTextStyles.
   /// example :
   /// using CommonTextStyles model
@@ -34,40 +49,32 @@ class CommonText extends StatelessWidget {
   final List<InlineSpan>? inlineSpans;
 
   /// left, right, top and bottom children widgets around the common text
-  final Widget? leftChild, rightChild, topChild, bottomChild;
-
-  const CommonText({
-    this.text,
-    this.onPress,
-    this.leftChild,
-    this.rightChild,
-    this.topChild,
-    this.bottomChild,
-    this.inlineSpans,
-    this.style,
-    this.containerStyle,
-  });
+  final Widget? leftChild;
+  final Widget? rightChild;
+  final Widget? topChild;
+  final Widget? bottomChild;
 
   @override
   Widget build(BuildContext context) {
-    CommonTextModel? defaultStyle = CommonTextModel();
+    final CommonTextModel defaultStyle = CommonTextModel();
 
-    CommonContainerModel? defaultContainerStyle = CommonContainerModel();
+    final CommonContainerModel defaultContainerStyle = CommonContainerModel();
 
     return CommonContainer(
       onPress: onPress,
       style: containerStyle ?? defaultContainerStyle,
       child: Column(
-        crossAxisAlignment: (style ?? defaultStyle).columnCrossAxisAlignemnt,
+        crossAxisAlignment: (style ?? defaultStyle).columnCrossAxisAlignment,
         mainAxisSize: (style ?? defaultStyle).columnMainAxisSize,
-        mainAxisAlignment: (style ?? defaultStyle).columnMainAxisAlignemnt,
-        children: [
+        mainAxisAlignment: (style ?? defaultStyle).columnMainAxisAlignment,
+        children: <Widget>[
           if (topChild != null) topChild!,
           Row(
             mainAxisSize: (style ?? defaultStyle).rowMainAxisSize,
-            crossAxisAlignment: (style ?? defaultStyle).rowCrossAxisAlignemnt,
-            mainAxisAlignment: (style ?? defaultStyle).rowMainAxisAlignemnt,
-            children: [
+            crossAxisAlignment:
+                (style ?? defaultStyle).columnCrossAxisAlignment,
+            mainAxisAlignment: (style ?? defaultStyle).rowMainAxisAlignment,
+            children: <Widget>[
               if ((style ?? defaultStyle).prefixIcon != null)
                 getIcon((style ?? defaultStyle).prefixIcon!),
               if (leftChild != null) leftChild!,

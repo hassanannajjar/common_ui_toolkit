@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, always_put_control_body_on_new_line
+
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
@@ -5,15 +7,18 @@ import 'package:flutter/cupertino.dart';
 import 'touchable_effect.dart';
 
 class CommonTouchable extends StatefulWidget {
-  final Widget? child;
-  final Function? onTap;
-  final TouchableEffect? touchEffect;
-
   const CommonTouchable({
     @required this.child,
     @required this.onTap,
     this.touchEffect,
-  });
+    Key? key,
+  }) : super(
+          key: key,
+        );
+
+  final Widget? child;
+  final Function? onTap;
+  final TouchableEffect? touchEffect;
 
   @override
   _CommonTouchableState createState() => _CommonTouchableState();
@@ -43,10 +48,10 @@ class _CommonTouchableState extends State<CommonTouchable>
   void checkAnimationType() {
     switch (widget.touchEffect!.type) {
       case TouchTypes.scaleAndFade:
-        createAnimationcontroller();
+        createAnimationController();
         break;
       case TouchTypes.scaleAndUp:
-        createAnimationcontroller();
+        createAnimationController();
         break;
       default:
         _animationController = null;
@@ -54,7 +59,7 @@ class _CommonTouchableState extends State<CommonTouchable>
     }
   }
 
-  createAnimationcontroller() {
+  void createAnimationController() {
     _animationController = AnimationController(
       vsync: this,
       lowerBound: widget.touchEffect!.lowerBound,

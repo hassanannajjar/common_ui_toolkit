@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_positional_boolean_parameters
+
 import 'package:flutter_svg/svg.dart';
 
 import '../index.dart';
@@ -5,75 +7,77 @@ import '../index.dart';
 List<int> _leapYearMonths = const <int>[1, 3, 5, 7, 8, 10, 12];
 
 /// get responsive device width
-getResponsiveDeviceWidth(double? value, bool? isResponsive) => value == null
-    ? null
-    : isResponsive!
-        ? DEVICE_WIDTH * value
-        : value;
+double? getResponsiveDeviceWidth(double? value, bool? isResponsive) =>
+    value == null
+        ? null
+        : isResponsive!
+            ? DEVICE_WIDTH * value
+            : value;
 
 /// get responsive device height
-getResponsiveDeviceHeight(double? value, bool? isResponsive) => value == null
-    ? null
-    : isResponsive!
-        ? DEVICE_HEIGHT * value
-        : value;
+double? getResponsiveDeviceHeight(double? value, bool? isResponsive) =>
+    value == null
+        ? null
+        : isResponsive!
+            ? DEVICE_HEIGHT * value
+            : value;
 
 /// handel margin, vertical, horizontal, top, bottom, left and right.
 EdgeInsets getMarginEdgeInsets(CommonContainerModel? style) {
-  bool? rs = style!.isResponsive;
-  double? left = style.marginLeft;
-  double? right = style.marginRight;
-  double? top = style.marginTop;
-  double? bottom = style.marginBottom;
-  double? vertical = style.marginVertical;
-  double? horizontal = style.marginHorizontal;
-  double? margin = style.margin;
+  final bool? rs = style!.isResponsive;
+  final double? left = style.marginLeft;
+  final double? right = style.marginRight;
+  final double? top = style.marginTop;
+  final double? bottom = style.marginBottom;
+  final double? vertical = style.marginVertical;
+  final double? horizontal = style.marginHorizontal;
+  final double? margin = style.margin;
 
   return EdgeInsets.fromLTRB(
-    getResponsiveDeviceWidth(left, rs) ??
+    (getResponsiveDeviceWidth(left, rs) ??
         getResponsiveDeviceWidth(horizontal, rs) ??
-        getResponsiveDeviceWidth(margin!, rs),
-    getResponsiveDeviceHeight(top, rs) ??
+        getResponsiveDeviceWidth(margin!, rs))!,
+    (getResponsiveDeviceHeight(top, rs) ??
         getResponsiveDeviceHeight(vertical, rs) ??
-        getResponsiveDeviceHeight(margin!, rs),
-    getResponsiveDeviceWidth(right, rs) ??
+        getResponsiveDeviceHeight(margin!, rs))!,
+    (getResponsiveDeviceWidth(right, rs) ??
         getResponsiveDeviceWidth(horizontal, rs) ??
-        getResponsiveDeviceWidth(margin!, rs),
-    getResponsiveDeviceHeight(bottom, rs) ??
+        getResponsiveDeviceWidth(margin!, rs))!,
+    (getResponsiveDeviceHeight(bottom, rs) ??
         getResponsiveDeviceHeight(vertical, rs) ??
-        getResponsiveDeviceHeight(margin!, rs),
+        getResponsiveDeviceHeight(margin!, rs))!,
   );
 }
 
 /// handel padding, vertical, horizontal, left, right, top and bottom.
-EdgeInsets getPaddingEdgeInsets(style) {
-  bool? rs = style!.isResponsive;
-  double? left = style.paddingLeft;
-  double? right = style.paddingRight;
-  double? top = style.paddingTop;
-  double? bottom = style.paddingBottom;
-  double? vertical = style.paddingVertical;
-  double? horizontal = style.paddingHorizontal;
-  double? padding = style.padding;
+EdgeInsets getPaddingEdgeInsets(dynamic style) {
+  final bool? rs = style!.isResponsive;
+  final double? left = style.paddingLeft;
+  final double? right = style.paddingRight;
+  final double? top = style.paddingTop;
+  final double? bottom = style.paddingBottom;
+  final double? vertical = style.paddingVertical;
+  final double? horizontal = style.paddingHorizontal;
+  final double? padding = style.padding;
 
   return EdgeInsets.fromLTRB(
-    getResponsiveDeviceWidth(left, rs) ??
+    (getResponsiveDeviceWidth(left, rs) ??
         getResponsiveDeviceWidth(horizontal, rs) ??
-        getResponsiveDeviceWidth(padding!, rs),
-    getResponsiveDeviceHeight(top, rs) ??
+        getResponsiveDeviceWidth(padding!, rs))!,
+    (getResponsiveDeviceHeight(top, rs) ??
         getResponsiveDeviceHeight(vertical, rs) ??
-        getResponsiveDeviceHeight(padding!, rs),
-    getResponsiveDeviceWidth(right, rs) ??
+        getResponsiveDeviceHeight(padding!, rs))!,
+    (getResponsiveDeviceWidth(right, rs) ??
         getResponsiveDeviceWidth(horizontal, rs) ??
-        getResponsiveDeviceWidth(padding!, rs),
-    getResponsiveDeviceHeight(bottom, rs) ??
+        getResponsiveDeviceWidth(padding!, rs))!,
+    (getResponsiveDeviceHeight(bottom, rs) ??
         getResponsiveDeviceHeight(vertical, rs) ??
-        getResponsiveDeviceHeight(padding!, rs),
+        getResponsiveDeviceHeight(padding!, rs))!,
   );
 }
 
 /// handel icon margin, vertical, horizontal, top, bottom, left and right.
-getIconMarginEdgeInsets(style) => EdgeInsets.fromLTRB(
+EdgeInsets getIconMarginEdgeInsets(dynamic style) => EdgeInsets.fromLTRB(
       style.iconMarginLeft ?? style.iconMarginHorizontal ?? style.iconMargin!,
       style.iconMarginTop ?? style.iconMarginVertical ?? style.iconMargin!,
       style.iconMarginRight ?? style.iconMarginHorizontal ?? style.iconMargin!,
@@ -81,7 +85,7 @@ getIconMarginEdgeInsets(style) => EdgeInsets.fromLTRB(
     );
 
 /// handel icon margin, vertical, horizontal, top, bottom, left and right.
-getContentPaddingEdgeInsets(style) => EdgeInsets.fromLTRB(
+EdgeInsets getContentPaddingEdgeInsets(dynamic style) => EdgeInsets.fromLTRB(
       style.contentPaddingLeft ??
           style.contentPaddingHorizontal ??
           style.contentPadding!,
@@ -97,12 +101,10 @@ getContentPaddingEdgeInsets(style) => EdgeInsets.fromLTRB(
     );
 
 /// return the icon and style with custom function.
-getIcon(CommonIcon icon) {
+CommonContainer getIcon(CommonIcon icon) {
   return CommonContainer(
     onPress: () {
-      if (icon.onPress != null) {
-        icon.onPress!();
-      }
+      icon.onPress?.call();
     },
     style: icon.containerStyle ?? CommonContainerModel(),
     child: icon.path.runtimeType == IconData
@@ -131,12 +133,12 @@ getIcon(CommonIcon icon) {
   );
 }
 
-renderResponsiveWidth(width) {
+dynamic renderResponsiveWidth(double width) {
   return width;
 }
 
 /// render Color Type
-getColorType(color) {
+dynamic getColorType(dynamic color) {
   if (color.runtimeType == Color || color.runtimeType == MaterialColor) {
     return color;
   } else if (color.runtimeType == int) {
