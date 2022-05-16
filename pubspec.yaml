@@ -4,22 +4,22 @@ version: 0.3.1
 homepage: https://github.com/HROKA/common_ui_toolkit
 
 environment:
-  sdk: ">=2.16.0 <3.0.0"
+  sdk: ">=2.17.0 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_svg: ^1.0.1
+  flutter_svg: ^1.0.3
   intl: ^0.17.0
-  visibility_detector: ^0.2.2
+  visibility_detector: ^0.3.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-  flutter_lints: ^1.0.4
+  flutter_lints: ^2.0.1
 
 # The following section is specific to Flutter.
 flutter:
