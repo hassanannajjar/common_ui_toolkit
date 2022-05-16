@@ -79,7 +79,6 @@ void consoleLogPretty(dynamic value, {String key = 'value'}) {
   }
 }
 
-
 //  *** Emoji Type ***
 // 📕: error message
 // 📙: warning message
