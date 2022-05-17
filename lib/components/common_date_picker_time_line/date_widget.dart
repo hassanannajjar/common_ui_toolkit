@@ -36,11 +36,6 @@ class DateWidget extends StatelessWidget {
 
     return CommonContainer(
       onPress: () {
-        // Check if onDateSelected is not null
-        // if (onDateSelected != null) {
-        //   // Call the onDateSelected Function
-        //   onDateSelected!(date);
-        // }
         onDateSelected?.call(date);
       },
       style: CommonContainerModel(

@@ -1,18 +1,18 @@
 import '../../common_ui_toolkit.dart';
 
 class CommonText extends StatelessWidget {
-  const CommonText(
-      {this.text,
-      this.onPress,
-      this.leftChild,
-      this.rightChild,
-      this.topChild,
-      this.bottomChild,
-      this.inlineSpans,
-      this.style,
-      this.containerStyle,
-      Key? key})
-      : super(
+  const CommonText({
+    this.text,
+    this.onPress,
+    this.leftChild,
+    this.rightChild,
+    this.topChild,
+    this.bottomChild,
+    this.inlineSpans,
+    this.style,
+    this.containerStyle,
+    Key? key,
+  }) : super(
           key: key,
         );
 

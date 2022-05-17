@@ -1,6 +1,7 @@
-## 0.3.3 & 0.3.4
+## 0.3.3 => 0.3.5
 
 - Fixed Log error
+- Changed check Function if null or not using call() function from dart.
 
 ## 0.3.2
 

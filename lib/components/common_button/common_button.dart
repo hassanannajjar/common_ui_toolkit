@@ -50,8 +50,8 @@ class CommonButton extends StatelessWidget {
   final CommonContainerModel? containerStyle;
   final CommonContainerModel? textContainerStyle;
   final CommonTextModel? textStyle;
-  final VoidCallback? onPress;
-  final VoidCallback? onLongPress;
+  final Function? onPress;
+  final Function? onLongPress;
   final String? text;
   final Widget? child;
 
@@ -225,10 +225,9 @@ class CommonButton extends StatelessWidget {
         focusNode:
             focusNode ?? (buttonStyle ?? defaultButtonStyle).style!.focusNode,
         key: key ?? (buttonStyle ?? defaultButtonStyle).style!.key,
-        onLongPress: ((buttonStyle ?? defaultButtonStyle).style!.isEnable &&
-                onLongPress != null)
+        onLongPress: ((buttonStyle ?? defaultButtonStyle).style!.isEnable)
             ? () {
-                onLongPress!();
+                onLongPress?.call();
               }
             : null,
         style: ButtonStyle(
@@ -313,9 +312,7 @@ class CommonButton extends StatelessWidget {
         onPressed:
             (isEnable ?? (buttonStyle ?? defaultButtonStyle).style!.isEnable)
                 ? () {
-                    if (onPress != null) {
-                      onPress!;
-                    }
+                    onPress?.call();
                   }
                 : null,
         child: child ??

@@ -28,9 +28,7 @@ class CommonTextInput extends StatelessWidget {
       style: containerStyle ?? CommonContainerModel(),
       child: TextFormField(
         onTap: () {
-          // if (onTap != null) {
           onTap?.call();
-          // }
         },
         controller: textEditingController ??
             TextEditingController(text: (style ?? defaultTextInputModel).text),

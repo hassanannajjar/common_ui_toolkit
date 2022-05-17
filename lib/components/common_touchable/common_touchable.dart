@@ -82,7 +82,7 @@ class _CommonTouchableState extends State<CommonTouchable>
       behavior: HitTestBehavior.translucent,
       onTap: widget.onTap != null
           ? () {
-              widget.onTap!();
+              widget.onTap?.call();
             }
           : null,
       onTapDown: widget.onTap != null
