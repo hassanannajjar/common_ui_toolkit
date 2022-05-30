@@ -7,25 +7,16 @@ import '../common_ui_toolkit.dart';
 List<int> _leapYearMonths = const <int>[1, 3, 5, 7, 8, 10, 12];
 
 /// get responsive device width
-double? getResponsiveDeviceWidth(double? value, bool? isResponsive) =>
-    value == null
-        ? null
-        : isResponsive!
-            ? DEVICE_WIDTH * value
-            : value;
+double? getResponsiveDeviceWidth(double? value) =>
+    value == null ? null : DEVICE_WIDTH * value;
 
 /// get responsive device height
-double? getResponsiveDeviceHeight(double? value, bool? isResponsive) =>
-    value == null
-        ? null
-        : isResponsive!
-            ? DEVICE_HEIGHT * value
-            : value;
+double? getResponsiveDeviceHeight(double? value) =>
+    value == null ? null : DEVICE_HEIGHT * value;
 
 /// handel margin, vertical, horizontal, top, bottom, left and right.
 EdgeInsets getMarginEdgeInsets(CommonContainerModel? style) {
-  final bool? rs = style!.isResponsive;
-  final double? left = style.marginLeft;
+  final double? left = style!.marginLeft;
   final double? right = style.marginRight;
   final double? top = style.marginTop;
   final double? bottom = style.marginBottom;
@@ -34,24 +25,23 @@ EdgeInsets getMarginEdgeInsets(CommonContainerModel? style) {
   final double? margin = style.margin;
 
   return EdgeInsets.fromLTRB(
-    (getResponsiveDeviceWidth(left, rs) ??
-        getResponsiveDeviceWidth(horizontal, rs) ??
-        getResponsiveDeviceWidth(margin!, rs))!,
-    (getResponsiveDeviceHeight(top, rs) ??
-        getResponsiveDeviceHeight(vertical, rs) ??
-        getResponsiveDeviceHeight(margin!, rs))!,
-    (getResponsiveDeviceWidth(right, rs) ??
-        getResponsiveDeviceWidth(horizontal, rs) ??
-        getResponsiveDeviceWidth(margin!, rs))!,
-    (getResponsiveDeviceHeight(bottom, rs) ??
-        getResponsiveDeviceHeight(vertical, rs) ??
-        getResponsiveDeviceHeight(margin!, rs))!,
+    (getResponsiveDeviceWidth(left) ??
+        getResponsiveDeviceWidth(horizontal) ??
+        getResponsiveDeviceWidth(margin!))!,
+    (getResponsiveDeviceHeight(top) ??
+        getResponsiveDeviceHeight(vertical) ??
+        getResponsiveDeviceHeight(margin!))!,
+    (getResponsiveDeviceWidth(right) ??
+        getResponsiveDeviceWidth(horizontal) ??
+        getResponsiveDeviceWidth(margin!))!,
+    (getResponsiveDeviceHeight(bottom) ??
+        getResponsiveDeviceHeight(vertical) ??
+        getResponsiveDeviceHeight(margin!))!,
   );
 }
 
 /// handel padding, vertical, horizontal, left, right, top and bottom.
 EdgeInsets getPaddingEdgeInsets(dynamic style) {
-  final bool? rs = style!.isResponsive;
   final double? left = style.paddingLeft;
   final double? right = style.paddingRight;
   final double? top = style.paddingTop;
@@ -61,18 +51,18 @@ EdgeInsets getPaddingEdgeInsets(dynamic style) {
   final double? padding = style.padding;
 
   return EdgeInsets.fromLTRB(
-    (getResponsiveDeviceWidth(left, rs) ??
-        getResponsiveDeviceWidth(horizontal, rs) ??
-        getResponsiveDeviceWidth(padding!, rs))!,
-    (getResponsiveDeviceHeight(top, rs) ??
-        getResponsiveDeviceHeight(vertical, rs) ??
-        getResponsiveDeviceHeight(padding!, rs))!,
-    (getResponsiveDeviceWidth(right, rs) ??
-        getResponsiveDeviceWidth(horizontal, rs) ??
-        getResponsiveDeviceWidth(padding!, rs))!,
-    (getResponsiveDeviceHeight(bottom, rs) ??
-        getResponsiveDeviceHeight(vertical, rs) ??
-        getResponsiveDeviceHeight(padding!, rs))!,
+    (getResponsiveDeviceWidth(left) ??
+        getResponsiveDeviceWidth(horizontal) ??
+        getResponsiveDeviceWidth(padding!))!,
+    (getResponsiveDeviceHeight(top) ??
+        getResponsiveDeviceHeight(vertical) ??
+        getResponsiveDeviceHeight(padding!))!,
+    (getResponsiveDeviceWidth(right) ??
+        getResponsiveDeviceWidth(horizontal) ??
+        getResponsiveDeviceWidth(padding!))!,
+    (getResponsiveDeviceHeight(bottom) ??
+        getResponsiveDeviceHeight(vertical) ??
+        getResponsiveDeviceHeight(padding!))!,
   );
 }
 

@@ -21,7 +21,9 @@ class Containers extends StatelessWidget {
         ),
       ),
       body: CommonContainer(
-        style: CommonContainerModel().copyWith(width: 1),
+        style: CommonContainerModel().copyWith(
+          width: 1,
+        ),
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(

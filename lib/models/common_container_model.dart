@@ -164,7 +164,11 @@ class CommonContainerModel {
     this.backgroundImage,
 
     // responsive numbers
-    this.isResponsive = true,
+    @Deprecated('We Used this just to use same width and height after version (0.3.5) you can use size property instead of width and height to use same with and height for')
+        this.isResponsive = true,
+
+    // size
+    this.size,
   });
 
   //sizes
@@ -174,6 +178,12 @@ class CommonContainerModel {
   double? minHeight;
   double? maxWidth;
   double? maxHeight;
+
+  ///
+  /// Size of the container it's used for responsive design to get square container and responsive container
+  /// and we used this property to get same width and height for responsive container
+  ///
+  double? size;
 
   // padding
   double? padding;
@@ -550,8 +560,7 @@ class CommonContainerModel {
       foregroundBorderRightWidth != null ||
       foregroundBorderLeftWidth != null;
 
-  dynamic getResponsiveBorderRadius(num value) =>
-      isResponsive! ? DEVICE_WIDTH * value : value;
+  dynamic getResponsiveBorderRadius(num value) => DEVICE_WIDTH * value;
 
   ///
   /// get border Radius.
@@ -709,38 +718,25 @@ class CommonContainerModel {
   /// handel container width.
   /// and return the container width
   ///  like responsive design if the value smaller than 1.
-  double? getWidth() => width! <= 0.0
-      ? null
-      : isResponsive!
-          ? DEVICE_WIDTH * width!
-
-          /// the default value for width is null
-          ///  and this mean expanded as content.
-          : width!;
+  double? getWidth() => size != null
+      ? (DEVICE_WIDTH * size!)
+      : width! <= 0.0
+          ? null
+          : (DEVICE_WIDTH * width!);
 
   /// handel container hight.
   /// and return the container hight
   ///  like responsive design if the value smaller than 1.
-  double? getHeight() => height! <= 0.0
-      ? null
-      : isResponsive!
-          ? DEVICE_HEIGHT * height!
+  double? getHeight() => size != null
+      ? (DEVICE_WIDTH * size!)
+      : height! <= 0.0
+          ? null
+          : (DEVICE_HEIGHT * height!);
 
-          /// the default value for width is null
-          ///  and this mean expanded as content.
-          : height!;
-
-  double getResponsiveMinWidth() =>
-      isResponsive! ? DEVICE_WIDTH * minWidth! : minWidth!;
-  double getResponsiveMaxWidth() => isResponsive! && maxWidth != double.infinity
-      ? DEVICE_WIDTH * maxWidth!
-      : maxWidth!;
-  double getResponsiveMinHeight() =>
-      isResponsive! ? DEVICE_HEIGHT * minHeight! : minHeight!;
-  double getResponsiveMaxHeight() =>
-      isResponsive! && maxHeight != double.infinity
-          ? DEVICE_HEIGHT * maxHeight!
-          : maxHeight!;
+  double getResponsiveMinWidth() => DEVICE_WIDTH * minWidth!;
+  double getResponsiveMaxWidth() => DEVICE_WIDTH * maxWidth!;
+  double getResponsiveMinHeight() => DEVICE_HEIGHT * minHeight!;
+  double getResponsiveMaxHeight() => DEVICE_HEIGHT * maxHeight!;
 
   CommonContainerModel copyWith({
     double? width,
@@ -749,6 +745,7 @@ class CommonContainerModel {
     double? minHeight,
     double? maxWidth,
     double? maxHeight,
+    double? size,
     double? padding,
     double? paddingTop,
     double? paddingBottom,
@@ -842,7 +839,8 @@ class CommonContainerModel {
     LinearGradient? foregroundBoxGradient,
     DecorationImage? backgroundImage,
     DecorationImage? foregroundImage,
-    bool? isResponsive,
+    @Deprecated('We Used this just to use same width and height after version (0.3.5) you can use size property instead of width and height to use same with and height for')
+        bool? isResponsive,
   }) {
     return CommonContainerModel(
       width: width ?? this.width,
@@ -851,6 +849,7 @@ class CommonContainerModel {
       minHeight: minHeight ?? this.minHeight,
       maxWidth: maxWidth ?? this.maxWidth,
       maxHeight: maxHeight ?? this.maxHeight,
+      size: size ?? this.size,
       padding: padding ?? this.padding,
       paddingTop: paddingTop ?? this.paddingTop,
       paddingBottom: paddingBottom ?? this.paddingBottom,
@@ -965,7 +964,6 @@ class CommonContainerModel {
           foregroundBoxGradient ?? this.foregroundBoxGradient,
       backgroundImage: backgroundImage ?? this.backgroundImage,
       foregroundImage: foregroundImage ?? this.foregroundImage,
-      isResponsive: isResponsive ?? this.isResponsive,
     );
   }
 }
