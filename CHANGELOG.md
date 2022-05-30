@@ -1,6 +1,6 @@
 ## 0.3.6  (Aug 5, 2022)
 
-- 
+- changed `isResponsive` to be deprecated and use `size` to create square container.
 
 ## 0.3.3 => 0.3.5  (May 17, 2022)
 
