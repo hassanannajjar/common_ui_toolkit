@@ -36,6 +36,10 @@ class DrawerContainer extends StatelessWidget {
         'name': 'Avatars',
         'route': routeContainers,
       },
+      <String, String>{
+        'name': 'Images',
+        'route': routeImages,
+      },
     ];
 
     return CommonContainer(

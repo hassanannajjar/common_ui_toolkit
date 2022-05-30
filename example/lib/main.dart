@@ -1,6 +1,6 @@
 import 'package:common_ui_toolkit/common_ui_toolkit.dart';
 
-import './screens/index.dart';
+import 'screens/index.dart';
 import 'utils/constants.dart';
 
 void main() {
@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         routeButtons: (BuildContext context) => const Buttons(),
         routeTextInputs: (BuildContext context) => const TextInputs(),
         routeDatePickers: (BuildContext context) => const DatePickers(),
+        routeImages: (BuildContext context) => const Images(),
       },
     );
   }

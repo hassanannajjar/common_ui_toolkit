@@ -1,9 +1,13 @@
-## 0.3.3 => 0.3.5
+## 0.3.6  (Aug 5, 2022)
+
+- 
+
+## 0.3.3 => 0.3.5  (May 17, 2022)
 
 - Fixed Log error
 - Changed check Function if null or not using call() function from dart.
 
-## 0.3.2
+## 0.3.2 [Flutter 3.0] (May 16, 2022)
 
 <!-- - Added parameters to be inline if you want to edit some attribute inline without update the style.
 ex: 
@@ -29,15 +33,15 @@ CommonContainer(style:containerStyle, paddingTop:0.01,);
 - Updated radius strong use left, right, top and bottom with border radius.
 - Fixed typo errors >_<.
 
-## 0.3.1
+## 0.3.1  (Feb 6, 2022)
 
 - Used `AlignmentGeometry` instead of `Alignment`
 
-## 0.3.0
+## 0.3.0   (Feb 1, 2022)
 
 - Added Common button style to common button
 
-## 0.2.9
+## 0.2.9   (Jan 26, 2022)
 
 - Added isResponsive value for `CommonContainerModel` and the default value is [true]
 - Used isResponsive value in 
@@ -45,7 +49,7 @@ CommonContainer(style:containerStyle, paddingTop:0.01,);
   - borderRadius.
   - margin and padding, left, right, bottom, top, vertical and horizontal.
 
-## 0.2.8
+## 0.2.8  (Nov 28, 2021)
 
 - Added column Cross Axis Alignment
 - Added column main Axis Alignment
@@ -54,7 +58,7 @@ CommonContainer(style:containerStyle, paddingTop:0.01,);
 - Added row main Axis Alignment
 - Added row main Axis size
 
-## 0.2.7
+## 0.2.7  (Oct 10, 2021)
 * Fix typo error.
 * Added mutable color type to any color.
 
@@ -62,63 +66,63 @@ CommonContainer(style:containerStyle, paddingTop:0.01,);
 - Fix obscure text bug.
 
 
-## 0.2.5
+## 0.2.5  (Aug 30, 2021)
 * Fix max lines bugs.
 * Fix obscure text bug.
 
-## 0.2.4
+## 0.2.4  (Aug 30, 2021)
 
 - Added on press to common icon.
 - Added missing copy with function to text input field.
 
-## 0.2.3
+## 0.2.3  (Aug 30, 2021)
 
 - Added constants keyword before constants attributes.
 
-## 0.2.2
+## 0.2.2  (Aug 30, 2021)
 
 - Added text input component.
 - Added examples in text inputs screen
 
-## 0.2.1
+## 0.1.8 => 0.2.1  (Aug 22, 2021)
 
 - fixed date picker time line problem width problem .
 
-## 0.1.7
+## 0.1.7  (Aug 19, 2021)
 
 - Added date picker time line and fixed border width problem.
 
-## 0.1.6
+## 0.1.6  (Aug 15, 2021)
 
 - Added more Comments and updated documentation.
 
-## 0.1.3
+## 0.1.3 => 0.1.5 (Aug 15, 2021)
 
 - Added foreground decoration and handel custom foreground decoration.
 - Added new documentation with full examples and biggest update.
 
-## 0.1.2
+## 0.1.2  (Aug 10, 2021)
 
 - Added CommonDatePicker component.
 - Added more examples for Date picker.
 
-## 0.1.1
+## 0.1.1  (Aug 9, 2021)
 
 - Added more touch type and animations.
 - Changed `TouchableEffect` to be class and added more attribute to customize the animation.
 
-## 0.1.0
+## 0.1.0  (Aug 7, 2021)
 
 - Added more examples.
 - Fixed `TouchableEffect` re-render.
 
-## 0.0.9
+## 0.0.9 (Aug 7, 2021)
 
 - Fixed `TouchableEffect` in `CommonTouchable` to enable hot reload.
 - Set mainAxisSize to min for CommonText column.
 - Fixed `TouchableEffect` re-render.
 
-## 0.0.8
+## 0.0.8 (Aug 7, 2021)
 
 - Added onPress to `CommonContainer` and `CommonText` and `CommonTouchable`.
 - also we added touchable effects like animation to your `CommonContainer` to use it you can add the touchEffect attribute to `CommonContainerModel`.
@@ -128,26 +132,24 @@ CommonContainer(style:containerStyle, paddingTop:0.01,);
   ```
 - Added more examples and example screen for all component in package.
 
-## 0.0.7
+## 0.0.7 (Jul 30, 2021)
 
 - Updated documentation and added more examples.
 
-## 0.0.6
+## 0.04 => 0.0.6 (Jul 29, 2021)
 
 - added functions command.
-
-## 0.0.5
-
 - Updated Readme file.
-
-## 0.0.4
-
 - Updated Common Text.
 
-## 0.0.3
+## 0.0.3  (Jul 22, 2021)
 
 - Updated CommonContainer.
 
-## 0.0.2
+## 0.0.2  (Jul 21, 2021)
 
 - added examples.
+
+## 0.0.1  (Jul 20, 2021)
+
+- Uploaded First version 🚀.
