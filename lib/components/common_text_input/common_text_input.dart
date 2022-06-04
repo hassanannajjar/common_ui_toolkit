@@ -25,7 +25,7 @@ class CommonTextInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CommonContainer(
-      style: containerStyle ?? CommonContainerModel(),
+      style: containerStyle ?? const CommonContainerModel(),
       child: TextFormField(
         onTap: () {
           onTap?.call();
@@ -175,8 +175,8 @@ class CommonTextInput extends StatelessWidget {
       onPress: () {
         icon.onPress?.call();
       },
-      style: icon.containerStyle ?? CommonContainerModel(),
-      child: icon.path.runtimeType == IconData
+      style: icon.containerStyle ?? const CommonContainerModel(),
+      child: icon.path is IconData
           ? Icon(
               icon.path, // icon data takes only size without width and height, so we need to use size instead. we pass the width to be the size of the icon.
               size: icon.iconDataSize,

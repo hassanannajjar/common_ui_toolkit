@@ -14,7 +14,7 @@ class Images extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(colorPrimary),
         title: CommonText(
-          containerStyle: CommonContainerModel().copyWith(
+          containerStyle: const CommonContainerModel().copyWith(
             backgroundColor: 0x00FFFFFF,
             alignment: Alignment.center,
             width: 0.7,
@@ -26,12 +26,12 @@ class Images extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Column(
-            children: <Widget>[
+            children: const <Widget>[
               CommonContainer(
                 style: CommonContainerModel(
                   width: 1,
                   height: 0.4,
-                  backgroundImage: const DecorationImage(
+                  backgroundImageDecoration: DecorationImage(
                     image: AssetImage(
                       logoPngImage,
                     ),
@@ -40,17 +40,26 @@ class Images extends StatelessWidget {
                 ),
               ),
               CommonContainer(
+                backgroundImage: logoPngImage,
+                boxShape: BoxShape.circle,
+                size: 0.5,
                 style: CommonContainerModel(
-                  width: 1,
-                  height: 0.2,
-                  backgroundImage: const DecorationImage(
-                    image: AssetImage(
-                      logoImage,
-                    ),
-                    fit: BoxFit.contain,
-                  ),
+                  size: 0.2,
+                  backgroundColor: 0xFF9F1414,
                 ),
-              )
+              ),
+
+              CommonContainer(
+                boxShape: BoxShape.circle,
+                backgroundColor: Colors.white,
+                style: CommonContainerModel(
+                  size: 0.5,
+                  marginVertical: 0.05,
+                  backgroundImage: 'https://i.imgur.com/jV9zhvO.jpg',
+                ),
+              ),
+
+              // https://i.imgur.com/jV9zhvO.jpg
             ],
           ),
         ),

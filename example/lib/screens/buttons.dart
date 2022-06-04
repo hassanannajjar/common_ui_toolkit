@@ -11,7 +11,7 @@ class Buttons extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(colorPrimary),
         title: CommonText(
-          containerStyle: CommonContainerModel().copyWith(
+          containerStyle: const CommonContainerModel().copyWith(
             backgroundColor: 0x00FFFFFF,
             alignment: Alignment.center,
             width: 0.7,
@@ -30,7 +30,7 @@ class Buttons extends StatelessWidget {
                   // print('pressed');
                 },
                 buttonStyle: CommonButtonStyle(
-                  containerStyle: CommonContainerModel(
+                  containerStyle: const CommonContainerModel(
                     width: 0.4,
                     height: 0.1,
                   ),
@@ -81,7 +81,7 @@ class Buttons extends StatelessWidget {
               CommonButton(
                 text: 'Disabled button',
                 buttonStyle: CommonButtonStyle(
-                  textContainerStyle: CommonContainerModel(
+                  textContainerStyle: const CommonContainerModel(
                     marginVertical: 0.1,
                     backgroundColor: COMMON_RED_COLOR,
                   ),

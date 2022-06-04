@@ -12,7 +12,7 @@ class TextInputs extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(colorPrimary),
         title: CommonText(
-          containerStyle: CommonContainerModel().copyWith(
+          containerStyle: const CommonContainerModel().copyWith(
             backgroundColor: 0x00FFFFFF,
             alignment: Alignment.center,
             width: 0.7,
@@ -23,7 +23,7 @@ class TextInputs extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: CommonContainer(
-          style: CommonContainerModel(
+          style: const CommonContainerModel(
             margin: 0.016,
           ),
           child: Column(
@@ -41,7 +41,7 @@ class TextInputs extends StatelessWidget {
                     onPress: () {
                       consoleLog('Prefix icon pressed');
                     },
-                    containerStyle: CommonContainerModel(
+                    containerStyle: const CommonContainerModel(
                       marginHorizontal: 0.01,
                     ),
                     path: Icons.ac_unit_rounded,
@@ -49,7 +49,7 @@ class TextInputs extends StatelessWidget {
                     color: COMMON_RED_COLOR,
                   ),
                   suffixIcon: CommonIcon(
-                    containerStyle: CommonContainerModel(
+                    containerStyle: const CommonContainerModel(
                       width: 0.04,
                       height: 0.04,
                       marginHorizontal: 0.01,
@@ -59,14 +59,14 @@ class TextInputs extends StatelessWidget {
                   ),
                 ),
               ),
-              CommonText(
+              const CommonText(
                 containerStyle: CommonContainerModel(
                   marginTop: 0.03,
                 ),
                 text: 'CommonTextInput with prefix and suffix widgets',
               ),
               CommonTextInput(
-                containerStyle: CommonContainerModel(
+                containerStyle: const CommonContainerModel(
                   marginTop: 0.01,
                 ),
                 style: CommonTextInputModel(
@@ -78,7 +78,7 @@ class TextInputs extends StatelessWidget {
                   focusBorderColor: COMMON_RED_COLOR,
                   fillColor: COMMON_GREY_COLOR,
                   prefixWidget: CommonText(
-                    containerStyle: CommonContainerModel(
+                    containerStyle: const CommonContainerModel(
                       marginHorizontal: 0.03,
                     ),
                     style: CommonTextModel(
@@ -87,7 +87,7 @@ class TextInputs extends StatelessWidget {
                     text: '+966',
                   ),
                   suffixWidget: CommonText(
-                    containerStyle: CommonContainerModel(
+                    containerStyle: const CommonContainerModel(
                       marginHorizontal: 0.03,
                     ),
                     style: CommonTextModel(
@@ -97,7 +97,7 @@ class TextInputs extends StatelessWidget {
                   ),
                 ),
               ),
-              CommonText(
+              const CommonText(
                 containerStyle: CommonContainerModel(
                   marginTop: 0.03,
                 ),
@@ -114,7 +114,7 @@ class TextInputs extends StatelessWidget {
               ),
               Align(
                 child: CommonTextInput(
-                  containerStyle: CommonContainerModel(
+                  containerStyle: const CommonContainerModel(
                     marginTop: 0.03,
                     width: 0.5,
                   ),
@@ -129,7 +129,7 @@ class TextInputs extends StatelessWidget {
                     borderWidth: 3,
                     focusBorderColor: COMMON_RED_COLOR,
                     prefixIcon: CommonIcon(
-                      containerStyle: CommonContainerModel(
+                      containerStyle: const CommonContainerModel(
                         marginHorizontal: 16.0,
                       ),
                       path: Icons.search,
@@ -137,7 +137,7 @@ class TextInputs extends StatelessWidget {
                   ),
                 ),
               ),
-              CommonText(
+              const CommonText(
                 text: 'Multiline text input',
                 containerStyle: CommonContainerModel(
                   marginTop: 0.03,
@@ -152,7 +152,7 @@ class TextInputs extends StatelessWidget {
                   minLines: 7,
                 ),
               ),
-              CommonText(
+              const CommonText(
                 text: 'Password text input',
                 containerStyle: CommonContainerModel(
                   marginTop: 0.03,

@@ -4,7 +4,7 @@ import '../components/common_touchable/touchable_effect.dart';
 import '../utils/index.dart';
 
 class CommonContainerModel {
-  CommonContainerModel({
+  const CommonContainerModel({
     //sizes
     this.width = 0.0,
     this.height = 0.0,
@@ -61,7 +61,6 @@ class CommonContainerModel {
     this.backgroundColor = COMMON_TRANSPARENT_COLOR,
     this.foregroundColor = COMMON_TRANSPARENT_COLOR,
     this.radiusColor = 0xFF000000,
-    this.foregroundRadiusColor = 0xFF000000,
     this.loadingColor = 0xFF1DD005,
 
     // shadow
@@ -94,7 +93,19 @@ class CommonContainerModel {
     this.clipBehavior = Clip.none,
 
     // transform
+    ///
+    /// * [Matrix4], the matrix to apply to the child.
+    /// ex: Matrix4.skewX(-0.3)
+    ///
     this.transform,
+
+    // decoration
+    ///
+    /// * [Alignment], a class with convenient constants typically used to
+    ///  specify an [AlignmentGeometry].
+    /// * [AlignmentDirectional], like [Alignment] for specifying alignments
+    /// relative to text direction.
+    ///
     this.transformAlignment,
 
     // border
@@ -161,6 +172,7 @@ class CommonContainerModel {
 
     // image
     this.foregroundImage,
+    this.backgroundImageDecoration,
     this.backgroundImage,
 
     // responsive numbers
@@ -172,119 +184,118 @@ class CommonContainerModel {
   });
 
   //sizes
-  double? width;
-  double? height;
-  double? minWidth;
-  double? minHeight;
-  double? maxWidth;
-  double? maxHeight;
+  final double? width;
+  final double? height;
+  final double? minWidth;
+  final double? minHeight;
+  final double? maxWidth;
+  final double? maxHeight;
 
   ///
   /// Size of the container it's used for responsive design to get square container and responsive container
   /// and we used this property to get same width and height for responsive container
   ///
-  double? size;
+  final double? size;
 
   // padding
-  double? padding;
-  double? paddingTop;
-  double? paddingBottom;
-  double? paddingRight;
-  double? paddingLeft;
-  double? paddingVertical;
-  double? paddingHorizontal;
+  final double? padding;
+  final double? paddingTop;
+  final double? paddingBottom;
+  final double? paddingRight;
+  final double? paddingLeft;
+  final double? paddingVertical;
+  final double? paddingHorizontal;
 
   ///
   /// margin for all container
   ///
   ///
-  double? margin;
+  final double? margin;
 
   ///
   /// margin for top container
   ///
-  double? marginTop;
+  final double? marginTop;
 
   ///
   /// margin for bottom container
   ///
-  double? marginBottom;
+  final double? marginBottom;
 
   ///
   /// margin for right container
   ///
-  double? marginRight;
+  final double? marginRight;
 
   ///
   /// margin for left container
   ///
-  double? marginLeft;
+  final double? marginLeft;
 
   ///
   /// margin for (top and bottom|| Vertical)  container
   ///
-  double? marginVertical;
+  final double? marginVertical;
 
   ///
   /// margin for (right and left || Horizontal) container
   ///
-  double? marginHorizontal;
+  final double? marginHorizontal;
 
   // shadow
-  double? shadowSpreadRadius;
-  double? shadowBlurRadius;
-  double? shadowOffsetDX;
-  double? shadowOffsetDY;
-  double? shadowOpacity;
+  final double? shadowSpreadRadius;
+  final double? shadowBlurRadius;
+  final double? shadowOffsetDX;
+  final double? shadowOffsetDY;
+  final double? shadowOpacity;
 
-  double? foregroundShadowSpreadRadius;
-  double? foregroundShadowBlurRadius;
-  double? foregroundShadowOffsetDX;
-  double? foregroundShadowOffsetDY;
-  double? foregroundShadowOpacity;
+  final double? foregroundShadowSpreadRadius;
+  final double? foregroundShadowBlurRadius;
+  final double? foregroundShadowOffsetDX;
+  final double? foregroundShadowOffsetDY;
+  final double? foregroundShadowOpacity;
 
   // Radius
-  double? bottomLeftRadius;
-  double? bottomRightRadius;
-  double? topLeftRadius;
-  double? topRightRadius;
-  double? borderRadius;
-  double? borderWidth;
-  double? borderTopWidth;
-  double? borderBottomWidth;
-  double? borderRightWidth;
-  double? borderLeftWidth;
+  final double? bottomLeftRadius;
+  final double? bottomRightRadius;
+  final double? topLeftRadius;
+  final double? topRightRadius;
+  final double? borderRadius;
+  final double? borderWidth;
+  final double? borderTopWidth;
+  final double? borderBottomWidth;
+  final double? borderRightWidth;
+  final double? borderLeftWidth;
 
-  double? foregroundBottomLeftRadius;
-  double? foregroundBottomRightRadius;
-  double? foregroundTopLeftRadius;
-  double? foregroundTopRightRadius;
-  double? foregroundBorderRadius;
-  double? foregroundBorderWidth;
-  double? foregroundBorderTopWidth;
-  double? foregroundBorderBottomWidth;
-  double? foregroundBorderRightWidth;
-  double? foregroundBorderLeftWidth;
+  final double? foregroundBottomLeftRadius;
+  final double? foregroundBottomRightRadius;
+  final double? foregroundTopLeftRadius;
+  final double? foregroundTopRightRadius;
+  final double? foregroundBorderRadius;
+  final double? foregroundBorderWidth;
+  final double? foregroundBorderTopWidth;
+  final double? foregroundBorderBottomWidth;
+  final double? foregroundBorderRightWidth;
+  final double? foregroundBorderLeftWidth;
 
   // colors
-  dynamic radiusColor;
-  dynamic shadowColor;
-  dynamic backgroundColor;
-  dynamic borderColor;
-  dynamic borderTopColor;
-  dynamic borderBottomColor;
-  dynamic borderRightColor;
-  dynamic borderLeftColor;
-  dynamic loadingColor;
+  final dynamic radiusColor;
+  final dynamic shadowColor;
+  final dynamic backgroundColor;
+  final dynamic borderColor;
+  final dynamic borderTopColor;
+  final dynamic borderBottomColor;
+  final dynamic borderRightColor;
+  final dynamic borderLeftColor;
+  final dynamic loadingColor;
 
-  dynamic foregroundRadiusColor;
-  dynamic foregroundShadowColor;
-  dynamic foregroundColor;
-  dynamic foregroundBorderColor;
-  dynamic foregroundBorderTopColor;
-  dynamic foregroundBorderBottomColor;
-  dynamic foregroundBorderRightColor;
-  dynamic foregroundBorderLeftColor;
+  final dynamic foregroundShadowColor;
+  final dynamic foregroundColor;
+  final dynamic foregroundBorderColor;
+  final dynamic foregroundBorderTopColor;
+  final dynamic foregroundBorderBottomColor;
+  final dynamic foregroundBorderRightColor;
+  final dynamic foregroundBorderLeftColor;
 
   ///
   /// Align the [child] within the container.
@@ -302,7 +313,7 @@ class CommonContainerModel {
   ///  * [AlignmentDirectional], like [Alignment] for specifying alignments
   ///    relative to text direction.
   ///
-  AlignmentGeometry? alignment;
+  final AlignmentGeometry? alignment;
 
   ///
   /// The alignment of the origin, relative to the size of the container, if [transform] is specified.
@@ -313,7 +324,7 @@ class CommonContainerModel {
   ///
   ///  * [Transform.alignment], which is set by this property.
   ///
-  Alignment? transformAlignment;
+  final AlignmentGeometry? transformAlignment;
 
   ///
   ///  /// The clip behavior when [Container.decoration] is not null.
@@ -325,50 +336,24 @@ class CommonContainerModel {
   /// supported by all decorations; the default implementation of that
   /// method throws an [UnsupportedError].)
   ///
-  Clip? clipBehavior;
+  final Clip? clipBehavior;
 
   ///
   /// The transformation matrix to apply before painting the container.
   ///
-  Matrix4? transform;
+  final Matrix4? transform;
 
-  BorderStyle? borderStyle;
-  BorderStyle? borderTopStyle;
-  BorderStyle? borderBottomStyle;
-  BorderStyle? borderRightStyle;
-  BorderStyle? borderLeftStyle;
+  final BorderStyle? borderStyle;
+  final BorderStyle? borderTopStyle;
+  final BorderStyle? borderBottomStyle;
+  final BorderStyle? borderRightStyle;
+  final BorderStyle? borderLeftStyle;
 
-  BorderStyle? foregroundBorderStyle;
-  BorderStyle? foregroundBorderTopStyle;
-  BorderStyle? foregroundBorderBottomStyle;
-  BorderStyle? foregroundBorderRightStyle;
-  BorderStyle? foregroundBorderLeftStyle;
-
-  ///
-  /// this is for custom Decoration as you want.
-  ///
-  /// example :
-  /// ```dart
-  // BoxDecoration(
-  //             image: image,
-  //             gradient: gradient,
-  //             backgroundBlendMode: backgroundBlendMode,
-  //             shape: shape,
-  //             border: border,
-  //             borderRadius: borderRadius,
-  //             color: color,
-  //             boxShadow: <BoxShadow>[
-  //               BoxShadow(
-  //                 color: color,
-  //                 spreadRadius: spreadRadius,
-  //                 blurRadius: blurRadius,
-  //                 offset:offset,
-  //               )
-  //             ],
-  //           ),
-  /// ```
-  ///
-  Decoration? foregroundDecoration;
+  final BorderStyle? foregroundBorderStyle;
+  final BorderStyle? foregroundBorderTopStyle;
+  final BorderStyle? foregroundBorderBottomStyle;
+  final BorderStyle? foregroundBorderRightStyle;
+  final BorderStyle? foregroundBorderLeftStyle;
 
   ///
   /// this is for custom Decoration as you want.
@@ -394,7 +379,33 @@ class CommonContainerModel {
   //           ),
   /// ```
   ///
-  Decoration? decoration;
+  final Decoration? foregroundDecoration;
+
+  ///
+  /// this is for custom Decoration as you want.
+  ///
+  /// example :
+  /// ```dart
+  // BoxDecoration(
+  //             image: image,
+  //             gradient: gradient,
+  //             backgroundBlendMode: backgroundBlendMode,
+  //             shape: shape,
+  //             border: border,
+  //             borderRadius: borderRadius,
+  //             color: color,
+  //             boxShadow: <BoxShadow>[
+  //               BoxShadow(
+  //                 color: color,
+  //                 spreadRadius: spreadRadius,
+  //                 blurRadius: blurRadius,
+  //                 offset:offset,
+  //               )
+  //             ],
+  //           ),
+  /// ```
+  ///
+  final Decoration? decoration;
 
   ///
   /// BoxShape
@@ -402,11 +413,11 @@ class CommonContainerModel {
   /// example :
   /// ```dart
   /// boxShape: BoxShape.circle
-  BoxShape? boxShape;
+  final BoxShape? boxShape;
 
   /// or
   /// foregroundBoxShape: BoxShape.circle
-  BoxShape? foregroundBoxShape;
+  final BoxShape? foregroundBoxShape;
 
   /// ```
   ///
@@ -425,17 +436,17 @@ class CommonContainerModel {
   /// )
   /// ```
   ///
-  TouchableEffect? touchEffect;
+  final TouchableEffect? touchEffect;
 
   ///
   /// BlendMode for background image
   ///
-  BlendMode? backgroundBlendMode;
+  final BlendMode? backgroundBlendMode;
 
   ///
   /// BlendMode for foreground image
   ///
-  BlendMode? foregroundBlendMode;
+  final BlendMode? foregroundBlendMode;
 
   ///
   ///boxGradient
@@ -460,7 +471,7 @@ class CommonContainerModel {
   /// ]),
   /// ```
   ///
-  LinearGradient? boxGradient;
+  final LinearGradient? boxGradient;
   //
   ///foregroundBoxGradient
   ///
@@ -484,9 +495,9 @@ class CommonContainerModel {
   /// ]),
   /// ```
   ///
-  LinearGradient? foregroundBoxGradient;
+  final LinearGradient? foregroundBoxGradient;
 
-  ///backgroundImage image
+  ///backgroundImageDecoration image
   /// - internet image
   ///```dart
   /// DecorationImage(
@@ -507,7 +518,15 @@ class CommonContainerModel {
   // ),
   ///```
   ///
-  DecorationImage? backgroundImage;
+  final DecorationImage? backgroundImageDecoration;
+
+  ///
+  /// you can add your image from assets or internet
+  /// and we will handle it for you.
+  /// example : backgroundImage: 'assets/images/image.png'
+  /// or backgroundImage: 'https://image.png'
+  ///
+  final String? backgroundImage;
 
   ///foregroundImage image
   /// - internet image
@@ -530,18 +549,18 @@ class CommonContainerModel {
   // ),
   ///```
   ///
-  DecorationImage? foregroundImage;
+  final DecorationImage? foregroundImage;
 
   ///
   /// add true or false to enable or disable responsive numbers in the container.
   ///   default value is true
   ///
-  bool? isResponsive;
+  final bool? isResponsive;
 
   ///
   /// check if the border is null or not.
   ///
-  bool checkBorderNull() =>
+  bool _checkBorderNull() =>
       borderTopWidth != null ||
       borderBottomWidth != null ||
       borderRightWidth != null ||
@@ -550,7 +569,7 @@ class CommonContainerModel {
   ///
   /// check if the foregroundBorder is null or not.
   ///
-  bool checkForegroundBorderNull() =>
+  bool _checkForegroundBorderNull() =>
 
       ///
       /// foreground border widths.
@@ -560,26 +579,26 @@ class CommonContainerModel {
       foregroundBorderRightWidth != null ||
       foregroundBorderLeftWidth != null;
 
-  dynamic getResponsiveBorderRadius(num value) => DEVICE_WIDTH * value;
+  dynamic _getResponsiveBorderRadius(num value) => DEVICE_WIDTH * value;
 
   ///
   /// get border Radius.
   ///
   BorderRadius? getBorderRadius() =>
-      (boxShape == BoxShape.circle || checkBorderNull())
+      (boxShape == BoxShape.circle || _checkBorderNull())
           ? null
           : (BorderRadius.only(
               topRight: Radius.circular(
-                getResponsiveBorderRadius(topRightRadius ?? borderRadius!),
+                _getResponsiveBorderRadius(topRightRadius ?? borderRadius!),
               ),
               topLeft: Radius.circular(
-                getResponsiveBorderRadius(topLeftRadius ?? borderRadius!),
+                _getResponsiveBorderRadius(topLeftRadius ?? borderRadius!),
               ),
               bottomLeft: Radius.circular(
-                getResponsiveBorderRadius(bottomLeftRadius ?? borderRadius!),
+                _getResponsiveBorderRadius(bottomLeftRadius ?? borderRadius!),
               ),
               bottomRight: Radius.circular(
-                getResponsiveBorderRadius(bottomRightRadius ?? borderRadius!),
+                _getResponsiveBorderRadius(bottomRightRadius ?? borderRadius!),
               ),
             ));
 
@@ -587,23 +606,23 @@ class CommonContainerModel {
   /// get border Radius.
   ///
   BorderRadius? getForegroundBorderRadius() =>
-      (foregroundBoxShape == BoxShape.circle || checkForegroundBorderNull())
+      (foregroundBoxShape == BoxShape.circle || _checkForegroundBorderNull())
           ? null
           : (BorderRadius.only(
               topRight: Radius.circular(
-                getResponsiveBorderRadius(
+                _getResponsiveBorderRadius(
                     foregroundTopRightRadius ?? foregroundBorderRadius!),
               ),
               topLeft: Radius.circular(
-                getResponsiveBorderRadius(
+                _getResponsiveBorderRadius(
                     foregroundTopLeftRadius ?? foregroundBorderRadius!),
               ),
               bottomLeft: Radius.circular(
-                getResponsiveBorderRadius(
+                _getResponsiveBorderRadius(
                     foregroundBottomLeftRadius ?? foregroundBorderRadius!),
               ),
               bottomRight: Radius.circular(
-                getResponsiveBorderRadius(
+                _getResponsiveBorderRadius(
                     foregroundBottomRightRadius ?? foregroundBorderRadius!),
               ),
             ));
@@ -611,7 +630,7 @@ class CommonContainerModel {
   ///
   /// get border width and color.
   ///
-  Border? getBorder() => (borderWidth! > 0 || checkBorderNull())
+  Border? getBorder() => (borderWidth! > 0 || _checkBorderNull())
       ? Border(
           ///
           /// handel top border.
@@ -667,7 +686,7 @@ class CommonContainerModel {
   /// get border width and color.
   ///
   Border? getForegroundBorder() =>
-      (foregroundBorderWidth! > 0 || checkForegroundBorderNull())
+      (foregroundBorderWidth! > 0 || _checkForegroundBorderNull())
           ? Border(
               ///
               /// handel top border.
@@ -806,7 +825,6 @@ class CommonContainerModel {
     dynamic borderRightColor,
     dynamic borderLeftColor,
     dynamic loadingColor,
-    dynamic foregroundRadiusColor,
     dynamic foregroundShadowColor,
     dynamic foregroundColor,
     dynamic foregroundBorderColor,
@@ -837,7 +855,8 @@ class CommonContainerModel {
     BlendMode? foregroundBlendMode,
     LinearGradient? boxGradient,
     LinearGradient? foregroundBoxGradient,
-    DecorationImage? backgroundImage,
+    DecorationImage? backgroundImageDecoration,
+    String? backgroundImage,
     DecorationImage? foregroundImage,
     @Deprecated('We Used this just to use same width and height after version (0.3.5) you can use size property instead of width and height to use same with and height for')
         bool? isResponsive,
@@ -918,8 +937,6 @@ class CommonContainerModel {
       borderRightColor: borderRightColor ?? this.borderRightColor,
       borderLeftColor: borderLeftColor ?? this.borderLeftColor,
       loadingColor: loadingColor ?? this.loadingColor,
-      foregroundRadiusColor:
-          foregroundRadiusColor ?? this.foregroundRadiusColor,
       foregroundShadowColor:
           foregroundShadowColor ?? this.foregroundShadowColor,
       foregroundColor: foregroundColor ?? this.foregroundColor,
@@ -962,7 +979,9 @@ class CommonContainerModel {
       boxGradient: boxGradient ?? this.boxGradient,
       foregroundBoxGradient:
           foregroundBoxGradient ?? this.foregroundBoxGradient,
-      backgroundImage: backgroundImage ?? this.backgroundImage,
+      backgroundImageDecoration:
+          backgroundImageDecoration ?? this.backgroundImageDecoration,
+      backgroundImage: backgroundImage ?? backgroundImage,
       foregroundImage: foregroundImage ?? this.foregroundImage,
     );
   }

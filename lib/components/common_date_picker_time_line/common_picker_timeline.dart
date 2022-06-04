@@ -178,7 +178,7 @@ class _DatePickerState extends State<CommonPickerTimeLine> {
           // --------------------------
           // Header Component
           CommonContainer(
-            style: CommonContainerModel(
+            style: const CommonContainerModel(
               alignment: Alignment.center,
             ),
             child: Row(
@@ -201,7 +201,7 @@ class _DatePickerState extends State<CommonPickerTimeLine> {
 
           // --------------------------
           // Center line
-          CommonContainer(
+          const CommonContainer(
             style: CommonContainerModel(
               borderBottomWidth: 0.2,
               borderBottomColor: 0xA9707070,
@@ -290,14 +290,14 @@ class _DatePickerState extends State<CommonPickerTimeLine> {
                         ? deactivatedDayStyle
                         : widget.dayTextStyle,
                     selectedContainerStyle: isSelected
-                        ? CommonContainerModel(
+                        ? const CommonContainerModel(
                             backgroundColor: 0xff096637,
                             borderRadius: 0.25,
                             padding: 0.01,
                             width: 0.1,
                             alignment: Alignment.center,
                           )
-                        : CommonContainerModel(
+                        : const CommonContainerModel(
                             borderRadius: 0.25,
                             padding: 0.01,
                             width: 0.1,

@@ -1,10 +1,14 @@
-// ignore_for_file: avoid_positional_boolean_parameters
+// ignore_for_file: avoid_positional_boolean_parameters, constant_identifier_names
 
 import 'package:flutter_svg/svg.dart';
 
 import '../common_ui_toolkit.dart';
 
 List<int> _leapYearMonths = const <int>[1, 3, 5, 7, 8, 10, 12];
+
+const String COMMON_LINK_PATTER_EXPRESSION =
+    // ignore: unnecessary_string_escapes
+    '/(http[s]?:\/\/(?:www.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9].[^s]{2,}|www.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9].[^s]{2,}|http[s]?:\/\/(?:www.|(?!www))[a-zA-Z0-9]+.[^s]{2,}|www.[a-zA-Z0-9]+.[^s]{2,})/gi';
 
 /// get responsive device width
 double? getResponsiveDeviceWidth(double? value) =>
@@ -96,8 +100,8 @@ CommonContainer getIcon(CommonIcon icon) {
     onPress: () {
       icon.onPress?.call();
     },
-    style: icon.containerStyle ?? CommonContainerModel(),
-    child: icon.path.runtimeType == IconData
+    style: icon.containerStyle ?? const CommonContainerModel(),
+    child: icon.path is IconData
         ? Icon(
             icon.path, // icon data takes only size without width and height, so we need to use size instead. we pass the width to be the size of the icon.
             size: icon.iconDataSize,
@@ -129,9 +133,9 @@ dynamic renderResponsiveWidth(double width) {
 
 /// render Color Type
 dynamic getColorType(dynamic color) {
-  if (color.runtimeType == Color || color.runtimeType == MaterialColor) {
+  if (color is Color || color is MaterialColor) {
     return color;
-  } else if (color.runtimeType == int) {
+  } else if (color is int) {
     return Color(color);
   } else {
     return Colors.transparent;

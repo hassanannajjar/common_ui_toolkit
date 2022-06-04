@@ -8,8 +8,8 @@ class CommonButtonStyle {
     this.textStyle,
   }) {
     style = style ?? CommonButtonModel();
-    containerStyle = containerStyle ?? CommonContainerModel();
-    textContainerStyle = textContainerStyle ?? CommonContainerModel();
+    containerStyle = containerStyle ?? const CommonContainerModel();
+    textContainerStyle = textContainerStyle ?? const CommonContainerModel();
     textStyle = textStyle ?? CommonTextModel();
   }
 

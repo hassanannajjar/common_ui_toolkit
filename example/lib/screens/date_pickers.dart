@@ -21,7 +21,7 @@ class DatePickers extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(colorPrimary),
         title: CommonText(
-          containerStyle: CommonContainerModel().copyWith(
+          containerStyle: const CommonContainerModel().copyWith(
             backgroundColor: 0x00FFFFFF,
             alignment: Alignment.center,
             width: 0.7,
@@ -31,7 +31,7 @@ class DatePickers extends StatelessWidget {
         ),
       ),
       body: CommonContainer(
-        style: CommonContainerModel().copyWith(width: 1),
+        style: const CommonContainerModel().copyWith(width: 1),
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(

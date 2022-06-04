@@ -12,7 +12,7 @@ class Texts extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(colorPrimary),
         title: CommonText(
-          containerStyle: CommonContainerModel().copyWith(
+          containerStyle: const CommonContainerModel().copyWith(
             backgroundColor: 0x00FFFFFF,
             alignment: Alignment.center,
             width: 0.7,
@@ -38,7 +38,7 @@ class Texts extends StatelessWidget {
 
               /// This is an example of the verification code text with inlineSpans (Another text with different text color)
               CommonText(
-                containerStyle: CommonContainerModel(
+                containerStyle: const CommonContainerModel(
                   marginHorizontal: 0.016,
                   marginVertical: 0.016,
                 ),
@@ -64,7 +64,7 @@ class Texts extends StatelessWidget {
               /// You can customize the underline decoration by using the TextDecoration enum
               CommonText(
                 text: 'Underlined text',
-                containerStyle: CommonContainerModel(
+                containerStyle: const CommonContainerModel(
                   marginTop: 0.016,
                 ),
                 style: CommonTextModel(
@@ -127,12 +127,13 @@ class Texts extends StatelessWidget {
                 topChild: const CommonText(
                   text: 'Top child',
                 ),
-                leftChild: CommonText(
+                leftChild: const CommonText(
                   containerStyle: CommonContainerModel(marginHorizontal: 0.008),
                   text: 'Left child',
                 ),
                 rightChild: CommonText(
-                  containerStyle: CommonContainerModel(marginHorizontal: 0.008),
+                  containerStyle:
+                      const CommonContainerModel(marginHorizontal: 0.008),
                   text: 'Right child',
                   style: CommonTextModel(
                     decoration: TextDecoration.lineThrough,

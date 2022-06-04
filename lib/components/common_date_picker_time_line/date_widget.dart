@@ -29,7 +29,7 @@ class DateWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CommonContainerModel defaultContainerStyle = CommonContainerModel(
+    const CommonContainerModel defaultContainerStyle = CommonContainerModel(
       borderRadius: 0.25,
       padding: 0.1,
     );

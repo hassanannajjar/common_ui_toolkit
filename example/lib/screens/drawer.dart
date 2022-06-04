@@ -43,7 +43,7 @@ class DrawerContainer extends StatelessWidget {
     ];
 
     return CommonContainer(
-      style: CommonContainerModel(
+      style: const CommonContainerModel(
         width: 0.7,
         backgroundColor: Colors.white,
       ),
