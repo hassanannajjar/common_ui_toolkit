@@ -1,6 +1,20 @@
 ## 0.3.6  (Aug 5, 2022)
 
 - changed `isResponsive` to be deprecated and use `size` to create square container.
+- Added parameters to be inline if you want to edit some attribute inline without update the style.
+ex: 
+
+```dart 
+CommonContainerModel containerStyle = CommonContainerModel(backgroundColor:Colors.red, width:0.2,);
+
+
+// before =>
+CommonContainer(style:containerStyle.copyWith(paddingTop:0.01,),);
+
+// After =>
+CommonContainer(style:containerStyle, paddingTop:0.01,);
+
+```
 
 ## 0.3.3 => 0.3.5  (May 17, 2022)
 
@@ -8,24 +22,6 @@
 - Changed check Function if null or not using call() function from dart.
 
 ## 0.3.2 [Flutter 3.0] (May 16, 2022)
-
-<!-- - Added parameters to be inline if you want to edit some attribute inline without update the style.
-ex: 
-before =>
-```dart 
-CommonContainerModel containerStyle = CommonContainerModel(backgroundColor:Colors.red, width:0.2,);
-
-CommonContainer(style:containerStyle);
-CommonContainer(style:containerStyle.copyWith(paddingTop:0.01,),);
-```
-
-After =>
-```dart 
-CommonContainerModel containerStyle = CommonContainerModel(backgroundColor:Colors.red, width:0.2,);
-
-CommonContainer(style:containerStyle);
-CommonContainer(style:containerStyle, paddingTop:0.01,);
-``` -->
 
 - Added border radius attribute fro CommonDatetimePicker component.
 - Added flutter_lints to package and example 
