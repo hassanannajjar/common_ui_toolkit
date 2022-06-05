@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import '../../common_ui_toolkit.dart';
 
 class CommonText extends StatelessWidget {
@@ -11,6 +13,50 @@ class CommonText extends StatelessWidget {
     this.inlineSpans,
     this.style,
     this.containerStyle,
+
+    ///sizes
+    this.height,
+    this.letterSpacing,
+    this.wordSpacing,
+    this.fontSize = COMMON_H4_FONT,
+    this.decorationThickness,
+    this.maxlines,
+    this.textScaleFactor,
+
+    /// colors
+    this.fontColor,
+    this.backgroundColor,
+    this.decorationColor,
+    this.decoration,
+    this.textDirection,
+    this.overflow,
+    this.softWrap,
+    this.strutStyle,
+    this.textHeightBehavior,
+    this.textWidthBasis,
+
+    // -------------------
+    this.fontWeight,
+    this.fontFamily,
+    this.fontStyle,
+    this.textAlign,
+    this.textBaseline,
+    this.leadingDistribution,
+    this.locale,
+    this.foreground,
+    this.background,
+    this.shadows,
+    this.fontFeatures,
+    this.columnCrossAxisAlignment,
+    this.columnMainAxisAlignment,
+    this.columnMainAxisSize,
+    this.rowCrossAxisAlignment,
+    this.rowMainAxisSize,
+    this.rowMainAxisAlignment,
+    this.decorationStyle,
+    this.debugLabel,
+    this.fontFamilyFallback,
+    this.prefixIcon,
     Key? key,
   }) : super(
           key: key,
@@ -54,73 +100,240 @@ class CommonText extends StatelessWidget {
   final Widget? topChild;
   final Widget? bottomChild;
 
+  ///
+  /// sizes
+  ///
+  final double? height;
+  final double? letterSpacing;
+  final double? wordSpacing;
+  final double? decorationThickness;
+  final double? fontSize;
+  final double? textScaleFactor;
+  final int? maxlines;
+
+  ///
+  /// colors
+  ///
+  final dynamic fontColor;
+  final dynamic backgroundColor;
+  final dynamic decorationColor;
+
+  ///
+  /// decoration
+  ///
+  final TextDecoration? decoration;
+
+  ///
+  /// text direction
+  ///
+  final TextDirection? textDirection;
+
+  ///
+  /// overflow
+  ///
+  final TextOverflow? overflow;
+
+  ///
+  /// soft wrap
+  ///
+  final bool? softWrap;
+
+  ///
+  /// strut style
+  ///
+  final StrutStyle? strutStyle;
+
+  ///
+  /// text height behavior
+  ///
+  final TextHeightBehavior? textHeightBehavior;
+
+  ///
+  /// text width basis
+  ///
+  final TextWidthBasis? textWidthBasis;
+
+  ///
+  /// decoration style
+  ///
+  final TextDecorationStyle? decorationStyle;
+
+  ///
+  /// font weight
+  ///
+  final FontWeight? fontWeight;
+
+  ///
+  /// text align
+  ///
+  final TextAlign? textAlign;
+
+  ///
+  /// font style
+  ///
+  final FontStyle? fontStyle;
+
+  ///
+  /// text base line
+  ///
+  final TextBaseline? textBaseline;
+
+  ///
+  /// leading distribution
+  ///
+  final TextLeadingDistribution? leadingDistribution;
+
+  ///
+  /// column Cross Axis Alignment
+  ///
+  final CrossAxisAlignment? columnCrossAxisAlignment;
+
+  ///
+  /// column main Axis Alignment
+  ///
+  final MainAxisAlignment? columnMainAxisAlignment;
+
+  ///
+  /// column main Axis size
+  ///
+  final MainAxisSize? columnMainAxisSize;
+
+  ///
+  /// row cross Axis Alignment
+  ///
+  final CrossAxisAlignment? rowCrossAxisAlignment;
+
+  ///
+  /// row main Axis Alignment
+  ///
+  final MainAxisAlignment? rowMainAxisAlignment;
+
+  ///
+  /// row main Axis size
+  ///
+  final MainAxisSize? rowMainAxisSize;
+
+  ///
+  /// locale
+  ///
+  final Locale? locale;
+
+  ///
+  /// foreground
+  ///
+  final Paint? foreground;
+
+  ///
+  /// background
+  ///
+  final Paint? background;
+
+  ///
+  /// shadows
+  ///
+  final List<Shadow>? shadows;
+
+  ///
+  /// font features
+  ///
+  final List<FontFeature>? fontFeatures;
+
+  ///
+  /// font family fallback
+  ///
+  final List<String>? fontFamilyFallback;
+
+  ///
+  /// font family
+  ///
+  final String? fontFamily;
+
+  ///
+  /// debug label
+  ///
+  final String? debugLabel;
+
+  /// prefix icon
+  final CommonIcon? prefixIcon;
+
+  double _responsiveFontSize() => DEVICE_WIDTH * (fontSize! / 430);
+
   @override
   Widget build(BuildContext context) {
-    const CommonTextModel defaultStyle = CommonTextModel();
-
-    const CommonContainerModel defaultContainerStyle = CommonContainerModel();
+    final CommonTextModel currentStyle = style ?? const CommonTextModel();
+    final CommonContainerModel currentContainerStyle =
+        containerStyle ?? const CommonContainerModel();
 
     return CommonContainer(
       onPress: onPress,
-      style: containerStyle ?? defaultContainerStyle,
+      style: currentContainerStyle,
       child: Column(
-        crossAxisAlignment: (style ?? defaultStyle).columnCrossAxisAlignment,
-        mainAxisSize: (style ?? defaultStyle).columnMainAxisSize,
-        mainAxisAlignment: (style ?? defaultStyle).columnMainAxisAlignment,
+        crossAxisAlignment:
+            columnCrossAxisAlignment ?? currentStyle.columnCrossAxisAlignment,
+        mainAxisSize: columnMainAxisSize ?? currentStyle.columnMainAxisSize,
+        mainAxisAlignment:
+            columnMainAxisAlignment ?? currentStyle.columnMainAxisAlignment,
         children: <Widget>[
           if (topChild != null) topChild!,
           Row(
-            mainAxisSize: (style ?? defaultStyle).rowMainAxisSize,
-            crossAxisAlignment:
-                (style ?? defaultStyle).columnCrossAxisAlignment,
-            mainAxisAlignment: (style ?? defaultStyle).rowMainAxisAlignment,
+            mainAxisSize: rowMainAxisSize ?? currentStyle.rowMainAxisSize,
+            crossAxisAlignment: columnCrossAxisAlignment ??
+                currentStyle.columnCrossAxisAlignment,
+            mainAxisAlignment:
+                rowMainAxisAlignment ?? currentStyle.rowMainAxisAlignment,
             children: <Widget>[
-              if ((style ?? defaultStyle).prefixIcon != null)
-                getIcon((style ?? defaultStyle).prefixIcon!),
+              if ((prefixIcon ?? currentStyle.prefixIcon) != null)
+                getIcon(prefixIcon ?? currentStyle.prefixIcon!),
               if (leftChild != null) leftChild!,
               Flexible(
                 child: RichText(
-                  maxLines: (style ?? defaultStyle).maxlines,
-                  textAlign: (style ?? defaultStyle).textAlign,
-                  textDirection: (style ?? defaultStyle).textDirection,
-                  overflow: (style ?? defaultStyle).overflow,
-                  softWrap: (style ?? defaultStyle).softWrap,
-                  strutStyle: (style ?? defaultStyle).strutStyle,
+                  maxLines: maxlines ?? currentStyle.maxlines,
+                  textAlign: textAlign ?? currentStyle.textAlign,
+                  textDirection: textDirection ?? currentStyle.textDirection,
+                  overflow: overflow ?? currentStyle.overflow,
+                  softWrap: softWrap ?? currentStyle.softWrap,
+                  strutStyle: strutStyle ?? currentStyle.strutStyle,
                   textHeightBehavior:
-                      (style ?? defaultStyle).textHeightBehavior,
-                  textScaleFactor: (style ?? defaultStyle).textScaleFactor,
-                  textWidthBasis: (style ?? defaultStyle).textWidthBasis,
+                      textHeightBehavior ?? currentStyle.textHeightBehavior,
+                  textScaleFactor:
+                      textScaleFactor ?? currentStyle.textScaleFactor,
+                  textWidthBasis: textWidthBasis ?? currentStyle.textWidthBasis,
                   text: TextSpan(
                     text: text,
                     children: inlineSpans,
                     style: TextStyle(
-                      decoration: (style ?? defaultStyle).decoration,
-                      color: getColorType((style ?? defaultStyle).fontColor!),
-                      decorationThickness:
-                          (style ?? defaultStyle).decorationThickness,
-                      fontSize: (style ?? defaultStyle).responsiveFontSize(),
-                      fontWeight: (style ?? defaultStyle).fontWeight,
-                      fontFamily: (style ?? defaultStyle).fontFamily,
-                      wordSpacing: (style ?? defaultStyle).wordSpacing,
-                      fontStyle: (style ?? defaultStyle).fontStyle,
-                      letterSpacing: (style ?? defaultStyle).letterSpacing,
+                      decoration: decoration ?? currentStyle.decoration,
+                      color:
+                          getColorType(decoration ?? currentStyle.decoration!),
+                      decorationThickness: decorationThickness ??
+                          currentStyle.decorationThickness,
+                      fontSize: fontSize != null
+                          ? _responsiveFontSize()
+                          : currentStyle.responsiveFontSize(),
+                      fontWeight: fontWeight ?? currentStyle.fontWeight,
+                      fontFamily: fontFamily ?? currentStyle.fontFamily,
+                      wordSpacing: wordSpacing ?? currentStyle.wordSpacing,
+                      fontStyle: fontStyle ?? currentStyle.fontStyle,
+                      letterSpacing:
+                          letterSpacing ?? currentStyle.letterSpacing,
                       backgroundColor: getColorType(
-                          (style ?? defaultStyle).backgroundColor!),
-                      height: (style ?? defaultStyle).height,
-                      textBaseline: (style ?? defaultStyle).textBaseline,
-                      leadingDistribution:
-                          (style ?? defaultStyle).leadingDistribution,
-                      locale: (style ?? defaultStyle).locale,
-                      foreground: (style ?? defaultStyle).foreground,
-                      background: (style ?? defaultStyle).background,
-                      shadows: (style ?? defaultStyle).shadows,
-                      fontFeatures: (style ?? defaultStyle).fontFeatures,
+                          backgroundColor ?? currentStyle.backgroundColor!),
+                      height: height ?? currentStyle.height,
+                      textBaseline: textBaseline ?? currentStyle.textBaseline,
+                      leadingDistribution: leadingDistribution ??
+                          currentStyle.leadingDistribution,
+                      locale: locale ?? currentStyle.locale,
+                      foreground: foreground ?? currentStyle.foreground,
+                      background: background ?? currentStyle.background,
+                      shadows: shadows ?? currentStyle.shadows,
+                      fontFeatures: fontFeatures ?? currentStyle.fontFeatures,
                       decorationColor: getColorType(
-                          (style ?? defaultStyle).decorationColor!),
-                      decorationStyle: (style ?? defaultStyle).decorationStyle,
-                      debugLabel: (style ?? defaultStyle).debugLabel,
+                          decorationColor ?? currentStyle.decorationColor!),
+                      decorationStyle:
+                          decorationStyle ?? currentStyle.decorationStyle,
+                      debugLabel: debugLabel ?? currentStyle.debugLabel,
                       fontFamilyFallback:
-                          (style ?? defaultStyle).fontFamilyFallback,
+                          fontFamilyFallback ?? currentStyle.fontFamilyFallback,
                     ),
                   ),
                 ),
