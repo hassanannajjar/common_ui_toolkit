@@ -48,7 +48,7 @@ class Texts extends StatelessWidget {
                   WidgetSpan(
                     child: CommonText(
                       text: '+970595131066',
-                      style: CommonTextModel(fontColor: COMMON_RED_COLOR),
+                      style: const CommonTextModel(fontColor: COMMON_RED_COLOR),
                       containerStyle: CommonContainerModel(
                         marginHorizontal: 0.008,
                         touchEffect: TouchableEffect(),
@@ -62,9 +62,9 @@ class Texts extends StatelessWidget {
 
               /// Simple underlined text
               /// You can customize the underline decoration by using the TextDecoration enum
-              CommonText(
+              const CommonText(
                 text: 'Underlined text',
-                containerStyle: const CommonContainerModel(
+                containerStyle: CommonContainerModel(
                   marginTop: 0.016,
                 ),
                 style: CommonTextModel(
@@ -102,7 +102,7 @@ class Texts extends StatelessWidget {
 
               /// Text with all side children with an icon
               CommonText(
-                style: CommonTextModel(
+                style: const CommonTextModel(
                   prefixIcon: CommonIcon(
                     path: 'assets/icons/account_icon.svg',
                     color: COMMON_RED_COLOR,
@@ -131,9 +131,8 @@ class Texts extends StatelessWidget {
                   containerStyle: CommonContainerModel(marginHorizontal: 0.008),
                   text: 'Left child',
                 ),
-                rightChild: CommonText(
-                  containerStyle:
-                      const CommonContainerModel(marginHorizontal: 0.008),
+                rightChild: const CommonText(
+                  containerStyle: CommonContainerModel(marginHorizontal: 0.008),
                   text: 'Right child',
                   style: CommonTextModel(
                     decoration: TextDecoration.lineThrough,
@@ -141,7 +140,7 @@ class Texts extends StatelessWidget {
                     decorationThickness: 3.0,
                   ),
                 ),
-                bottomChild: CommonText(
+                bottomChild: const CommonText(
                   text: 'Bottom child',
                   style: CommonTextModel(
                     decoration: TextDecoration.underline,

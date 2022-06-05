@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import '../common_ui_toolkit.dart';
 
 class CommonTextInputModel {
-  CommonTextInputModel({
+  const CommonTextInputModel({
     this.key,
     this.hint,
     this.textInputType,
@@ -108,359 +108,359 @@ class CommonTextInputModel {
   ///
   /// border width
   ///
-  double? borderWidth;
+  final double? borderWidth;
 
   ///
   /// border width
   ///
-  Key? key;
+  final Key? key;
 
   ///
   /// fontSize
   ///
-  double? fontSize;
+  final double? fontSize;
 
   ///
   /// radius
   ///
-  double? radius;
+  final double? radius;
 
   ///
   /// contentPadding from all sides
   ///
-  double? contentPadding;
-  double? contentPaddingTop;
-  double? contentPaddingBottom;
-  double? contentPaddingRight;
-  double? contentPaddingLeft;
-  double? contentPaddingVertical;
-  double? contentPaddingHorizontal;
+  final double? contentPadding;
+  final double? contentPaddingTop;
+  final double? contentPaddingBottom;
+  final double? contentPaddingRight;
+  final double? contentPaddingLeft;
+  final double? contentPaddingVertical;
+  final double? contentPaddingHorizontal;
 
   ///
   /// prefix & suffix min & max width & height
   ///
-  double? prefixMinWidth;
-  double? prefixMinHeight;
-  double? prefixMaxWidth;
-  double? prefixMaxHeight;
-  double? suffixMinWidth;
-  double? suffixMinHeight;
-  double? suffixMaxWidth;
-  double? suffixMaxHeight;
+  final double? prefixMinWidth;
+  final double? prefixMinHeight;
+  final double? prefixMaxWidth;
+  final double? prefixMaxHeight;
+  final double? suffixMinWidth;
+  final double? suffixMinHeight;
+  final double? suffixMaxWidth;
+  final double? suffixMaxHeight;
 
   ///
   /// cursor width and height
   ///
-  double? cursorHeight;
-  double? cursorWidth;
+  final double? cursorHeight;
+  final double? cursorWidth;
 
   /// Colors
-  dynamic textColor;
-  dynamic disabledColor;
-  dynamic errorColor;
-  dynamic focusBorderColor;
-  dynamic enabledBorderColor;
-  dynamic disabledBorderColor;
-  dynamic errorBorderColor;
-  dynamic hintColor;
-  dynamic fillColor;
-  dynamic cursorColor;
+  final dynamic textColor;
+  final dynamic disabledColor;
+  final dynamic errorColor;
+  final dynamic focusBorderColor;
+  final dynamic enabledBorderColor;
+  final dynamic disabledBorderColor;
+  final dynamic errorBorderColor;
+  final dynamic hintColor;
+  final dynamic fillColor;
+  final dynamic cursorColor;
 
   /// Lengths
-  int? maxLength;
-  int? minLength;
-  int? minLines;
-  int? maxLines;
+  final int? maxLength;
+  final int? minLength;
+  final int? minLines;
+  final int? maxLines;
 
   /// Widgets
-  Widget? prefixWidget;
-  Widget? suffixWidget;
-  Widget? prefix;
-  Widget? suffix;
-  Widget? counterWidget;
+  final Widget? prefixWidget;
+  final Widget? suffixWidget;
+  final Widget? prefix;
+  final Widget? suffix;
+  final Widget? counterWidget;
 
   /// If you pass prefixWidget then prefixIcon is ignored.
   /// prefix and suffix icons
-  CommonIcon? prefixIcon;
-  CommonIcon? suffixIcon;
+  final CommonIcon? prefixIcon;
+  final CommonIcon? suffixIcon;
 
   ///
   /// focus node
   ///
-  FocusNode? focusNode;
+  final FocusNode? focusNode;
 
   ///
   /// font weight
   ///
-  int? fontWeight;
+  final int? fontWeight;
 
   ///
   /// hint
   ///
-  String? hint;
+  final String? hint;
 
   ///
   /// font family
   ///
-  String? fontFamily;
+  final String? fontFamily;
 
   ///
   /// text
   ///
-  String? text;
+  final String? text;
 
   ///
   /// prefix and suffix texts
   ///
-  String? prefixText;
-  String? suffixText;
+  final String? prefixText;
+  final String? suffixText;
 
   ///
   /// counter text
   ///
-  String? counterText;
+  final String? counterText;
 
   ///
   /// semantic counter text
   ///
-  String? semanticCounterText;
+  final String? semanticCounterText;
 
   ///
   /// is required
   ///
-  bool? isRequired;
+  final bool? isRequired;
 
   ///
   /// with border side
   ///
-  bool? withBorderSide;
+  final bool? withBorderSide;
 
   ///
   /// underlined
   ///
-  bool? underlined;
+  final bool? underlined;
 
   ///
   /// is collapsed
   ///
-  bool? isCollapsed;
+  final bool? isCollapsed;
 
   ///
   /// read only
   ///
-  bool? readOnly;
+  final bool? readOnly;
 
   ///
   /// obscure text
   ///
-  bool? obscureText;
+  final bool? obscureText;
 
   ///
   /// enabled
   ///
-  bool? enabled;
+  final bool? enabled;
 
   ///
   /// show cursor
   ///
-  bool? showCursor;
+  final bool? showCursor;
 
   ///
   /// show cursor
   ///
-  bool? autoCorrect;
+  final bool? autoCorrect;
 
   // This is a hack to make the text input verified when user finish typing the right cross content based on input type
-  bool? withInputVerification;
+  final bool? withInputVerification;
 
   // types: (EMAIL_INPUT_TYPE, TEXT_INPUT_TYPE , NUMBER_INPUT_TYPE, PASSWORD_INPUT_TYPE)
-  TextInputType? textInputType;
+  final TextInputType? textInputType;
 
   ///
   /// text align
   ///
-  TextAlign? textAlign;
+  final TextAlign? textAlign;
 
   ///
   /// text input action
   ///
-  TextInputAction? textInputAction;
+  final TextInputAction? textInputAction;
 
   ///
   /// text style
   ///
-  TextStyle? textStyle;
+  final TextStyle? textStyle;
 
   ///
   /// hint style
   ///
-  TextStyle? hintStyle;
+  final TextStyle? hintStyle;
 
   ///
   /// prefix style
   ///
-  TextStyle? prefixStyle;
+  final TextStyle? prefixStyle;
 
   ///
   /// suffix style
   ///
-  TextStyle? suffixStyle;
+  final TextStyle? suffixStyle;
 
   ///
   /// counter style
   ///
-  TextStyle? counterStyle;
+  final TextStyle? counterStyle;
 
   ///
   /// ex: RegExp(r'^\d*')
   /// text input pattern
   ///
-  Pattern? textInputPattern;
+  final Pattern? textInputPattern;
 
   ///
   /// text input formatters
   ///
-  List<TextInputFormatter>? textInputFormatters;
+  final List<TextInputFormatter>? textInputFormatters;
 
   ///
   /// input decoration
   ///
-  InputDecoration? inputDecoration;
+  final InputDecoration? inputDecoration;
 
   ///
   /// cursor radius
   ///
-  Radius? cursorRadius;
+  final Radius? cursorRadius;
 
   ///
   /// auto fill hints
   ///
-  Iterable<String>? autofillHints;
+  final Iterable<String>? autofillHints;
 
   ///
   /// auto focus
   ///
-  bool? autofocus;
+  final bool? autofocus;
 
   ///
   /// auto validate mode
   ///
-  AutovalidateMode? autoValidateMode;
+  final AutovalidateMode? autoValidateMode;
 
   ///
   /// build counter
   ///
-  InputCounterWidgetBuilder? buildCounter;
+  final InputCounterWidgetBuilder? buildCounter;
 
   ///
   /// enable interactive selection
   ///
-  bool? enableInteractiveSelection;
+  final bool? enableInteractiveSelection;
 
   ///
   /// enable suggestions
   ///
-  bool? enableSuggestions;
+  final bool? enableSuggestions;
 
   ///
   /// expands
   ///
-  bool? expands;
+  final bool? expands;
 
   ///
   /// initial value
   ///
-  String? initialValue;
+  final String? initialValue;
 
   ///
   /// obscuring Character
   ///
-  String obscuringCharacter;
+  final String obscuringCharacter;
 
   ///
   /// keyboard appearance
   ///
-  Brightness? keyboardAppearance;
+  final Brightness? keyboardAppearance;
 
   ///
   /// on editing complete
   ///
-  VoidCallback? onEditingComplete;
+  final VoidCallback? onEditingComplete;
 
   ///
   /// on field submitted
   ///
-  ValueChanged<String>? onFieldSubmitted;
+  final ValueChanged<String>? onFieldSubmitted;
 
   ///
   /// on saved
   ///
-  FormFieldSetter<String>? onSaved;
+  final FormFieldSetter<String>? onSaved;
 
   ///
   /// on tap
   ///
-  GestureTapCallback? onTap;
+  final GestureTapCallback? onTap;
 
   ///
   /// scroll controller
   ///
-  ScrollController? scrollController;
+  final ScrollController? scrollController;
 
   ///
   /// scroll padding
   ///
-  EdgeInsets scrollPadding;
+  final EdgeInsets scrollPadding;
 
   ///
   /// selection controls
   ///
-  TextSelectionControls? selectionControls;
+  final TextSelectionControls? selectionControls;
 
   ///
   /// smart dashes type
   ///
-  SmartDashesType? smartDashesType;
+  final SmartDashesType? smartDashesType;
 
   ///
   /// smart quotes type
   ///
-  SmartQuotesType? smartQuotesType;
+  final SmartQuotesType? smartQuotesType;
 
   ///
   /// strut style
   ///
-  StrutStyle? strutStyle;
+  final StrutStyle? strutStyle;
 
   ///
   /// text align vertical
   ///
-  TextAlignVertical? textAlignVertical;
+  final TextAlignVertical? textAlignVertical;
 
   ///
   /// text align vertical
   ///
-  TextCapitalization textCapitalization;
+  final TextCapitalization textCapitalization;
 
   ///
   /// text direction
   ///
-  TextDirection? textDirection;
+  final TextDirection? textDirection;
 
   ///
   /// toolbar options
   ///
-  ToolbarOptions? toolbarOptions;
+  final ToolbarOptions? toolbarOptions;
 
   ///
   /// form field validator
   ///
-  FormFieldValidator<String>? validator;
+  final FormFieldValidator<String>? validator;
 
   ///
   /// max length enforcement
   ///
-  MaxLengthEnforcement? maxLengthEnforcement;
+  final MaxLengthEnforcement? maxLengthEnforcement;
 
   CommonTextInputModel copyWith({
     double? borderWidth,

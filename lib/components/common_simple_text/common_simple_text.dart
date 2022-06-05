@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import '../../common_ui_toolkit.dart';
 
-final CommonTextModel _defaultTextStyle = CommonTextModel();
+const CommonTextModel _defaultTextStyle = CommonTextModel();
 
 class CommonSimpleText extends StatelessWidget {
   const CommonSimpleText(

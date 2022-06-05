@@ -3,7 +3,7 @@ import 'dart:ui';
 import '../common_ui_toolkit.dart';
 
 class CommonTextModel {
-  CommonTextModel({
+  const CommonTextModel({
     ///sizes
     this.height,
     this.letterSpacing = 0.0,

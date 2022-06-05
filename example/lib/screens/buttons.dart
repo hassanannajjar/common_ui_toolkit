@@ -34,7 +34,7 @@ class Buttons extends StatelessWidget {
                     width: 0.4,
                     height: 0.1,
                   ),
-                  style: CommonButtonModel(
+                  style: const CommonButtonModel(
                     elevation: 10.0,
                     borderRadius: 0.05,
 
@@ -65,10 +65,10 @@ class Buttons extends StatelessWidget {
                       type: TouchTypes.opacity,
                     ),
                   ),
-                  textStyle: CommonTextModel(
+                  textStyle: const CommonTextModel(
                     fontColor: Colors.white,
                   ),
-                  style: CommonButtonModel(
+                  style: const CommonButtonModel(
                     overlayColor: COMMON_TRANSPARENT_COLOR,
                     backgroundColor: COMMON_PR_COLOR,
                     topLeftRadius: 0.05,
@@ -85,10 +85,10 @@ class Buttons extends StatelessWidget {
                     marginVertical: 0.1,
                     backgroundColor: COMMON_RED_COLOR,
                   ),
-                  textStyle: CommonTextModel(
+                  textStyle: const CommonTextModel(
                     fontColor: COMMON_WHITE_COLOR,
                   ),
-                  style: CommonButtonModel(
+                  style: const CommonButtonModel(
                     isEnable: false,
                     backgroundColor: COMMON_PR_COLOR,
                   ),

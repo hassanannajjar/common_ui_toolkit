@@ -56,7 +56,7 @@ class CommonText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CommonTextModel defaultStyle = CommonTextModel();
+    const CommonTextModel defaultStyle = CommonTextModel();
 
     const CommonContainerModel defaultContainerStyle = CommonContainerModel();
 

@@ -1,7 +1,7 @@
 import '../common_ui_toolkit.dart';
 
 class CommonButtonModel {
-  CommonButtonModel({
+  const CommonButtonModel({
     this.isEnable = true,
     this.autofocus = false,
     this.backgroundColor = COMMON_WHITE_COLOR,
@@ -39,15 +39,15 @@ class CommonButtonModel {
     this.alignment = Alignment.center,
   });
 
-  bool isEnable;
+  final bool isEnable;
 
   /// The [autofocus] and [clipBehavior] arguments must not be null.
-  bool autofocus;
+  final bool autofocus;
 
   /// Colors
-  dynamic backgroundColor;
-  dynamic disabledColor;
-  dynamic overlayColor;
+  final dynamic backgroundColor;
+  final dynamic disabledColor;
+  final dynamic overlayColor;
 
   /// The highlight color that's typically used to indicate that
   /// the button is focused, hovered, or pressed.
@@ -68,116 +68,116 @@ class CommonButtonModel {
   ///
   /// radius
   ///
-  double? bottomLeftRadius;
-  double? bottomRightRadius;
-  double? topLeftRadius;
-  double? topRightRadius;
-  double? borderRadius;
+  final double? bottomLeftRadius;
+  final double? bottomRightRadius;
+  final double? topLeftRadius;
+  final double? topRightRadius;
+  final double? borderRadius;
 
   ///
   /// default elevation
   ///
-  double elevation;
+  final double elevation;
 
   ///
   /// alignment
   ///
-  AlignmentGeometry alignment;
+  final AlignmentGeometry alignment;
 
   ///
   /// animationDuration
   ///
-  Duration? animationDuration;
+  final Duration? animationDuration;
 
   ///
   /// enableFeedback
   ///
-  bool enableFeedback;
+  final bool enableFeedback;
 
   ///
   /// fixedSize
   ///
-  MaterialStateProperty<Size?>? fixedSize;
+  final MaterialStateProperty<Size?>? fixedSize;
 
   ///
   /// foregroundColor
   ///
-  MaterialStateProperty<Color?>? foregroundColor;
+  final MaterialStateProperty<Color?>? foregroundColor;
 
   ///
   /// maximumSize
   ///
-  MaterialStateProperty<Size?>? maximumSize;
+  final MaterialStateProperty<Size?>? maximumSize;
 
   ///
   /// minimumSize
   ///
-  MaterialStateProperty<Size?>? minimumSize;
+  final MaterialStateProperty<Size?>? minimumSize;
 
   ///
   /// mouseCursor
   ///
-  MaterialStateProperty<MouseCursor?>? mouseCursor;
+  final MaterialStateProperty<MouseCursor?>? mouseCursor;
 
   ///
   /// onFocusChange
   ///
-  ValueChanged<bool>? onFocusChange;
+  final ValueChanged<bool>? onFocusChange;
 
   ///
   /// onHover
   ///
-  ValueChanged<bool>? onHover;
+  final ValueChanged<bool>? onHover;
 
   ///
   /// padding
   ///
-  MaterialStateProperty<EdgeInsetsGeometry?>? padding;
+  final MaterialStateProperty<EdgeInsetsGeometry?>? padding;
 
   ///
   /// shadowColor
   ///
-  MaterialStateProperty<Color?>? shadowColor;
+  final MaterialStateProperty<Color?>? shadowColor;
 
   ///
   /// side
   ///
-  MaterialStateProperty<BorderSide?>? side;
+  final MaterialStateProperty<BorderSide?>? side;
 
   ///
   /// splashFactory
   ///
-  InteractiveInkFeatureFactory? splashFactory;
+  final InteractiveInkFeatureFactory? splashFactory;
 
   ///
   /// tapTargetSize
   ///
-  MaterialTapTargetSize? tapTargetSize;
+  final MaterialTapTargetSize? tapTargetSize;
 
   ///
   /// textStyle
   ///
-  MaterialStateProperty<TextStyle?>? textStyle;
+  final MaterialStateProperty<TextStyle?>? textStyle;
 
   ///
   /// visualDensity
   ///
-  VisualDensity? visualDensity;
+  final VisualDensity? visualDensity;
 
   ///
   /// clipBehavior
   ///
-  Clip clipBehavior;
+  final Clip clipBehavior;
 
   ///
   /// focusNode
   ///
-  FocusNode? focusNode;
+  final FocusNode? focusNode;
 
   ///
   /// key
   ///
-  Key? key;
+  final Key? key;
 
   ///
   /// get border Radius.

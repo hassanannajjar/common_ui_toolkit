@@ -48,8 +48,8 @@ class TextInputs extends StatelessWidget {
                     iconDataSize: 0.05,
                     color: COMMON_RED_COLOR,
                   ),
-                  suffixIcon: CommonIcon(
-                    containerStyle: const CommonContainerModel(
+                  suffixIcon: const CommonIcon(
+                    containerStyle: CommonContainerModel(
                       width: 0.04,
                       height: 0.04,
                       marginHorizontal: 0.01,
@@ -65,20 +65,20 @@ class TextInputs extends StatelessWidget {
                 ),
                 text: 'CommonTextInput with prefix and suffix widgets',
               ),
-              CommonTextInput(
-                containerStyle: const CommonContainerModel(
+              const CommonTextInput(
+                containerStyle: CommonContainerModel(
                   marginTop: 0.01,
                 ),
                 style: CommonTextInputModel(
                   counterText: 'Styled counter Text',
-                  counterStyle: const TextStyle(
+                  counterStyle: TextStyle(
                     color: Colors.red,
                   ),
                   borderWidth: 3,
                   focusBorderColor: COMMON_RED_COLOR,
                   fillColor: COMMON_GREY_COLOR,
                   prefixWidget: CommonText(
-                    containerStyle: const CommonContainerModel(
+                    containerStyle: CommonContainerModel(
                       marginHorizontal: 0.03,
                     ),
                     style: CommonTextModel(
@@ -87,7 +87,7 @@ class TextInputs extends StatelessWidget {
                     text: '+966',
                   ),
                   suffixWidget: CommonText(
-                    containerStyle: const CommonContainerModel(
+                    containerStyle: CommonContainerModel(
                       marginHorizontal: 0.03,
                     ),
                     style: CommonTextModel(
@@ -103,7 +103,7 @@ class TextInputs extends StatelessWidget {
                 ),
                 text: 'Disabled text input with zero radius',
               ),
-              CommonTextInput(
+              const CommonTextInput(
                 style: CommonTextInputModel(
                   radius: 0,
                   enabled: false,
@@ -112,9 +112,9 @@ class TextInputs extends StatelessWidget {
                   hint: 'Search',
                 ),
               ),
-              Align(
+              const Align(
                 child: CommonTextInput(
-                  containerStyle: const CommonContainerModel(
+                  containerStyle: CommonContainerModel(
                     marginTop: 0.03,
                     width: 0.5,
                   ),
@@ -123,13 +123,13 @@ class TextInputs extends StatelessWidget {
                     cursorWidth: 10,
                     cursorColor: COMMON_RED_COLOR,
                     // showCursor: false,
-                    cursorRadius: const Radius.circular(100),
+                    cursorRadius: Radius.circular(100),
                     hint: 'Search',
                     cursorHeight: 30,
                     borderWidth: 3,
                     focusBorderColor: COMMON_RED_COLOR,
                     prefixIcon: CommonIcon(
-                      containerStyle: const CommonContainerModel(
+                      containerStyle: CommonContainerModel(
                         marginHorizontal: 16.0,
                       ),
                       path: Icons.search,
@@ -143,7 +143,7 @@ class TextInputs extends StatelessWidget {
                   marginTop: 0.03,
                 ),
               ),
-              CommonTextInput(
+              const CommonTextInput(
                 style: CommonTextInputModel(
                   cursorColor: COMMON_RED_COLOR,
                   focusBorderColor: COMMON_RED_COLOR,
@@ -158,7 +158,7 @@ class TextInputs extends StatelessWidget {
                   marginTop: 0.03,
                 ),
               ),
-              CommonTextInput(
+              const CommonTextInput(
                 style: CommonTextInputModel(
                   hint: '******',
                   obscureText: true,

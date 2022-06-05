@@ -7,10 +7,10 @@ class CommonButtonStyle {
     this.textContainerStyle,
     this.textStyle,
   }) {
-    style = style ?? CommonButtonModel();
+    style = style ?? const CommonButtonModel();
     containerStyle = containerStyle ?? const CommonContainerModel();
     textContainerStyle = textContainerStyle ?? const CommonContainerModel();
-    textStyle = textStyle ?? CommonTextModel();
+    textStyle = textStyle ?? const CommonTextModel();
   }
 
   CommonButtonModel? style;
