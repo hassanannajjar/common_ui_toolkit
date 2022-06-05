@@ -47,165 +47,177 @@ class CommonTextModel {
     this.debugLabel,
     this.fontFamilyFallback,
     this.prefixIcon,
+    this.inherit = true,
+    this.package,
   });
 
   ///
   /// sizes
   ///
-  double? height;
-  double? letterSpacing;
-  double? wordSpacing;
-  double? decorationThickness;
-  double? fontSize;
-  double textScaleFactor;
-  int? maxlines;
+  final double? height;
+  final double? letterSpacing;
+  final double? wordSpacing;
+  final double? decorationThickness;
+  final double? fontSize;
+  final double textScaleFactor;
+  final int? maxlines;
 
   ///
   /// colors
   ///
-  dynamic fontColor;
-  dynamic backgroundColor;
-  dynamic decorationColor;
+  final dynamic fontColor;
+  final dynamic backgroundColor;
+  final dynamic decorationColor;
 
   ///
   /// decoration
   ///
-  TextDecoration? decoration;
+  final TextDecoration? decoration;
 
   ///
   /// text direction
   ///
-  TextDirection? textDirection;
+  final TextDirection? textDirection;
 
   ///
   /// overflow
   ///
-  TextOverflow overflow;
+  final TextOverflow overflow;
 
   ///
   /// soft wrap
   ///
-  bool softWrap;
+  final bool softWrap;
 
   ///
   /// strut style
   ///
-  StrutStyle? strutStyle;
+  final StrutStyle? strutStyle;
 
   ///
   /// text height behavior
   ///
-  TextHeightBehavior? textHeightBehavior;
+  final TextHeightBehavior? textHeightBehavior;
 
   ///
   /// text width basis
   ///
-  TextWidthBasis textWidthBasis;
+  final TextWidthBasis textWidthBasis;
 
   ///
   /// decoration style
   ///
-  TextDecorationStyle? decorationStyle;
+  final TextDecorationStyle? decorationStyle;
 
   ///
   /// font weight
   ///
-  FontWeight? fontWeight;
+  final FontWeight? fontWeight;
 
   ///
   /// text align
   ///
-  TextAlign textAlign;
+  final TextAlign textAlign;
 
   ///
   /// font style
   ///
-  FontStyle? fontStyle;
+  final FontStyle? fontStyle;
 
   ///
   /// text base line
   ///
-  TextBaseline? textBaseline;
+  final TextBaseline? textBaseline;
 
   ///
   /// leading distribution
   ///
-  TextLeadingDistribution? leadingDistribution;
+  final TextLeadingDistribution? leadingDistribution;
 
   ///
   /// column Cross Axis Alignment
   ///
-  CrossAxisAlignment columnCrossAxisAlignment;
+  final CrossAxisAlignment columnCrossAxisAlignment;
 
   ///
   /// column main Axis Alignment
   ///
-  MainAxisAlignment columnMainAxisAlignment;
+  final MainAxisAlignment columnMainAxisAlignment;
 
   ///
   /// column main Axis size
   ///
-  MainAxisSize columnMainAxisSize;
+  final MainAxisSize columnMainAxisSize;
 
   ///
   /// row cross Axis Alignment
   ///
-  CrossAxisAlignment rowCrossAxisAlignment;
+  final CrossAxisAlignment rowCrossAxisAlignment;
 
   ///
   /// row main Axis Alignment
   ///
-  MainAxisAlignment rowMainAxisAlignment;
+  final MainAxisAlignment rowMainAxisAlignment;
 
   ///
   /// row main Axis size
   ///
-  MainAxisSize rowMainAxisSize;
+  final MainAxisSize rowMainAxisSize;
 
   ///
   /// locale
   ///
-  Locale? locale;
+  final Locale? locale;
 
   ///
   /// foreground
   ///
-  Paint? foreground;
+  final Paint? foreground;
 
   ///
   /// background
   ///
-  Paint? background;
+  final Paint? background;
 
   ///
   /// shadows
   ///
-  List<Shadow>? shadows;
+  final List<Shadow>? shadows;
 
   ///
   /// font features
   ///
-  List<FontFeature>? fontFeatures;
+  final List<FontFeature>? fontFeatures;
 
   ///
   /// font family fallback
   ///
-  List<String>? fontFamilyFallback;
+  final List<String>? fontFamilyFallback;
 
   ///
   /// font family
   ///
-  String? fontFamily;
+  final String? fontFamily;
 
   ///
   /// debug label
   ///
-  String? debugLabel;
+  final String? debugLabel;
 
-  double responsiveFontSize() => DEVICE_WIDTH * (fontSize! / 430);
+  ///
+  /// inherit
+  ///
+  final bool? inherit;
+
+  ///
+  /// package
+  ///
+  final String? package;
 
   /// prefix icon
-  CommonIcon? prefixIcon;
+  final CommonIcon? prefixIcon;
+
+  double responsiveFontSize() => DEVICE_WIDTH * (fontSize! / 430);
 
   CommonTextModel copyWith({
     double? height,
@@ -246,6 +258,8 @@ class CommonTextModel {
     String? fontFamily,
     String? debugLabel,
     CommonIcon? prefixIcon,
+    bool? inherit,
+    String? package,
   }) {
     return CommonTextModel(
       height: height ?? this.height,
@@ -289,6 +303,8 @@ class CommonTextModel {
       fontFamily: fontFamily ?? this.fontFamily,
       debugLabel: debugLabel ?? this.debugLabel,
       prefixIcon: prefixIcon ?? this.prefixIcon,
+      inherit: inherit ?? this.inherit,
+      package: package ?? this.package,
     );
   }
 }
