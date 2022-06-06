@@ -18,7 +18,7 @@ class CommonText extends StatelessWidget {
     this.height,
     this.letterSpacing,
     this.wordSpacing,
-    this.fontSize = COMMON_H4_FONT,
+    this.fontSize,
     this.decorationThickness,
     this.maxlines,
     this.textScaleFactor,
@@ -303,8 +303,7 @@ class CommonText extends StatelessWidget {
                     children: inlineSpans,
                     style: TextStyle(
                       decoration: decoration ?? currentStyle.decoration,
-                      color:
-                          getColorType(decoration ?? currentStyle.decoration!),
+                      color: getColorType(fontColor ?? currentStyle.fontColor!),
                       decorationThickness: decorationThickness ??
                           currentStyle.decorationThickness,
                       fontSize: fontSize != null

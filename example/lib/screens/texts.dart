@@ -25,6 +25,31 @@ class Texts extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
+              const CommonSimpleText(
+                'Simple Text \n',
+              ),
+
+              const CommonSimpleText(
+                'Simple Text with background color \n',
+                backgroundColor: Colors.red,
+              ),
+
+              const CommonSimpleText(
+                'Simple Text with under line \n ',
+                overflow: TextOverflow.fade,
+                decoration: TextDecoration.underline,
+              ),
+
+              const CommonSimpleText(
+                'wavy line \n ',
+                fontSize: 30,
+                style: CommonTextModel(
+                  overflow: TextOverflow.fade,
+                  decoration: TextDecoration.underline,
+                  decorationStyle: TextDecorationStyle.wavy,
+                ),
+              ),
+
               /// Common UI toolkit with full shadow border around the text, you can customize the containers you like
               CommonText(
                 containerStyle: CommonContainerStyle().fullShadow.copyWith(

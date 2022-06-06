@@ -3,7 +3,6 @@
 - changed `isResponsive` to be deprecated and use `size` to create square container.
 - Added parameters to be inline if you want to edit some attribute inline without update the style.
 ex: 
-
 ```dart 
 CommonContainerModel containerStyle = CommonContainerModel(backgroundColor:Colors.red, width:0.2,);
 
@@ -15,6 +14,7 @@ CommonContainer(style:containerStyle.copyWith(paddingTop:0.01,),);
 CommonContainer(style:containerStyle, paddingTop:0.01,);
 
 ```
+- Added new component call `CommonSimpleText` and it's simple than `CommonText` without all attributes
 
 ## 0.3.3 => 0.3.5  (May 17, 2022)
 

@@ -2,8 +2,6 @@ import 'dart:ui';
 
 import '../../common_ui_toolkit.dart';
 
-const CommonTextModel _defaultTextStyle = CommonTextModel();
-
 class CommonSimpleText extends StatelessWidget {
   const CommonSimpleText(
     this.text, {
@@ -173,7 +171,7 @@ class CommonSimpleText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CommonTextModel currentTextStyle = style ?? _defaultTextStyle;
+    final CommonTextModel currentTextStyle = style ?? const CommonTextModel();
 
     return Text(
       text!,
