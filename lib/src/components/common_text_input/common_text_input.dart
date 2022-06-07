@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../common_ui_toolkit.dart';
+import '../../../common_ui_toolkit.dart';
 
 const CommonTextInputModel _defaultTextInputModel = CommonTextInputModel();
 

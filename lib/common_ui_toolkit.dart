@@ -5,7 +5,7 @@ library common_ui_toolkit;
 
 export 'package:flutter/material.dart';
 
-export 'components/index.dart';
-export 'models/index.dart';
-export 'styles/index.dart';
-export 'utils/index.dart';
+export 'src/components/index.dart';
+export 'src/models/index.dart';
+export 'src/styles/index.dart';
+export 'src/utils/index.dart';

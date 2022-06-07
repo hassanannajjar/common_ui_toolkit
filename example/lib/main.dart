@@ -4,6 +4,7 @@ import 'screens/index.dart';
 import 'utils/constants.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

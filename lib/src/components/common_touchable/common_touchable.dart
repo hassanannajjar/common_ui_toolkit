@@ -2,9 +2,7 @@
 
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
-
-import 'touchable_effect.dart';
+import '../../../common_ui_toolkit.dart';
 
 class CommonTouchable extends StatefulWidget {
   const CommonTouchable({

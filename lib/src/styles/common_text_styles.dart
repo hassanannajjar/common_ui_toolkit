@@ -1,4 +1,4 @@
-import '../common_ui_toolkit.dart';
+import '../../common_ui_toolkit.dart';
 
 class CommonTextStyles {
   /// body Style custom CommonTextStyles
