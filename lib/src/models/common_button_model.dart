@@ -12,7 +12,7 @@ class CommonButtonModel {
     this.overlayColor = Colors.black12,
     this.customOverlayColor,
     this.customElevation,
-    this.elevation = 0.0,
+    this.elevation,
     this.borderRadius = 0.0,
     this.bottomLeftRadius,
     this.bottomRightRadius,
@@ -77,7 +77,7 @@ class CommonButtonModel {
   ///
   /// default elevation
   ///
-  final double elevation;
+  final double? elevation;
 
   ///
   /// alignment
