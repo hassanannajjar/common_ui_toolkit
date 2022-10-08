@@ -49,6 +49,8 @@ class CommonTextModel {
     this.prefixIcon,
     this.inherit = true,
     this.package,
+    this.semanticsLabel,
+    this.maxLines,
   });
 
   ///
@@ -217,6 +219,16 @@ class CommonTextModel {
   /// prefix icon
   final CommonIcon? prefixIcon;
 
+  ///
+  /// max lines
+  ///
+  final int? maxLines;
+
+  ///
+  /// semantics label
+  ///
+  final String? semanticsLabel;
+
   double responsiveFontSize() => DEVICE_WIDTH * (fontSize! / 430);
 
   CommonTextModel copyWith({
@@ -260,6 +272,8 @@ class CommonTextModel {
     CommonIcon? prefixIcon,
     bool? inherit,
     String? package,
+    int? maxLines,
+    String? semanticsLabel,
   }) {
     return CommonTextModel(
       height: height ?? this.height,
@@ -305,6 +319,8 @@ class CommonTextModel {
       prefixIcon: prefixIcon ?? this.prefixIcon,
       inherit: inherit ?? this.inherit,
       package: package ?? this.package,
+      maxLines: maxLines ?? this.maxLines,
+      semanticsLabel: semanticsLabel ?? this.semanticsLabel,
     );
   }
 }

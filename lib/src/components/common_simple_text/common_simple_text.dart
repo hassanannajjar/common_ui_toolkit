@@ -35,6 +35,15 @@ class CommonSimpleText extends StatelessWidget {
     this.fontFamilyFallback,
     this.inherit,
     this.package,
+    this.strutStyle,
+    this.textAlign,
+    this.textDirection,
+    this.softWrap,
+    this.textScaleFactor,
+    this.maxLines,
+    this.semanticsLabel,
+    this.textWidthBasis,
+    this.textHeightBehavior,
     Key? key,
   }) : super(
           key: key,
@@ -167,6 +176,16 @@ class CommonSimpleText extends StatelessWidget {
   ///
   final String? package;
 
+  final StrutStyle? strutStyle;
+  final TextAlign? textAlign;
+  final TextDirection? textDirection;
+  final bool? softWrap;
+  final double? textScaleFactor;
+  final int? maxLines;
+  final String? semanticsLabel;
+  final TextWidthBasis? textWidthBasis;
+  final TextHeightBehavior? textHeightBehavior;
+
   double _responsiveFontSize() => DEVICE_WIDTH * (fontSize! / 430);
 
   @override
@@ -209,6 +228,18 @@ class CommonSimpleText extends StatelessWidget {
         inherit: inherit ?? currentTextStyle.inherit!,
         package: package ?? currentTextStyle.package,
       ),
+      locale: locale ?? currentTextStyle.locale,
+      strutStyle: strutStyle ?? currentTextStyle.strutStyle,
+      textAlign: TextAlign.center,
+      textDirection: textDirection ?? currentTextStyle.textDirection,
+      softWrap: softWrap ?? currentTextStyle.softWrap,
+      textScaleFactor: textScaleFactor ?? currentTextStyle.textScaleFactor,
+      // maxLines: maxLines ?? currentTextStyle.maxLines,
+      // semanticsLabel: semanticsLabel ?? currentTextStyle.semanticsLabel,
+      // textWidthBasis: textWidthBasis ?? currentTextStyle.textWidthBasis,
+      // textHeightBehavior:
+      //     textHeightBehavior ?? currentTextStyle.textHeightBehavior,
+      // overflow: overflow ?? currentTextStyle.overflow,
     );
   }
 }
