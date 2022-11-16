@@ -3,33 +3,68 @@ import 'package:common_ui_toolkit/common_ui_toolkit.dart';
 import 'screens/index.dart';
 import 'utils/constants.dart';
 
+const String _button = 'button';
+const String _container = 'container';
+const String _text = 'text';
+const String _image = 'image';
+const String _datepicker = 'datepicker';
+const String _textInput = 'textInput';
 void main() {
+  // ?name=button&type=primary
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  final String fullUrl = Uri.base.queryParameters.toString();
+  final String name = Uri.base.queryParameters['name']
+      .toString(); //get parameter with attribute "name"
+  final String type = Uri.base.queryParameters['type']
+      .toString(); //get parameter with attribute "type"
+  runApp(MyApp(fullUrl: fullUrl, name: name, type: type)); //pass to MyApp class
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+  //constructor of MyApp class
+  const MyApp({super.key, this.fullUrl, this.name, this.type});
 
+  final String? fullUrl;
+  final String? name;
+  final String? type;
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(),
-      routes: <String, WidgetBuilder>{
-        routeContainers: (BuildContext context) => const Containers(),
-        routeTexts: (BuildContext context) => const Texts(),
-        routeButtons: (BuildContext context) => const Buttons(),
-        routeTextInputs: (BuildContext context) => const TextInputs(),
-        routeDatePickers: (BuildContext context) => const DatePickers(),
-        routeImages: (BuildContext context) => const Images(),
-      },
+      title: 'Common UI Toolkit',
+      home: widget.name == _container
+          ? const Containers()
+          : widget.name == _text
+              ? const Texts()
+              : widget.name == _button
+                  ? Buttons(
+                      type: widget.type,
+                    )
+                  : widget.name == _textInput
+                      ? const TextInputs()
+                      : widget.name == _datepicker
+                          ? const DatePickers()
+                          : widget.name == _image
+                              ? const Images()
+                              : const MyHomePage(),
     );
   }
 }
+
+//  routes: <String, WidgetBuilder>{
+//         routeContainers: (BuildContext context) => const Containers(),
+//         routeTexts: (BuildContext context) => const Texts(),
+//         routeButtons: (BuildContext context) => const Buttons(),
+//         routeTextInputs: (BuildContext context) => const TextInputs(),
+//         routeDatePickers: (BuildContext context) => const DatePickers(),
+//         routeImages: (BuildContext context) => const Images(),
+//       },
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);

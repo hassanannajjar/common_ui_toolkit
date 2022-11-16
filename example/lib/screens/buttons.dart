@@ -1,29 +1,19 @@
 import 'package:common_ui_toolkit/common_ui_toolkit.dart';
 
-import '../utils/constants.dart';
-
 class Buttons extends StatelessWidget {
-  const Buttons({Key? key}) : super(key: key);
+  const Buttons({Key? key, this.type}) : super(key: key);
 
+  final String? type;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(colorPrimary),
-        title: CommonText(
-          containerStyle: const CommonContainerModel().copyWith(
-            backgroundColor: 0x00FFFFFF,
-            alignment: Alignment.center,
-            width: 0.7,
-          ),
-          style: CommonTextStyles().h2Style(),
-          text: 'Buttons',
-        ),
-      ),
       body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              height: DEVICE_HEIGHT * 0.05,
+            ),
+            if (type == 'primary')
               CommonButton(
                 text: 'Button with elevation and custom size',
                 onPress: () {
@@ -57,6 +47,7 @@ class Buttons extends StatelessWidget {
                   ),
                 ),
               ),
+            if (type == 'default')
               CommonButton(
                 text: 'Customized radius button with different press effect',
                 buttonStyle: CommonButtonStyle(
@@ -78,6 +69,7 @@ class Buttons extends StatelessWidget {
                   ),
                 ),
               ),
+            if (type == 'secondary')
               CommonButton(
                 text: 'Disabled button',
                 buttonStyle: CommonButtonStyle(
@@ -94,8 +86,7 @@ class Buttons extends StatelessWidget {
                   ),
                 ),
               ),
-            ],
-          ),
+          ],
         ),
       ),
     );
