@@ -13,15 +13,12 @@ void main() {
   // ?name=button&type=primary
   WidgetsFlutterBinding.ensureInitialized();
   final String fullUrl = Uri.base.queryParameters.toString();
-  final String name = Uri.base.queryParameters['name']
-      .toString(); //get parameter with attribute "name"
-  final String type = Uri.base.queryParameters['type']
-      .toString(); //get parameter with attribute "type"
-  runApp(MyApp(fullUrl: fullUrl, name: name, type: type)); //pass to MyApp class
+  final String name = Uri.base.queryParameters['name'].toString();
+  final String type = Uri.base.queryParameters['type'].toString();
+  runApp(MyApp(fullUrl: fullUrl, name: name, type: type));
 }
 
 class MyApp extends StatefulWidget {
-  //constructor of MyApp class
   const MyApp({super.key, this.fullUrl, this.name, this.type});
 
   final String? fullUrl;
@@ -52,19 +49,11 @@ class _MyAppState extends State<MyApp> {
                           ? const DatePickers()
                           : widget.name == _image
                               ? const Images()
-                              : const MyHomePage(),
+                              : const Texts(),
+      // : const MyHomePage(),
     );
   }
 }
-
-//  routes: <String, WidgetBuilder>{
-//         routeContainers: (BuildContext context) => const Containers(),
-//         routeTexts: (BuildContext context) => const Texts(),
-//         routeButtons: (BuildContext context) => const Buttons(),
-//         routeTextInputs: (BuildContext context) => const TextInputs(),
-//         routeDatePickers: (BuildContext context) => const DatePickers(),
-//         routeImages: (BuildContext context) => const Images(),
-//       },
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -82,10 +71,10 @@ class MyHomePage extends StatelessWidget {
           backgroundColor: const Color(colorPrimary),
         ),
       ),
-      drawer: const DrawerContainer(),
       body: Column(
         children: <Widget>[
-          CommonText(
+          CommonMultiText(
+            'Common UI toolKit',
             containerStyle: CommonContainerStyle().fullShadow.copyWith(
                   padding: 0.016,
                   alignment: Alignment.center,
@@ -105,7 +94,6 @@ class MyHomePage extends StatelessWidget {
             style: CommonTextStyles().h2Style().copyWith(
                   fontColor: const Color(COMMON_WHITE_COLOR),
                 ),
-            text: 'Common UI toolKit',
             onPress: () {
               // print('Simple common text pressed');
             },

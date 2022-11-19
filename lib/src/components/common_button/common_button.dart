@@ -328,7 +328,7 @@ class CommonButton extends StatelessWidget {
           alignment: AlignmentDirectional.center,
           child: child ??
               CommonText(
-                text: text,
+                text,
                 style: textStyle ?? currentStyle.textStyle,
                 textAlign: TextAlign.center,
               ),

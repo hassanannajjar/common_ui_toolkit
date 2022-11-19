@@ -3,43 +3,27 @@ import 'dart:ui';
 import '../../../common_ui_toolkit.dart';
 
 class CommonText extends StatelessWidget {
-  const CommonText({
-    this.text,
-    this.onPress,
-    this.leftChild,
-    this.rightChild,
-    this.topChild,
-    this.bottomChild,
-    this.inlineSpans,
+  const CommonText(
+    this.text, {
     this.style,
-    this.containerStyle,
-
-    ///sizes
+    this.onPress,
     this.height,
     this.letterSpacing,
     this.wordSpacing,
     this.fontSize,
     this.decorationThickness,
-    this.maxlines,
-    this.textScaleFactor,
 
     /// colors
     this.fontColor,
     this.backgroundColor,
     this.decorationColor,
     this.decoration,
-    this.textDirection,
     this.overflow,
-    this.softWrap,
-    this.strutStyle,
-    this.textHeightBehavior,
-    this.textWidthBasis,
 
     // -------------------
     this.fontWeight,
     this.fontFamily,
     this.fontStyle,
-    this.textAlign,
     this.textBaseline,
     this.leadingDistribution,
     this.locale,
@@ -47,16 +31,20 @@ class CommonText extends StatelessWidget {
     this.background,
     this.shadows,
     this.fontFeatures,
-    this.columnCrossAxisAlignment,
-    this.columnMainAxisAlignment,
-    this.columnMainAxisSize,
-    this.rowCrossAxisAlignment,
-    this.rowMainAxisSize,
-    this.rowMainAxisAlignment,
     this.decorationStyle,
     this.debugLabel,
     this.fontFamilyFallback,
-    this.prefixIcon,
+    this.inherit,
+    this.package,
+    this.strutStyle,
+    this.textAlign,
+    this.textDirection,
+    this.softWrap,
+    this.textScaleFactor,
+    this.maxLines,
+    this.semanticsLabel,
+    this.textWidthBasis,
+    this.textHeightBehavior,
     Key? key,
   }) : super(
           key: key,
@@ -84,21 +72,11 @@ class CommonText extends StatelessWidget {
   /// or etc...
   /// ```
   final CommonTextModel? style;
-  final CommonContainerModel? containerStyle;
-
-  /// handel opPress function
-  final Function? onPress;
 
   /// text
   final String? text;
 
-  final List<InlineSpan>? inlineSpans;
-
-  /// left, right, top and bottom children widgets around the common text
-  final Widget? leftChild;
-  final Widget? rightChild;
-  final Widget? topChild;
-  final Widget? bottomChild;
+  final Function? onPress;
 
   ///
   /// sizes
@@ -108,8 +86,6 @@ class CommonText extends StatelessWidget {
   final double? wordSpacing;
   final double? decorationThickness;
   final double? fontSize;
-  final double? textScaleFactor;
-  final int? maxlines;
 
   ///
   /// colors
@@ -124,34 +100,9 @@ class CommonText extends StatelessWidget {
   final TextDecoration? decoration;
 
   ///
-  /// text direction
-  ///
-  final TextDirection? textDirection;
-
-  ///
   /// overflow
   ///
   final TextOverflow? overflow;
-
-  ///
-  /// soft wrap
-  ///
-  final bool? softWrap;
-
-  ///
-  /// strut style
-  ///
-  final StrutStyle? strutStyle;
-
-  ///
-  /// text height behavior
-  ///
-  final TextHeightBehavior? textHeightBehavior;
-
-  ///
-  /// text width basis
-  ///
-  final TextWidthBasis? textWidthBasis;
 
   ///
   /// decoration style
@@ -162,11 +113,6 @@ class CommonText extends StatelessWidget {
   /// font weight
   ///
   final FontWeight? fontWeight;
-
-  ///
-  /// text align
-  ///
-  final TextAlign? textAlign;
 
   ///
   /// font style
@@ -182,36 +128,6 @@ class CommonText extends StatelessWidget {
   /// leading distribution
   ///
   final TextLeadingDistribution? leadingDistribution;
-
-  ///
-  /// column Cross Axis Alignment
-  ///
-  final CrossAxisAlignment? columnCrossAxisAlignment;
-
-  ///
-  /// column main Axis Alignment
-  ///
-  final MainAxisAlignment? columnMainAxisAlignment;
-
-  ///
-  /// column main Axis size
-  ///
-  final MainAxisSize? columnMainAxisSize;
-
-  ///
-  /// row cross Axis Alignment
-  ///
-  final CrossAxisAlignment? rowCrossAxisAlignment;
-
-  ///
-  /// row main Axis Alignment
-  ///
-  final MainAxisAlignment? rowMainAxisAlignment;
-
-  ///
-  /// row main Axis size
-  ///
-  final MainAxisSize? rowMainAxisSize;
 
   ///
   /// locale
@@ -253,96 +169,87 @@ class CommonText extends StatelessWidget {
   ///
   final String? debugLabel;
 
-  /// prefix icon
-  final CommonIcon? prefixIcon;
+  ///
+  /// inherit
+  ///
+  final bool? inherit;
+
+  ///
+  /// package
+  ///
+  final String? package;
+
+  final StrutStyle? strutStyle;
+  final TextAlign? textAlign;
+  final TextDirection? textDirection;
+  final bool? softWrap;
+  final double? textScaleFactor;
+  final int? maxLines;
+  final String? semanticsLabel;
+  final TextWidthBasis? textWidthBasis;
+  final TextHeightBehavior? textHeightBehavior;
 
   double _responsiveFontSize() => DEVICE_WIDTH * (fontSize! / 430);
 
   @override
   Widget build(BuildContext context) {
-    final CommonTextModel currentStyle = style ?? const CommonTextModel();
-    final CommonContainerModel currentContainerStyle =
-        containerStyle ?? const CommonContainerModel();
+    final CommonTextModel currentTextStyle = style ?? const CommonTextModel();
 
-    return CommonContainer(
-      onPress: onPress,
-      style: currentContainerStyle,
-      child: Column(
-        crossAxisAlignment:
-            columnCrossAxisAlignment ?? currentStyle.columnCrossAxisAlignment,
-        mainAxisSize: columnMainAxisSize ?? currentStyle.columnMainAxisSize,
-        mainAxisAlignment:
-            columnMainAxisAlignment ?? currentStyle.columnMainAxisAlignment,
-        children: <Widget>[
-          if (topChild != null) topChild!,
-          Row(
-            mainAxisSize: rowMainAxisSize ?? currentStyle.rowMainAxisSize,
-            crossAxisAlignment: columnCrossAxisAlignment ??
-                currentStyle.columnCrossAxisAlignment,
-            mainAxisAlignment:
-                rowMainAxisAlignment ?? currentStyle.rowMainAxisAlignment,
-            children: <Widget>[
-              if ((prefixIcon ?? currentStyle.prefixIcon) != null)
-                getIcon(prefixIcon ?? currentStyle.prefixIcon!),
-              if (leftChild != null) leftChild!,
-              Flexible(
-                child: RichText(
-                  maxLines: maxlines ?? currentStyle.maxlines,
-                  textAlign: textAlign ?? currentStyle.textAlign,
-                  textDirection: textDirection ?? currentStyle.textDirection,
-                  overflow: overflow ?? currentStyle.overflow,
-                  softWrap: softWrap ?? currentStyle.softWrap,
-                  strutStyle: strutStyle ?? currentStyle.strutStyle,
-                  textHeightBehavior:
-                      textHeightBehavior ?? currentStyle.textHeightBehavior,
-                  textScaleFactor:
-                      textScaleFactor ?? currentStyle.textScaleFactor,
-                  textWidthBasis: textWidthBasis ?? currentStyle.textWidthBasis,
-                  text: TextSpan(
-                    text: text,
-                    children: inlineSpans,
-                    style: TextStyle(
-                      decoration: decoration ?? currentStyle.decoration,
-                      color: getColorType(fontColor ?? currentStyle.fontColor!),
-                      decorationThickness: decorationThickness ??
-                          currentStyle.decorationThickness,
-                      fontSize: fontSize != null
-                          ? _responsiveFontSize()
-                          : currentStyle.responsiveFontSize(),
-                      fontWeight: fontWeight ?? currentStyle.fontWeight,
-                      fontFamily: fontFamily ?? currentStyle.fontFamily,
-                      wordSpacing: wordSpacing ?? currentStyle.wordSpacing,
-                      fontStyle: fontStyle ?? currentStyle.fontStyle,
-                      letterSpacing:
-                          letterSpacing ?? currentStyle.letterSpacing,
-                      backgroundColor: getColorType(
-                          backgroundColor ?? currentStyle.backgroundColor!),
-                      height: height ?? currentStyle.height,
-                      textBaseline: textBaseline ?? currentStyle.textBaseline,
-                      leadingDistribution: leadingDistribution ??
-                          currentStyle.leadingDistribution,
-                      locale: locale ?? currentStyle.locale,
-                      foreground: foreground ?? currentStyle.foreground,
-                      background: background ?? currentStyle.background,
-                      shadows: shadows ?? currentStyle.shadows,
-                      fontFeatures: fontFeatures ?? currentStyle.fontFeatures,
-                      decorationColor: getColorType(
-                          decorationColor ?? currentStyle.decorationColor!),
-                      decorationStyle:
-                          decorationStyle ?? currentStyle.decorationStyle,
-                      debugLabel: debugLabel ?? currentStyle.debugLabel,
-                      fontFamilyFallback:
-                          fontFamilyFallback ?? currentStyle.fontFamilyFallback,
-                    ),
-                  ),
-                ),
-              ),
-              if (rightChild != null) rightChild!,
-            ],
-          ),
-          if (bottomChild != null) bottomChild!,
-        ],
+    final Text textContainer = Text(
+      text!,
+      style: TextStyle(
+        decoration: decoration ?? currentTextStyle.decoration,
+        color: getColorType(fontColor ?? currentTextStyle.fontColor!),
+        decorationThickness:
+            decorationThickness ?? currentTextStyle.decorationThickness,
+        fontSize: fontSize != null
+            ? _responsiveFontSize()
+            : currentTextStyle.responsiveFontSize(),
+        fontWeight: fontWeight ?? currentTextStyle.fontWeight,
+        fontFamily: fontFamily ?? currentTextStyle.fontFamily,
+        wordSpacing: wordSpacing ?? currentTextStyle.wordSpacing,
+        fontStyle: fontStyle ?? currentTextStyle.fontStyle,
+        letterSpacing: letterSpacing ?? currentTextStyle.letterSpacing,
+        backgroundColor:
+            getColorType(backgroundColor ?? currentTextStyle.backgroundColor!),
+        height: height ?? currentTextStyle.height,
+        textBaseline: textBaseline ?? currentTextStyle.textBaseline,
+        leadingDistribution:
+            leadingDistribution ?? currentTextStyle.leadingDistribution,
+        locale: locale ?? currentTextStyle.locale,
+        foreground: foreground ?? currentTextStyle.foreground,
+        background: background ?? currentTextStyle.background,
+        shadows: shadows ?? currentTextStyle.shadows,
+        fontFeatures: fontFeatures ?? currentTextStyle.fontFeatures,
+        decorationColor:
+            getColorType(decorationColor ?? currentTextStyle.decorationColor!),
+        decorationStyle: decorationStyle ?? currentTextStyle.decorationStyle,
+        debugLabel: debugLabel ?? currentTextStyle.debugLabel,
+        fontFamilyFallback:
+            fontFamilyFallback ?? currentTextStyle.fontFamilyFallback,
+        overflow: overflow ?? currentTextStyle.overflow,
+        inherit: inherit ?? currentTextStyle.inherit!,
+        package: package ?? currentTextStyle.package,
       ),
+      locale: locale ?? currentTextStyle.locale,
+      strutStyle: strutStyle ?? currentTextStyle.strutStyle,
+      textAlign: TextAlign.center,
+      textDirection: textDirection ?? currentTextStyle.textDirection,
+      softWrap: softWrap ?? currentTextStyle.softWrap,
+      textScaleFactor: textScaleFactor ?? currentTextStyle.textScaleFactor,
+      // maxLines: maxLines ?? currentTextStyle.maxLines,
+      // semanticsLabel: semanticsLabel ?? currentTextStyle.semanticsLabel,
+      // textWidthBasis: textWidthBasis ?? currentTextStyle.textWidthBasis,
+      // textHeightBehavior:
+      //     textHeightBehavior ?? currentTextStyle.textHeightBehavior,
+      // overflow: overflow ?? currentTextStyle.overflow,
     );
+
+    return onPress == null
+        ? textContainer
+        : CommonTouchable(
+            onTap: onPress,
+            child: textContainer,
+          );
   }
 }

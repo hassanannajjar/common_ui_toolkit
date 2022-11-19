@@ -11,36 +11,36 @@ class Texts extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(colorPrimary),
-        title: CommonText(
+        title: CommonMultiText(
+          'Texts',
           containerStyle: const CommonContainerModel().copyWith(
             backgroundColor: 0x00FFFFFF,
             alignment: Alignment.center,
             width: 0.7,
           ),
           style: CommonTextStyles().h2Style(),
-          text: 'Texts',
         ),
       ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              const CommonSimpleText(
+              const CommonText(
                 'Simple Text \n',
               ),
 
-              const CommonSimpleText(
+              const CommonText(
                 'Simple Text with background color \n',
                 backgroundColor: Colors.red,
               ),
 
-              const CommonSimpleText(
+              const CommonText(
                 'Simple Text with under line \n ',
                 overflow: TextOverflow.fade,
                 decoration: TextDecoration.underline,
               ),
 
-              const CommonSimpleText(
+              const CommonText(
                 'wavy line \n ',
                 fontSize: 30,
                 style: CommonTextModel(
@@ -51,28 +51,27 @@ class Texts extends StatelessWidget {
               ),
 
               /// Common UI toolkit with full shadow border around the text, you can customize the containers you like
-              CommonText(
+              CommonMultiText(
+                'Common UI toolKit',
                 containerStyle: CommonContainerStyle().fullShadow.copyWith(
                       padding: 0.016,
                     ),
                 style: CommonTextStyles().h2Style().copyWith(
                       fontColor: 0xFF123123,
                     ),
-                text: 'Common UI toolKit',
               ),
 
               /// This is an example of the verification code text with inlineSpans (Another text with different text color)
-              CommonText(
+              CommonMultiText(
+                'We have sent you a verification code through this number, Bla Bla Bla Bla ',
                 containerStyle: const CommonContainerModel(
                   marginHorizontal: 0.016,
                   marginVertical: 0.016,
                 ),
-                text:
-                    'We have sent you a verification code through this number, Bla Bla Bla Bla ',
                 inlineSpans: <InlineSpan>[
                   WidgetSpan(
-                    child: CommonText(
-                      text: '+970595131066',
+                    child: CommonMultiText(
+                      '+970595131066',
                       style: const CommonTextModel(fontColor: COMMON_RED_COLOR),
                       containerStyle: CommonContainerModel(
                         marginHorizontal: 0.008,
@@ -87,8 +86,8 @@ class Texts extends StatelessWidget {
 
               /// Simple underlined text
               /// You can customize the underline decoration by using the TextDecoration enum
-              const CommonText(
-                text: 'Underlined text',
+              const CommonMultiText(
+                'Underlined text',
                 containerStyle: CommonContainerModel(
                   marginTop: 0.016,
                 ),
@@ -105,7 +104,7 @@ class Texts extends StatelessWidget {
               ),
 
               /// Custom container around the text with a touchable effect and a custom background color
-              CommonText(
+              CommonMultiText(
                 // containerStyle: CommonContainerModel(
                 //   padding: 0.016,
                 //   borderRadius: 0.016,
@@ -119,21 +118,21 @@ class Texts extends StatelessWidget {
                 //       // backgroundColor: COMMON_WHITE_COLOR,
                 //       // fontWeight: FontWeight.bold,
                 //     ),
-                text: 'Simple common text',
+                'Simple common text',
                 onPress: () {
                   consoleLog('Simple common text pressed');
                 },
               ),
 
               /// Text with all side children with an icon
-              CommonText(
+              CommonMultiText(
+                'Common text with',
                 style: const CommonTextModel(
                   prefixIcon: CommonIcon(
                     path: 'assets/icons/account_icon.svg',
                     color: COMMON_RED_COLOR,
                   ),
                 ),
-                text: 'Common text with',
                 inlineSpans: const <InlineSpan>[
                   TextSpan(
                     text: ' RED ',
@@ -150,15 +149,15 @@ class Texts extends StatelessWidget {
                   marginVertical: 0.016,
                 ),
                 topChild: const CommonText(
-                  text: 'Top child',
+                  'Top child',
                 ),
-                leftChild: const CommonText(
+                leftChild: const CommonMultiText(
+                  'Left child',
                   containerStyle: CommonContainerModel(marginHorizontal: 0.008),
-                  text: 'Left child',
                 ),
-                rightChild: const CommonText(
+                rightChild: const CommonMultiText(
+                  'Right child',
                   containerStyle: CommonContainerModel(marginHorizontal: 0.008),
-                  text: 'Right child',
                   style: CommonTextModel(
                     decoration: TextDecoration.lineThrough,
                     decorationStyle: TextDecorationStyle.wavy,
@@ -166,7 +165,7 @@ class Texts extends StatelessWidget {
                   ),
                 ),
                 bottomChild: const CommonText(
-                  text: 'Bottom child',
+                  'Bottom child',
                   style: CommonTextModel(
                     decoration: TextDecoration.underline,
                   ),
