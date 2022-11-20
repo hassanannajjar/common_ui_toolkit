@@ -19,7 +19,12 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key, this.fullUrl, this.name, this.type});
+  const MyApp({
+    this.fullUrl,
+    this.name,
+    this.type,
+    super.key,
+  });
 
   final String? fullUrl;
   final String? name;
@@ -38,7 +43,9 @@ class _MyAppState extends State<MyApp> {
       home: widget.name == _container
           ? const Containers()
           : widget.name == _text
-              ? const Texts()
+              ? Texts(
+                  type: widget.type,
+                )
               : widget.name == _button
                   ? Buttons(
                       type: widget.type,

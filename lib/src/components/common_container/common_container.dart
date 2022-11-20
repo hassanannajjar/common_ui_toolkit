@@ -1025,36 +1025,7 @@ class CommonContainer extends StatelessWidget {
     ///
     final CommonContainerModel currentStyle = style ?? _defaultContainerStyle;
 
-    return onPress != null
-        ? CommonTouchable(
-            ///
-            /// render function you can set (){} just to enable touchEffect animation.
-            ///
-            onTap: onPress,
-
-            ///
-            /// render the touchEffect when press the container.
-            /// and you must use onPress function to use touchEffect.
-            /// example :
-            /// ```dart
-            /// touchEffect: TouchEffect(
-            ///  type: TouchTypes.scaleAndFade,
-            ///  duration: 50,
-            ///  lowerBound:0.9,
-            ///  upperBound:1.3,
-            ///  scaleValue:1.3,
-            /// )
-            /// ```
-            ///
-            touchEffect:
-                touchEffect ?? currentStyle.touchEffect ?? TouchableEffect(),
-            child: _customContainer(currentStyle),
-          )
-        : _customContainer(currentStyle);
-  }
-
-  Container _customContainer(CommonContainerModel currentStyle) {
-    return Container(
+    final Container container = Container(
       ///
       /// you can use loading condition to handel render error
       /// if data still null or you want wait the data from api.
@@ -1281,5 +1252,32 @@ class CommonContainer extends StatelessWidget {
           ///
           : (child ?? const Center()),
     );
+
+    return onPress != null
+        ? CommonTouchable(
+            ///
+            /// render function you can set (){} just to enable touchEffect animation.
+            ///
+            onTap: onPress,
+
+            ///
+            /// render the touchEffect when press the container.
+            /// and you must use onPress function to use touchEffect.
+            /// example :
+            /// ```dart
+            /// touchEffect: TouchEffect(
+            ///  type: TouchTypes.scaleAndFade,
+            ///  duration: 50,
+            ///  lowerBound:0.9,
+            ///  upperBound:1.3,
+            ///  scaleValue:1.3,
+            /// )
+            /// ```
+            ///
+            touchEffect:
+                touchEffect ?? currentStyle.touchEffect ?? TouchableEffect(),
+            child: container,
+          )
+        : container;
   }
 }
