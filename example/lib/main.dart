@@ -73,7 +73,7 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-          CommonMultiText(
+          CommonText(
             'Common UI toolKit',
             containerStyle: CommonContainerStyle().fullShadow.copyWith(
                   padding: 0.016,

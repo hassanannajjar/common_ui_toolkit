@@ -20,7 +20,7 @@ class DatePickers extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(colorPrimary),
-        title: CommonMultiText(
+        title: CommonText(
           containerStyle: const CommonContainerModel().copyWith(
             backgroundColor: 0x00FFFFFF,
             alignment: Alignment.center,
@@ -65,7 +65,7 @@ class DatePickers extends StatelessWidget {
                   consoleLog(date);
                 },
               ),
-              CommonMultiText(
+              CommonText(
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
@@ -98,7 +98,7 @@ class DatePickers extends StatelessWidget {
                 },
                 'show date picker(custom theme &date time range)',
               ),
-              CommonMultiText(
+              CommonText(
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
@@ -112,7 +112,7 @@ class DatePickers extends StatelessWidget {
                 },
                 'show time picker',
               ),
-              CommonMultiText(
+              CommonText(
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
@@ -126,7 +126,7 @@ class DatePickers extends StatelessWidget {
                 },
                 'show 12H time picker with AM/PM',
               ),
-              CommonMultiText(
+              CommonText(
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
@@ -142,7 +142,7 @@ class DatePickers extends StatelessWidget {
                 },
                 'show date time picker (Chinese)',
               ),
-              CommonMultiText(
+              CommonText(
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
@@ -156,7 +156,7 @@ class DatePickers extends StatelessWidget {
                 },
                 'show date time picker (English-America)',
               ),
-              CommonMultiText(
+              CommonText(
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
@@ -172,7 +172,7 @@ class DatePickers extends StatelessWidget {
                 },
                 'show date time picker (Dutch)',
               ),
-              CommonMultiText(
+              CommonText(
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
@@ -188,7 +188,7 @@ class DatePickers extends StatelessWidget {
                 },
                 'show date time picker (Russian)',
               ),
-              CommonMultiText(
+              CommonText(
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
@@ -204,7 +204,7 @@ class DatePickers extends StatelessWidget {
                 },
                 'show date time picker in UTC (German)',
               ),
-              CommonMultiText(
+              CommonText(
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {
@@ -223,7 +223,7 @@ class DatePickers extends StatelessWidget {
                 },
                 'show date time picker in UTC (AR)',
               ),
-              CommonMultiText(
+              CommonText(
                 style: textStyle,
                 containerStyle: containerStyle,
                 onPress: () {

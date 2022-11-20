@@ -53,15 +53,7 @@ There is a huge variety of customizable layouts, use “as is” or add new bloc
 
 ## Migration guides
 
-To use the next `CommonText` params 
-    - leftChild,
-    - rightChild,
-    - topChild,
-    - bottomChild,
-    - inlineSpans,
-    - containerStyle,
 
- you can use `CommonMultiText` instead of `CommonText` 
 
 
 ## Visitors Count

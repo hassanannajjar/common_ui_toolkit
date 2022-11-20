@@ -11,7 +11,7 @@ class Texts extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(colorPrimary),
-        title: CommonMultiText(
+        title: CommonText(
           'Texts',
           containerStyle: const CommonContainerModel().copyWith(
             backgroundColor: 0x00FFFFFF,
@@ -51,18 +51,18 @@ class Texts extends StatelessWidget {
               ),
 
               /// Common UI toolkit with full shadow border around the text, you can customize the containers you like
-              CommonMultiText(
+              CommonText(
                 'Common UI toolKit',
-                containerStyle: CommonContainerStyle().fullShadow.copyWith(
-                      padding: 0.016,
-                    ),
+                // containerStyle: CommonContainerStyle().fullShadow.copyWith(
+                //       padding: 0.016,
+                //     ),
                 style: CommonTextStyles().h2Style().copyWith(
                       fontColor: 0xFF123123,
                     ),
               ),
 
               /// This is an example of the verification code text with inlineSpans (Another text with different text color)
-              CommonMultiText(
+              CommonText(
                 'We have sent you a verification code through this number, Bla Bla Bla Bla ',
                 containerStyle: const CommonContainerModel(
                   marginHorizontal: 0.016,
@@ -70,7 +70,7 @@ class Texts extends StatelessWidget {
                 ),
                 inlineSpans: <InlineSpan>[
                   WidgetSpan(
-                    child: CommonMultiText(
+                    child: CommonText(
                       '+970595131066',
                       style: const CommonTextModel(fontColor: COMMON_RED_COLOR),
                       containerStyle: CommonContainerModel(
@@ -86,7 +86,7 @@ class Texts extends StatelessWidget {
 
               /// Simple underlined text
               /// You can customize the underline decoration by using the TextDecoration enum
-              const CommonMultiText(
+              const CommonText(
                 'Underlined text',
                 containerStyle: CommonContainerModel(
                   marginTop: 0.016,
@@ -104,7 +104,7 @@ class Texts extends StatelessWidget {
               ),
 
               /// Custom container around the text with a touchable effect and a custom background color
-              CommonMultiText(
+              CommonText(
                 // containerStyle: CommonContainerModel(
                 //   padding: 0.016,
                 //   borderRadius: 0.016,
@@ -125,8 +125,9 @@ class Texts extends StatelessWidget {
               ),
 
               /// Text with all side children with an icon
-              CommonMultiText(
+              CommonText(
                 'Common text with',
+                fontSize: COMMON_H4_FONT,
                 style: const CommonTextModel(
                   prefixIcon: CommonIcon(
                     path: 'assets/icons/account_icon.svg',
@@ -151,11 +152,11 @@ class Texts extends StatelessWidget {
                 topChild: const CommonText(
                   'Top child',
                 ),
-                leftChild: const CommonMultiText(
+                leftChild: const CommonText(
                   'Left child',
                   containerStyle: CommonContainerModel(marginHorizontal: 0.008),
                 ),
-                rightChild: const CommonMultiText(
+                rightChild: const CommonText(
                   'Right child',
                   containerStyle: CommonContainerModel(marginHorizontal: 0.008),
                   style: CommonTextModel(

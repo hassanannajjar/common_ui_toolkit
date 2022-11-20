@@ -10,7 +10,7 @@ class CommonTextModel {
     this.wordSpacing = 0.0,
     this.fontSize = COMMON_H4_FONT,
     this.decorationThickness,
-    this.maxlines,
+    this.maxLines,
     this.textScaleFactor = 1.0,
 
     /// colors
@@ -50,7 +50,6 @@ class CommonTextModel {
     this.inherit = true,
     this.package,
     this.semanticsLabel,
-    this.maxLines,
   });
 
   ///
@@ -62,7 +61,7 @@ class CommonTextModel {
   final double? decorationThickness;
   final double? fontSize;
   final double textScaleFactor;
-  final int? maxlines;
+  final int? maxLines;
 
   ///
   /// colors
@@ -220,11 +219,6 @@ class CommonTextModel {
   final CommonIcon? prefixIcon;
 
   ///
-  /// max lines
-  ///
-  final int? maxLines;
-
-  ///
   /// semantics label
   ///
   final String? semanticsLabel;
@@ -238,7 +232,7 @@ class CommonTextModel {
     double? decorationThickness,
     double? fontSize,
     double? textScaleFactor,
-    int? maxlines,
+    int? maxLines,
     dynamic fontColor,
     dynamic backgroundColor,
     dynamic decorationColor,
@@ -272,7 +266,6 @@ class CommonTextModel {
     CommonIcon? prefixIcon,
     bool? inherit,
     String? package,
-    int? maxLines,
     String? semanticsLabel,
   }) {
     return CommonTextModel(
@@ -282,7 +275,7 @@ class CommonTextModel {
       decorationThickness: decorationThickness ?? this.decorationThickness,
       fontSize: fontSize ?? this.fontSize,
       textScaleFactor: textScaleFactor ?? this.textScaleFactor,
-      maxlines: maxlines ?? this.maxlines,
+      maxLines: maxLines ?? this.maxLines,
       fontColor: fontColor ?? this.fontColor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       decorationColor: decorationColor ?? this.decorationColor,
@@ -319,7 +312,6 @@ class CommonTextModel {
       prefixIcon: prefixIcon ?? this.prefixIcon,
       inherit: inherit ?? this.inherit,
       package: package ?? this.package,
-      maxLines: maxLines ?? this.maxLines,
       semanticsLabel: semanticsLabel ?? this.semanticsLabel,
     );
   }

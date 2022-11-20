@@ -10,7 +10,7 @@ class Containers extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(colorPrimary),
-        title: CommonMultiText(
+        title: CommonText(
           'Containers',
           containerStyle: const CommonContainerModel().copyWith(
             backgroundColor: 0x00FFFFFF,

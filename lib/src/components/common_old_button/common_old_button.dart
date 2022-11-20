@@ -286,7 +286,7 @@ class CommonOldButton extends StatelessWidget {
               }
             : null,
         child: child ??
-            CommonMultiText(
+            CommonText(
               text,
               containerStyle:
                   textContainerStyle ?? currentStyle.textContainerStyle,
