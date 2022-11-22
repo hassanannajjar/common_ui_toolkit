@@ -7,19 +7,19 @@ class CommonOldButtonStyle {
     this.textContainerStyle,
     this.textStyle,
   }) {
-    style = style ?? const CommonButtonModel();
+    style = style ?? const CommonOldButtonModel();
     containerStyle = containerStyle ?? const CommonContainerModel();
     textContainerStyle = textContainerStyle ?? const CommonContainerModel();
     textStyle = textStyle ?? const CommonTextModel();
   }
 
-  CommonButtonModel? style;
+  CommonOldButtonModel? style;
   CommonContainerModel? containerStyle;
   CommonContainerModel? textContainerStyle;
   CommonTextModel? textStyle;
 
   CommonOldButtonStyle copyWith({
-    CommonButtonModel? style,
+    CommonOldButtonModel? style,
     CommonContainerModel? containerStyle,
     CommonContainerModel? textContainerStyle,
     CommonTextModel? textStyle,

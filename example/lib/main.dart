@@ -56,7 +56,7 @@ class _MyAppState extends State<MyApp> {
                           ? const DatePickers()
                           : widget.name == _image
                               ? const Images()
-                              : const Texts(),
+                              : const Buttons(type: 'default'),
       // : const MyHomePage(),
     );
   }

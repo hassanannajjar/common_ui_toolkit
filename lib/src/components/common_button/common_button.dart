@@ -2,22 +2,20 @@ import '../../../common_ui_toolkit.dart';
 
 class CommonButton extends StatelessWidget {
   const CommonButton({
-    this.buttonStyle,
-    this.containerStyle,
-    this.text = 'Click',
+    this.style,
+    this.text = '',
+    this.width,
+    this.height,
     this.onPress,
     this.onLongPress,
+    this.onFocusChange,
+    this.onHover,
     this.child,
     this.disable = false,
     this.autofocus = false,
     this.backgroundColor,
-    this.customBackgroundColor,
-    this.onFocusChange,
-    this.onHover,
     this.disabledColor,
     this.overlayColor,
-    this.customOverlayColor,
-    this.customElevation,
     this.elevation,
     this.borderRadius,
     this.bottomLeftRadius,
@@ -32,32 +30,60 @@ class CommonButton extends StatelessWidget {
     this.minimumSize,
     this.mouseCursor,
     this.padding,
+    this.paddingTop,
+    this.paddingBottom,
+    this.paddingRight,
+    this.paddingLeft,
+    this.paddingVertical,
+    this.paddingHorizontal,
     this.splashFactory,
     this.side,
     this.tapTargetSize,
     this.shadowColor,
-    this.textStyle,
     this.visualDensity,
     this.focusNode,
     this.foregroundColor,
     this.clipBehavior,
     this.alignment,
-    this.textContainerStyle,
-    @Deprecated('Use disable ') this.isEnable,
+    this.borderWidth,
+    this.borderColor,
+    this.borderStrokeAlign,
+    this.borderStyle,
+    this.margin,
+    this.marginTop,
+    this.marginBottom,
+    this.marginRight,
+    this.marginLeft,
+    this.marginVertical,
+    this.marginHorizontal,
+    this.textStyle,
+    this.fontSize,
+    this.fontFamily,
+    this.fontColor,
+    this.fontWeight,
+    this.fontStyle,
     Key? key,
   }) : super(key: key);
 
-  final CommonButtonStyle? buttonStyle;
-  final CommonContainerModel? containerStyle;
-  final CommonContainerModel? textContainerStyle;
-  final CommonTextModel? textStyle;
-  final Function? onPress;
-  final Function? onLongPress;
+  final CommonButtonModel? style;
   final String? text;
+  final double? width;
+  final double? height;
+  final VoidCallback? onPress;
+  final VoidCallback? onLongPress;
+
+  ///
+  /// onFocusChange
+  ///
+  final ValueChanged<bool>? onFocusChange;
+
+  ///
+  /// onHover
+  ///
+  final ValueChanged<bool>? onHover;
   final Widget? child;
 
   final bool disable;
-  final bool? isEnable;
 
   /// The [autofocus] and [clipBehavior] arguments must not be null.
   final bool autofocus;
@@ -66,16 +92,6 @@ class CommonButton extends StatelessWidget {
   final dynamic backgroundColor;
   final dynamic disabledColor;
   final dynamic overlayColor;
-
-  /// The highlight color that's typically used to indicate that
-  /// the button is focused, hovered, or pressed.
-  final MaterialStateProperty<Color?>? customOverlayColor;
-
-  /// You can customize The elevation of the button's [Material].
-  final MaterialStateProperty<double?>? customElevation;
-
-  /// The button's background fill color.
-  final MaterialStateProperty<Color?>? customBackgroundColor;
 
   /// The shape of the button's underlying [Material].
   ///
@@ -138,24 +154,24 @@ class CommonButton extends StatelessWidget {
   final MaterialStateProperty<MouseCursor?>? mouseCursor;
 
   ///
-  /// onFocusChange
-  ///
-  final ValueChanged<bool>? onFocusChange;
-
-  ///
-  /// onHover
-  ///
-  final ValueChanged<bool>? onHover;
-
-  ///
   /// padding
   ///
-  final MaterialStateProperty<EdgeInsetsGeometry?>? padding;
+  final double? padding;
+  final double? paddingTop;
+  final double? paddingBottom;
+  final double? paddingRight;
+  final double? paddingLeft;
+
+  ///
+  /// container padding right and left to be same.
+  ///
+  final double? paddingVertical;
+  final double? paddingHorizontal;
 
   ///
   /// shadowColor
   ///
-  final MaterialStateProperty<Color?>? shadowColor;
+  final dynamic shadowColor;
 
   ///
   /// side
@@ -187,9 +203,53 @@ class CommonButton extends StatelessWidget {
   ///
   final FocusNode? focusNode;
 
+  final double? borderWidth;
+  final dynamic borderColor;
+  final StrokeAlign? borderStrokeAlign;
+  final BorderStyle? borderStyle;
+
   ///
-  /// key
+  /// margin for all container
   ///
+  ///
+  final double? margin;
+
+  ///
+  /// margin for top container
+  ///
+  final double? marginTop;
+
+  ///
+  /// margin for bottom container
+  ///
+  final double? marginBottom;
+
+  ///
+  /// margin for right container
+  ///
+  final double? marginRight;
+
+  ///
+  /// margin for left container
+  ///
+  final double? marginLeft;
+
+  ///
+  /// margin for (top and bottom|| Vertical)  container
+  ///
+  final double? marginVertical;
+
+  ///
+  /// margin for (right and left || Horizontal) container
+  ///
+  final double? marginHorizontal;
+
+  final CommonTextModel? textStyle;
+  final double? fontSize;
+  final String? fontFamily;
+  final dynamic fontColor;
+  final FontWeight? fontWeight;
+  final FontStyle? fontStyle;
 
   ///
   /// check if the border is null or not.
@@ -255,85 +315,145 @@ class CommonButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CommonButtonStyle currentStyle = buttonStyle ?? CommonButtonStyle();
+    final CommonButtonModel currentStyle = style ?? const CommonButtonModel();
+    final dynamic currentFontColor = fontColor ?? currentStyle.fontColor;
 
-    return Padding(
-      padding: const EdgeInsets.only(
-        top: 10,
-      ),
-      child: ElevatedButton(
-        onFocusChange: onFocusChange?.call,
-        onHover: !disable ? onHover?.call : null,
-        autofocus: autofocus,
-        clipBehavior: clipBehavior ?? currentStyle.style!.clipBehavior,
-        focusNode: focusNode ?? currentStyle.style!.focusNode,
-        key: key ?? currentStyle.style!.key,
-        onLongPress: !disable ? () => onLongPress?.call() : null,
-        style: ButtonStyle(
-          // alignment: AlignmentDirectional.topStart,
-          animationDuration:
-              animationDuration ?? currentStyle.style!.animationDuration,
-          enableFeedback: enableFeedback ?? currentStyle.style!.enableFeedback,
-          fixedSize: fixedSize ?? currentStyle.style!.fixedSize,
-          foregroundColor:
-              foregroundColor ?? currentStyle.style!.foregroundColor,
-          maximumSize: maximumSize ?? currentStyle.style!.maximumSize,
-          minimumSize: minimumSize ?? currentStyle.style!.minimumSize,
-          mouseCursor: mouseCursor ?? currentStyle.style!.mouseCursor,
-          padding: padding ?? currentStyle.style!.padding,
-          shadowColor: shadowColor ?? currentStyle.style!.shadowColor,
-          side: side ?? currentStyle.style!.side,
-          splashFactory: splashFactory ?? currentStyle.style!.splashFactory,
-          tapTargetSize: tapTargetSize ?? currentStyle.style!.tapTargetSize,
-          visualDensity: visualDensity ?? currentStyle.style!.visualDensity,
-          elevation: customElevation ??
-              currentStyle.style!.customElevation ??
-              MaterialStateProperty.all(
-                elevation ?? currentStyle.style?.elevation,
-              ),
-          overlayColor: customOverlayColor ??
-              currentStyle.style!.customOverlayColor ??
-              MaterialStateProperty.resolveWith(
-                (Set<MaterialState> states) {
-                  return states.contains(MaterialState.pressed)
-                      ? getColorType(
-                          overlayColor ?? currentStyle.style!.overlayColor,
-                        )
-                      : null;
-                },
-              ),
-          backgroundColor: customBackgroundColor ??
-              currentStyle.style!.customBackgroundColor ??
-              MaterialStateProperty.all(
-                getColorType(
-                  !disable
-                      ? backgroundColor ?? currentStyle.style!.backgroundColor!
-                      : disabledColor ?? currentStyle.style!.disabledColor!,
-                ),
-              ),
-          shape: shape ??
-              currentStyle.style!.shape ??
-              MaterialStateProperty.all(
-                RoundedRectangleBorder(
-                  borderRadius: _getBorderRadius() ??
-                      currentStyle.style!.getBorderRadius(),
-                ),
-              ),
+    final ElevatedButton elevatedButton = ElevatedButton(
+      key: key,
+      onFocusChange: onFocusChange?.call,
+      onHover: !disable ? onHover?.call : null,
+      autofocus: autofocus,
+      clipBehavior: clipBehavior ?? currentStyle.clipBehavior,
+      focusNode: focusNode,
+      onLongPress: disable ? null : onLongPress?.call,
+      onPressed: disable ? null : onPress?.call,
+      style: ButtonStyle(
+        alignment: alignment ?? currentStyle.alignment,
+        animationDuration: animationDuration ?? currentStyle.animationDuration,
+        enableFeedback: enableFeedback ?? currentStyle.enableFeedback,
+        fixedSize: fixedSize ?? currentStyle.fixedSize,
+        maximumSize: maximumSize ?? currentStyle.maximumSize,
+        minimumSize: minimumSize ??
+            currentStyle.minimumSize ??
+            MaterialStateProperty.all(
+              Size(DEVICE_WIDTH * (width ?? currentStyle.width!),
+                  DEVICE_HEIGHT * (height ?? currentStyle.height!)),
+            ),
+        mouseCursor: mouseCursor ?? currentStyle.mouseCursor,
+        padding: MaterialStateProperty.all(
+          getPaddingEdgeInsets(
+            CommonButtonModel(
+              paddingTop: (paddingTop ?? currentStyle.paddingTop),
+              paddingBottom: (paddingBottom ?? currentStyle.paddingBottom),
+              paddingLeft: (paddingLeft ?? currentStyle.paddingLeft),
+              paddingRight: (paddingRight ?? currentStyle.paddingRight),
+              paddingHorizontal:
+                  (paddingHorizontal ?? currentStyle.paddingHorizontal),
+              paddingVertical:
+                  (paddingVertical ?? currentStyle.paddingVertical),
+              padding: (padding ?? currentStyle.padding) ?? 0.0,
+            ),
+          ),
         ),
-        // The on press function is empty here because it's required in the ElevatedButton, we call the on press function in the container to enable touch effects
-        onPressed: !disable ? () => onPress?.call() : null,
-        child: CommonContainer(
-          width: 0.8,
-          height: 0.05,
-          alignment: AlignmentDirectional.center,
-          child: child ??
-              CommonText(
-                text,
-                style: textStyle ?? currentStyle.textStyle,
-                textAlign: TextAlign.center,
-              ),
+        side: side ??
+            currentStyle.side ??
+            ((borderWidth ?? currentStyle.borderWidth!) > 0
+                ? MaterialStateProperty.all(
+                    BorderSide(
+                      color: getColorType(
+                          borderColor ?? currentStyle.borderColor!),
+                      width: borderWidth ?? currentStyle.borderWidth!,
+                      strokeAlign:
+                          borderStrokeAlign ?? currentStyle.borderStrokeAlign!,
+                      style: borderStyle ?? currentStyle.borderStyle!,
+                    ),
+                  )
+                : null),
+        splashFactory: splashFactory ?? currentStyle.splashFactory,
+        tapTargetSize: tapTargetSize ?? currentStyle.tapTargetSize,
+        visualDensity: visualDensity ?? currentStyle.visualDensity,
+        elevation: checkElevationType(
+          elevation ?? currentStyle.elevation,
         ),
+        shadowColor: getButtonColorType(
+          shadowColor ?? currentStyle.shadowColor,
+        ),
+        overlayColor: getButtonColorType(
+          overlayColor ?? currentStyle.overlayColor,
+          isOverLay: true,
+        ),
+        foregroundColor: getButtonColorType(
+          !disable
+              ? foregroundColor ?? currentStyle.foregroundColor
+              : disabledColor ?? currentStyle.disabledColor!,
+        ),
+        backgroundColor: getButtonColorType(
+          !disable
+              ? backgroundColor ?? currentStyle.backgroundColor!
+              : disabledColor ?? currentStyle.disabledColor!,
+        ),
+        shape: shape ??
+            currentStyle.shape ??
+            MaterialStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius:
+                    _getBorderRadius() ?? currentStyle.getBorderRadius(),
+              ),
+            ),
       ),
+
+      // The on press function is empty here because it's required in the ElevatedButton, we call the on press function in the container to enable touch effects
+      child: child ??
+          CommonText(
+            text,
+            fontSize: fontSize ?? currentStyle.fontSize,
+            fontFamily: fontFamily ?? currentStyle.fontFamily,
+            fontColor:
+                (currentFontColor is Color || currentFontColor is MaterialColor)
+                    ? currentFontColor
+                    : currentFontColor is int
+                        ? Color(currentFontColor)
+                        : null,
+            fontWeight: fontWeight,
+            fontStyle: fontStyle,
+            style: textStyle ?? currentStyle.textStyle,
+          ),
     );
+
+    final double? currentMargin = margin ?? currentStyle.margin;
+    final double? currentMarginTop = marginTop ?? currentStyle.marginTop;
+    final double? currentMarginBottom =
+        marginBottom ?? currentStyle.marginBottom;
+    final double? currentMarginRight = marginRight ?? currentStyle.marginRight;
+    final double? currentMarginLeft = marginLeft ?? currentStyle.marginLeft;
+    final double? currentMarginHorizontal =
+        marginHorizontal ?? currentStyle.marginHorizontal;
+    final double? currentMarginVertical =
+        marginVertical ?? currentStyle.marginVertical;
+
+    final bool withMargin = (currentMarginTop != null ||
+        currentMarginBottom != null ||
+        currentMarginLeft != null ||
+        currentMarginRight != null ||
+        currentMarginHorizontal != null ||
+        currentMarginVertical != null ||
+        currentMargin != null);
+
+    return withMargin
+        ? Padding(
+            padding: getMarginEdgeInsets(
+              CommonButtonModel(
+                marginTop: currentMarginTop,
+                marginBottom: currentMarginTop,
+                marginLeft: currentMarginLeft,
+                marginRight: currentMarginRight,
+                marginHorizontal: currentMarginHorizontal,
+                marginVertical: currentMarginVertical,
+                margin: currentMargin ?? 0.0,
+              ),
+            ),
+            child: elevatedButton,
+          )
+        : elevatedButton;
   }
 }

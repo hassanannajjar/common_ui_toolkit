@@ -640,23 +640,23 @@ class CommonContainer extends StatelessWidget {
     final CommonContainerModel currentStyle = style ?? _defaultContainerStyle;
 
     final double borderTopRightRadius = topRightRadius ??
-        borderRadius ??
         currentStyle.topRightRadius ??
+        borderRadius ??
         currentStyle.borderRadius!;
 
     final double borderTopLeftRadius = topLeftRadius ??
-        borderRadius ??
         currentStyle.topLeftRadius ??
+        borderRadius ??
         currentStyle.borderRadius!;
 
     final double borderBottomLeftRadius = bottomLeftRadius ??
-        borderRadius ??
         currentStyle.bottomLeftRadius ??
+        borderRadius ??
         currentStyle.borderRadius!;
 
     final double borderBottomRightRadius = bottomRightRadius ??
-        borderRadius ??
         currentStyle.bottomRightRadius ??
+        borderRadius ??
         currentStyle.borderRadius!;
 
     return ((boxShape ?? currentStyle.boxShape) == BoxShape.circle ||
@@ -685,19 +685,19 @@ class CommonContainer extends StatelessWidget {
     final CommonContainerModel currentStyle = style ?? _defaultContainerStyle;
 
     final double foregroundBorderTopRightRadius = foregroundTopRightRadius ??
-        foregroundBorderRadius ??
         currentStyle.foregroundTopRightRadius ??
+        foregroundBorderRadius ??
         currentStyle.foregroundBorderRadius!;
 
     final double foregroundBorderTopLeftRadius = foregroundTopLeftRadius ??
-        foregroundBorderRadius ??
         currentStyle.foregroundTopLeftRadius ??
+        foregroundBorderRadius ??
         currentStyle.foregroundBorderRadius!;
 
     final double foregroundBorderBottomLeftRadius =
         foregroundBottomLeftRadius ??
-            foregroundBorderRadius ??
             currentStyle.foregroundBottomLeftRadius ??
+            foregroundBorderRadius ??
             currentStyle.foregroundBorderRadius!;
 
     final double foregroundBorderBottomRightRadius =
@@ -737,66 +737,67 @@ class CommonContainer extends StatelessWidget {
     final double currentBorderWidth = borderWidth ?? currentStyle.borderWidth!;
 
     final double currentTopWidth = borderTopWidth ??
-        borderWidth ??
         currentStyle.borderTopWidth ??
+        borderWidth ??
         currentStyle.borderWidth!;
 
     final double currentRightWidth = borderRightWidth ??
-        borderWidth ??
         currentStyle.borderRightWidth ??
+        borderWidth ??
         currentStyle.borderWidth!;
 
     final double currentBottomWidth = borderBottomWidth ??
-        borderWidth ??
         currentStyle.borderBottomWidth ??
+        borderWidth ??
         currentStyle.borderWidth!;
 
     final double currentLeftWidth = borderLeftWidth ??
-        borderWidth ??
         currentStyle.borderLeftWidth ??
+        borderWidth ??
         currentStyle.borderWidth!;
 
     // get border colors.
 
     final dynamic currentTopColor = borderTopColor ??
-        borderColor ??
         currentStyle.borderTopColor ??
+        borderColor ??
         currentStyle.borderColor!;
 
     final dynamic currentRightColor = borderRightColor ??
-        borderColor ??
         currentStyle.borderRightColor ??
+        borderColor ??
         currentStyle.borderColor!;
 
     final dynamic currentBottomColor = borderBottomColor ??
-        borderColor ??
         currentStyle.borderBottomColor ??
+        borderColor ??
         currentStyle.borderColor!;
 
     final dynamic currentLeftColor = borderLeftColor ??
-        borderColor ??
         currentStyle.borderLeftColor ??
+        borderColor ??
         currentStyle.borderColor!;
 
     // get border style.
 
     final BorderStyle currentTopStyle = borderTopStyle ??
-        borderStyle ??
         currentStyle.borderTopStyle ??
+        borderStyle ??
         currentStyle.borderStyle!;
 
     final BorderStyle currentRightStyle = borderRightStyle ??
-        borderStyle ??
         currentStyle.borderRightStyle ??
+        borderStyle ??
         currentStyle.borderStyle!;
 
     final BorderStyle currentBottomStyle = borderBottomStyle ??
         currentStyle.borderBottomStyle ??
+        borderStyle ??
         currentStyle.borderStyle!;
 
     final BorderStyle currentLeftStyle = borderLeftStyle ??
-        borderStyle ??
         currentStyle.borderLeftStyle ??
+        borderStyle ??
         currentStyle.borderStyle!;
 
     return (currentBorderWidth > 0 || _checkBorderNull())
@@ -869,67 +870,67 @@ class CommonContainer extends StatelessWidget {
         foregroundBorderWidth ?? currentStyle.foregroundBorderWidth!;
 
     final double foreTopBorderWidth = foregroundBorderTopWidth ??
-        foregroundBorderWidth ??
         currentStyle.foregroundBorderTopWidth ??
+        foregroundBorderWidth ??
         currentStyle.foregroundBorderWidth!;
 
     final double foreRightBorderWidth = foregroundBorderRightWidth ??
-        foregroundBorderWidth ??
         currentStyle.foregroundBorderRightWidth ??
+        foregroundBorderWidth ??
         currentStyle.foregroundBorderWidth!;
 
     final double forBorderBottomWidth = foregroundBorderBottomWidth ??
-        foregroundBorderWidth ??
         currentStyle.foregroundBorderBottomWidth ??
+        foregroundBorderWidth ??
         currentStyle.foregroundBorderWidth!;
 
     final double foreLeftBorderWidth = foregroundBorderLeftWidth ??
-        foregroundBorderWidth ??
         currentStyle.foregroundBorderLeftWidth ??
+        foregroundBorderWidth ??
         currentStyle.foregroundBorderWidth!;
 
     // Foreground border colors.
 
     final dynamic foreTopBorderColor = foregroundBorderTopColor ??
-        foregroundBorderColor ??
         currentStyle.foregroundBorderTopColor ??
+        foregroundBorderColor ??
         currentStyle.foregroundBorderColor;
 
     final dynamic foreRightBorderColor = foregroundBorderRightColor ??
-        foregroundBorderColor ??
         currentStyle.foregroundBorderRightColor ??
+        foregroundBorderColor ??
         currentStyle.foregroundBorderColor;
 
     final dynamic forBorderBottomColor = foregroundBorderBottomColor ??
-        foregroundBorderColor ??
         currentStyle.foregroundBorderBottomColor ??
+        foregroundBorderColor ??
         currentStyle.foregroundBorderColor;
 
     final dynamic foreLeftBorderColor = foregroundBorderLeftColor ??
-        foregroundBorderColor ??
         currentStyle.foregroundBorderLeftColor ??
+        foregroundBorderColor ??
         currentStyle.foregroundBorderColor;
 
     // Foreground border styles.
 
     final BorderStyle foreTopBorderStyle = foregroundBorderTopStyle ??
-        foregroundBorderStyle ??
         currentStyle.foregroundBorderTopStyle ??
+        foregroundBorderStyle ??
         currentStyle.foregroundBorderStyle!;
 
     final BorderStyle foreRightBorderStyle = foregroundBorderRightStyle ??
-        foregroundBorderStyle ??
         currentStyle.foregroundBorderRightStyle ??
+        foregroundBorderStyle ??
         currentStyle.foregroundBorderStyle!;
 
     final BorderStyle forBorderBottomStyle = foregroundBorderBottomStyle ??
-        foregroundBorderStyle ??
         currentStyle.foregroundBorderBottomStyle ??
+        foregroundBorderStyle ??
         currentStyle.foregroundBorderStyle!;
 
     final BorderStyle foreLeftBorderStyle = foregroundBorderLeftStyle ??
-        foregroundBorderStyle ??
         currentStyle.foregroundBorderLeftStyle ??
+        foregroundBorderStyle ??
         currentStyle.foregroundBorderStyle!;
 
     return ((foreBorderWidth > 0) || _checkForegroundBorderNull())
@@ -1052,48 +1053,33 @@ class CommonContainer extends StatelessWidget {
       ///
       /// get the margin.
       ///
-      margin: (marginTop != null ||
-              marginBottom != null ||
-              marginLeft != null ||
-              marginRight != null ||
-              marginHorizontal != null ||
-              marginVertical != null ||
-              margin != null)
-          ? getMarginEdgeInsets(
-              CommonContainerModel(
-                marginTop: marginTop,
-                marginBottom: marginBottom,
-                marginLeft: marginLeft,
-                marginRight: marginRight,
-                marginHorizontal: marginHorizontal,
-                marginVertical: marginVertical,
-                margin: margin ?? 0.0,
-              ),
-            )
-          : getMarginEdgeInsets(currentStyle),
+      margin: getMarginEdgeInsets(
+        CommonContainerModel(
+          marginTop: marginTop ?? currentStyle.marginTop,
+          marginBottom: marginBottom ?? currentStyle.marginBottom,
+          marginLeft: marginLeft ?? currentStyle.marginLeft,
+          marginRight: marginRight ?? currentStyle.marginRight,
+          marginHorizontal: marginHorizontal ?? currentStyle.marginHorizontal,
+          marginVertical: marginVertical ?? currentStyle.marginVertical,
+          margin: margin ?? currentStyle.margin,
+        ),
+      ),
 
       ///
       /// get the padding.
       ///
-      padding: (paddingTop != null ||
-              paddingBottom != null ||
-              paddingLeft != null ||
-              paddingRight != null ||
-              paddingHorizontal != null ||
-              paddingVertical != null ||
-              padding != null)
-          ? getPaddingEdgeInsets(
-              CommonContainerModel(
-                paddingTop: paddingTop,
-                paddingBottom: paddingBottom,
-                paddingLeft: paddingLeft,
-                paddingRight: paddingRight,
-                paddingHorizontal: paddingHorizontal,
-                paddingVertical: paddingVertical,
-                padding: padding ?? 0.0,
-              ),
-            )
-          : getPaddingEdgeInsets(currentStyle),
+      padding: getPaddingEdgeInsets(
+        CommonContainerModel(
+          paddingTop: paddingTop ?? currentStyle.paddingTop,
+          paddingBottom: paddingBottom ?? currentStyle.paddingBottom,
+          paddingLeft: paddingLeft ?? currentStyle.paddingLeft,
+          paddingRight: paddingRight ?? currentStyle.paddingRight,
+          paddingHorizontal:
+              paddingHorizontal ?? currentStyle.paddingHorizontal,
+          paddingVertical: paddingVertical ?? currentStyle.paddingVertical,
+          padding: padding ?? currentStyle.padding,
+        ),
+      ),
 
       ///
       /// get the alignment for content.
