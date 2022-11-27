@@ -11,7 +11,7 @@ class CommonButton extends StatelessWidget {
     this.onFocusChange,
     this.onHover,
     this.child,
-    this.disable = false,
+    this.enabled = true,
     this.autofocus = false,
     this.backgroundColor,
     this.disabledColor,
@@ -83,7 +83,7 @@ class CommonButton extends StatelessWidget {
   final ValueChanged<bool>? onHover;
   final Widget? child;
 
-  final bool disable;
+  final bool enabled;
 
   /// The [autofocus] and [clipBehavior] arguments must not be null.
   final bool autofocus;
@@ -321,12 +321,12 @@ class CommonButton extends StatelessWidget {
     final ElevatedButton elevatedButton = ElevatedButton(
       key: key,
       onFocusChange: onFocusChange?.call,
-      onHover: !disable ? onHover?.call : null,
+      onHover: enabled ? onHover?.call : null,
       autofocus: autofocus,
       clipBehavior: clipBehavior ?? currentStyle.clipBehavior,
       focusNode: focusNode,
-      onLongPress: disable ? null : onLongPress?.call,
-      onPressed: disable ? null : onPress?.call,
+      onLongPress: enabled ? onLongPress?.call : null,
+      onPressed: enabled ? onPress?.call : null,
       style: ButtonStyle(
         alignment: alignment ?? currentStyle.alignment,
         animationDuration: animationDuration ?? currentStyle.animationDuration,
@@ -383,12 +383,12 @@ class CommonButton extends StatelessWidget {
           isOverLay: true,
         ),
         foregroundColor: getButtonColorType(
-          !disable
+          enabled
               ? foregroundColor ?? currentStyle.foregroundColor
               : disabledColor ?? currentStyle.disabledColor!,
         ),
         backgroundColor: getButtonColorType(
-          !disable
+          enabled
               ? backgroundColor ?? currentStyle.backgroundColor!
               : disabledColor ?? currentStyle.disabledColor!,
         ),
@@ -444,7 +444,7 @@ class CommonButton extends StatelessWidget {
             padding: getMarginEdgeInsets(
               CommonButtonModel(
                 marginTop: currentMarginTop,
-                marginBottom: currentMarginTop,
+                marginBottom: currentMarginBottom,
                 marginLeft: currentMarginLeft,
                 marginRight: currentMarginRight,
                 marginHorizontal: currentMarginHorizontal,

@@ -60,6 +60,13 @@ class CommonText extends StatelessWidget {
     this.inherit,
     this.package,
     this.semanticsLabel,
+    this.margin,
+    this.marginTop,
+    this.marginBottom,
+    this.marginRight,
+    this.marginLeft,
+    this.marginVertical,
+    this.marginHorizontal,
     Key? key,
   }) : super(
           key: key,
@@ -274,6 +281,42 @@ class CommonText extends StatelessWidget {
   /// prefix icon
   final CommonIcon? prefixIcon;
 
+  ///
+  /// margin for all container
+  ///
+  ///
+  final double? margin;
+
+  ///
+  /// margin for top container
+  ///
+  final double? marginTop;
+
+  ///
+  /// margin for bottom container
+  ///
+  final double? marginBottom;
+
+  ///
+  /// margin for right container
+  ///
+  final double? marginRight;
+
+  ///
+  /// margin for left container
+  ///
+  final double? marginLeft;
+
+  ///
+  /// margin for (top and bottom|| Vertical)  container
+  ///
+  final double? marginVertical;
+
+  ///
+  /// margin for (right and left || Horizontal) container
+  ///
+  final double? marginHorizontal;
+
   double _responsiveFontSize() => DEVICE_WIDTH * (fontSize! / 430);
 
   @override
@@ -281,6 +324,26 @@ class CommonText extends StatelessWidget {
     final CommonTextModel currentTextStyle = style ?? const CommonTextModel();
     final CommonContainerModel currentContainerStyle =
         containerStyle ?? const CommonContainerModel();
+
+    final double? currentMargin = margin ?? currentTextStyle.margin;
+    final double? currentMarginTop = marginTop ?? currentTextStyle.marginTop;
+    final double? currentMarginBottom =
+        marginBottom ?? currentTextStyle.marginBottom;
+    final double? currentMarginRight =
+        marginRight ?? currentTextStyle.marginRight;
+    final double? currentMarginLeft = marginLeft ?? currentTextStyle.marginLeft;
+    final double? currentMarginHorizontal =
+        marginHorizontal ?? currentTextStyle.marginHorizontal;
+    final double? currentMarginVertical =
+        marginVertical ?? currentTextStyle.marginVertical;
+
+    final bool withMargin = (currentMarginTop != null ||
+        currentMarginBottom != null ||
+        currentMarginLeft != null ||
+        currentMarginRight != null ||
+        currentMarginHorizontal != null ||
+        currentMarginVertical != null ||
+        currentMargin != null);
 
     // simple text
     final Text simpleText = Text(
@@ -332,6 +395,23 @@ class CommonText extends StatelessWidget {
           textHeightBehavior ?? currentTextStyle.textHeightBehavior,
       overflow: overflow ?? currentTextStyle.overflow,
     );
+
+    final dynamic simpleTextContainer = withMargin
+        ? Padding(
+            padding: getMarginEdgeInsets(
+              CommonButtonModel(
+                marginTop: currentMarginTop,
+                marginBottom: currentMarginBottom,
+                marginLeft: currentMarginLeft,
+                marginRight: currentMarginRight,
+                marginHorizontal: currentMarginHorizontal,
+                marginVertical: currentMarginVertical,
+                margin: currentMargin ?? 0.0,
+              ),
+            ),
+            child: simpleText,
+          )
+        : simpleText;
 
     // richtext with text span
     final Flexible flexibleText = Flexible(
@@ -387,7 +467,7 @@ class CommonText extends StatelessWidget {
 
     // check the text type should render
     final dynamic currentTextType =
-        inlineSpans == null ? simpleText : flexibleText;
+        inlineSpans == null ? simpleTextContainer : flexibleText;
 
     // row container
     final Row row = Row(
@@ -430,16 +510,33 @@ class CommonText extends StatelessWidget {
         rightChild == null &&
         leftChild == null;
 
+    final CommonTouchable commonTouchable = CommonTouchable(
+      onTap: onPress,
+      touchEffect: TouchableEffect(
+        type: TouchTypes.opacity,
+      ),
+      child: simpleText,
+    );
+
     if (isSimple) {
       return onPress == null
-          ? simpleText
-          : CommonTouchable(
-              onTap: onPress,
-              touchEffect: TouchableEffect(
-                type: TouchTypes.opacity,
-              ),
-              child: simpleText,
-            );
+          ? simpleTextContainer
+          : withMargin
+              ? Padding(
+                  padding: getMarginEdgeInsets(
+                    CommonButtonModel(
+                      marginTop: currentMarginTop,
+                      marginBottom: currentMarginBottom,
+                      marginLeft: currentMarginLeft,
+                      marginRight: currentMarginRight,
+                      marginHorizontal: currentMarginHorizontal,
+                      marginVertical: currentMarginVertical,
+                      margin: currentMargin ?? 0.0,
+                    ),
+                  ),
+                  child: commonTouchable,
+                )
+              : commonTouchable;
     } else {
       return containerStyle == null
           ? isColumOrRow

@@ -51,12 +51,14 @@ class _MyAppState extends State<MyApp> {
                       type: widget.type,
                     )
                   : widget.name == _textInput
-                      ? const TextInputs()
+                      ? TextInputs(
+                          type: widget.type,
+                        )
                       : widget.name == _datepicker
                           ? const DatePickers()
                           : widget.name == _image
                               ? const Images()
-                              : const Buttons(type: 'default'),
+                              : const TextInputs(type: 'default'),
       // : const MyHomePage(),
     );
   }

@@ -50,6 +50,13 @@ class CommonTextModel {
     this.inherit = true,
     this.package,
     this.semanticsLabel,
+    this.margin,
+    this.marginTop,
+    this.marginBottom,
+    this.marginRight,
+    this.marginLeft,
+    this.marginVertical,
+    this.marginHorizontal,
   });
 
   ///
@@ -223,6 +230,42 @@ class CommonTextModel {
   ///
   final String? semanticsLabel;
 
+  ///
+  /// margin for all container
+  ///
+  ///
+  final double? margin;
+
+  ///
+  /// margin for top container
+  ///
+  final double? marginTop;
+
+  ///
+  /// margin for bottom container
+  ///
+  final double? marginBottom;
+
+  ///
+  /// margin for right container
+  ///
+  final double? marginRight;
+
+  ///
+  /// margin for left container
+  ///
+  final double? marginLeft;
+
+  ///
+  /// margin for (top and bottom|| Vertical)  container
+  ///
+  final double? marginVertical;
+
+  ///
+  /// margin for (right and left || Horizontal) container
+  ///
+  final double? marginHorizontal;
+
   double responsiveFontSize() => DEVICE_WIDTH * (fontSize! / 430);
 
   CommonTextModel copyWith({
@@ -267,6 +310,13 @@ class CommonTextModel {
     bool? inherit,
     String? package,
     String? semanticsLabel,
+    double? margin,
+    double? marginTop,
+    double? marginBottom,
+    double? marginRight,
+    double? marginLeft,
+    double? marginVertical,
+    double? marginHorizontal,
   }) {
     return CommonTextModel(
       height: height ?? this.height,
@@ -313,6 +363,13 @@ class CommonTextModel {
       inherit: inherit ?? this.inherit,
       package: package ?? this.package,
       semanticsLabel: semanticsLabel ?? this.semanticsLabel,
+      margin: margin ?? this.margin,
+      marginTop: marginTop ?? this.marginTop,
+      marginBottom: marginBottom ?? this.marginBottom,
+      marginRight: marginRight ?? this.marginRight,
+      marginLeft: marginLeft ?? this.marginLeft,
+      marginVertical: marginVertical ?? this.marginVertical,
+      marginHorizontal: marginHorizontal ?? this.marginHorizontal,
     );
   }
 }

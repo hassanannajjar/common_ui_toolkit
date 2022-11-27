@@ -81,7 +81,7 @@ class Buttons extends StatelessWidget {
             if (type == 'disable')
               const CommonButton(
                 text: 'Disabled button',
-                disable: true,
+                enabled: false,
               ),
           ],
         ),
