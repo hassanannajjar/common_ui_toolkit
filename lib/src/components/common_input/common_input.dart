@@ -1,5 +1,4 @@
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../common_ui_toolkit.dart';
 
@@ -8,15 +7,14 @@ const CommonInputModel _defaultTextInputModel = CommonInputModel();
 class CommonInput extends StatelessWidget {
   const CommonInput({
     this.style,
-    this.containerStyle,
     this.onChanged,
     this.controller,
     this.onTap,
     this.hint,
+    this.hintMaxLines,
+    this.hintTextDirection,
     this.keyboardType,
     this.isRequired,
-    this.withBorderSide,
-    this.underlined,
     this.isCollapsed,
     this.readOnly,
     this.withInputVerification,
@@ -31,26 +29,16 @@ class CommonInput extends StatelessWidget {
     this.cursorColor,
     this.focusNode,
     this.maxLines,
-    this.prefixText,
-    this.suffixText,
+    this.minLines,
     this.counterText,
     this.semanticCounterText,
     this.prefix,
     this.suffix,
-    this.minLines,
     this.cursorRadius,
     this.cursorHeight,
     this.cursorWidth,
-    this.prefixMinWidth,
-    this.prefixMinHeight,
-    this.prefixMaxWidth,
-    this.prefixMaxHeight,
-    this.suffixMinWidth,
-    this.suffixMinHeight,
-    this.suffixMaxWidth,
-    this.suffixMaxHeight,
     this.borderWidth,
-    this.radius,
+    this.borderRadius,
     this.hintColor,
     this.disabledColor,
     this.focusBorderColor,
@@ -63,13 +51,6 @@ class CommonInput extends StatelessWidget {
     this.fontFamily,
     this.fontSize,
     this.fontWeight,
-    this.contentcontentPadding,
-    this.contentcontentPaddingTop,
-    this.contentcontentPaddingBottom,
-    this.contentcontentPaddingRight,
-    this.contentcontentPaddingLeft,
-    this.contentcontentPaddingVertical,
-    this.contentcontentPaddingHorizontal,
     this.textInputAction,
     this.textStyle,
     this.hintStyle,
@@ -79,11 +60,7 @@ class CommonInput extends StatelessWidget {
     this.inputPattern,
     this.inputDecoration,
     this.text,
-    this.prefixWidget,
-    this.suffixWidget,
     this.counterWidget,
-    this.prefixIcon,
-    this.suffixIcon,
     this.textInputFormatters,
     this.autofillHints,
     this.autoValidateMode,
@@ -116,14 +93,6 @@ class CommonInput extends StatelessWidget {
     this.floatingLabelAlignment,
     this.floatingLabelBehavior,
     this.floatingLabelStyle,
-
-    ///
-    /// Empty space to inscribe inside the [decoration]. The [child], if any, is
-    /// placed inside this contentPadding.
-    ///
-    /// This contentPadding is in addition to any contentPadding inherent in the [decoration];
-    /// see [Decoration.contentPadding].
-    ///
     this.contentPadding,
     this.contentPaddingTop,
     this.contentPaddingBottom,
@@ -133,6 +102,20 @@ class CommonInput extends StatelessWidget {
     this.contentPaddingHorizontal,
     this.errorMaxLines,
     this.alignLabelWithHint,
+    this.outIcon,
+    this.border,
+    this.focusedBorder,
+    this.enabledBorder,
+    this.disabledBorder,
+    this.errorBorder,
+    this.focusedErrorBorder,
+    this.errorStyle,
+    this.errorText,
+    this.helperText,
+    this.helperStyle,
+    this.helperMaxLines,
+    this.borderType,
+    this.borderColor,
     Key? key,
   }) : super(
           key: key,
@@ -164,7 +147,6 @@ class CommonInput extends StatelessWidget {
   final Function(String?)? onSaved;
 
   final CommonInputModel? style;
-  final CommonContainerModel? containerStyle;
   final TextEditingController? controller;
 
   ///
@@ -178,32 +160,9 @@ class CommonInput extends StatelessWidget {
   final double? fontSize;
 
   ///
-  /// radius
+  /// borderRadius
   ///
-  final double? radius;
-
-  ///
-  /// contentcontentPadding from all sides
-  ///
-  final double? contentcontentPadding;
-  final double? contentcontentPaddingTop;
-  final double? contentcontentPaddingBottom;
-  final double? contentcontentPaddingRight;
-  final double? contentcontentPaddingLeft;
-  final double? contentcontentPaddingVertical;
-  final double? contentcontentPaddingHorizontal;
-
-  ///
-  /// prefix & suffix min & max width & height
-  ///
-  final double? prefixMinWidth;
-  final double? prefixMinHeight;
-  final double? prefixMaxWidth;
-  final double? prefixMaxHeight;
-  final double? suffixMinWidth;
-  final double? suffixMinHeight;
-  final double? suffixMaxWidth;
-  final double? suffixMaxHeight;
+  final double? borderRadius;
 
   ///
   /// cursor width and height
@@ -230,16 +189,9 @@ class CommonInput extends StatelessWidget {
   final int? maxLines;
 
   /// Widgets
-  final Widget? prefixWidget;
-  final Widget? suffixWidget;
   final Widget? prefix;
   final Widget? suffix;
   final Widget? counterWidget;
-
-  /// If you pass prefixWidget then prefixIcon is ignored.
-  /// prefix and suffix icons
-  final CommonIcon? prefixIcon;
-  final CommonIcon? suffixIcon;
 
   ///
   /// focus node
@@ -256,6 +208,10 @@ class CommonInput extends StatelessWidget {
   ///
   final String? hint;
 
+  final int? hintMaxLines;
+
+  final TextDirection? hintTextDirection;
+
   ///
   /// font family
   ///
@@ -265,12 +221,6 @@ class CommonInput extends StatelessWidget {
   /// text
   ///
   final String? text;
-
-  ///
-  /// prefix and suffix texts
-  ///
-  final String? prefixText;
-  final String? suffixText;
 
   ///
   /// counter text
@@ -286,16 +236,6 @@ class CommonInput extends StatelessWidget {
   /// is required
   ///
   final bool? isRequired;
-
-  ///
-  /// with border side
-  ///
-  final bool? withBorderSide;
-
-  ///
-  /// underlined
-  ///
-  final bool? underlined;
 
   ///
   /// is collapsed
@@ -528,11 +468,53 @@ class CommonInput extends StatelessWidget {
 
   final bool? alignLabelWithHint;
 
+  final Widget? outIcon;
+
+  final InputBorder? border;
+  final InputBorder? focusedBorder;
+  final InputBorder? enabledBorder;
+  final InputBorder? disabledBorder;
+  final InputBorder? errorBorder;
+  final InputBorder? focusedErrorBorder;
+
+  final TextStyle? errorStyle;
+  final String? errorText;
+  final String? helperText;
+  final TextStyle? helperStyle;
+  final int? helperMaxLines;
+  final BorderType? borderType;
+  final dynamic borderColor;
+
   @override
   Widget build(BuildContext context) {
     final CommonInputModel currentStyle = style ?? _defaultTextInputModel;
     final TextEditingController currentController =
         controller ?? TextEditingController(text: value);
+
+    InputBorder _getOutlineInputBorder({
+      dynamic color,
+    }) {
+      return (borderType ?? currentStyle.borderType) == BorderType.none
+          ? const UnderlineInputBorder(
+              borderSide: BorderSide.none,
+            )
+          : (borderType ?? currentStyle.borderType) == BorderType.underLine
+              ? UnderlineInputBorder(
+                  borderSide: BorderSide(
+                    color: getColorType(color),
+                    width: currentStyle.borderWidth!,
+                  ),
+                )
+              : OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(currentStyle.borderRadius!),
+                  ),
+                  borderSide: BorderSide(
+                    color: getColorType(color),
+                    width: currentStyle.borderWidth!,
+                  ),
+                );
+    }
 
     final TextFormField textFormField = TextFormField(
       onChanged: onChanged?.call,
@@ -637,55 +619,49 @@ class CommonInput extends StatelessWidget {
                       : getColorType(
                           disabledColor ?? currentStyle.disabledColor!),
                 ),
+            hintMaxLines: hintMaxLines,
+            hintTextDirection: hintTextDirection,
             isCollapsed: isCollapsed ?? currentStyle.isCollapsed!,
-            prefixText: prefixText ?? currentStyle.prefixText,
-            suffixText: suffixText ?? currentStyle.suffixText,
-            prefixStyle: prefixStyle ?? currentStyle.prefixStyle,
-            suffixStyle: suffixStyle ?? currentStyle.suffixStyle,
             counter: counterWidget ?? currentStyle.counterWidget,
             enabled: enabled ?? currentStyle.enabled!,
             errorMaxLines: errorMaxLines ?? currentStyle.errorMaxLines,
             alignLabelWithHint:
                 alignLabelWithHint ?? currentStyle.alignLabelWithHint,
-            icon: const Icon(Icons.beach_access),
-
-            // focusedBorder: getOutlineInputBorder(
-            //   borderColor: focusBorderColor ?? currentStyle.focusBorderColor!,
-            // ),
-            // border: getOutlineInputBorder(
-            //   borderColor: currentStyle.disabledColor!,
-            // ),
-            // enabledBorder: getOutlineInputBorder(
-            //   borderColor: currentStyle.enabledBorderColor!,
-            // ),
-            // disabledBorder: getOutlineInputBorder(
-            //   borderColor: currentStyle.disabledBorderColor!,
-            // ),
-            // errorBorder: getOutlineInputBorder(
-            //   borderColor: currentStyle.errorBorderColor!,
-            // ),
-            prefixIcon: currentStyle.prefixWidget ??
-                (currentStyle.prefixIcon != null
-                    ? getIcon(
-                        currentStyle.prefixIcon!,
-                      )
-                    : null),
-            suffixIcon: currentStyle.suffixWidget ??
-                (currentStyle.suffixIcon != null
-                    ? getIcon(
-                        currentStyle.suffixIcon!,
-                      )
-                    : null),
-            prefixIconConstraints: BoxConstraints(
-              minWidth: currentStyle.prefixMinWidth!,
-              minHeight: currentStyle.prefixMinHeight!,
-            ),
-            suffixIconConstraints: BoxConstraints(
-              minWidth: currentStyle.suffixMinWidth!,
-              minHeight: currentStyle.suffixMinHeight!,
-            ),
+            icon: outIcon,
+            border: border ??
+                currentStyle.border ??
+                _getOutlineInputBorder(
+                  color: borderColor ?? currentStyle.borderColor!,
+                ),
+            focusedBorder: (focusedBorder ?? currentStyle.focusedBorder) ??
+                _getOutlineInputBorder(
+                  color: focusBorderColor ?? currentStyle.focusBorderColor!,
+                ),
+            enabledBorder: (enabledBorder ?? currentStyle.enabledBorder) ??
+                _getOutlineInputBorder(
+                  color: enabledBorderColor ?? currentStyle.enabledBorderColor!,
+                ),
+            disabledBorder: (disabledBorder ?? currentStyle.disabledBorder) ??
+                _getOutlineInputBorder(
+                  color:
+                      disabledBorderColor ?? currentStyle.disabledBorderColor!,
+                ),
+            errorBorder: (errorBorder ?? currentStyle.errorBorder) ??
+                _getOutlineInputBorder(
+                  color: errorBorderColor ?? currentStyle.errorBorderColor!,
+                ),
+            errorStyle: errorStyle ?? currentStyle.errorStyle,
+            errorText: errorText ?? currentStyle.errorText,
+            focusedErrorBorder:
+                focusedErrorBorder ?? currentStyle.focusedErrorBorder,
+            helperText: helperText ?? currentStyle.helperText,
+            helperMaxLines: helperMaxLines ?? currentStyle.helperMaxLines,
+            helperStyle: helperStyle ?? currentStyle.helperStyle,
+            prefix: prefix,
+            suffix: suffix,
           ),
     );
+
     return onTap != null
         ? Listener(
             behavior: HitTestBehavior.opaque,
@@ -696,63 +672,12 @@ class CommonInput extends StatelessWidget {
           )
         : textFormField;
   }
+}
 
-  CommonContainer getIcon(CommonIcon icon) {
-    return CommonContainer(
-      onPress: () {
-        icon.onPress?.call();
-      },
-      style: icon.containerStyle ?? const CommonContainerModel(),
-      child: icon.path is IconData
-          ? Icon(
-              icon.path, // icon data takes only size without width and height, so we need to use size instead. we pass the width to be the size of the icon.
-              size: icon.iconDataSize,
-              color: generateIconColor(icon.color),
-            )
-          : icon.path.startsWith('http')
-              ? icon.path.endsWith('svg')
-                  ? SvgPicture.network(
-                      icon.path,
-                      color: generateIconColor(icon.color),
-                    )
-                  : Image.network(
-                      icon.path,
-                    )
-              : icon.path.endsWith('svg')
-                  ? SvgPicture.asset(
-                      icon.path,
-                      color: generateIconColor(icon.color),
-                    )
-                  : Image.asset(
-                      icon.path,
-                    ),
-    );
-  }
+enum BorderType {
+  none,
 
-  dynamic generateIconColor(dynamic color) => getColorType(
-        (style ?? _defaultTextInputModel).enabled!
-            ? color
-            : (style ?? _defaultTextInputModel).disabledColor!,
-      );
+  underLine,
 
-  InputBorder getOutlineInputBorder({dynamic borderColor}) {
-    return (style ?? _defaultTextInputModel).underlined!
-        ? UnderlineInputBorder(
-            borderSide: BorderSide(
-              color: getColorType(borderColor),
-              width: (style ?? _defaultTextInputModel).borderWidth!,
-            ),
-          )
-        : OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular((style ?? _defaultTextInputModel).radius!),
-            ),
-            borderSide: (style ?? _defaultTextInputModel).withBorderSide!
-                ? BorderSide(
-                    color: getColorType(borderColor),
-                    width: (style ?? _defaultTextInputModel).borderWidth!,
-                  )
-                : BorderSide.none,
-          );
-  }
+  outLine,
 }
