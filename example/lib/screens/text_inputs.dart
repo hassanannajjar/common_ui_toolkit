@@ -40,6 +40,7 @@ class _TextInputsState extends State<TextInputs> {
                   consoleLog('test tap');
                 },
                 value: 'test',
+                errorMaxLines: 3,
                 // controller: _textEditingController,
               ),
               CommonInput(

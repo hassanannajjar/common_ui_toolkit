@@ -130,11 +130,9 @@ class CommonInput extends StatelessWidget {
     this.contentPaddingRight,
     this.contentPaddingLeft,
     this.contentPaddingVertical,
-
-    ///
-    /// container contentPadding top and bottom to be same.
-    ///
     this.contentPaddingHorizontal,
+    this.errorMaxLines,
+    this.alignLabelWithHint,
     Key? key,
   }) : super(
           key: key,
@@ -526,6 +524,10 @@ class CommonInput extends StatelessWidget {
   final double? contentPaddingVertical;
   final double? contentPaddingHorizontal;
 
+  final int? errorMaxLines;
+
+  final bool? alignLabelWithHint;
+
   @override
   Widget build(BuildContext context) {
     final CommonInputModel currentStyle = style ?? _defaultTextInputModel;
@@ -641,12 +643,17 @@ class CommonInput extends StatelessWidget {
             prefixStyle: prefixStyle ?? currentStyle.prefixStyle,
             suffixStyle: suffixStyle ?? currentStyle.suffixStyle,
             counter: counterWidget ?? currentStyle.counterWidget,
+            enabled: enabled ?? currentStyle.enabled!,
+            errorMaxLines: errorMaxLines ?? currentStyle.errorMaxLines,
+            alignLabelWithHint:
+                alignLabelWithHint ?? currentStyle.alignLabelWithHint,
+            icon: const Icon(Icons.beach_access),
+
+            // focusedBorder: getOutlineInputBorder(
+            //   borderColor: focusBorderColor ?? currentStyle.focusBorderColor!,
+            // ),
             // border: getOutlineInputBorder(
             //   borderColor: currentStyle.disabledColor!,
-            // ),
-            // ////The border to display when the InputDecorator has the focus and is not showing an error.
-            // focusedBorder: getOutlineInputBorder(
-            //   borderColor: currentStyle.focusBorderColor!,
             // ),
             // enabledBorder: getOutlineInputBorder(
             //   borderColor: currentStyle.enabledBorderColor!,
@@ -657,28 +664,26 @@ class CommonInput extends StatelessWidget {
             // errorBorder: getOutlineInputBorder(
             //   borderColor: currentStyle.errorBorderColor!,
             // ),
-            // prefixIcon: currentStyle.prefixWidget ??
-            //     (currentStyle.prefixIcon != null
-            //         ? getIcon(
-            //             currentStyle.prefixIcon!,
-            //           )
-            //         : null),
-            // suffixIcon: currentStyle.suffixWidget ??
-            //     (currentStyle.suffixIcon != null
-            //         ? getIcon(
-            //             currentStyle.suffixIcon!,
-            //           )
-            //         : null),
-            // prefixIconConstraints: BoxConstraints(
-            //   minWidth: currentStyle.prefixMinWidth!,
-            //   minHeight: currentStyle.prefixMinHeight!,
-            // ),
-            // suffixIconConstraints: BoxConstraints(
-            //   minWidth: currentStyle.suffixMinWidth!,
-            //   minHeight: currentStyle.suffixMinHeight!,
-            // ),
-
-            alignLabelWithHint: true,
+            prefixIcon: currentStyle.prefixWidget ??
+                (currentStyle.prefixIcon != null
+                    ? getIcon(
+                        currentStyle.prefixIcon!,
+                      )
+                    : null),
+            suffixIcon: currentStyle.suffixWidget ??
+                (currentStyle.suffixIcon != null
+                    ? getIcon(
+                        currentStyle.suffixIcon!,
+                      )
+                    : null),
+            prefixIconConstraints: BoxConstraints(
+              minWidth: currentStyle.prefixMinWidth!,
+              minHeight: currentStyle.prefixMinHeight!,
+            ),
+            suffixIconConstraints: BoxConstraints(
+              minWidth: currentStyle.suffixMinWidth!,
+              minHeight: currentStyle.suffixMinHeight!,
+            ),
           ),
     );
     return onTap != null

@@ -102,6 +102,8 @@ class CommonInputModel {
     this.floatingLabelAlignment,
     this.floatingLabelBehavior,
     this.floatingLabelStyle,
+    this.errorMaxLines,
+    this.alignLabelWithHint,
   });
 
   ///
@@ -432,6 +434,8 @@ class CommonInputModel {
   final FloatingLabelAlignment? floatingLabelAlignment;
   final FloatingLabelBehavior? floatingLabelBehavior;
   final TextStyle? floatingLabelStyle;
+  final int? errorMaxLines;
+  final bool? alignLabelWithHint;
 
   CommonInputModel copyWith({
     double? borderWidth,
@@ -532,6 +536,8 @@ class CommonInputModel {
     FloatingLabelAlignment? floatingLabelAlignment,
     FloatingLabelBehavior? floatingLabelBehavior,
     TextStyle? floatingLabelStyle,
+    int? errorMaxLines,
+    bool? alignLabelWithHint,
   }) {
     return CommonInputModel(
       borderWidth: borderWidth ?? this.borderWidth,
@@ -638,6 +644,8 @@ class CommonInputModel {
       floatingLabelBehavior:
           floatingLabelBehavior ?? this.floatingLabelBehavior,
       floatingLabelStyle: floatingLabelStyle ?? this.floatingLabelStyle,
+      errorMaxLines: errorMaxLines ?? this.errorMaxLines,
+      alignLabelWithHint: alignLabelWithHint ?? this.alignLabelWithHint,
     );
   }
 }
