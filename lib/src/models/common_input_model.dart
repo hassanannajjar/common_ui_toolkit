@@ -9,6 +9,15 @@ class CommonInputModel {
     this.isRequired = false,
     this.isCollapsed = false,
     this.readOnly = false,
+    this.margin,
+    this.marginTop,
+    this.marginBottom,
+    this.marginRight,
+    this.marginLeft,
+    this.marginVertical,
+    this.marginHorizontal,
+    this.height,
+    this.width,
     this.withInputVerification = false,
     this.obscureText = false,
     this.showCursor = true,
@@ -398,6 +407,46 @@ class CommonInputModel {
 
   final dynamic borderColor;
 
+  ///
+  /// margin for all container
+  ///
+  ///
+  final double? margin;
+
+  ///
+  /// margin for top container
+  ///
+  final double? marginTop;
+
+  ///
+  /// margin for bottom container
+  ///
+  final double? marginBottom;
+
+  ///
+  /// margin for right container
+  ///
+  final double? marginRight;
+
+  ///
+  /// margin for left container
+  ///
+  final double? marginLeft;
+
+  ///
+  /// margin for (top and bottom|| Vertical)  container
+  ///
+  final double? marginVertical;
+
+  ///
+  /// margin for (right and left || Horizontal) container
+  ///
+  final double? marginHorizontal;
+
+  final double? height;
+
+  final double? width;
+
   CommonInputModel copyWith({
     double? borderWidth,
     double? fontSize,
@@ -493,11 +542,29 @@ class CommonInputModel {
     int? hintMaxLines,
     TextDirection? hintTextDirection,
     dynamic borderColor,
+    double? margin,
+    double? marginTop,
+    double? marginBottom,
+    double? marginRight,
+    double? marginLeft,
+    double? marginVertical,
+    double? marginHorizontal,
+    double? height,
+    double? width,
   }) {
     return CommonInputModel(
       borderWidth: borderWidth ?? this.borderWidth,
       fontSize: fontSize ?? this.fontSize,
       borderRadius: borderRadius ?? this.borderRadius,
+      margin: margin ?? this.margin,
+      marginTop: marginTop ?? this.marginTop,
+      marginBottom: marginBottom ?? this.marginBottom,
+      marginRight: marginRight ?? this.marginRight,
+      marginLeft: marginLeft ?? this.marginLeft,
+      marginVertical: marginVertical ?? this.marginVertical,
+      marginHorizontal: marginHorizontal ?? this.marginHorizontal,
+      height: height ?? this.height,
+      width: width ?? this.width,
       contentPadding: contentPadding ?? this.contentPadding,
       contentPaddingTop: contentPaddingTop ?? this.contentPaddingTop,
       contentPaddingBottom: contentPaddingBottom ?? this.contentPaddingBottom,

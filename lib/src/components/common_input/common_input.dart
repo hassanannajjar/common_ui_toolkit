@@ -10,6 +10,15 @@ class CommonInput extends StatelessWidget {
     this.onChanged,
     this.controller,
     this.onTap,
+    this.margin,
+    this.marginTop,
+    this.marginBottom,
+    this.marginRight,
+    this.marginLeft,
+    this.marginVertical,
+    this.marginHorizontal,
+    this.height,
+    this.width,
     this.hint,
     this.hintMaxLines,
     this.hintTextDirection,
@@ -485,6 +494,46 @@ class CommonInput extends StatelessWidget {
   final BorderType? borderType;
   final dynamic borderColor;
 
+  ///
+  /// margin for all container
+  ///
+  ///
+  final double? margin;
+
+  ///
+  /// margin for top container
+  ///
+  final double? marginTop;
+
+  ///
+  /// margin for bottom container
+  ///
+  final double? marginBottom;
+
+  ///
+  /// margin for right container
+  ///
+  final double? marginRight;
+
+  ///
+  /// margin for left container
+  ///
+  final double? marginLeft;
+
+  ///
+  /// margin for (top and bottom|| Vertical)  container
+  ///
+  final double? marginVertical;
+
+  ///
+  /// margin for (right and left || Horizontal) container
+  ///
+  final double? marginHorizontal;
+
+  final double? height;
+
+  final double? width;
+
   @override
   Widget build(BuildContext context) {
     final CommonInputModel currentStyle = style ?? _defaultTextInputModel;
@@ -633,20 +682,24 @@ class CommonInput extends StatelessWidget {
                 _getOutlineInputBorder(
                   color: borderColor ?? currentStyle.borderColor!,
                 ),
-            focusedBorder: (focusedBorder ?? currentStyle.focusedBorder) ??
+            focusedBorder: focusedBorder ??
+                currentStyle.focusedBorder ??
                 _getOutlineInputBorder(
                   color: focusBorderColor ?? currentStyle.focusBorderColor!,
                 ),
-            enabledBorder: (enabledBorder ?? currentStyle.enabledBorder) ??
+            enabledBorder: enabledBorder ??
+                currentStyle.enabledBorder ??
                 _getOutlineInputBorder(
                   color: enabledBorderColor ?? currentStyle.enabledBorderColor!,
                 ),
-            disabledBorder: (disabledBorder ?? currentStyle.disabledBorder) ??
+            disabledBorder: disabledBorder ??
+                currentStyle.disabledBorder ??
                 _getOutlineInputBorder(
                   color:
                       disabledBorderColor ?? currentStyle.disabledBorderColor!,
                 ),
-            errorBorder: (errorBorder ?? currentStyle.errorBorder) ??
+            errorBorder: errorBorder ??
+                currentStyle.errorBorder ??
                 _getOutlineInputBorder(
                   color: errorBorderColor ?? currentStyle.errorBorderColor!,
                 ),
@@ -661,8 +714,26 @@ class CommonInput extends StatelessWidget {
             suffix: suffix,
           ),
     );
+    final double? currentMargin = margin ?? currentStyle.margin;
+    final double? currentMarginTop = marginTop ?? currentStyle.marginTop;
+    final double? currentMarginBottom =
+        marginBottom ?? currentStyle.marginBottom;
+    final double? currentMarginRight = marginRight ?? currentStyle.marginRight;
+    final double? currentMarginLeft = marginLeft ?? currentStyle.marginLeft;
+    final double? currentMarginHorizontal =
+        marginHorizontal ?? currentStyle.marginHorizontal;
+    final double? currentMarginVertical =
+        marginVertical ?? currentStyle.marginVertical;
 
-    return onTap != null
+    final bool withMargin = (currentMarginTop != null ||
+        currentMarginBottom != null ||
+        currentMarginLeft != null ||
+        currentMarginRight != null ||
+        currentMarginHorizontal != null ||
+        currentMarginVertical != null ||
+        currentMargin != null);
+
+    final dynamic simpleInput = onTap != null
         ? Listener(
             behavior: HitTestBehavior.opaque,
             onPointerDown: (PointerDownEvent details) {
@@ -671,6 +742,35 @@ class CommonInput extends StatelessWidget {
             child: textFormField,
           )
         : textFormField;
+
+    final dynamic marginInput = withMargin
+        ? Padding(
+            padding: getMarginEdgeInsets(
+              CommonInputModel(
+                marginTop: currentMarginTop,
+                marginBottom: currentMarginBottom,
+                marginLeft: currentMarginLeft,
+                marginRight: currentMarginRight,
+                marginHorizontal: currentMarginHorizontal,
+                marginVertical: currentMarginVertical,
+                margin: currentMargin ?? 0.0,
+              ),
+            ),
+            child: simpleInput,
+          )
+        : simpleInput;
+
+    final double? currentWidth = (width ?? currentStyle.width);
+    final double? currentHeight = (height ?? currentStyle.height);
+
+    return (currentWidth != null || currentHeight != null)
+        ? SizedBox(
+            width: currentWidth != null ? DEVICE_WIDTH * currentWidth : null,
+            height:
+                currentHeight != null ? DEVICE_HEIGHT * currentHeight : null,
+            child: marginInput,
+          )
+        : marginInput;
   }
 }
 

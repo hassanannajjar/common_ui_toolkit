@@ -32,21 +32,25 @@ class _TextInputsState extends State<TextInputs> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              CommonInput(
+              const CommonInput(
                 // onChanged: (String value) {
                 //   consoleLog(value);
                 // },
-                onTap: () {
-                  consoleLog('test tap');
-                },
+                // onTap: () {
+                //   consoleLog('test tap');
+                // },
                 value: 'test',
                 errorMaxLines: 3,
+                // width: 0.6,
+                marginTop: 0.02,
+                marginHorizontal: 0.2,
                 // controller: _textEditingController,
               ),
               CommonInput(
                 onChanged: (String value) {
                   consoleLog(value);
                 },
+                marginTop: 0.1,
                 value: '$value',
                 readOnly: true,
                 enabled: false,
