@@ -12,6 +12,15 @@ const String _textInput = 'textInput';
 void main() {
   // ?name=button&type=primary
   WidgetsFlutterBinding.ensureInitialized();
+  setGlobalConfig(
+    textModel: const CommonTextModel(
+      fontColor: Colors.red,
+      fontWeight: FontWeight.bold,
+      fontSize: COMMON_H3_FONT,
+      textAlign: TextAlign.right,
+    ),
+  );
+
   final String fullUrl = Uri.base.queryParameters.toString();
   final String name = Uri.base.queryParameters['name'].toString();
   final String type = Uri.base.queryParameters['type'].toString();

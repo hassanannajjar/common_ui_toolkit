@@ -6,30 +6,30 @@ class CommonTextModel {
   const CommonTextModel({
     ///sizes
     this.height,
-    this.letterSpacing = 0.0,
-    this.wordSpacing = 0.0,
-    this.fontSize = COMMON_H4_FONT,
+    this.letterSpacing,
+    this.wordSpacing,
+    this.fontSize,
     this.decorationThickness,
     this.maxLines,
-    this.textScaleFactor = 1.0,
+    this.textScaleFactor,
 
     /// colors
-    this.fontColor = COMMON_BLACK_COLOR,
-    this.backgroundColor = COMMON_TRANSPARENT_COLOR,
-    this.decorationColor = COMMON_BLACK_COLOR,
-    this.decoration = TextDecoration.none,
+    this.fontColor,
+    this.backgroundColor,
+    this.decorationColor,
+    this.decoration,
     this.textDirection,
-    this.overflow = TextOverflow.clip,
-    this.softWrap = true,
+    this.overflow,
+    this.softWrap,
     this.strutStyle,
     this.textHeightBehavior,
-    this.textWidthBasis = TextWidthBasis.parent,
+    this.textWidthBasis,
 
     // -------------------
-    this.fontWeight = FontWeight.normal,
+    this.fontWeight,
     this.fontFamily,
-    this.fontStyle = FontStyle.normal,
-    this.textAlign = TextAlign.center,
+    this.fontStyle,
+    this.textAlign,
     this.textBaseline,
     this.leadingDistribution,
     this.locale,
@@ -37,12 +37,12 @@ class CommonTextModel {
     this.background,
     this.shadows,
     this.fontFeatures,
-    this.columnCrossAxisAlignment = CrossAxisAlignment.center,
-    this.columnMainAxisAlignment = MainAxisAlignment.start,
-    this.columnMainAxisSize = MainAxisSize.min,
-    this.rowCrossAxisAlignment = CrossAxisAlignment.center,
-    this.rowMainAxisSize = MainAxisSize.min,
-    this.rowMainAxisAlignment = MainAxisAlignment.start,
+    this.columnCrossAxisAlignment,
+    this.columnMainAxisAlignment,
+    this.columnMainAxisSize,
+    this.rowCrossAxisAlignment,
+    this.rowMainAxisSize,
+    this.rowMainAxisAlignment,
     this.decorationStyle,
     this.debugLabel,
     this.fontFamilyFallback,
@@ -67,7 +67,7 @@ class CommonTextModel {
   final double? wordSpacing;
   final double? decorationThickness;
   final double? fontSize;
-  final double textScaleFactor;
+  final double? textScaleFactor;
   final int? maxLines;
 
   ///
@@ -88,14 +88,14 @@ class CommonTextModel {
   final TextDirection? textDirection;
 
   ///
-  /// overflow
+  /// overflow default  TextOverflow.clip
   ///
-  final TextOverflow overflow;
+  final TextOverflow? overflow;
 
   ///
-  /// soft wrap
+  /// soft wrap default true
   ///
-  final bool softWrap;
+  final bool? softWrap;
 
   ///
   /// strut style
@@ -108,9 +108,9 @@ class CommonTextModel {
   final TextHeightBehavior? textHeightBehavior;
 
   ///
-  /// text width basis
+  /// text width basis default => [TextWidthBasis.parent]
   ///
-  final TextWidthBasis textWidthBasis;
+  final TextWidthBasis? textWidthBasis;
 
   ///
   /// decoration style
@@ -123,9 +123,9 @@ class CommonTextModel {
   final FontWeight? fontWeight;
 
   ///
-  /// text align
+  /// text align default => [TextAlign.center]
   ///
-  final TextAlign textAlign;
+  final TextAlign? textAlign;
 
   ///
   /// font style
@@ -143,34 +143,34 @@ class CommonTextModel {
   final TextLeadingDistribution? leadingDistribution;
 
   ///
-  /// column Cross Axis Alignment
+  /// column Cross Axis Alignment default => [CrossAxisAlignment.center]
   ///
-  final CrossAxisAlignment columnCrossAxisAlignment;
+  final CrossAxisAlignment? columnCrossAxisAlignment;
 
   ///
-  /// column main Axis Alignment
+  /// column main Axis Alignment default => [MainAxisAlignment.start]
   ///
-  final MainAxisAlignment columnMainAxisAlignment;
+  final MainAxisAlignment? columnMainAxisAlignment;
 
   ///
-  /// column main Axis size
+  /// column main Axis size default => [MainAxisSize.min]
   ///
-  final MainAxisSize columnMainAxisSize;
+  final MainAxisSize? columnMainAxisSize;
 
   ///
-  /// row cross Axis Alignment
+  /// row cross Axis Alignment default => [CrossAxisAlignment.center]
   ///
-  final CrossAxisAlignment rowCrossAxisAlignment;
+  final CrossAxisAlignment? rowCrossAxisAlignment;
 
   ///
-  /// row main Axis Alignment
+  /// row main Axis Alignment default => [ MainAxisAlignment.start]
   ///
-  final MainAxisAlignment rowMainAxisAlignment;
+  final MainAxisAlignment? rowMainAxisAlignment;
 
   ///
   /// row main Axis size
   ///
-  final MainAxisSize rowMainAxisSize;
+  final MainAxisSize? rowMainAxisSize;
 
   ///
   /// locale
@@ -265,8 +265,6 @@ class CommonTextModel {
   /// margin for (right and left || Horizontal) container
   ///
   final double? marginHorizontal;
-
-  double responsiveFontSize() => DEVICE_WIDTH * (fontSize! / 430);
 
   CommonTextModel copyWith({
     double? height,
