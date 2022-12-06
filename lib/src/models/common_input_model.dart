@@ -6,9 +6,7 @@ class CommonInputModel {
   const CommonInputModel({
     this.hint,
     this.keyboardType,
-    this.isRequired = false,
-    this.isCollapsed = false,
-    this.readOnly = false,
+    this.isCollapsed,
     this.margin,
     this.marginTop,
     this.marginBottom,
@@ -18,40 +16,36 @@ class CommonInputModel {
     this.marginHorizontal,
     this.height,
     this.width,
-    this.withInputVerification = false,
-    this.obscureText = false,
-    this.showCursor = true,
-    this.enabled = true,
-    this.autoCorrect = true,
-    this.autofocus = false,
-    this.minLength = 6,
+    this.obscureText,
+    this.showCursor,
+    this.autoCorrect,
+    this.autofocus,
     this.maxLength,
-    this.fillColor = COMMON_TRANSPARENT_COLOR,
-    this.cursorColor = COMMON_PR_COLOR,
+    this.fillColor,
+    this.cursorColor,
     this.focusNode,
     this.maxLines,
-    this.counterText = '',
+    this.counterText,
     this.semanticCounterText,
     this.minLines,
     this.cursorRadius,
     this.cursorHeight,
-    this.cursorWidth = 2.0,
-    this.borderWidth = 1.0,
-    this.borderRadius = 15.0,
-    this.hintColor = COMMON_GREY_COLOR,
-    this.disabledColor = COMMON_GREY_COLOR,
-    this.focusBorderColor = COMMON_GREY_COLOR,
-    this.enabledBorderColor = COMMON_GREY_COLOR,
-    this.disabledBorderColor = COMMON_GREY_COLOR,
-    this.errorBorderColor = COMMON_GREY_COLOR,
-    this.errorColor = COMMON_RED_COLOR,
-    this.textColor = COMMON_BLACK_COLOR,
-    this.borderColor = COMMON_BLACK_COLOR,
-    this.textAlign = TextAlign.start,
+    this.cursorWidth,
+    this.borderWidth,
+    this.borderRadius,
+    this.hintColor,
+    this.disabledColor,
+    this.focusBorderColor,
+    this.enabledBorderColor,
+    this.disabledBorderColor,
+    this.errorBorderColor,
+    this.textColor,
+    this.borderColor,
+    this.textAlign,
     this.fontFamily,
     this.fontSize,
     this.fontWeight,
-    this.contentPadding = 15.0,
+    this.contentPadding,
     this.contentPaddingTop,
     this.contentPaddingBottom,
     this.contentPaddingRight,
@@ -69,18 +63,18 @@ class CommonInputModel {
     this.autofillHints,
     this.autoValidateMode,
     this.buildCounter,
-    this.enableInteractiveSelection = true,
-    this.enableSuggestions = true,
-    this.expands = false,
+    this.enableInteractiveSelection,
+    this.enableSuggestions,
+    this.expands,
     this.keyboardAppearance,
     this.maxLengthEnforcement,
-    this.obscuringCharacter = '•',
-    this.scrollPadding = const EdgeInsets.all(20.0),
+    this.obscuringCharacter,
+    this.scrollPadding,
     this.smartDashesType,
     this.smartQuotesType,
     this.strutStyle,
     this.textAlignVertical,
-    this.textCapitalization = TextCapitalization.none,
+    this.textCapitalization,
     this.textDirection,
     this.toolbarOptions,
     this.validator,
@@ -144,7 +138,6 @@ class CommonInputModel {
   /// Colors
   final dynamic textColor;
   final dynamic disabledColor;
-  final dynamic errorColor;
   final dynamic focusBorderColor;
   final dynamic enabledBorderColor;
   final dynamic disabledBorderColor;
@@ -155,7 +148,6 @@ class CommonInputModel {
 
   /// Lengths
   final int? maxLength;
-  final int? minLength;
   final int? minLines;
   final int? maxLines;
 
@@ -169,7 +161,7 @@ class CommonInputModel {
   ///
   /// font weight
   ///
-  final int? fontWeight;
+  final FontWeight? fontWeight;
 
   ///
   /// hint
@@ -192,29 +184,14 @@ class CommonInputModel {
   final String? semanticCounterText;
 
   ///
-  /// is required
-  ///
-  final bool? isRequired;
-
-  ///
   /// is collapsed
   ///
   final bool? isCollapsed;
 
   ///
-  /// read only
-  ///
-  final bool? readOnly;
-
-  ///
   /// obscure text
   ///
   final bool? obscureText;
-
-  ///
-  /// enabled
-  ///
-  final bool? enabled;
 
   ///
   /// show cursor
@@ -225,9 +202,6 @@ class CommonInputModel {
   /// show cursor
   ///
   final bool? autoCorrect;
-
-  // This is a hack to make the text input verified when user finish typing the right cross content based on input type
-  final bool? withInputVerification;
 
   // types: (EMAIL_INPUT_TYPE, TEXT_INPUT_TYPE , NUMBER_INPUT_TYPE, PASSWORD_INPUT_TYPE)
   final TextInputType? keyboardType;
@@ -316,7 +290,7 @@ class CommonInputModel {
   ///
   /// obscuring Character
   ///
-  final String obscuringCharacter;
+  final String? obscuringCharacter;
 
   ///
   /// keyboard appearance
@@ -326,7 +300,7 @@ class CommonInputModel {
   ///
   /// scroll padding
   ///
-  final EdgeInsets scrollPadding;
+  final EdgeInsets? scrollPadding;
 
   ///
   /// smart dashes type
@@ -351,7 +325,7 @@ class CommonInputModel {
   ///
   /// text align vertical
   ///
-  final TextCapitalization textCapitalization;
+  final TextCapitalization? textCapitalization;
 
   ///
   /// text direction
@@ -462,7 +436,6 @@ class CommonInputModel {
     double? cursorWidth,
     dynamic textColor,
     dynamic disabledColor,
-    dynamic errorColor,
     dynamic focusBorderColor,
     dynamic enabledBorderColor,
     dynamic disabledBorderColor,
@@ -471,24 +444,19 @@ class CommonInputModel {
     dynamic fillColor,
     dynamic cursorColor,
     int? maxLength,
-    int? minLength,
     int? minLines,
     int? maxLines,
     Widget? counterWidget,
     FocusNode? focusNode,
-    int? fontWeight,
+    FontWeight? fontWeight,
     String? hint,
     String? fontFamily,
     String? counterText,
     String? semanticCounterText,
-    bool? isRequired,
     bool? isCollapsed,
-    bool? readOnly,
     bool? obscureText,
-    bool? enabled,
     bool? showCursor,
     bool? autoCorrect,
-    bool? withInputVerification,
     TextInputType? keyboardType,
     TextAlign? textAlign,
     TextInputAction? textInputAction,
@@ -578,7 +546,6 @@ class CommonInputModel {
       cursorWidth: cursorWidth ?? this.cursorWidth,
       textColor: textColor ?? this.textColor,
       disabledColor: disabledColor ?? this.disabledColor,
-      errorColor: errorColor ?? this.errorColor,
       focusBorderColor: focusBorderColor ?? this.focusBorderColor,
       enabledBorderColor: enabledBorderColor ?? this.enabledBorderColor,
       disabledBorderColor: disabledBorderColor ?? this.disabledBorderColor,
@@ -587,7 +554,6 @@ class CommonInputModel {
       fillColor: fillColor ?? this.fillColor,
       cursorColor: cursorColor ?? this.cursorColor,
       maxLength: maxLength ?? this.maxLength,
-      minLength: minLength ?? this.minLength,
       minLines: minLines ?? this.minLines,
       maxLines: maxLines ?? this.maxLines,
       counterWidget: counterWidget ?? this.counterWidget,
@@ -597,15 +563,10 @@ class CommonInputModel {
       fontFamily: fontFamily ?? this.fontFamily,
       counterText: counterText ?? this.counterText,
       semanticCounterText: semanticCounterText ?? this.semanticCounterText,
-      isRequired: isRequired ?? this.isRequired,
       isCollapsed: isCollapsed ?? this.isCollapsed,
-      readOnly: readOnly ?? this.readOnly,
       obscureText: obscureText ?? this.obscureText,
-      enabled: enabled ?? this.enabled,
       showCursor: showCursor ?? this.showCursor,
       autoCorrect: autoCorrect ?? this.autoCorrect,
-      withInputVerification:
-          withInputVerification ?? this.withInputVerification,
       keyboardType: keyboardType ?? this.keyboardType,
       textAlign: textAlign ?? this.textAlign,
       textInputAction: textInputAction ?? this.textInputAction,

@@ -2,7 +2,7 @@ import 'package:flutter/services.dart';
 
 import '../../../common_ui_toolkit.dart';
 
-const CommonInputModel _defaultTextInputModel = CommonInputModel();
+const CommonInputModel _defaultInputModel = CommonInputModel();
 
 class CommonInput extends StatelessWidget {
   const CommonInput({
@@ -23,16 +23,14 @@ class CommonInput extends StatelessWidget {
     this.hintMaxLines,
     this.hintTextDirection,
     this.keyboardType,
-    this.isRequired,
     this.isCollapsed,
-    this.readOnly,
+    this.readOnly = false,
     this.withInputVerification,
     this.obscureText,
     this.showCursor,
-    this.enabled,
+    this.enabled = true,
     this.autoCorrect,
     this.autofocus,
-    this.minLength,
     this.maxLength,
     this.fillColor,
     this.cursorColor,
@@ -54,7 +52,6 @@ class CommonInput extends StatelessWidget {
     this.enabledBorderColor,
     this.disabledBorderColor,
     this.errorBorderColor,
-    this.errorColor,
     this.textColor,
     this.textAlign,
     this.fontFamily,
@@ -63,8 +60,6 @@ class CommonInput extends StatelessWidget {
     this.textInputAction,
     this.textStyle,
     this.hintStyle,
-    this.prefixStyle,
-    this.suffixStyle,
     this.counterStyle,
     this.inputPattern,
     this.inputDecoration,
@@ -182,7 +177,6 @@ class CommonInput extends StatelessWidget {
   /// Colors
   final dynamic textColor;
   final dynamic disabledColor;
-  final dynamic errorColor;
   final dynamic focusBorderColor;
   final dynamic enabledBorderColor;
   final dynamic disabledBorderColor;
@@ -193,7 +187,6 @@ class CommonInput extends StatelessWidget {
 
   /// Lengths
   final int? maxLength;
-  final int? minLength;
   final int? minLines;
   final int? maxLines;
 
@@ -210,7 +203,7 @@ class CommonInput extends StatelessWidget {
   ///
   /// font weight
   ///
-  final int? fontWeight;
+  final FontWeight? fontWeight;
 
   ///
   /// hint
@@ -242,11 +235,6 @@ class CommonInput extends StatelessWidget {
   final String? semanticCounterText;
 
   ///
-  /// is required
-  ///
-  final bool? isRequired;
-
-  ///
   /// is collapsed
   ///
   final bool? isCollapsed;
@@ -254,7 +242,7 @@ class CommonInput extends StatelessWidget {
   ///
   /// read only
   ///
-  final bool? readOnly;
+  final bool readOnly;
 
   ///
   /// obscure text
@@ -264,7 +252,7 @@ class CommonInput extends StatelessWidget {
   ///
   /// enabled
   ///
-  final bool? enabled;
+  final bool enabled;
 
   ///
   /// show cursor
@@ -301,16 +289,6 @@ class CommonInput extends StatelessWidget {
   /// hint style
   ///
   final TextStyle? hintStyle;
-
-  ///
-  /// prefix style
-  ///
-  final TextStyle? prefixStyle;
-
-  ///
-  /// suffix style
-  ///
-  final TextStyle? suffixStyle;
 
   ///
   /// counter style
@@ -536,31 +514,314 @@ class CommonInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CommonInputModel currentStyle = style ?? _defaultTextInputModel;
+    final CommonInputModel currentStyle = style ?? _defaultInputModel;
+    final CommonInputModel configModel =
+        GLOBAL_CONFIG.inputModel ?? const CommonInputModel();
     final TextEditingController currentController =
         controller ?? TextEditingController(text: value);
 
-    InputBorder _getOutlineInputBorder({
+    final double currentBorderWidth = borderWidth ??
+        currentStyle.borderWidth ??
+        configModel.borderWidth ??
+        1.0;
+    final double? currentFontSize =
+        fontSize ?? currentStyle.fontSize ?? configModel.fontSize;
+    final double currentBorderRadius = borderRadius ??
+        currentStyle.borderRadius ??
+        configModel.borderRadius ??
+        15.0;
+    final double? currentCursorHeight =
+        cursorHeight ?? currentStyle.cursorHeight ?? configModel.cursorHeight;
+    final double currentCursorWidth = cursorWidth ??
+        currentStyle.cursorWidth ??
+        configModel.cursorWidth ??
+        2.0;
+    final dynamic currentTextColor = textColor ??
+        currentStyle.textColor ??
+        configModel.textColor ??
+        COMMON_BLACK_COLOR;
+    final dynamic currentDisabledColor = disabledColor ??
+        currentStyle.disabledColor ??
+        configModel.disabledColor ??
+        COMMON_GREY_COLOR;
+    final dynamic currentFocusBorderColor = focusBorderColor ??
+        currentStyle.focusBorderColor ??
+        configModel.focusBorderColor ??
+        COMMON_GREY_COLOR;
+    final dynamic currentEnabledBorderColor = enabledBorderColor ??
+        currentStyle.enabledBorderColor ??
+        configModel.enabledBorderColor ??
+        COMMON_GREY_COLOR;
+    final dynamic currentDisabledBorderColor = disabledBorderColor ??
+        currentStyle.disabledBorderColor ??
+        configModel.disabledBorderColor ??
+        COMMON_GREY_COLOR;
+    final dynamic currentErrorBorderColor = errorBorderColor ??
+        currentStyle.errorBorderColor ??
+        configModel.errorBorderColor ??
+        COMMON_RED_COLOR;
+    final dynamic currentHintColor = hintColor ??
+        currentStyle.hintColor ??
+        configModel.hintColor ??
+        COMMON_GREY_COLOR;
+    final dynamic currentFillColor = fillColor ??
+        currentStyle.fillColor ??
+        configModel.fillColor ??
+        COMMON_TRANSPARENT_COLOR;
+    final dynamic currentCursorColor = cursorColor ??
+        currentStyle.cursorColor ??
+        configModel.cursorColor ??
+        COMMON_PR_COLOR;
+    final int? currentMaxLength =
+        maxLength ?? currentStyle.maxLength ?? configModel.maxLength;
+    final int? currentMinLines =
+        minLines ?? currentStyle.minLines ?? configModel.minLines;
+    final int? currentMaxLines =
+        maxLines ?? currentStyle.maxLines ?? configModel.maxLines;
+    final Widget? currentCounterWidget = counterWidget ??
+        currentStyle.counterWidget ??
+        configModel.counterWidget;
+    final FocusNode? currentFocusNode =
+        focusNode ?? currentStyle.focusNode ?? configModel.focusNode;
+    final FontWeight? currentFontWeight =
+        fontWeight ?? currentStyle.fontWeight ?? configModel.fontWeight;
+    final String? currentHint = hint ?? currentStyle.hint ?? configModel.hint;
+    final int? currentHintMaxLines =
+        hintMaxLines ?? currentStyle.hintMaxLines ?? configModel.hintMaxLines;
+    final TextDirection? currentHintTextDirection = hintTextDirection ??
+        currentStyle.hintTextDirection ??
+        configModel.hintTextDirection;
+    final String? currentFontFamily =
+        fontFamily ?? currentStyle.fontFamily ?? configModel.fontFamily;
+    final String currentCounterText = counterText ??
+        currentStyle.counterText ??
+        configModel.counterText ??
+        '';
+    final String? currentSemanticCounterText = semanticCounterText ??
+        currentStyle.semanticCounterText ??
+        configModel.semanticCounterText;
+
+    final bool currentIsCollapsed = isCollapsed ??
+        currentStyle.isCollapsed ??
+        configModel.isCollapsed ??
+        false;
+    final bool currentObscureText = obscureText ??
+        currentStyle.obscureText ??
+        configModel.obscureText ??
+        false;
+    final bool currentShowCursor =
+        showCursor ?? currentStyle.showCursor ?? configModel.showCursor ?? true;
+    final bool currentAutoCorrect = autoCorrect ??
+        currentStyle.autoCorrect ??
+        configModel.autoCorrect ??
+        true;
+    final TextInputType? currentKeyboardType =
+        keyboardType ?? currentStyle.keyboardType ?? configModel.keyboardType;
+    final TextAlign currentTextAlign = textAlign ??
+        currentStyle.textAlign ??
+        configModel.textAlign ??
+        TextAlign.start;
+    final TextInputAction? currentTextInputAction = textInputAction ??
+        currentStyle.textInputAction ??
+        configModel.textInputAction;
+    final TextStyle? currentTextStyle =
+        textStyle ?? currentStyle.textStyle ?? configModel.textStyle;
+    final TextStyle? currentHintStyle =
+        hintStyle ?? currentStyle.hintStyle ?? configModel.hintStyle;
+    final TextStyle? currentCounterStyle =
+        counterStyle ?? currentStyle.counterStyle ?? configModel.counterStyle;
+    final Pattern? currentInputPattern =
+        inputPattern ?? currentStyle.inputPattern ?? configModel.inputPattern;
+    final List<TextInputFormatter>? currentTextInputFormatters =
+        textInputFormatters ??
+            currentStyle.textInputFormatters ??
+            configModel.textInputFormatters;
+    final InputDecoration? currentInputDecoration = inputDecoration ??
+        currentStyle.inputDecoration ??
+        configModel.inputDecoration;
+    final Radius? currentCursorRadius =
+        cursorRadius ?? currentStyle.cursorRadius ?? configModel.cursorRadius;
+    final Iterable<String>? currentAutofillHints = autofillHints ??
+        currentStyle.autofillHints ??
+        configModel.autofillHints;
+    final bool currentAutofocus =
+        autofocus ?? currentStyle.autofocus ?? configModel.autofocus ?? false;
+    final AutovalidateMode? currentAutoValidateMode = autoValidateMode ??
+        currentStyle.autoValidateMode ??
+        configModel.autoValidateMode;
+    final InputCounterWidgetBuilder? currentBuildCounter =
+        buildCounter ?? currentStyle.buildCounter ?? configModel.buildCounter;
+    final bool currentEnableInteractiveSelection = enableInteractiveSelection ??
+        currentStyle.enableInteractiveSelection ??
+        configModel.enableInteractiveSelection ??
+        true;
+    final bool currentEnableSuggestions = enableSuggestions ??
+        currentStyle.enableSuggestions ??
+        configModel.enableSuggestions ??
+        true;
+    final bool currentExpands =
+        expands ?? currentStyle.expands ?? configModel.expands ?? false;
+    final String currentObscuringCharacter = obscuringCharacter ??
+        currentStyle.obscuringCharacter ??
+        configModel.obscuringCharacter ??
+        '•';
+    final Brightness? currentKeyboardAppearance = keyboardAppearance ??
+        currentStyle.keyboardAppearance ??
+        configModel.keyboardAppearance;
+    final EdgeInsets currentScrollPadding = scrollPadding ??
+        currentStyle.scrollPadding ??
+        configModel.scrollPadding ??
+        const EdgeInsets.all(20.0);
+    final SmartDashesType? currentSmartDashesType = smartDashesType ??
+        currentStyle.smartDashesType ??
+        configModel.smartDashesType;
+    final SmartQuotesType? currentSmartQuotesType = smartQuotesType ??
+        currentStyle.smartQuotesType ??
+        configModel.smartQuotesType;
+    final StrutStyle? currentStrutStyle =
+        strutStyle ?? currentStyle.strutStyle ?? configModel.strutStyle;
+    final TextAlignVertical? currentTextAlignVertical = textAlignVertical ??
+        currentStyle.textAlignVertical ??
+        configModel.textAlignVertical;
+    final TextCapitalization currentTextCapitalization = textCapitalization ??
+        currentStyle.textCapitalization ??
+        configModel.textCapitalization ??
+        TextCapitalization.none;
+    final TextDirection? currentTextDirection = textDirection ??
+        currentStyle.textDirection ??
+        configModel.textDirection;
+    final ToolbarOptions? currentToolbarOptions = toolbarOptions ??
+        currentStyle.toolbarOptions ??
+        configModel.toolbarOptions;
+    final FormFieldValidator<String>? currentValidator =
+        validator ?? currentStyle.validator ?? configModel.validator;
+    final MaxLengthEnforcement? currentMaxLengthEnforcement =
+        maxLengthEnforcement ??
+            currentStyle.maxLengthEnforcement ??
+            configModel.maxLengthEnforcement;
+    final ScrollPhysics? currentScrollPhysics = scrollPhysics ??
+        currentStyle.scrollPhysics ??
+        configModel.scrollPhysics;
+    final String? currentLabelText =
+        labelText ?? currentStyle.labelText ?? configModel.labelText;
+    final Widget? currentLabel =
+        label ?? currentStyle.label ?? configModel.label;
+    final TextStyle? currentLabelStyle =
+        labelStyle ?? currentStyle.labelStyle ?? configModel.labelStyle;
+    final FloatingLabelAlignment? currentFloatingLabelAlignment =
+        floatingLabelAlignment ??
+            currentStyle.floatingLabelAlignment ??
+            configModel.floatingLabelAlignment;
+    final FloatingLabelBehavior? currentFloatingLabelBehavior =
+        floatingLabelBehavior ??
+            currentStyle.floatingLabelBehavior ??
+            configModel.floatingLabelBehavior;
+    final TextStyle? currentFloatingLabelStyle = floatingLabelStyle ??
+        currentStyle.floatingLabelStyle ??
+        configModel.floatingLabelStyle;
+    final double currentContentPadding = contentPadding ??
+        currentStyle.contentPadding ??
+        configModel.contentPadding ??
+        15.0;
+    final double? currentContentPaddingTop = contentPaddingTop ??
+        currentStyle.contentPaddingTop ??
+        configModel.contentPaddingTop;
+    final double? currentContentPaddingBottom = contentPaddingBottom ??
+        currentStyle.contentPaddingBottom ??
+        configModel.contentPaddingBottom;
+    final double? currentContentPaddingHorizontal = contentPaddingHorizontal ??
+        currentStyle.contentPaddingHorizontal ??
+        configModel.contentPaddingHorizontal;
+    final double? currentContentPaddingVertical = contentPaddingVertical ??
+        currentStyle.contentPaddingVertical ??
+        configModel.contentPaddingVertical;
+    final bool? currentAlignLabelWithHint = alignLabelWithHint ??
+        currentStyle.alignLabelWithHint ??
+        configModel.alignLabelWithHint;
+    final double? currentContentPaddingRight = contentPaddingRight ??
+        currentStyle.contentPaddingRight ??
+        configModel.contentPaddingRight;
+    final InputBorder? currentBorder =
+        border ?? currentStyle.border ?? configModel.border;
+    final InputBorder? currentFocusedBorder = focusedBorder ??
+        currentStyle.focusedBorder ??
+        configModel.focusedBorder;
+    final InputBorder? currentEnabledBorder = enabledBorder ??
+        currentStyle.enabledBorder ??
+        configModel.enabledBorder;
+    final InputBorder? currentDisabledBorder = disabledBorder ??
+        currentStyle.disabledBorder ??
+        configModel.disabledBorder;
+    final InputBorder? currentErrorBorder =
+        errorBorder ?? currentStyle.errorBorder ?? configModel.errorBorder;
+    final InputBorder? currentFocusedErrorBorder = focusedErrorBorder ??
+        currentStyle.focusedErrorBorder ??
+        configModel.focusedErrorBorder;
+    final TextStyle? currentErrorStyle =
+        errorStyle ?? currentStyle.errorStyle ?? configModel.errorStyle;
+    final String? currentErrorText =
+        errorText ?? currentStyle.errorText ?? configModel.errorText;
+    final String? currentHelperText =
+        helperText ?? currentStyle.helperText ?? configModel.helperText;
+    final TextStyle? currentHelperStyle =
+        helperStyle ?? currentStyle.helperStyle ?? configModel.helperStyle;
+    final int? currentHelperMaxLines = helperMaxLines ??
+        currentStyle.helperMaxLines ??
+        configModel.helperMaxLines;
+    final BorderType? currentBorderType =
+        borderType ?? currentStyle.borderType ?? configModel.borderType;
+    final dynamic currentBorderColor = borderColor ??
+        currentStyle.borderColor ??
+        configModel.borderColor ??
+        COMMON_BLACK_COLOR;
+    final double? currentMargin =
+        margin ?? currentStyle.margin ?? configModel.margin;
+    final double? currentMarginTop =
+        marginTop ?? currentStyle.marginTop ?? configModel.marginTop;
+    final double? currentMarginBottom =
+        marginBottom ?? currentStyle.marginBottom ?? configModel.marginBottom;
+    final double? currentMarginRight =
+        marginRight ?? currentStyle.marginRight ?? configModel.marginRight;
+    final double? currentMarginLeft =
+        marginLeft ?? currentStyle.marginLeft ?? configModel.marginLeft;
+    final double? currentMarginVertical = marginVertical ??
+        currentStyle.marginVertical ??
+        configModel.marginVertical;
+    final double? currentMarginHorizontal = marginHorizontal ??
+        currentStyle.marginHorizontal ??
+        configModel.marginHorizontal;
+    final double? currentHeight =
+        height ?? currentStyle.height ?? configModel.height;
+    final double? currentWidth =
+        width ?? currentStyle.width ?? configModel.width;
+    final double? currentContentPaddingLeft = contentPaddingLeft ??
+        currentStyle.contentPaddingLeft ??
+        configModel.contentPaddingLeft;
+    final int? currentErrorMaxLines = errorMaxLines ??
+        currentStyle.errorMaxLines ??
+        configModel.errorMaxLines;
+
+    InputBorder getOutlineInputBorder({
       dynamic color,
     }) {
-      return (borderType ?? currentStyle.borderType) == BorderType.none
+      return (currentBorderType) == BorderType.none
           ? const UnderlineInputBorder(
               borderSide: BorderSide.none,
             )
-          : (borderType ?? currentStyle.borderType) == BorderType.underLine
+          : (currentBorderType) == BorderType.underLine
               ? UnderlineInputBorder(
                   borderSide: BorderSide(
                     color: getColorType(color),
-                    width: currentStyle.borderWidth!,
+                    width: currentBorderWidth,
                   ),
                 )
               : OutlineInputBorder(
                   borderRadius: BorderRadius.all(
-                    Radius.circular(currentStyle.borderRadius!),
+                    Radius.circular(currentBorderRadius),
                   ),
                   borderSide: BorderSide(
                     color: getColorType(color),
-                    width: currentStyle.borderWidth!,
+                    width: currentBorderWidth,
                   ),
                 );
     }
@@ -570,160 +831,127 @@ class CommonInput extends StatelessWidget {
       onEditingComplete: onEditingComplete?.call,
       onFieldSubmitted: onFieldSubmitted?.call,
       onSaved: onSaved?.call,
-      textInputAction: textInputAction ?? currentStyle.textInputAction,
-      textAlign: textAlign ?? currentStyle.textAlign!,
-      focusNode: focusNode ?? currentStyle.focusNode,
-      readOnly: readOnly ?? currentStyle.readOnly!,
-      style: textStyle ??
-          currentStyle.textStyle ??
+      textInputAction: currentTextInputAction,
+      textAlign: currentTextAlign,
+      focusNode: currentFocusNode,
+      readOnly: readOnly,
+      style: currentTextStyle ??
           TextStyle(
-            color: getColorType(textColor ?? currentStyle.textColor!),
-            fontSize: fontSize ?? currentStyle.fontSize,
+            color: getColorType(currentTextColor!),
+            fontSize: currentFontSize,
+            fontFamily: currentFontFamily,
+            fontWeight: currentFontWeight,
           ),
-      scrollPhysics: const BouncingScrollPhysics(),
-      minLines: minLines ?? currentStyle.minLines,
-      maxLines: (obscureText ?? currentStyle.obscureText!)
-          ? 1
-          : (maxLines ?? currentStyle.maxLines),
-      maxLength: maxLength ?? currentStyle.maxLength,
-      inputFormatters: (inputPattern ?? currentStyle.inputPattern) != null
+      scrollPhysics: currentScrollPhysics,
+      minLines: currentMinLines,
+      maxLines: currentObscureText ? 1 : currentMaxLines,
+      maxLength: currentMaxLength,
+      inputFormatters: currentInputPattern != null
           ? <FilteringTextInputFormatter>[
-              FilteringTextInputFormatter.allow(
-                  (inputPattern ?? currentStyle.inputPattern!)),
+              FilteringTextInputFormatter.allow(currentInputPattern),
             ]
-          : (textInputFormatters ?? currentStyle.textInputFormatters),
-      obscureText: obscureText ?? currentStyle.obscureText!,
-      keyboardType: keyboardType ?? currentStyle.keyboardType,
-      enabled: enabled ?? currentStyle.enabled,
-      cursorHeight: cursorHeight ?? currentStyle.cursorHeight,
-      cursorWidth: cursorWidth ?? currentStyle.cursorWidth!,
-      showCursor: showCursor ?? currentStyle.showCursor,
-      cursorColor: getColorType(cursorColor ?? currentStyle.cursorColor!),
-      cursorRadius: cursorRadius ?? currentStyle.cursorRadius,
-      autocorrect: autoCorrect ?? currentStyle.autoCorrect!,
-      autofillHints: autofillHints ?? currentStyle.autofillHints,
-      autofocus: autofocus ?? currentStyle.autofocus!,
-      autovalidateMode: autoValidateMode ?? currentStyle.autoValidateMode,
-      buildCounter: buildCounter ?? currentStyle.buildCounter,
-      enableInteractiveSelection: enableInteractiveSelection ??
-          currentStyle.enableInteractiveSelection!,
-      enableSuggestions: enableSuggestions ?? currentStyle.enableSuggestions!,
-      expands: expands ?? currentStyle.expands!,
-      keyboardAppearance: keyboardAppearance ?? currentStyle.keyboardAppearance,
-      maxLengthEnforcement:
-          maxLengthEnforcement ?? currentStyle.maxLengthEnforcement,
-      obscuringCharacter: obscuringCharacter ?? currentStyle.obscuringCharacter,
+          : currentTextInputFormatters,
+      obscureText: currentObscureText,
+      keyboardType: currentKeyboardType,
+      enabled: enabled,
+      cursorHeight: currentCursorHeight,
+      cursorWidth: currentCursorWidth,
+      showCursor: currentShowCursor,
+      cursorColor: getColorType(currentCursorColor!),
+      cursorRadius: currentCursorRadius,
+      autocorrect: currentAutoCorrect,
+      autofillHints: currentAutofillHints,
+      autofocus: currentAutofocus,
+      autovalidateMode: currentAutoValidateMode,
+      buildCounter: currentBuildCounter,
+      enableInteractiveSelection: currentEnableInteractiveSelection,
+      enableSuggestions: currentEnableSuggestions,
+      expands: currentExpands,
+      keyboardAppearance: currentKeyboardAppearance,
+      maxLengthEnforcement: currentMaxLengthEnforcement,
+      obscuringCharacter: currentObscuringCharacter,
       scrollController: scrollController,
-      scrollPadding: scrollPadding ?? currentStyle.scrollPadding,
+      scrollPadding: currentScrollPadding,
       selectionControls: selectionControls,
-      smartDashesType: smartDashesType ?? currentStyle.smartDashesType,
-      smartQuotesType: smartQuotesType ?? currentStyle.smartQuotesType,
-      strutStyle: strutStyle ?? currentStyle.strutStyle,
-      textAlignVertical: textAlignVertical ?? currentStyle.textAlignVertical,
-      textCapitalization: textCapitalization ?? currentStyle.textCapitalization,
-      textDirection: textDirection ?? currentStyle.textDirection,
-      toolbarOptions: toolbarOptions ?? currentStyle.toolbarOptions,
-      validator: validator ?? currentStyle.validator,
+      smartDashesType: currentSmartDashesType,
+      smartQuotesType: currentSmartQuotesType,
+      strutStyle: currentStrutStyle,
+      textAlignVertical: currentTextAlignVertical,
+      textCapitalization: currentTextCapitalization,
+      textDirection: currentTextDirection,
+      toolbarOptions: currentToolbarOptions,
+      validator: currentValidator,
       controller: currentController,
-      decoration: currentStyle.inputDecoration ??
+      decoration: currentInputDecoration ??
           InputDecoration(
-            labelText: labelText ?? currentStyle.labelText,
-            label: label ?? currentStyle.label,
-            labelStyle: labelStyle ?? currentStyle.labelStyle,
-            floatingLabelAlignment:
-                floatingLabelAlignment ?? currentStyle.floatingLabelAlignment,
-            floatingLabelBehavior:
-                floatingLabelBehavior ?? currentStyle.floatingLabelBehavior,
-            floatingLabelStyle:
-                floatingLabelStyle ?? currentStyle.floatingLabelStyle,
-            counterText: counterText ?? currentStyle.counterText,
-            counterStyle: counterStyle ?? currentStyle.counterStyle,
-            semanticCounterText:
-                semanticCounterText ?? currentStyle.semanticCounterText,
-            fillColor: getColorType(fillColor ?? currentStyle.fillColor!),
-            filled: (fillColor ?? currentStyle.fillColor) != null,
+            labelText: currentLabelText,
+            label: currentLabel,
+            labelStyle: currentLabelStyle,
+            floatingLabelAlignment: currentFloatingLabelAlignment,
+            floatingLabelBehavior: currentFloatingLabelBehavior,
+            floatingLabelStyle: currentFloatingLabelStyle,
+            counterText: currentCounterText,
+            counterStyle: currentCounterStyle,
+            semanticCounterText: currentSemanticCounterText,
+            fillColor: getColorType(currentFillColor!),
+            filled: (currentFillColor) != null,
             contentPadding: getContentPaddingEdgeInsets(
               CommonInputModel(
-                contentPaddingTop:
-                    contentPaddingTop ?? currentStyle.contentPaddingTop,
-                contentPaddingBottom:
-                    contentPaddingBottom ?? currentStyle.contentPaddingBottom,
-                contentPaddingLeft:
-                    contentPaddingLeft ?? currentStyle.contentPaddingLeft,
-                contentPaddingRight:
-                    contentPaddingRight ?? currentStyle.contentPaddingRight,
-                contentPaddingHorizontal: contentPaddingHorizontal ??
-                    currentStyle.contentPaddingHorizontal,
-                contentPaddingVertical: contentPaddingVertical ??
-                    currentStyle.contentPaddingVertical,
-                contentPadding: contentPadding ?? currentStyle.contentPadding,
+                contentPaddingTop: currentContentPaddingTop,
+                contentPaddingBottom: currentContentPaddingBottom,
+                contentPaddingLeft: currentContentPaddingLeft,
+                contentPaddingRight: currentContentPaddingRight,
+                contentPaddingHorizontal: currentContentPaddingHorizontal,
+                contentPaddingVertical: currentContentPaddingVertical,
+                contentPadding: currentContentPadding,
               ),
             ),
-            hintText: hint ?? currentStyle.hint,
-            hintStyle: hintStyle ??
-                currentStyle.hintStyle ??
+            hintText: currentHint,
+            hintStyle: currentHintStyle ??
                 TextStyle(
-                  color: (enabled ?? currentStyle.enabled!)
-                      ? getColorType(hintColor ?? currentStyle.hintColor!)
-                      : getColorType(
-                          disabledColor ?? currentStyle.disabledColor!),
+                  color: (enabled)
+                      ? getColorType(currentHintColor!)
+                      : getColorType(currentDisabledColor!),
+                  fontFamily: currentFontFamily,
                 ),
-            hintMaxLines: hintMaxLines,
-            hintTextDirection: hintTextDirection,
-            isCollapsed: isCollapsed ?? currentStyle.isCollapsed!,
-            counter: counterWidget ?? currentStyle.counterWidget,
-            enabled: enabled ?? currentStyle.enabled!,
-            errorMaxLines: errorMaxLines ?? currentStyle.errorMaxLines,
-            alignLabelWithHint:
-                alignLabelWithHint ?? currentStyle.alignLabelWithHint,
+            hintMaxLines: currentHintMaxLines,
+            hintTextDirection: currentHintTextDirection,
+            isCollapsed: currentIsCollapsed,
+            counter: currentCounterWidget,
+            enabled: enabled,
+            errorMaxLines: currentErrorMaxLines,
+            alignLabelWithHint: currentAlignLabelWithHint,
             icon: outIcon,
-            border: border ??
-                currentStyle.border ??
-                _getOutlineInputBorder(
-                  color: borderColor ?? currentStyle.borderColor!,
+            border: currentBorder ??
+                getOutlineInputBorder(
+                  color: currentBorderColor!,
                 ),
-            focusedBorder: focusedBorder ??
-                currentStyle.focusedBorder ??
-                _getOutlineInputBorder(
-                  color: focusBorderColor ?? currentStyle.focusBorderColor!,
+            focusedBorder: currentFocusedBorder ??
+                getOutlineInputBorder(
+                  color: currentFocusBorderColor!,
                 ),
-            enabledBorder: enabledBorder ??
-                currentStyle.enabledBorder ??
-                _getOutlineInputBorder(
-                  color: enabledBorderColor ?? currentStyle.enabledBorderColor!,
+            enabledBorder: currentEnabledBorder ??
+                getOutlineInputBorder(
+                  color: currentEnabledBorderColor!,
                 ),
-            disabledBorder: disabledBorder ??
-                currentStyle.disabledBorder ??
-                _getOutlineInputBorder(
-                  color:
-                      disabledBorderColor ?? currentStyle.disabledBorderColor!,
+            disabledBorder: currentDisabledBorder ??
+                getOutlineInputBorder(
+                  color: currentDisabledBorderColor!,
                 ),
-            errorBorder: errorBorder ??
-                currentStyle.errorBorder ??
-                _getOutlineInputBorder(
-                  color: errorBorderColor ?? currentStyle.errorBorderColor!,
+            errorBorder: currentErrorBorder ??
+                getOutlineInputBorder(
+                  color: currentErrorBorderColor!,
                 ),
-            errorStyle: errorStyle ?? currentStyle.errorStyle,
-            errorText: errorText ?? currentStyle.errorText,
-            focusedErrorBorder:
-                focusedErrorBorder ?? currentStyle.focusedErrorBorder,
-            helperText: helperText ?? currentStyle.helperText,
-            helperMaxLines: helperMaxLines ?? currentStyle.helperMaxLines,
-            helperStyle: helperStyle ?? currentStyle.helperStyle,
+            errorStyle: currentErrorStyle,
+            errorText: currentErrorText,
+            focusedErrorBorder: currentFocusedErrorBorder,
+            helperText: currentHelperText,
+            helperMaxLines: currentHelperMaxLines,
+            helperStyle: currentHelperStyle,
             prefix: prefix,
             suffix: suffix,
           ),
     );
-    final double? currentMargin = margin ?? currentStyle.margin;
-    final double? currentMarginTop = marginTop ?? currentStyle.marginTop;
-    final double? currentMarginBottom =
-        marginBottom ?? currentStyle.marginBottom;
-    final double? currentMarginRight = marginRight ?? currentStyle.marginRight;
-    final double? currentMarginLeft = marginLeft ?? currentStyle.marginLeft;
-    final double? currentMarginHorizontal =
-        marginHorizontal ?? currentStyle.marginHorizontal;
-    final double? currentMarginVertical =
-        marginVertical ?? currentStyle.marginVertical;
 
     final bool withMargin = (currentMarginTop != null ||
         currentMarginBottom != null ||
@@ -759,9 +987,6 @@ class CommonInput extends StatelessWidget {
             child: simpleInput,
           )
         : simpleInput;
-
-    final double? currentWidth = (width ?? currentStyle.width);
-    final double? currentHeight = (height ?? currentStyle.height);
 
     return (currentWidth != null || currentHeight != null)
         ? SizedBox(

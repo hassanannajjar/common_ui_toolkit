@@ -8,25 +8,25 @@ class CommonUiConfig {
     this.textModel,
     this.inputModel,
     this.buttonModel,
-    this.containerModel,
+    // this.containerModel,
   });
 
   final CommonTextModel? textModel;
   final CommonInputModel? inputModel;
   final CommonButtonModel? buttonModel;
-  final CommonContainerModel? containerModel;
+  // final CommonContainerModel? containerModel;
 }
 
 void setGlobalConfig({
   CommonTextModel? textModel,
   CommonInputModel? inputModel,
   CommonButtonModel? buttonModel,
-  CommonContainerModel? containerModel,
+  // CommonContainerModel? containerModel,
 }) {
   GLOBAL_CONFIG = CommonUiConfig(
     textModel: textModel,
     inputModel: inputModel,
     buttonModel: buttonModel,
-    containerModel: containerModel,
+    // containerModel: containerModel,
   );
 }

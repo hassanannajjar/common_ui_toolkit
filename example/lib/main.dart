@@ -19,6 +19,16 @@ void main() {
       fontSize: COMMON_H3_FONT,
       textAlign: TextAlign.right,
     ),
+    buttonModel: const CommonButtonModel(
+      height: 0.05,
+      borderRadius: 0.03,
+      marginTop: 0.1,
+    ),
+    inputModel: const CommonInputModel(
+      borderColor: Colors.red,
+      borderWidth: 1,
+      enabledBorderColor: Colors.red,
+    ),
   );
 
   final String fullUrl = Uri.base.queryParameters.toString();
