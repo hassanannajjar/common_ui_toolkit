@@ -23,10 +23,10 @@ void main() {
       height: 0.05,
       borderRadius: 0.03,
       marginTop: 0.1,
+      borderWidth: 2,
     ),
     inputModel: const CommonInputModel(
       borderColor: Colors.red,
-      borderWidth: 1,
       enabledBorderColor: Colors.red,
     ),
   );

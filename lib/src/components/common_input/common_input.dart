@@ -722,7 +722,7 @@ class CommonInput extends StatelessWidget {
     final double currentContentPadding = contentPadding ??
         currentStyle.contentPadding ??
         configModel.contentPadding ??
-        15.0;
+        0.015;
     final double? currentContentPaddingTop = contentPaddingTop ??
         currentStyle.contentPaddingTop ??
         configModel.contentPaddingTop;
@@ -897,13 +897,19 @@ class CommonInput extends StatelessWidget {
             filled: (currentFillColor) != null,
             contentPadding: getContentPaddingEdgeInsets(
               CommonInputModel(
-                contentPaddingTop: currentContentPaddingTop,
-                contentPaddingBottom: currentContentPaddingBottom,
-                contentPaddingLeft: currentContentPaddingLeft,
-                contentPaddingRight: currentContentPaddingRight,
-                contentPaddingHorizontal: currentContentPaddingHorizontal,
-                contentPaddingVertical: currentContentPaddingVertical,
-                contentPadding: currentContentPadding,
+                contentPaddingTop:
+                    getResponsiveDeviceHeight(currentContentPaddingTop),
+                contentPaddingBottom:
+                    getResponsiveDeviceHeight(currentContentPaddingBottom),
+                contentPaddingLeft:
+                    getResponsiveDeviceWidth(currentContentPaddingLeft),
+                contentPaddingRight:
+                    getResponsiveDeviceWidth(currentContentPaddingRight),
+                contentPaddingHorizontal:
+                    getResponsiveDeviceWidth(currentContentPaddingHorizontal),
+                contentPaddingVertical:
+                    getResponsiveDeviceHeight(currentContentPaddingVertical),
+                contentPadding: getResponsiveDeviceWidth(currentContentPadding),
               ),
             ),
             hintText: currentHint,
