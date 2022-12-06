@@ -2,28 +2,28 @@ import '../../common_ui_toolkit.dart';
 
 class CommonButtonModel {
   const CommonButtonModel({
-    this.width = 0.15,
-    this.height = 0.04,
-    this.backgroundColor = COMMON_WHITE_COLOR,
-    this.disabledColor = COMMON_DISABLED_COLOR,
-    this.overlayColor = Colors.white10,
-    this.shadowColor = Colors.black,
+    this.width,
+    this.height,
+    this.backgroundColor,
+    this.disabledColor,
+    this.overlayColor,
+    this.shadowColor,
     this.onFocusChange,
     this.onHover,
     this.elevation,
-    this.borderRadius = 0.0,
+    this.borderRadius,
     this.bottomLeftRadius,
     this.bottomRightRadius,
     this.topLeftRadius,
     this.topRightRadius,
     this.shape,
     this.fixedSize,
-    this.enableFeedback = true,
+    this.enableFeedback,
     this.animationDuration,
     this.maximumSize,
     this.minimumSize,
     this.mouseCursor,
-    this.padding = 0.0,
+    this.padding,
     this.paddingTop,
     this.paddingBottom,
     this.paddingRight,
@@ -36,17 +36,17 @@ class CommonButtonModel {
     this.textStyle,
     this.visualDensity,
     this.foregroundColor,
-    this.clipBehavior = Clip.none,
-    this.alignment = Alignment.center,
-    this.borderWidth = 0,
-    this.borderColor = const Color(0xFF000000),
-    this.borderStrokeAlign = StrokeAlign.inside,
-    this.borderStyle = BorderStyle.solid,
+    this.clipBehavior,
+    this.alignment,
+    this.borderWidth,
+    this.borderColor,
+    this.borderStrokeAlign,
+    this.borderStyle,
 
     ///
     /// Empty space to surround the [decoration] and [child].
     ///
-    this.margin = 0,
+    this.margin,
     this.marginTop,
     this.marginBottom,
     this.marginRight,
@@ -96,7 +96,7 @@ class CommonButtonModel {
   ///
   /// alignment
   ///
-  final AlignmentGeometry alignment;
+  final AlignmentGeometry? alignment;
 
   ///
   /// animationDuration
@@ -106,7 +106,7 @@ class CommonButtonModel {
   ///
   /// enableFeedback
   ///
-  final bool enableFeedback;
+  final bool? enableFeedback;
 
   ///
   /// fixedSize
@@ -191,7 +191,7 @@ class CommonButtonModel {
   ///
   /// clipBehavior
   ///
-  final Clip clipBehavior;
+  final Clip? clipBehavior;
 
   ///
   /// margin for all container

@@ -46,18 +46,6 @@ class _TextInputsState extends State<TextInputs> {
                 marginHorizontal: 0.2,
                 // controller: _textEditingController,
               ),
-              const CommonText(
-                'text',
-                // fontColor: Colors.yellow,
-                fontSize: COMMON_H2_FONT,
-              ),
-
-              const CommonText(
-                'New test',
-                // fontColor: Colors.yellow,
-                fontSize: COMMON_H2_FONT,
-                fontColor: Colors.yellow,
-              ),
 
               CommonInput(
                 onChanged: (String value) {
