@@ -188,11 +188,11 @@ class _DatePickerState extends State<CommonPickerTimeLine> {
                   Icons.date_range_outlined,
                 ),
                 CommonText(
-                  text: '$currentMonth, ',
+                  '$currentMonth, ',
                   style: widget.headerTextStyle ?? defaultTextStyle,
                 ),
                 CommonText(
-                  text: currentYear,
+                  currentYear,
                   style: widget.headerTextStyle ?? defaultTextStyle,
                 ),
               ],

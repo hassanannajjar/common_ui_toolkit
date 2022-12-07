@@ -20,7 +20,7 @@ class Images extends StatelessWidget {
             width: 0.7,
           ),
           style: CommonTextStyles().h2Style(),
-          text: 'Images',
+          'Images',
         ),
       ),
       body: Center(

@@ -640,23 +640,23 @@ class CommonContainer extends StatelessWidget {
     final CommonContainerModel currentStyle = style ?? _defaultContainerStyle;
 
     final double borderTopRightRadius = topRightRadius ??
-        borderRadius ??
         currentStyle.topRightRadius ??
+        borderRadius ??
         currentStyle.borderRadius!;
 
     final double borderTopLeftRadius = topLeftRadius ??
-        borderRadius ??
         currentStyle.topLeftRadius ??
+        borderRadius ??
         currentStyle.borderRadius!;
 
     final double borderBottomLeftRadius = bottomLeftRadius ??
-        borderRadius ??
         currentStyle.bottomLeftRadius ??
+        borderRadius ??
         currentStyle.borderRadius!;
 
     final double borderBottomRightRadius = bottomRightRadius ??
-        borderRadius ??
         currentStyle.bottomRightRadius ??
+        borderRadius ??
         currentStyle.borderRadius!;
 
     return ((boxShape ?? currentStyle.boxShape) == BoxShape.circle ||
@@ -685,19 +685,19 @@ class CommonContainer extends StatelessWidget {
     final CommonContainerModel currentStyle = style ?? _defaultContainerStyle;
 
     final double foregroundBorderTopRightRadius = foregroundTopRightRadius ??
-        foregroundBorderRadius ??
         currentStyle.foregroundTopRightRadius ??
+        foregroundBorderRadius ??
         currentStyle.foregroundBorderRadius!;
 
     final double foregroundBorderTopLeftRadius = foregroundTopLeftRadius ??
-        foregroundBorderRadius ??
         currentStyle.foregroundTopLeftRadius ??
+        foregroundBorderRadius ??
         currentStyle.foregroundBorderRadius!;
 
     final double foregroundBorderBottomLeftRadius =
         foregroundBottomLeftRadius ??
-            foregroundBorderRadius ??
             currentStyle.foregroundBottomLeftRadius ??
+            foregroundBorderRadius ??
             currentStyle.foregroundBorderRadius!;
 
     final double foregroundBorderBottomRightRadius =
@@ -737,66 +737,67 @@ class CommonContainer extends StatelessWidget {
     final double currentBorderWidth = borderWidth ?? currentStyle.borderWidth!;
 
     final double currentTopWidth = borderTopWidth ??
-        borderWidth ??
         currentStyle.borderTopWidth ??
+        borderWidth ??
         currentStyle.borderWidth!;
 
     final double currentRightWidth = borderRightWidth ??
-        borderWidth ??
         currentStyle.borderRightWidth ??
+        borderWidth ??
         currentStyle.borderWidth!;
 
     final double currentBottomWidth = borderBottomWidth ??
-        borderWidth ??
         currentStyle.borderBottomWidth ??
+        borderWidth ??
         currentStyle.borderWidth!;
 
     final double currentLeftWidth = borderLeftWidth ??
-        borderWidth ??
         currentStyle.borderLeftWidth ??
+        borderWidth ??
         currentStyle.borderWidth!;
 
     // get border colors.
 
     final dynamic currentTopColor = borderTopColor ??
-        borderColor ??
         currentStyle.borderTopColor ??
+        borderColor ??
         currentStyle.borderColor!;
 
     final dynamic currentRightColor = borderRightColor ??
-        borderColor ??
         currentStyle.borderRightColor ??
+        borderColor ??
         currentStyle.borderColor!;
 
     final dynamic currentBottomColor = borderBottomColor ??
-        borderColor ??
         currentStyle.borderBottomColor ??
+        borderColor ??
         currentStyle.borderColor!;
 
     final dynamic currentLeftColor = borderLeftColor ??
-        borderColor ??
         currentStyle.borderLeftColor ??
+        borderColor ??
         currentStyle.borderColor!;
 
     // get border style.
 
     final BorderStyle currentTopStyle = borderTopStyle ??
-        borderStyle ??
         currentStyle.borderTopStyle ??
+        borderStyle ??
         currentStyle.borderStyle!;
 
     final BorderStyle currentRightStyle = borderRightStyle ??
-        borderStyle ??
         currentStyle.borderRightStyle ??
+        borderStyle ??
         currentStyle.borderStyle!;
 
     final BorderStyle currentBottomStyle = borderBottomStyle ??
         currentStyle.borderBottomStyle ??
+        borderStyle ??
         currentStyle.borderStyle!;
 
     final BorderStyle currentLeftStyle = borderLeftStyle ??
-        borderStyle ??
         currentStyle.borderLeftStyle ??
+        borderStyle ??
         currentStyle.borderStyle!;
 
     return (currentBorderWidth > 0 || _checkBorderNull())
@@ -869,67 +870,67 @@ class CommonContainer extends StatelessWidget {
         foregroundBorderWidth ?? currentStyle.foregroundBorderWidth!;
 
     final double foreTopBorderWidth = foregroundBorderTopWidth ??
-        foregroundBorderWidth ??
         currentStyle.foregroundBorderTopWidth ??
+        foregroundBorderWidth ??
         currentStyle.foregroundBorderWidth!;
 
     final double foreRightBorderWidth = foregroundBorderRightWidth ??
-        foregroundBorderWidth ??
         currentStyle.foregroundBorderRightWidth ??
+        foregroundBorderWidth ??
         currentStyle.foregroundBorderWidth!;
 
     final double forBorderBottomWidth = foregroundBorderBottomWidth ??
-        foregroundBorderWidth ??
         currentStyle.foregroundBorderBottomWidth ??
+        foregroundBorderWidth ??
         currentStyle.foregroundBorderWidth!;
 
     final double foreLeftBorderWidth = foregroundBorderLeftWidth ??
-        foregroundBorderWidth ??
         currentStyle.foregroundBorderLeftWidth ??
+        foregroundBorderWidth ??
         currentStyle.foregroundBorderWidth!;
 
     // Foreground border colors.
 
     final dynamic foreTopBorderColor = foregroundBorderTopColor ??
-        foregroundBorderColor ??
         currentStyle.foregroundBorderTopColor ??
+        foregroundBorderColor ??
         currentStyle.foregroundBorderColor;
 
     final dynamic foreRightBorderColor = foregroundBorderRightColor ??
-        foregroundBorderColor ??
         currentStyle.foregroundBorderRightColor ??
+        foregroundBorderColor ??
         currentStyle.foregroundBorderColor;
 
     final dynamic forBorderBottomColor = foregroundBorderBottomColor ??
-        foregroundBorderColor ??
         currentStyle.foregroundBorderBottomColor ??
+        foregroundBorderColor ??
         currentStyle.foregroundBorderColor;
 
     final dynamic foreLeftBorderColor = foregroundBorderLeftColor ??
-        foregroundBorderColor ??
         currentStyle.foregroundBorderLeftColor ??
+        foregroundBorderColor ??
         currentStyle.foregroundBorderColor;
 
     // Foreground border styles.
 
     final BorderStyle foreTopBorderStyle = foregroundBorderTopStyle ??
-        foregroundBorderStyle ??
         currentStyle.foregroundBorderTopStyle ??
+        foregroundBorderStyle ??
         currentStyle.foregroundBorderStyle!;
 
     final BorderStyle foreRightBorderStyle = foregroundBorderRightStyle ??
-        foregroundBorderStyle ??
         currentStyle.foregroundBorderRightStyle ??
+        foregroundBorderStyle ??
         currentStyle.foregroundBorderStyle!;
 
     final BorderStyle forBorderBottomStyle = foregroundBorderBottomStyle ??
-        foregroundBorderStyle ??
         currentStyle.foregroundBorderBottomStyle ??
+        foregroundBorderStyle ??
         currentStyle.foregroundBorderStyle!;
 
     final BorderStyle foreLeftBorderStyle = foregroundBorderLeftStyle ??
-        foregroundBorderStyle ??
         currentStyle.foregroundBorderLeftStyle ??
+        foregroundBorderStyle ??
         currentStyle.foregroundBorderStyle!;
 
     return ((foreBorderWidth > 0) || _checkForegroundBorderNull())
@@ -1025,257 +1026,244 @@ class CommonContainer extends StatelessWidget {
     ///
     final CommonContainerModel currentStyle = style ?? _defaultContainerStyle;
 
-    return CommonTouchable(
+    final Container container = Container(
       ///
-      /// render function you can set (){} just to enable touchEffect animation.
+      /// you can use loading condition to handel render error
+      /// if data still null or you want wait the data from api.
       ///
-      onTap: onPress,
+      /// /// Align the [child] within the container.
+      ///
+      /// If non-null, the container will expand to fill its parent and position its
+      /// child within itself according to the given value. If the incoming
+      /// constraints are unbounded, then the child will be shrink-wrapped instead.
+      ///
+      /// Ignored if [child] is null.
+      ///
+      width: (width != null || size != null)
+          ? _getWidth()
+          : currentStyle.getWidth(),
 
       ///
-      /// render the touchEffect when press the container.
-      /// and you must use onPress function to use touchEffect.
-      /// example :
-      /// ```dart
-      /// touchEffect: TouchEffect(
-      ///  type: TouchTypes.scaleAndFade,
-      ///  duration: 50,
-      ///  lowerBound:0.9,
-      ///  upperBound:1.3,
-      ///  scaleValue:1.3,
-      /// )
-      /// ```
+      /// get the height.
       ///
-      touchEffect: touchEffect ?? currentStyle.touchEffect ?? TouchableEffect(),
-      child: Container(
-        ///
-        /// you can use loading condition to handel render error
-        /// if data still null or you want wait the data from api.
-        ///
-        /// /// Align the [child] within the container.
-        ///
-        /// If non-null, the container will expand to fill its parent and position its
-        /// child within itself according to the given value. If the incoming
-        /// constraints are unbounded, then the child will be shrink-wrapped instead.
-        ///
-        /// Ignored if [child] is null.
-        ///
-        width: (width != null || size != null)
-            ? _getWidth()
-            : currentStyle.getWidth(),
+      height: (height != null || size != null)
+          ? _getHeight()
+          : currentStyle.getHeight(),
 
-        ///
-        /// get the height.
-        ///
-        height: (height != null || size != null)
-            ? _getHeight()
-            : currentStyle.getHeight(),
-
-        ///
-        /// get the margin.
-        ///
-        margin: (marginTop != null ||
-                marginBottom != null ||
-                marginLeft != null ||
-                marginRight != null ||
-                marginHorizontal != null ||
-                marginVertical != null ||
-                margin != null)
-            ? getMarginEdgeInsets(
-                CommonContainerModel(
-                  marginTop: marginTop,
-                  marginBottom: marginBottom,
-                  marginLeft: marginLeft,
-                  marginRight: marginRight,
-                  marginHorizontal: marginHorizontal,
-                  marginVertical: marginVertical,
-                  margin: margin ?? 0.0,
-                ),
-              )
-            : getMarginEdgeInsets(currentStyle),
-
-        ///
-        /// get the padding.
-        ///
-        padding: (paddingTop != null ||
-                paddingBottom != null ||
-                paddingLeft != null ||
-                paddingRight != null ||
-                paddingHorizontal != null ||
-                paddingVertical != null ||
-                padding != null)
-            ? getPaddingEdgeInsets(
-                CommonContainerModel(
-                  paddingTop: paddingTop,
-                  paddingBottom: paddingBottom,
-                  paddingLeft: paddingLeft,
-                  paddingRight: paddingRight,
-                  paddingHorizontal: paddingHorizontal,
-                  paddingVertical: paddingVertical,
-                  padding: padding ?? 0.0,
-                ),
-              )
-            : getPaddingEdgeInsets(currentStyle),
-
-        ///
-        /// get the alignment for content.
-        ///
-        alignment: alignment ?? currentStyle.alignment,
-
-        ///
-        /// get the foreground decoration or
-        ///  you can customer foregroundDecoration as you want.
-        ///
-        foregroundDecoration: foregroundDecoration ??
-            currentStyle.foregroundDecoration ??
-            BoxDecoration(
-              image: foregroundImage ?? currentStyle.foregroundImage,
-              gradient:
-                  foregroundBoxGradient ?? currentStyle.foregroundBoxGradient,
-              backgroundBlendMode:
-                  foregroundBlendMode ?? currentStyle.foregroundBlendMode,
-              shape: foregroundBoxShape ?? currentStyle.foregroundBoxShape!,
-              border: _getForegroundBorder(),
-              borderRadius: _getForegroundBorderRadius(),
-              color: getColorType(
-                foregroundColor ?? currentStyle.foregroundColor!,
-              ),
-              boxShadow: <BoxShadow>[
-                BoxShadow(
-                  color: getColorType(
-                    foregroundShadowColor ??
-                        currentStyle.foregroundShadowColor!,
-                  ).withOpacity(
-                    foregroundShadowOpacity ??
-                        currentStyle.foregroundShadowOpacity!,
-                  ),
-                  spreadRadius: foregroundShadowSpreadRadius ??
-                      currentStyle.foregroundShadowSpreadRadius!,
-                  blurRadius: foregroundShadowBlurRadius ??
-                      currentStyle.foregroundShadowBlurRadius!,
-                  offset: Offset(
-                    foregroundShadowOffsetDX ??
-                        currentStyle.foregroundShadowOffsetDX!,
-                    foregroundShadowOffsetDY ??
-                        currentStyle.foregroundShadowOffsetDY!,
-                  ),
-                )
-              ],
-            ),
-
-        ///
-        /// render minWidth, minHeight, maxWidth and maxHight.
-        ///
-        constraints: BoxConstraints(
-          minWidth: minWidth != null
-              ? _getResponsiveMinWidth()
-              : currentStyle.getResponsiveMinWidth(),
-          minHeight: minHeight != null
-              ? _getResponsiveMinHeight()
-              : currentStyle.getResponsiveMinHeight(),
-          maxWidth: maxWidth != null
-              ? _getResponsiveMaxWidth()
-              : currentStyle.getResponsiveMaxWidth(),
-          maxHeight: maxHeight != null
-              ? _getResponsiveMaxHeight()
-              : currentStyle.getResponsiveMaxHeight(),
+      ///
+      /// get the margin.
+      ///
+      margin: getMarginEdgeInsets(
+        CommonContainerModel(
+          marginTop: marginTop ?? currentStyle.marginTop,
+          marginBottom: marginBottom ?? currentStyle.marginBottom,
+          marginLeft: marginLeft ?? currentStyle.marginLeft,
+          marginRight: marginRight ?? currentStyle.marginRight,
+          marginHorizontal: marginHorizontal ?? currentStyle.marginHorizontal,
+          marginVertical: marginVertical ?? currentStyle.marginVertical,
+          margin: margin ?? currentStyle.margin,
         ),
-
-        ///
-        /// transform alignment for content.
-        ///
-        transformAlignment:
-            transformAlignment ?? currentStyle.transformAlignment,
-
-        ///
-        /// transform  for content.
-        ///
-        transform: transform ?? currentStyle.transform,
-
-        ///
-        /// clipBehavior alignment for content.
-        ///
-        clipBehavior: clipBehavior ?? currentStyle.clipBehavior!,
-
-        ///
-        /// get the (decoration || backgroundDecoration) decoration or
-        ///  you can customer (decoration || backgroundDecoration) as you want.
-        ///
-        decoration: decoration ??
-            currentStyle.decoration ??
-            BoxDecoration(
-              image: backgroundImageDecoration ??
-                  ((backgroundImage ?? currentStyle.backgroundImage) != null
-                      ? DecorationImage(
-                          image: ((backgroundImage ??
-                                      currentStyle.backgroundImage!)
-                                  .contains('assets/')
-                              ? AssetImage(
-                                  backgroundImage ??
-                                      currentStyle.backgroundImage!,
-                                )
-                              : NetworkImage(
-                                  backgroundImage ??
-                                      currentStyle.backgroundImage!,
-                                )) as ImageProvider,
-                          // fit: BoxFit.fitWidth,
-                        )
-                      : currentStyle.backgroundImageDecoration),
-              gradient: boxGradient ?? currentStyle.boxGradient,
-              backgroundBlendMode:
-                  backgroundBlendMode ?? currentStyle.backgroundBlendMode,
-              shape: boxShape ?? currentStyle.boxShape!,
-              border: _getBorder(),
-              borderRadius: _getBorderRadius(),
-              color: getColorType(
-                backgroundColor ?? currentStyle.backgroundColor!,
-              ),
-              boxShadow: <BoxShadow>[
-                BoxShadow(
-                  color: getColorType(shadowColor ?? currentStyle.shadowColor!)
-                      .withOpacity(
-                    shadowOpacity ?? currentStyle.shadowOpacity!,
-                  ),
-                  spreadRadius:
-                      shadowSpreadRadius ?? currentStyle.shadowSpreadRadius!,
-                  blurRadius:
-                      shadowBlurRadius ?? currentStyle.shadowBlurRadius!,
-                  offset: Offset(
-                    shadowOffsetDX ?? currentStyle.shadowOffsetDX!,
-                    shadowOffsetDY ?? currentStyle.shadowOffsetDY!,
-                  ),
-                )
-              ],
-            ),
-
-        ///
-        /// you can use loading condition to handel render error
-        /// if data still null or you want wait the data from api.
-        ///
-        /// /// Align the [child] within the container.
-        ///
-        /// If non-null, the container will expand to fill its parent and position its
-        /// child within itself according to the given value. If the incoming
-        /// constraints are unbounded, then the child will be shrink-wrapped instead.
-        ///
-        /// Ignored if [child] is null.
-        ///
-        child: isLoading
-
-            ///
-            /// you can render custom loading widget or use the default loading.
-            ///
-            ? (loadingWidget ??
-                CircularProgressIndicator(
-                  color: getColorType(
-                    loadingColor ?? currentStyle.loadingColor!,
-                  ),
-                ))
-
-            ///
-            /// the default value if loading false will be center widget.
-            ///
-            : (child ?? const Center()),
       ),
+
+      ///
+      /// get the padding.
+      ///
+      padding: getPaddingEdgeInsets(
+        CommonContainerModel(
+          paddingTop: paddingTop ?? currentStyle.paddingTop,
+          paddingBottom: paddingBottom ?? currentStyle.paddingBottom,
+          paddingLeft: paddingLeft ?? currentStyle.paddingLeft,
+          paddingRight: paddingRight ?? currentStyle.paddingRight,
+          paddingHorizontal:
+              paddingHorizontal ?? currentStyle.paddingHorizontal,
+          paddingVertical: paddingVertical ?? currentStyle.paddingVertical,
+          padding: padding ?? currentStyle.padding,
+        ),
+      ),
+
+      ///
+      /// get the alignment for content.
+      ///
+      alignment: alignment ?? currentStyle.alignment,
+
+      ///
+      /// get the foreground decoration or
+      ///  you can customer foregroundDecoration as you want.
+      ///
+      foregroundDecoration: foregroundDecoration ??
+          currentStyle.foregroundDecoration ??
+          BoxDecoration(
+            image: foregroundImage ?? currentStyle.foregroundImage,
+            gradient:
+                foregroundBoxGradient ?? currentStyle.foregroundBoxGradient,
+            backgroundBlendMode:
+                foregroundBlendMode ?? currentStyle.foregroundBlendMode,
+            shape: foregroundBoxShape ?? currentStyle.foregroundBoxShape!,
+            border: _getForegroundBorder(),
+            borderRadius: _getForegroundBorderRadius(),
+            color: getColorType(
+              foregroundColor ?? currentStyle.foregroundColor!,
+            ),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                color: getColorType(
+                  foregroundShadowColor ?? currentStyle.foregroundShadowColor!,
+                ).withOpacity(
+                  foregroundShadowOpacity ??
+                      currentStyle.foregroundShadowOpacity!,
+                ),
+                spreadRadius: foregroundShadowSpreadRadius ??
+                    currentStyle.foregroundShadowSpreadRadius!,
+                blurRadius: foregroundShadowBlurRadius ??
+                    currentStyle.foregroundShadowBlurRadius!,
+                offset: Offset(
+                  foregroundShadowOffsetDX ??
+                      currentStyle.foregroundShadowOffsetDX!,
+                  foregroundShadowOffsetDY ??
+                      currentStyle.foregroundShadowOffsetDY!,
+                ),
+              )
+            ],
+          ),
+
+      ///
+      /// render minWidth, minHeight, maxWidth and maxHight.
+      ///
+      constraints: BoxConstraints(
+        minWidth: minWidth != null
+            ? _getResponsiveMinWidth()
+            : currentStyle.getResponsiveMinWidth(),
+        minHeight: minHeight != null
+            ? _getResponsiveMinHeight()
+            : currentStyle.getResponsiveMinHeight(),
+        maxWidth: maxWidth != null
+            ? _getResponsiveMaxWidth()
+            : currentStyle.getResponsiveMaxWidth(),
+        maxHeight: maxHeight != null
+            ? _getResponsiveMaxHeight()
+            : currentStyle.getResponsiveMaxHeight(),
+      ),
+
+      ///
+      /// transform alignment for content.
+      ///
+      transformAlignment: transformAlignment ?? currentStyle.transformAlignment,
+
+      ///
+      /// transform  for content.
+      ///
+      transform: transform ?? currentStyle.transform,
+
+      ///
+      /// clipBehavior alignment for content.
+      ///
+      clipBehavior: clipBehavior ?? currentStyle.clipBehavior!,
+
+      ///
+      /// get the (decoration || backgroundDecoration) decoration or
+      ///  you can customer (decoration || backgroundDecoration) as you want.
+      ///
+      decoration: decoration ??
+          currentStyle.decoration ??
+          BoxDecoration(
+            image: backgroundImageDecoration ??
+                ((backgroundImage ?? currentStyle.backgroundImage) != null
+                    ? DecorationImage(
+                        image:
+                            ((backgroundImage ?? currentStyle.backgroundImage!)
+                                    .contains('assets/')
+                                ? AssetImage(
+                                    backgroundImage ??
+                                        currentStyle.backgroundImage!,
+                                  )
+                                : NetworkImage(
+                                    backgroundImage ??
+                                        currentStyle.backgroundImage!,
+                                  )) as ImageProvider,
+                        // fit: BoxFit.fitWidth,
+                      )
+                    : currentStyle.backgroundImageDecoration),
+            gradient: boxGradient ?? currentStyle.boxGradient,
+            backgroundBlendMode:
+                backgroundBlendMode ?? currentStyle.backgroundBlendMode,
+            shape: boxShape ?? currentStyle.boxShape!,
+            border: _getBorder(),
+            borderRadius: _getBorderRadius(),
+            color: getColorType(
+              backgroundColor ?? currentStyle.backgroundColor!,
+            ),
+            boxShadow: <BoxShadow>[
+              BoxShadow(
+                color: getColorType(shadowColor ?? currentStyle.shadowColor!)
+                    .withOpacity(
+                  shadowOpacity ?? currentStyle.shadowOpacity!,
+                ),
+                spreadRadius:
+                    shadowSpreadRadius ?? currentStyle.shadowSpreadRadius!,
+                blurRadius: shadowBlurRadius ?? currentStyle.shadowBlurRadius!,
+                offset: Offset(
+                  shadowOffsetDX ?? currentStyle.shadowOffsetDX!,
+                  shadowOffsetDY ?? currentStyle.shadowOffsetDY!,
+                ),
+              )
+            ],
+          ),
+
+      ///
+      /// you can use loading condition to handel render error
+      /// if data still null or you want wait the data from api.
+      ///
+      /// /// Align the [child] within the container.
+      ///
+      /// If non-null, the container will expand to fill its parent and position its
+      /// child within itself according to the given value. If the incoming
+      /// constraints are unbounded, then the child will be shrink-wrapped instead.
+      ///
+      /// Ignored if [child] is null.
+      ///
+      child: isLoading
+
+          ///
+          /// you can render custom loading widget or use the default loading.
+          ///
+          ? (loadingWidget ??
+              CircularProgressIndicator(
+                color: getColorType(
+                  loadingColor ?? currentStyle.loadingColor!,
+                ),
+              ))
+
+          ///
+          /// the default value if loading false will be center widget.
+          ///
+          : (child ?? const Center()),
     );
+
+    return onPress != null
+        ? CommonTouchable(
+            ///
+            /// render function you can set (){} just to enable touchEffect animation.
+            ///
+            onTap: onPress,
+
+            ///
+            /// render the touchEffect when press the container.
+            /// and you must use onPress function to use touchEffect.
+            /// example :
+            /// ```dart
+            /// touchEffect: TouchEffect(
+            ///  type: TouchTypes.scaleAndFade,
+            ///  duration: 50,
+            ///  lowerBound:0.9,
+            ///  upperBound:1.3,
+            ///  scaleValue:1.3,
+            /// )
+            /// ```
+            ///
+            touchEffect:
+                touchEffect ?? currentStyle.touchEffect ?? TouchableEffect(),
+            child: container,
+          )
+        : container;
   }
 }

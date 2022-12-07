@@ -6,30 +6,30 @@ class CommonTextModel {
   const CommonTextModel({
     ///sizes
     this.height,
-    this.letterSpacing = 0.0,
-    this.wordSpacing = 0.0,
-    this.fontSize = COMMON_H4_FONT,
+    this.letterSpacing,
+    this.wordSpacing,
+    this.fontSize,
     this.decorationThickness,
-    this.maxlines,
-    this.textScaleFactor = 1.0,
+    this.maxLines,
+    this.textScaleFactor,
 
     /// colors
-    this.fontColor = COMMON_BLACK_COLOR,
-    this.backgroundColor = COMMON_TRANSPARENT_COLOR,
-    this.decorationColor = COMMON_BLACK_COLOR,
-    this.decoration = TextDecoration.none,
+    this.fontColor,
+    this.backgroundColor,
+    this.decorationColor,
+    this.decoration,
     this.textDirection,
-    this.overflow = TextOverflow.clip,
-    this.softWrap = true,
+    this.overflow,
+    this.softWrap,
     this.strutStyle,
     this.textHeightBehavior,
-    this.textWidthBasis = TextWidthBasis.parent,
+    this.textWidthBasis,
 
     // -------------------
-    this.fontWeight = FontWeight.normal,
+    this.fontWeight,
     this.fontFamily,
-    this.fontStyle = FontStyle.normal,
-    this.textAlign = TextAlign.center,
+    this.fontStyle,
+    this.textAlign,
     this.textBaseline,
     this.leadingDistribution,
     this.locale,
@@ -37,18 +37,26 @@ class CommonTextModel {
     this.background,
     this.shadows,
     this.fontFeatures,
-    this.columnCrossAxisAlignment = CrossAxisAlignment.center,
-    this.columnMainAxisAlignment = MainAxisAlignment.start,
-    this.columnMainAxisSize = MainAxisSize.min,
-    this.rowCrossAxisAlignment = CrossAxisAlignment.center,
-    this.rowMainAxisSize = MainAxisSize.min,
-    this.rowMainAxisAlignment = MainAxisAlignment.start,
+    this.columnCrossAxisAlignment,
+    this.columnMainAxisAlignment,
+    this.columnMainAxisSize,
+    this.rowCrossAxisAlignment,
+    this.rowMainAxisSize,
+    this.rowMainAxisAlignment,
     this.decorationStyle,
     this.debugLabel,
     this.fontFamilyFallback,
     this.prefixIcon,
     this.inherit = true,
     this.package,
+    this.semanticsLabel,
+    this.margin,
+    this.marginTop,
+    this.marginBottom,
+    this.marginRight,
+    this.marginLeft,
+    this.marginVertical,
+    this.marginHorizontal,
   });
 
   ///
@@ -59,8 +67,8 @@ class CommonTextModel {
   final double? wordSpacing;
   final double? decorationThickness;
   final double? fontSize;
-  final double textScaleFactor;
-  final int? maxlines;
+  final double? textScaleFactor;
+  final int? maxLines;
 
   ///
   /// colors
@@ -80,14 +88,14 @@ class CommonTextModel {
   final TextDirection? textDirection;
 
   ///
-  /// overflow
+  /// overflow default  TextOverflow.clip
   ///
-  final TextOverflow overflow;
+  final TextOverflow? overflow;
 
   ///
-  /// soft wrap
+  /// soft wrap default true
   ///
-  final bool softWrap;
+  final bool? softWrap;
 
   ///
   /// strut style
@@ -100,9 +108,9 @@ class CommonTextModel {
   final TextHeightBehavior? textHeightBehavior;
 
   ///
-  /// text width basis
+  /// text width basis default => [TextWidthBasis.parent]
   ///
-  final TextWidthBasis textWidthBasis;
+  final TextWidthBasis? textWidthBasis;
 
   ///
   /// decoration style
@@ -115,9 +123,9 @@ class CommonTextModel {
   final FontWeight? fontWeight;
 
   ///
-  /// text align
+  /// text align default => [TextAlign.center]
   ///
-  final TextAlign textAlign;
+  final TextAlign? textAlign;
 
   ///
   /// font style
@@ -135,34 +143,34 @@ class CommonTextModel {
   final TextLeadingDistribution? leadingDistribution;
 
   ///
-  /// column Cross Axis Alignment
+  /// column Cross Axis Alignment default => [CrossAxisAlignment.center]
   ///
-  final CrossAxisAlignment columnCrossAxisAlignment;
+  final CrossAxisAlignment? columnCrossAxisAlignment;
 
   ///
-  /// column main Axis Alignment
+  /// column main Axis Alignment default => [MainAxisAlignment.start]
   ///
-  final MainAxisAlignment columnMainAxisAlignment;
+  final MainAxisAlignment? columnMainAxisAlignment;
 
   ///
-  /// column main Axis size
+  /// column main Axis size default => [MainAxisSize.min]
   ///
-  final MainAxisSize columnMainAxisSize;
+  final MainAxisSize? columnMainAxisSize;
 
   ///
-  /// row cross Axis Alignment
+  /// row cross Axis Alignment default => [CrossAxisAlignment.center]
   ///
-  final CrossAxisAlignment rowCrossAxisAlignment;
+  final CrossAxisAlignment? rowCrossAxisAlignment;
 
   ///
-  /// row main Axis Alignment
+  /// row main Axis Alignment default => [ MainAxisAlignment.start]
   ///
-  final MainAxisAlignment rowMainAxisAlignment;
+  final MainAxisAlignment? rowMainAxisAlignment;
 
   ///
   /// row main Axis size
   ///
-  final MainAxisSize rowMainAxisSize;
+  final MainAxisSize? rowMainAxisSize;
 
   ///
   /// locale
@@ -217,7 +225,46 @@ class CommonTextModel {
   /// prefix icon
   final CommonIcon? prefixIcon;
 
-  double responsiveFontSize() => DEVICE_WIDTH * (fontSize! / 430);
+  ///
+  /// semantics label
+  ///
+  final String? semanticsLabel;
+
+  ///
+  /// margin for all container
+  ///
+  ///
+  final double? margin;
+
+  ///
+  /// margin for top container
+  ///
+  final double? marginTop;
+
+  ///
+  /// margin for bottom container
+  ///
+  final double? marginBottom;
+
+  ///
+  /// margin for right container
+  ///
+  final double? marginRight;
+
+  ///
+  /// margin for left container
+  ///
+  final double? marginLeft;
+
+  ///
+  /// margin for (top and bottom|| Vertical)  container
+  ///
+  final double? marginVertical;
+
+  ///
+  /// margin for (right and left || Horizontal) container
+  ///
+  final double? marginHorizontal;
 
   CommonTextModel copyWith({
     double? height,
@@ -226,7 +273,7 @@ class CommonTextModel {
     double? decorationThickness,
     double? fontSize,
     double? textScaleFactor,
-    int? maxlines,
+    int? maxLines,
     dynamic fontColor,
     dynamic backgroundColor,
     dynamic decorationColor,
@@ -260,6 +307,14 @@ class CommonTextModel {
     CommonIcon? prefixIcon,
     bool? inherit,
     String? package,
+    String? semanticsLabel,
+    double? margin,
+    double? marginTop,
+    double? marginBottom,
+    double? marginRight,
+    double? marginLeft,
+    double? marginVertical,
+    double? marginHorizontal,
   }) {
     return CommonTextModel(
       height: height ?? this.height,
@@ -268,7 +323,7 @@ class CommonTextModel {
       decorationThickness: decorationThickness ?? this.decorationThickness,
       fontSize: fontSize ?? this.fontSize,
       textScaleFactor: textScaleFactor ?? this.textScaleFactor,
-      maxlines: maxlines ?? this.maxlines,
+      maxLines: maxLines ?? this.maxLines,
       fontColor: fontColor ?? this.fontColor,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       decorationColor: decorationColor ?? this.decorationColor,
@@ -305,6 +360,14 @@ class CommonTextModel {
       prefixIcon: prefixIcon ?? this.prefixIcon,
       inherit: inherit ?? this.inherit,
       package: package ?? this.package,
+      semanticsLabel: semanticsLabel ?? this.semanticsLabel,
+      margin: margin ?? this.margin,
+      marginTop: marginTop ?? this.marginTop,
+      marginBottom: marginBottom ?? this.marginBottom,
+      marginRight: marginRight ?? this.marginRight,
+      marginLeft: marginLeft ?? this.marginLeft,
+      marginVertical: marginVertical ?? this.marginVertical,
+      marginHorizontal: marginHorizontal ?? this.marginHorizontal,
     );
   }
 }

@@ -19,7 +19,7 @@ double? getResponsiveDeviceHeight(double? value) =>
     value == null ? null : DEVICE_HEIGHT * value;
 
 /// handel margin, vertical, horizontal, top, bottom, left and right.
-EdgeInsets getMarginEdgeInsets(CommonContainerModel? style) {
+EdgeInsets getMarginEdgeInsets(dynamic style) {
   final double? left = style!.marginLeft;
   final double? right = style.marginRight;
   final double? top = style.marginTop;
@@ -139,6 +139,41 @@ dynamic getColorType(dynamic color) {
     return Color(color);
   } else {
     return Colors.transparent;
+  }
+}
+
+/// render Color Type
+MaterialStateProperty<Color?> getButtonColorType(dynamic color,
+    {bool isOverLay = false}) {
+  if (color is MaterialStateProperty) {
+    return color as MaterialStateProperty<Color?>;
+  } else if (isOverLay) {
+    return MaterialStateProperty.resolveWith(
+      (Set<MaterialState> states) {
+        return states.contains(MaterialState.pressed)
+            ? getColorType(
+                color,
+              )
+            : null;
+      },
+    );
+  } else {
+    return MaterialStateProperty.all(
+      getColorType(
+        color,
+      ),
+    );
+  }
+}
+
+/// render Color Type
+MaterialStateProperty<double?> checkElevationType(
+  dynamic elevation,
+) {
+  if (elevation is MaterialStateProperty) {
+    return elevation as MaterialStateProperty<double?>;
+  } else {
+    return MaterialStateProperty.all(elevation);
   }
 }
 

@@ -72,7 +72,7 @@ class CommonTextInput extends StatelessWidget {
               semanticCounterText: currentStyle.semanticCounterText,
               fillColor: getColorType(currentStyle.fillColor!),
               filled: currentStyle.fillColor != null,
-              contentPadding: getContentPaddingEdgeInsets(style),
+              contentPadding: getContentPaddingEdgeInsets(currentStyle),
               hintText: currentStyle.hint,
               hintStyle: currentStyle.hintStyle ??
                   TextStyle(

@@ -11,13 +11,13 @@ class Containers extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(colorPrimary),
         title: CommonText(
+          'Containers',
           containerStyle: const CommonContainerModel().copyWith(
             backgroundColor: 0x00FFFFFF,
             alignment: Alignment.center,
             width: 0.7,
           ),
           style: CommonTextStyles().h2Style(),
-          text: 'Containers',
         ),
       ),
       body: CommonContainer(

@@ -1,5 +1,29 @@
 ## 0.3.6  (Aug 5, 2022)
 
+- added configuration function to set your default config and use can use it in the main screen 
+ex: 
+```dart
+setGlobalConfig(
+    textModel: const CommonTextModel(
+      fontColor: Colors.red,
+      fontWeight: FontWeight.bold,
+      fontSize: COMMON_H3_FONT,
+      textAlign: TextAlign.right,
+    ),
+    buttonModel: const CommonButtonModel(
+      height: 0.05,
+      borderRadius: 0.03,
+      marginTop: 0.1,
+      borderWidth: 2,
+    ),
+    inputModel: const CommonInputModel(
+      borderColor: Colors.red,
+      enabledBorderColor: Colors.red,
+    ),
+  );
+
+```
+
 - changed `isResponsive` to be deprecated and use `size` to create square container.
 - Added parameters to be inline if you want to edit some attribute inline without update the style.
 ex: 
@@ -14,7 +38,6 @@ CommonContainer(style:containerStyle.copyWith(paddingTop:0.01,),);
 CommonContainer(style:containerStyle, paddingTop:0.01,);
 
 ```
-- Added new component call `CommonSimpleText` and it's simple than `CommonText` without all attributes
 
 ## 0.3.3 => 0.3.5  (May 17, 2022)
 

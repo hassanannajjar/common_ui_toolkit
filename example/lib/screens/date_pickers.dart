@@ -27,7 +27,7 @@ class DatePickers extends StatelessWidget {
             width: 0.7,
           ),
           style: CommonTextStyles().h2Style(),
-          text: 'DatePickers',
+          'DatePickers',
         ),
       ),
       body: CommonContainer(
@@ -96,7 +96,7 @@ class DatePickers extends StatelessWidget {
                     currentTime: DateTime.now(),
                   );
                 },
-                text: 'show date picker(custom theme &date time range)',
+                'show date picker(custom theme &date time range)',
               ),
               CommonText(
                 style: textStyle,
@@ -110,7 +110,7 @@ class DatePickers extends StatelessWidget {
                     consoleLog('confirm $date');
                   }, currentTime: DateTime.now());
                 },
-                text: 'show time picker',
+                'show time picker',
               ),
               CommonText(
                 style: textStyle,
@@ -124,7 +124,7 @@ class DatePickers extends StatelessWidget {
                     consoleLog('confirm $date');
                   }, currentTime: DateTime.now());
                 },
-                text: 'show 12H time picker with AM/PM',
+                'show 12H time picker with AM/PM',
               ),
               CommonText(
                 style: textStyle,
@@ -140,7 +140,7 @@ class DatePickers extends StatelessWidget {
                     consoleLog('confirm $date');
                   }, locale: LocaleType.zh);
                 },
-                text: 'show date time picker (Chinese)',
+                'show date time picker (Chinese)',
               ),
               CommonText(
                 style: textStyle,
@@ -154,7 +154,7 @@ class DatePickers extends StatelessWidget {
                     consoleLog('confirm $date');
                   }, currentTime: DateTime(2008, 12, 31, 23, 12, 34));
                 },
-                text: 'show date time picker (English-America)',
+                'show date time picker (English-America)',
               ),
               CommonText(
                 style: textStyle,
@@ -170,7 +170,7 @@ class DatePickers extends StatelessWidget {
                       currentTime: DateTime(2008, 12, 31, 23, 12, 34),
                       locale: LocaleType.nl);
                 },
-                text: 'show date time picker (Dutch)',
+                'show date time picker (Dutch)',
               ),
               CommonText(
                 style: textStyle,
@@ -186,7 +186,7 @@ class DatePickers extends StatelessWidget {
                       currentTime: DateTime(2008, 12, 31, 23, 12, 34),
                       locale: LocaleType.ru);
                 },
-                text: 'show date time picker (Russian)',
+                'show date time picker (Russian)',
               ),
               CommonText(
                 style: textStyle,
@@ -202,7 +202,7 @@ class DatePickers extends StatelessWidget {
                       currentTime: DateTime.utc(2019, 12, 31, 23, 12, 34),
                       locale: LocaleType.de);
                 },
-                text: 'show date time picker in UTC (German)',
+                'show date time picker in UTC (German)',
               ),
               CommonText(
                 style: textStyle,
@@ -221,7 +221,7 @@ class DatePickers extends StatelessWidget {
                     locale: LocaleType.ar,
                   );
                 },
-                text: 'show date time picker in UTC (AR)',
+                'show date time picker in UTC (AR)',
               ),
               CommonText(
                 style: textStyle,
@@ -238,8 +238,7 @@ class DatePickers extends StatelessWidget {
                     },
                   );
                 },
-                text:
-                    'show custom time picker,\nyou can custom picker model like this',
+                'show custom time picker,\nyou can custom picker model like this',
               ),
             ],
           ),
