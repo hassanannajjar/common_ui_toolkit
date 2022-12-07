@@ -1,12 +1,9 @@
 <p align="center">
-<img  alt='Common Ui Toolkit' src='https://user-images.githubusercontent.com/49004640/148673584-8af12a36-21f6-4c32-9a61-57e2b7827901.png' />
+<a href="https://common-ui-toolkit.netlify.app/docs/"><img  alt='Common Ui Toolkit' src='https://user-images.githubusercontent.com/49004640/148673584-8af12a36-21f6-4c32-9a61-57e2b7827901.png' /> </a>
 </p>
 
 
- [![pub package](https://img.shields.io/pub/v/common_ui_toolkit.svg)]
-
-
-[Documentation Web Site](https://common-ui-toolkit.netlify.app/docs/)
+[![pub package](https://img.shields.io/pub/v/common_ui_toolkit.svg)](https://pub.dev/packages/common_ui_toolkit) [Documentation Web Site](https://common-ui-toolkit.netlify.app/docs/)
 
 
 
