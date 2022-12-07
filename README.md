@@ -25,12 +25,12 @@
 
 - Common UI toolkit is a Flutter UI package that allows you creating stunning multi-brand cross-platform mobile applications. It contains a set of general purpose UI components styled in a similar way. And the most awesome thing: the themes can be changed in the runtime, with no need to reload the application.
 
-![Common ui toolkit Material](https://camo.githubusercontent.com/f0487d92194f3c685213539c53e9784113cd8a4b/68747470733a2f2f692e696d6775722e636f6d2f58384f344748622e706e67)
+<!-- ![Common ui toolkit Material](https://camo.githubusercontent.com/f0487d92194f3c685213539c53e9784113cd8a4b/68747470733a2f2f692e696d6775722e636f6d2f58384f344748622e706e67) -->
 
 
 ## What's included
 
-- **25+ general-purpose components** designed and tested to save your time.
+<!-- - **25+ general-purpose components** designed and tested to save your time. -->
 
 - **Comprehensive clear documentation** with the tons of examples.
 
@@ -43,7 +43,7 @@
 
 There is a huge variety of customizable layouts, use “as is” or add new blocks.
 
-**Over 40 screens in dark and light themes** give you the possibility to create a bright and exclusive app while saving your time on compiling numerous details.  Also, you can download the source code and use it for your own benefit.
+<!-- **Over 40 screens in dark and light themes** give you the possibility to create a bright and exclusive app while saving your time on compiling numerous details.  Also, you can download the source code and use it for your own benefit. -->
 
 
 ## How can I support the developers?
