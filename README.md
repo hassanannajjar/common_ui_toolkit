@@ -6,11 +6,6 @@
 [![pub package](https://img.shields.io/pub/v/common_ui_toolkit.svg)](https://pub.dev/packages/common_ui_toolkit) [Documentation Web Site](https://common-ui-toolkit.netlify.app/docs/)
 
 
-
-
-## License
-[MIT](LICENSE.txt) license.
-
 ## About Common Ui Toolkit
 
 - Common UI toolkit is a Flutter UI package that allows you creating stunning multi-brand cross-platform mobile applications. It contains a set of general purpose UI components styled in a similar way. And the most awesome thing: the themes can be changed in the runtime, with no need to reload the application.
@@ -54,6 +49,8 @@ There is a huge variety of customizable layouts, use “as is” or add new bloc
 </table>
 
 
+## License
+[MIT](LICENSE.txt) license.
 
 ## Visitors Count
 
