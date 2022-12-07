@@ -1,4 +1,4 @@
-## 0.3.6  (Aug 5, 2022)
+## 0.3.6  (Dec 7, 2022)
 
 - added configuration function to set your default config and use can use it in the main screen 
 ex: 
@@ -44,7 +44,7 @@ CommonContainer(style:containerStyle, paddingTop:0.01,);
 - Fixed Log error
 - Changed check Function if null or not using call() function from dart.
 
-## 0.3.2 [Flutter 3.0] (May 16, 2022)
+## 0.3.2 (May 16, 2022)
 
 - Added border radius attribute fro CommonDatetimePicker component.
 - Added flutter_lints to package and example 
@@ -154,6 +154,7 @@ CommonContainer(style:containerStyle, paddingTop:0.01,);
 ## 0.0.7 (Jul 30, 2021)
 
 - Updated documentation and added more examples.
+
 
 ## 0.04 => 0.0.6 (Jul 29, 2021)
 
