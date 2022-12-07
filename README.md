@@ -6,7 +6,7 @@
  [![pub package](https://img.shields.io/pub/v/common_ui_toolkit.svg)](https://pub.dev/packages/common_ui_toolkit) [![pub points](https://badges.bar/common_ui_toolkit/pub%20points)](https://pub.dev/packages/common_ui_toolkit/score) [![popularity](https://badges.bar/common_ui_toolkit/popularity)](https://pub.dev/packages/common_ui_toolkit/score) [![likes](https://badges.bar/common_ui_toolkit/likes)](https://pub.dev/packages/common_ui_toolkit/score) 
 
 
-[Documentation Web Site Coming Soon... ](https://common-ui-toolkit.netlify.app/#/)
+[Documentation Web Site](https://common-ui-toolkit.netlify.app/docs/)
 
 
 ## Contributors
@@ -51,7 +51,7 @@ There is a huge variety of customizable layouts, use “as is” or add new bloc
 - Star our GitHub repo :star:
 - Join us in the `Common UI toolkit` channel in [Discourd](https://discord.gg/SZXWPjdufA)
 
-## Migration guides
+<!-- ## Migration guides -->
 
 
 
