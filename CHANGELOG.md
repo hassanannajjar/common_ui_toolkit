@@ -1,4 +1,4 @@
-## 0.3.6  (Dec 7, 2022)
+## 0.3.6 => 0.3.7  (Dec 7, 2022)
 
 - added configuration function to set your default config and use can use it in the main screen 
 ex: 
