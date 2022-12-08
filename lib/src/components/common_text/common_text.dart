@@ -320,7 +320,8 @@ class CommonText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final CommonTextModel currentTextStyle = style ?? const CommonTextModel();
-    final CommonTextModel configModel = GLOBAL_CONFIG.textModel!;
+    final CommonTextModel configModel =
+        GLOBAL_CONFIG.textModel ?? const CommonTextModel();
     final CommonContainerModel currentContainerStyle =
         containerStyle ?? const CommonContainerModel();
 
