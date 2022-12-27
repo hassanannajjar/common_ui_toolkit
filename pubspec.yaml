@@ -1,7 +1,7 @@
 name: common_ui_toolkit
 description: common UI toolkit to clean your code and use it easily and reusable code.
 version: 0.3.8
-homepage: https://github.com/HROKA/common_ui_toolkit
+homepage: https://github.com/hassanannajjar/common_ui_toolkit
 
 environment:
   sdk: ">=2.17.0 <3.0.0"

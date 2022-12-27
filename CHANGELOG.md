@@ -1,7 +1,8 @@
 ## 0.3.7 => 0.3.8 (Dec 27, 2022)
+
 - added `topLabel`, `topLabelText`, `topLabelText`, `topLabelStyle` and `topLabelContainerStyle` ot the `CommonInput()`.
 - added `disableFontColor` to the `CommonButton()`.
-- updated models copyWith classes.  
+- updated models copyWith classes.
 
 ## 0.3.6 (Dec 7, 2022)
 
