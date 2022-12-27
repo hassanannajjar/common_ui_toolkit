@@ -60,8 +60,10 @@ class CommonButton extends StatelessWidget {
     this.fontSize,
     this.fontFamily,
     this.fontColor,
+    this.disableFontColor,
     this.fontWeight,
     this.fontStyle,
+    this.disableFontStyle,
     Key? key,
   }) : super(key: key);
 
@@ -248,8 +250,10 @@ class CommonButton extends StatelessWidget {
   final double? fontSize;
   final String? fontFamily;
   final dynamic fontColor;
+  final dynamic disableFontColor;
   final FontWeight? fontWeight;
   final FontStyle? fontStyle;
+  final FontStyle? disableFontStyle;
 
   ///
   /// get responsive border radius.
@@ -393,12 +397,20 @@ class CommonButton extends StatelessWidget {
         fontSize ?? currentStyle.fontSize ?? configModel.fontSize;
     final String? currentFontFamily =
         fontFamily ?? currentStyle.fontFamily ?? configModel.fontFamily;
-    final dynamic currentFontColor =
-        fontColor ?? currentStyle.fontColor ?? configModel.fontColor;
+    final dynamic currentDisableFontColor = disableFontColor ??
+        currentStyle.disableFontColor ??
+        configModel.disableFontColor;
+    final dynamic currentFontColor = enabled
+        ? (fontColor ?? currentStyle.fontColor ?? configModel.fontColor)
+        : currentDisableFontColor;
     final FontWeight? currentFontWeight =
         fontWeight ?? currentStyle.fontWeight ?? configModel.fontWeight;
-    final FontStyle? currentFontStyle =
-        fontStyle ?? currentStyle.fontStyle ?? configModel.fontStyle;
+    final FontStyle? currentDisableFontStyle = disableFontStyle ??
+        currentStyle.disableFontStyle ??
+        configModel.disableFontStyle;
+    final FontStyle? currentFontStyle = enabled
+        ? (fontStyle ?? currentStyle.fontStyle ?? configModel.fontStyle)
+        : currentDisableFontStyle;
 
     ///
     /// get border Radius.

@@ -81,6 +81,14 @@ class _TextInputsState extends State<TextInputs> {
                 marginTop: 0.05,
               ),
 
+              CommonButton(
+                text: 'test',
+                onPress: () {},
+                disabledColor: Colors.green,
+                disableFontColor: Colors.white,
+                enabled: false,
+              ),
+
               CommonInput(
                 onChanged: (String value) {
                   consoleLog(value);

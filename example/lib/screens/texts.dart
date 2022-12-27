@@ -137,12 +137,7 @@ class Texts extends StatelessWidget {
                 CommonText(
                   'Common text with',
                   fontSize: COMMON_H4_FONT,
-                  style: const CommonTextModel(
-                    prefixIcon: CommonIcon(
-                      path: 'assets/icons/account_icon.svg',
-                      color: COMMON_RED_COLOR,
-                    ),
-                  ),
+                  style: const CommonTextModel(),
                   inlineSpans: const <InlineSpan>[
                     TextSpan(
                       text: ' RED ',

@@ -56,7 +56,6 @@ class CommonText extends StatelessWidget {
     this.decorationStyle,
     this.debugLabel,
     this.fontFamilyFallback,
-    this.prefixIcon,
     this.inherit,
     this.package,
     this.semanticsLabel,
@@ -277,9 +276,6 @@ class CommonText extends StatelessWidget {
   /// debug label
   ///
   final String? debugLabel;
-
-  /// prefix icon
-  final CommonIcon? prefixIcon;
 
   ///
   /// margin for all container
@@ -599,8 +595,6 @@ class CommonText extends StatelessWidget {
       crossAxisAlignment: currentRowCrossAxisAlignment,
       mainAxisAlignment: currentRowMainAxisAlignment,
       children: <Widget>[
-        if ((prefixIcon ?? currentTextStyle.prefixIcon) != null)
-          getIcon(prefixIcon ?? currentTextStyle.prefixIcon!),
         if (leftChild != null) leftChild!,
         currentTextType,
         if (rightChild != null) rightChild!,
