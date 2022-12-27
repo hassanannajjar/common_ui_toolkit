@@ -13,7 +13,6 @@ class TextInputs extends StatefulWidget {
 
 class _TextInputsState extends State<TextInputs> {
   double value = 1.0;
-  final TextEditingController _textEditingController = TextEditingController();
 
   void grow() {
     setState(() {
@@ -45,6 +44,53 @@ class _TextInputsState extends State<TextInputs> {
                 marginTop: 0.02,
                 marginHorizontal: 0.2,
                 // controller: _textEditingController,
+              ),
+              const TextField(
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.search, color: Colors.red),
+                  hintText: 'Search...',
+                  suffixText: 'test',
+                ),
+                autofocus: true,
+                style: TextStyle(color: Colors.white),
+              ),
+              const CommonInput(
+                hint: '000 000 000',
+                suffix: Icon(Icons.search),
+                // prefixIcon: CommonText(
+                //   '05',
+                //   textAlign: TextAlign.center,
+                //   containerStyle: CommonContainerModel(
+                //     width: 0.01,
+                //     height: 0.01,
+                //     alignment: AlignmentDirectional.center,
+                //     // backgroundColor: Colors.red,
+                //   ),
+                // ),
+                // prefixTextOnFocus: 'Text  ',
+                prefix: CommonContainer(
+                  child: CommonText(
+                    'text',
+                    containerStyle: CommonContainerModel(
+                      width: 0.02,
+                    ),
+                  ),
+                ),
+                topLabelText: 'test',
+                // prefixIcon: CommonText('05'),
+                marginTop: 0.05,
+                topLabelContainerStyle: CommonContainerModel(
+                  marginBottom: 0.01,
+                  backgroundColor: Colors.black,
+                ),
+              ),
+
+              CommonButton(
+                text: 'test',
+                onPress: () {},
+                disabledColor: Colors.green,
+                disableFontColor: Colors.white,
+                enabled: false,
               ),
 
               CommonInput(

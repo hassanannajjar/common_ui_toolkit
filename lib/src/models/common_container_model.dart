@@ -783,13 +783,6 @@ class CommonContainerModel {
     double? shadowBlurRadius,
     double? shadowOffsetDX,
     double? shadowOffsetDY,
-
-    /// To use shadow opacity the color must be Color type not Material Color type
-    /// Color Type
-    /// (e.g. Color(0xFF000000))
-    /// Material Color Type
-    /// in material color type you can add your opacity with the color name like this
-    /// (e.g. Colors.black87)
     double? shadowOpacity,
     double? foregroundShadowSpreadRadius,
     double? foregroundShadowBlurRadius,
@@ -833,7 +826,7 @@ class CommonContainerModel {
     dynamic foregroundBorderRightColor,
     dynamic foregroundBorderLeftColor,
     AlignmentGeometry? alignment,
-    Alignment? transformAlignment,
+    AlignmentGeometry? transformAlignment,
     Clip? clipBehavior,
     Matrix4? transform,
     BorderStyle? borderStyle,
@@ -858,8 +851,6 @@ class CommonContainerModel {
     DecorationImage? backgroundImageDecoration,
     String? backgroundImage,
     DecorationImage? foregroundImage,
-    @Deprecated('We Used this just to use same width and height after version (0.3.5) you can use size property instead of width and height to use same with and height for')
-        bool? isResponsive,
   }) {
     return CommonContainerModel(
       width: width ?? this.width,
@@ -981,7 +972,7 @@ class CommonContainerModel {
           foregroundBoxGradient ?? this.foregroundBoxGradient,
       backgroundImageDecoration:
           backgroundImageDecoration ?? this.backgroundImageDecoration,
-      backgroundImage: backgroundImage ?? backgroundImage,
+      backgroundImage: backgroundImage ?? this.backgroundImage,
       foregroundImage: foregroundImage ?? this.foregroundImage,
     );
   }

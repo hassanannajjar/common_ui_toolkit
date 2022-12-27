@@ -2,8 +2,6 @@ import 'package:flutter/services.dart';
 
 import '../../../common_ui_toolkit.dart';
 
-const CommonInputModel _defaultInputModel = CommonInputModel();
-
 class CommonInput extends StatelessWidget {
   const CommonInput({
     this.style,
@@ -39,8 +37,18 @@ class CommonInput extends StatelessWidget {
     this.minLines,
     this.counterText,
     this.semanticCounterText,
+    this.prefixOnFocus,
+    this.suffixOnFocus,
     this.prefix,
     this.suffix,
+    this.prefixIconColor,
+    this.prefixConstraints,
+    this.prefixStyle,
+    this.prefixTextOnFocus,
+    this.suffixColor,
+    this.suffixConstraints,
+    this.suffixStyle,
+    this.suffixTextOnFocus,
     this.cursorRadius,
     this.cursorHeight,
     this.cursorWidth,
@@ -120,6 +128,14 @@ class CommonInput extends StatelessWidget {
     this.helperMaxLines,
     this.borderType,
     this.borderColor,
+    this.constraints,
+    this.focusColor,
+    this.hoverColor,
+    this.iconColor,
+    this.topLabelText,
+    this.topLabelStyle,
+    this.topLabel,
+    this.topLabelContainerStyle,
     Key? key,
   }) : super(
           key: key,
@@ -191,9 +207,27 @@ class CommonInput extends StatelessWidget {
   final int? maxLines;
 
   /// Widgets
+  /// this prefix just when focus the input
+  final Widget? prefixOnFocus;
+
+  /// this suffix just when focus the input
+  final Widget? suffixOnFocus;
+
   final Widget? prefix;
   final Widget? suffix;
   final Widget? counterWidget;
+
+  final Color? prefixIconColor;
+  final BoxConstraints? prefixConstraints;
+  final TextStyle? prefixStyle;
+  final String? prefixTextOnFocus;
+
+  final Color? suffixColor;
+  final BoxConstraints? suffixConstraints;
+  final TextStyle? suffixStyle;
+  final String? suffixTextOnFocus;
+
+  final BoxConstraints? constraints;
 
   ///
   /// focus node
@@ -512,9 +546,18 @@ class CommonInput extends StatelessWidget {
 
   final double? width;
 
+  final Color? focusColor;
+  final Color? hoverColor;
+  final Color? iconColor;
+
+  final String? topLabelText;
+  final CommonTextModel? topLabelStyle;
+  final CommonContainerModel? topLabelContainerStyle;
+  final Widget? topLabel;
+
   @override
   Widget build(BuildContext context) {
-    final CommonInputModel currentStyle = style ?? _defaultInputModel;
+    final CommonInputModel currentStyle = style ?? const CommonInputModel();
     final CommonInputModel configModel =
         GLOBAL_CONFIG.inputModel ?? const CommonInputModel();
     final TextEditingController currentController =
@@ -801,6 +844,15 @@ class CommonInput extends StatelessWidget {
         currentStyle.errorMaxLines ??
         configModel.errorMaxLines;
 
+    final CommonTextModel? currentTopLabelStyle = topLabelStyle ??
+        currentStyle.topLabelStyle ??
+        configModel.topLabelStyle;
+
+    final CommonContainerModel? currentTopLabelContainerStyle =
+        topLabelContainerStyle ??
+            currentStyle.topLabelContainerStyle ??
+            configModel.topLabelContainerStyle;
+
     InputBorder getOutlineInputBorder({
       dynamic color,
     }) {
@@ -954,8 +1006,22 @@ class CommonInput extends StatelessWidget {
             helperText: currentHelperText,
             helperMaxLines: currentHelperMaxLines,
             helperStyle: currentHelperStyle,
-            prefix: prefix,
-            suffix: suffix,
+            prefix: prefixOnFocus,
+            prefixIcon: prefix,
+            prefixIconColor: prefixIconColor,
+            prefixIconConstraints: prefixConstraints,
+            prefixStyle: prefixStyle,
+            prefixText: prefixTextOnFocus,
+            suffix: suffixOnFocus,
+            suffixIconColor: suffixColor,
+            suffixIcon: suffix,
+            suffixIconConstraints: suffixConstraints,
+            suffixStyle: suffixStyle,
+            suffixText: suffixTextOnFocus,
+            constraints: constraints,
+            focusColor: focusColor,
+            hoverColor: hoverColor,
+            iconColor: iconColor,
           ),
     );
 
@@ -977,6 +1043,21 @@ class CommonInput extends StatelessWidget {
           )
         : textFormField;
 
+    final dynamic inputWithTopLabel = topLabelText == null && topLabel == null
+        ? simpleInput
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              topLabel ??
+                  CommonText(
+                    topLabelText,
+                    style: currentTopLabelStyle,
+                    containerStyle: topLabelContainerStyle,
+                  ),
+              simpleInput,
+            ],
+          );
+
     final dynamic marginInput = withMargin
         ? Padding(
             padding: getMarginEdgeInsets(
@@ -990,9 +1071,9 @@ class CommonInput extends StatelessWidget {
                 margin: currentMargin ?? 0.0,
               ),
             ),
-            child: simpleInput,
+            child: inputWithTopLabel,
           )
-        : simpleInput;
+        : inputWithTopLabel;
 
     return (currentWidth != null || currentHeight != null)
         ? SizedBox(

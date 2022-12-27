@@ -1,4 +1,10 @@
-## 0.3.6  (Dec 7, 2022)
+## 0.3.7 => 0.3.8 (Dec 27, 2022)
+
+- added `topLabel`, `topLabelText`, `topLabelText`, `topLabelStyle` and `topLabelContainerStyle` ot the `CommonInput()`.
+- added `disableFontColor` to the `CommonButton()`.
+- updated models copyWith classes.
+
+## 0.3.6 (Dec 7, 2022)
 
 - added configuration function to set your default config and use can use it in the main screen 
 ex: 
@@ -39,7 +45,7 @@ CommonContainer(style:containerStyle, paddingTop:0.01,);
 
 ```
 
-## 0.3.3 => 0.3.5  (May 17, 2022)
+## 0.3.3 => 0.3.5 (May 17, 2022)
 
 - Fixed Log error
 - Changed check Function if null or not using call() function from dart.

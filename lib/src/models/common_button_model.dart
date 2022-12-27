@@ -56,8 +56,10 @@ class CommonButtonModel {
     this.fontSize,
     this.fontFamily,
     this.fontColor,
+    this.disableFontColor,
     this.fontWeight,
     this.fontStyle,
+    this.disableFontStyle,
   });
 
   final double? width;
@@ -232,8 +234,10 @@ class CommonButtonModel {
   final double? fontSize;
   final String? fontFamily;
   final dynamic fontColor;
+  final dynamic disableFontColor;
   final FontWeight? fontWeight;
   final FontStyle? fontStyle;
+  final FontStyle? disableFontStyle;
 
   ///
   /// get border Radius.
@@ -259,6 +263,10 @@ class CommonButtonModel {
     dynamic backgroundColor,
     dynamic disabledColor,
     dynamic overlayColor,
+    double? borderWidth,
+    dynamic borderColor,
+    StrokeAlign? borderStrokeAlign,
+    BorderStyle? borderStyle,
     MaterialStateProperty<OutlinedBorder?>? shape,
     double? bottomLeftRadius,
     double? bottomRightRadius,
@@ -290,11 +298,6 @@ class CommonButtonModel {
     CommonTextModel? textStyle,
     VisualDensity? visualDensity,
     Clip? clipBehavior,
-    FocusNode? focusNode,
-    double? borderWidth,
-    dynamic borderColor,
-    StrokeAlign? borderStrokeAlign,
-    BorderStyle? borderStyle,
     double? margin,
     double? marginTop,
     double? marginBottom,
@@ -302,7 +305,13 @@ class CommonButtonModel {
     double? marginLeft,
     double? marginVertical,
     double? marginHorizontal,
-    Key? key,
+    double? fontSize,
+    String? fontFamily,
+    dynamic fontColor,
+    dynamic disableFontColor,
+    FontWeight? fontWeight,
+    FontStyle? fontStyle,
+    FontStyle? disableFontStyle,
   }) {
     return CommonButtonModel(
       width: width ?? this.width,
@@ -310,6 +319,10 @@ class CommonButtonModel {
       backgroundColor: backgroundColor ?? this.backgroundColor,
       disabledColor: disabledColor ?? this.disabledColor,
       overlayColor: overlayColor ?? this.overlayColor,
+      borderWidth: borderWidth ?? this.borderWidth,
+      borderColor: borderColor ?? this.borderColor,
+      borderStrokeAlign: borderStrokeAlign ?? this.borderStrokeAlign,
+      borderStyle: borderStyle ?? this.borderStyle,
       shape: shape ?? this.shape,
       bottomLeftRadius: bottomLeftRadius ?? this.bottomLeftRadius,
       bottomRightRadius: bottomRightRadius ?? this.bottomRightRadius,
@@ -341,10 +354,6 @@ class CommonButtonModel {
       textStyle: textStyle ?? this.textStyle,
       visualDensity: visualDensity ?? this.visualDensity,
       clipBehavior: clipBehavior ?? this.clipBehavior,
-      borderWidth: borderWidth ?? this.borderWidth,
-      borderColor: borderColor ?? this.borderColor,
-      borderStrokeAlign: borderStrokeAlign ?? this.borderStrokeAlign,
-      borderStyle: borderStyle ?? this.borderStyle,
       margin: margin ?? this.margin,
       marginTop: marginTop ?? this.marginTop,
       marginBottom: marginBottom ?? this.marginBottom,
@@ -352,6 +361,13 @@ class CommonButtonModel {
       marginLeft: marginLeft ?? this.marginLeft,
       marginVertical: marginVertical ?? this.marginVertical,
       marginHorizontal: marginHorizontal ?? this.marginHorizontal,
+      fontSize: fontSize ?? this.fontSize,
+      fontFamily: fontFamily ?? this.fontFamily,
+      fontColor: fontColor ?? this.fontColor,
+      disableFontColor: disableFontColor ?? this.disableFontColor,
+      fontWeight: fontWeight ?? this.fontWeight,
+      fontStyle: fontStyle ?? this.fontStyle,
+      disableFontStyle: disableFontStyle ?? this.disableFontStyle,
     );
   }
 }

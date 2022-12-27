@@ -46,7 +46,6 @@ class CommonTextModel {
     this.decorationStyle,
     this.debugLabel,
     this.fontFamilyFallback,
-    this.prefixIcon,
     this.inherit = true,
     this.package,
     this.semanticsLabel,
@@ -222,9 +221,6 @@ class CommonTextModel {
   ///
   final String? package;
 
-  /// prefix icon
-  final CommonIcon? prefixIcon;
-
   ///
   /// semantics label
   ///
@@ -304,7 +300,6 @@ class CommonTextModel {
     List<String>? fontFamilyFallback,
     String? fontFamily,
     String? debugLabel,
-    CommonIcon? prefixIcon,
     bool? inherit,
     String? package,
     String? semanticsLabel,
@@ -357,7 +352,6 @@ class CommonTextModel {
       fontFamilyFallback: fontFamilyFallback ?? this.fontFamilyFallback,
       fontFamily: fontFamily ?? this.fontFamily,
       debugLabel: debugLabel ?? this.debugLabel,
-      prefixIcon: prefixIcon ?? this.prefixIcon,
       inherit: inherit ?? this.inherit,
       package: package ?? this.package,
       semanticsLabel: semanticsLabel ?? this.semanticsLabel,

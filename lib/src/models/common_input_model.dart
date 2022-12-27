@@ -101,6 +101,8 @@ class CommonInputModel {
     this.borderType,
     this.hintMaxLines,
     this.hintTextDirection,
+    this.topLabelStyle,
+    this.topLabelContainerStyle,
   });
 
   ///
@@ -421,6 +423,9 @@ class CommonInputModel {
 
   final double? width;
 
+  final CommonTextModel? topLabelStyle;
+  final CommonContainerModel? topLabelContainerStyle;
+
   CommonInputModel copyWith({
     double? borderWidth,
     double? fontSize,
@@ -519,20 +524,13 @@ class CommonInputModel {
     double? marginHorizontal,
     double? height,
     double? width,
+    CommonTextModel? topLabelStyle,
+    CommonContainerModel? topLabelContainerStyle,
   }) {
     return CommonInputModel(
       borderWidth: borderWidth ?? this.borderWidth,
       fontSize: fontSize ?? this.fontSize,
       borderRadius: borderRadius ?? this.borderRadius,
-      margin: margin ?? this.margin,
-      marginTop: marginTop ?? this.marginTop,
-      marginBottom: marginBottom ?? this.marginBottom,
-      marginRight: marginRight ?? this.marginRight,
-      marginLeft: marginLeft ?? this.marginLeft,
-      marginVertical: marginVertical ?? this.marginVertical,
-      marginHorizontal: marginHorizontal ?? this.marginHorizontal,
-      height: height ?? this.height,
-      width: width ?? this.width,
       contentPadding: contentPadding ?? this.contentPadding,
       contentPaddingTop: contentPaddingTop ?? this.contentPaddingTop,
       contentPaddingBottom: contentPaddingBottom ?? this.contentPaddingBottom,
@@ -623,6 +621,18 @@ class CommonInputModel {
       hintMaxLines: hintMaxLines ?? this.hintMaxLines,
       hintTextDirection: hintTextDirection ?? this.hintTextDirection,
       borderColor: borderColor ?? this.borderColor,
+      margin: margin ?? this.margin,
+      marginTop: marginTop ?? this.marginTop,
+      marginBottom: marginBottom ?? this.marginBottom,
+      marginRight: marginRight ?? this.marginRight,
+      marginLeft: marginLeft ?? this.marginLeft,
+      marginVertical: marginVertical ?? this.marginVertical,
+      marginHorizontal: marginHorizontal ?? this.marginHorizontal,
+      height: height ?? this.height,
+      width: width ?? this.width,
+      topLabelStyle: topLabelStyle ?? this.topLabelStyle,
+      topLabelContainerStyle:
+          topLabelContainerStyle ?? this.topLabelContainerStyle,
     );
   }
 }
