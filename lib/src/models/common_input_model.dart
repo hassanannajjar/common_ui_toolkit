@@ -103,6 +103,10 @@ class CommonInputModel {
     this.hintTextDirection,
     this.topLabelStyle,
     this.topLabelContainerStyle,
+    this.suffixWidth,
+    this.suffixHeight,
+    this.prefixWidth,
+    this.prefixHeight,
   });
 
   ///
@@ -423,6 +427,11 @@ class CommonInputModel {
 
   final double? width;
 
+  final double? prefixWidth;
+  final double? prefixHeight;
+  final double? suffixWidth;
+  final double? suffixHeight;
+
   final CommonTextModel? topLabelStyle;
   final CommonContainerModel? topLabelContainerStyle;
 
@@ -524,6 +533,10 @@ class CommonInputModel {
     double? marginHorizontal,
     double? height,
     double? width,
+    double? prefixWidth,
+    double? prefixHeight,
+    double? suffixWidth,
+    double? suffixHeight,
     CommonTextModel? topLabelStyle,
     CommonContainerModel? topLabelContainerStyle,
   }) {
@@ -630,6 +643,10 @@ class CommonInputModel {
       marginHorizontal: marginHorizontal ?? this.marginHorizontal,
       height: height ?? this.height,
       width: width ?? this.width,
+      prefixWidth: prefixWidth ?? this.prefixWidth,
+      prefixHeight: prefixHeight ?? this.prefixHeight,
+      suffixWidth: suffixWidth ?? this.suffixWidth,
+      suffixHeight: suffixHeight ?? this.suffixHeight,
       topLabelStyle: topLabelStyle ?? this.topLabelStyle,
       topLabelContainerStyle:
           topLabelContainerStyle ?? this.topLabelContainerStyle,

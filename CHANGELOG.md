@@ -1,6 +1,7 @@
-## 0.3.7 => 0.3.8 (Dec 27, 2022)
+## 0.3.7 => 0.3.9 (Dec 27, 2022)
 
 - added `topLabel`, `topLabelText`, `topLabelText`, `topLabelStyle` and `topLabelContainerStyle` ot the `CommonInput()`.
+- added `suffixWidth`, `prefixWidth`, `suffixHeight` and `prefixHeight` in `CommonInput()`.
 - added `disableFontColor` to the `CommonButton()`.
 - updated models copyWith classes.
 
