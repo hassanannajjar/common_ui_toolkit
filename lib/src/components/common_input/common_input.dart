@@ -135,6 +135,7 @@ class CommonInput extends StatelessWidget {
     this.topLabelText,
     this.topLabelStyle,
     this.topLabel,
+    this.topLabelContainerStyle,
     Key? key,
   }) : super(
           key: key,
@@ -551,6 +552,7 @@ class CommonInput extends StatelessWidget {
 
   final String? topLabelText;
   final CommonTextModel? topLabelStyle;
+  final CommonContainerModel? topLabelContainerStyle;
   final Widget? topLabel;
 
   @override
@@ -846,8 +848,10 @@ class CommonInput extends StatelessWidget {
         currentStyle.topLabelStyle ??
         configModel.topLabelStyle;
 
-    final Widget? currentTopLabel =
-        topLabel ?? currentStyle.topLabel ?? configModel.topLabel;
+    final CommonContainerModel? currentTopLabelContainerStyle =
+        topLabelContainerStyle ??
+            currentStyle.topLabelContainerStyle ??
+            configModel.topLabelContainerStyle;
 
     InputBorder getOutlineInputBorder({
       dynamic color,
@@ -1039,22 +1043,20 @@ class CommonInput extends StatelessWidget {
           )
         : textFormField;
 
-    final dynamic inputWithTopLabel =
-        topLabelText == null && currentTopLabel == null
-            ? simpleInput
-            : Column(
-                children: <Widget>[
-                  currentTopLabel ??
-                      Align(
-                        alignment: AlignmentDirectional.centerStart,
-                        child: CommonText(
-                          topLabelText,
-                          style: currentTopLabelStyle,
-                        ),
-                      ),
-                  simpleInput,
-                ],
-              );
+    final dynamic inputWithTopLabel = topLabelText == null && topLabel == null
+        ? simpleInput
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              topLabel ??
+                  CommonText(
+                    topLabelText,
+                    style: currentTopLabelStyle,
+                    containerStyle: topLabelContainerStyle,
+                  ),
+              simpleInput,
+            ],
+          );
 
     final dynamic marginInput = withMargin
         ? Padding(

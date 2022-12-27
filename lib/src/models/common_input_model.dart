@@ -102,7 +102,7 @@ class CommonInputModel {
     this.hintMaxLines,
     this.hintTextDirection,
     this.topLabelStyle,
-    this.topLabel,
+    this.topLabelContainerStyle,
   });
 
   ///
@@ -424,7 +424,7 @@ class CommonInputModel {
   final double? width;
 
   final CommonTextModel? topLabelStyle;
-  final Widget? topLabel;
+  final CommonContainerModel? topLabelContainerStyle;
 
   CommonInputModel copyWith({
     double? borderWidth,
@@ -525,7 +525,7 @@ class CommonInputModel {
     double? height,
     double? width,
     CommonTextModel? topLabelStyle,
-    Widget? topLabel,
+    CommonContainerModel? topLabelContainerStyle,
   }) {
     return CommonInputModel(
       borderWidth: borderWidth ?? this.borderWidth,
@@ -631,7 +631,8 @@ class CommonInputModel {
       height: height ?? this.height,
       width: width ?? this.width,
       topLabelStyle: topLabelStyle ?? this.topLabelStyle,
-      topLabel: topLabel ?? this.topLabel,
+      topLabelContainerStyle:
+          topLabelContainerStyle ?? this.topLabelContainerStyle,
     );
   }
 }

@@ -79,6 +79,10 @@ class _TextInputsState extends State<TextInputs> {
                 topLabelText: 'test',
                 // prefixIcon: CommonText('05'),
                 marginTop: 0.05,
+                topLabelContainerStyle: CommonContainerModel(
+                  marginBottom: 0.01,
+                  backgroundColor: Colors.black,
+                ),
               ),
 
               CommonButton(
