@@ -2,8 +2,6 @@ import 'package:flutter/services.dart';
 
 import '../../../common_ui_toolkit.dart';
 
-const CommonInputModel _defaultInputModel = CommonInputModel();
-
 class CommonInput extends StatelessWidget {
   const CommonInput({
     this.style,
@@ -134,6 +132,9 @@ class CommonInput extends StatelessWidget {
     this.focusColor,
     this.hoverColor,
     this.iconColor,
+    this.topLabelText,
+    this.topLabelStyle,
+    this.topLabel,
     Key? key,
   }) : super(
           key: key,
@@ -548,9 +549,13 @@ class CommonInput extends StatelessWidget {
   final Color? hoverColor;
   final Color? iconColor;
 
+  final String? topLabelText;
+  final CommonTextModel? topLabelStyle;
+  final Widget? topLabel;
+
   @override
   Widget build(BuildContext context) {
-    final CommonInputModel currentStyle = style ?? _defaultInputModel;
+    final CommonInputModel currentStyle = style ?? const CommonInputModel();
     final CommonInputModel configModel =
         GLOBAL_CONFIG.inputModel ?? const CommonInputModel();
     final TextEditingController currentController =
@@ -837,6 +842,13 @@ class CommonInput extends StatelessWidget {
         currentStyle.errorMaxLines ??
         configModel.errorMaxLines;
 
+    final CommonTextModel? currentTopLabelStyle = topLabelStyle ??
+        currentStyle.topLabelStyle ??
+        configModel.topLabelStyle;
+
+    final Widget? currentTopLabel =
+        topLabel ?? currentStyle.topLabel ?? configModel.topLabel;
+
     InputBorder getOutlineInputBorder({
       dynamic color,
     }) {
@@ -1027,6 +1039,23 @@ class CommonInput extends StatelessWidget {
           )
         : textFormField;
 
+    final dynamic inputWithTopLabel =
+        topLabelText == null && currentTopLabel == null
+            ? simpleInput
+            : Column(
+                children: <Widget>[
+                  currentTopLabel ??
+                      Align(
+                        alignment: AlignmentDirectional.centerStart,
+                        child: CommonText(
+                          topLabelText,
+                          style: currentTopLabelStyle,
+                        ),
+                      ),
+                  simpleInput,
+                ],
+              );
+
     final dynamic marginInput = withMargin
         ? Padding(
             padding: getMarginEdgeInsets(
@@ -1040,9 +1069,9 @@ class CommonInput extends StatelessWidget {
                 margin: currentMargin ?? 0.0,
               ),
             ),
-            child: simpleInput,
+            child: inputWithTopLabel,
           )
-        : simpleInput;
+        : inputWithTopLabel;
 
     return (currentWidth != null || currentHeight != null)
         ? SizedBox(

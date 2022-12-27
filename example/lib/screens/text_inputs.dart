@@ -76,6 +76,7 @@ class _TextInputsState extends State<TextInputs> {
                     ),
                   ),
                 ),
+                topLabelText: 'test',
                 // prefixIcon: CommonText('05'),
                 marginTop: 0.05,
               ),
