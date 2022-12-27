@@ -68,14 +68,11 @@ class _TextInputsState extends State<TextInputs> {
                 //   ),
                 // ),
                 // prefixTextOnFocus: 'Text  ',
-                prefix: CommonContainer(
-                  child: CommonText(
-                    'text',
-                    containerStyle: CommonContainerModel(
-                      width: 0.02,
-                    ),
-                  ),
+                prefix: CommonText(
+                  'text',
+                  textAlign: TextAlign.center,
                 ),
+                prefixWidth: 0.15,
                 topLabelText: 'test',
                 // prefixIcon: CommonText('05'),
                 marginTop: 0.05,

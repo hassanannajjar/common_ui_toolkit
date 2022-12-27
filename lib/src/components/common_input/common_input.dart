@@ -43,11 +43,11 @@ class CommonInput extends StatelessWidget {
     this.suffix,
     this.prefixIconColor,
     this.prefixConstraints,
-    this.prefixStyle,
+    this.prefixOnFocusStyle,
     this.prefixTextOnFocus,
     this.suffixColor,
     this.suffixConstraints,
-    this.suffixStyle,
+    this.suffixOnFocusStyle,
     this.suffixTextOnFocus,
     this.cursorRadius,
     this.cursorHeight,
@@ -136,6 +136,10 @@ class CommonInput extends StatelessWidget {
     this.topLabelStyle,
     this.topLabel,
     this.topLabelContainerStyle,
+    this.suffixWidth,
+    this.suffixHeight,
+    this.prefixWidth,
+    this.prefixHeight,
     Key? key,
   }) : super(
           key: key,
@@ -219,13 +223,17 @@ class CommonInput extends StatelessWidget {
 
   final Color? prefixIconColor;
   final BoxConstraints? prefixConstraints;
-  final TextStyle? prefixStyle;
+  final TextStyle? prefixOnFocusStyle;
   final String? prefixTextOnFocus;
+  final double? prefixWidth;
+  final double? prefixHeight;
 
   final Color? suffixColor;
   final BoxConstraints? suffixConstraints;
-  final TextStyle? suffixStyle;
+  final TextStyle? suffixOnFocusStyle;
   final String? suffixTextOnFocus;
+  final double? suffixWidth;
+  final double? suffixHeight;
 
   final BoxConstraints? constraints;
 
@@ -1009,14 +1017,22 @@ class CommonInput extends StatelessWidget {
             prefix: prefixOnFocus,
             prefixIcon: prefix,
             prefixIconColor: prefixIconColor,
-            prefixIconConstraints: prefixConstraints,
-            prefixStyle: prefixStyle,
+            prefixIconConstraints: prefixConstraints ??
+                BoxConstraints(
+                  minHeight: DEVICE_HEIGHT * (prefixHeight ?? 0.02),
+                  minWidth: DEVICE_WIDTH * (prefixWidth ?? 0.1),
+                ),
+            prefixStyle: prefixOnFocusStyle,
             prefixText: prefixTextOnFocus,
             suffix: suffixOnFocus,
             suffixIconColor: suffixColor,
             suffixIcon: suffix,
-            suffixIconConstraints: suffixConstraints,
-            suffixStyle: suffixStyle,
+            suffixIconConstraints: suffixConstraints ??
+                BoxConstraints(
+                  minHeight: DEVICE_HEIGHT * (suffixHeight ?? 0.02),
+                  minWidth: DEVICE_WIDTH * (suffixWidth ?? 0.1),
+                ),
+            suffixStyle: suffixOnFocusStyle,
             suffixText: suffixTextOnFocus,
             constraints: constraints,
             focusColor: focusColor,
@@ -1052,7 +1068,7 @@ class CommonInput extends StatelessWidget {
                   CommonText(
                     topLabelText,
                     style: currentTopLabelStyle,
-                    containerStyle: topLabelContainerStyle,
+                    containerStyle: currentTopLabelContainerStyle,
                   ),
               simpleInput,
             ],
