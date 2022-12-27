@@ -39,8 +39,18 @@ class CommonInput extends StatelessWidget {
     this.minLines,
     this.counterText,
     this.semanticCounterText,
+    this.prefixOnFocus,
+    this.suffixOnFocus,
     this.prefix,
     this.suffix,
+    this.prefixIconColor,
+    this.prefixConstraints,
+    this.prefixStyle,
+    this.prefixTextOnFocus,
+    this.suffixColor,
+    this.suffixConstraints,
+    this.suffixStyle,
+    this.suffixTextOnFocus,
     this.cursorRadius,
     this.cursorHeight,
     this.cursorWidth,
@@ -120,6 +130,10 @@ class CommonInput extends StatelessWidget {
     this.helperMaxLines,
     this.borderType,
     this.borderColor,
+    this.constraints,
+    this.focusColor,
+    this.hoverColor,
+    this.iconColor,
     Key? key,
   }) : super(
           key: key,
@@ -191,9 +205,27 @@ class CommonInput extends StatelessWidget {
   final int? maxLines;
 
   /// Widgets
+  /// this prefix just when focus the input
+  final Widget? prefixOnFocus;
+
+  /// this suffix just when focus the input
+  final Widget? suffixOnFocus;
+
   final Widget? prefix;
   final Widget? suffix;
   final Widget? counterWidget;
+
+  final Color? prefixIconColor;
+  final BoxConstraints? prefixConstraints;
+  final TextStyle? prefixStyle;
+  final String? prefixTextOnFocus;
+
+  final Color? suffixColor;
+  final BoxConstraints? suffixConstraints;
+  final TextStyle? suffixStyle;
+  final String? suffixTextOnFocus;
+
+  final BoxConstraints? constraints;
 
   ///
   /// focus node
@@ -511,6 +543,10 @@ class CommonInput extends StatelessWidget {
   final double? height;
 
   final double? width;
+
+  final Color? focusColor;
+  final Color? hoverColor;
+  final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {
@@ -954,8 +990,22 @@ class CommonInput extends StatelessWidget {
             helperText: currentHelperText,
             helperMaxLines: currentHelperMaxLines,
             helperStyle: currentHelperStyle,
-            prefix: prefix,
-            suffix: suffix,
+            prefix: prefixOnFocus,
+            prefixIcon: prefix,
+            prefixIconColor: prefixIconColor,
+            prefixIconConstraints: prefixConstraints,
+            prefixStyle: prefixStyle,
+            prefixText: prefixTextOnFocus,
+            suffix: suffixOnFocus,
+            suffixIconColor: suffixColor,
+            suffixIcon: suffix,
+            suffixIconConstraints: suffixConstraints,
+            suffixStyle: suffixStyle,
+            suffixText: suffixTextOnFocus,
+            constraints: constraints,
+            focusColor: focusColor,
+            hoverColor: hoverColor,
+            iconColor: iconColor,
           ),
     );
 

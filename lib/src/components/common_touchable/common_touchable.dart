@@ -6,8 +6,8 @@ import '../../../common_ui_toolkit.dart';
 
 class CommonTouchable extends StatefulWidget {
   const CommonTouchable({
-    @required this.child,
-    @required this.onTap,
+    required this.child,
+    required this.onTap,
     this.touchEffect,
     Key? key,
   }) : super(

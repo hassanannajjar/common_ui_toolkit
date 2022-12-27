@@ -1179,7 +1179,7 @@ class CommonContainer extends StatelessWidget {
                                 : NetworkImage(
                                     backgroundImage ??
                                         currentStyle.backgroundImage!,
-                                  )) as ImageProvider,
+                                  )) as ImageProvider<Object>,
                         // fit: BoxFit.fitWidth,
                       )
                     : currentStyle.backgroundImageDecoration),
