@@ -478,6 +478,7 @@ class CommonText extends StatelessWidget {
         configModel.backgroundColor ??
         COMMON_TRANSPARENT_COLOR;
 
+    // ignore: no_leading_underscores_for_local_identifiers
     double _responsiveFontSize() => DEVICE_WIDTH * (currentFontSize / 430);
 
     // simple text
