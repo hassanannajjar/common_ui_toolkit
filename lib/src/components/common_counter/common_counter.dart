@@ -21,28 +21,52 @@ class CommonCounter extends StatefulWidget {
     Key? key,
   }) : super(key: key);
 
+  /// counter will start from this value.
   final num? initialValue;
+
+  /// defines the minimum value the counter can reach.
   final num? minValue;
+
+  /// defines the maximum value the counter can reach.
   final num? maxValue;
+
+  /// defines the value added to the initialValue whenever the user press on increase button.
   final num? increaseValue;
+
+  /// defines the value Subtracted from the initialValue whenever the user press on decrease button.
   final num? decreaseValue;
 
+  /// handle the press on decrease/increase buttons.
   final Function(num value)? onChange;
 
+  /// set text style for the counter number.
   final CommonTextModel? textStyle;
 
+  /// set container style for the counter.
   final CommonContainerModel? containerStyle;
 
+  /// change decrease widget.
   final Widget? decreaseWidget;
+
+  /// change increase widget.
   final Widget? increaseWidget;
 
+  /// counter has default counter container model, with a defined width 0.2.
   final double? counterWidth;
 
+  /// initial value default color.
   final dynamic valueColor;
+
+  /// set color to the increase or decrease icons when they are disabled.
   final dynamic disableColor;
+
+  /// set color to the increase or decrease icons when they are enabled.
   final dynamic enableColor;
 
+  /// keep current increase widget but change the icon(use IconData).
   final IconData? increaseIcon;
+
+  /// keep current decrease widget but change the icon(use IconData).
   final IconData? decreaseIcon;
 
   @override
