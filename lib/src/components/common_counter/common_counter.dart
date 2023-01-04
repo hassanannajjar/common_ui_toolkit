@@ -250,34 +250,6 @@ class _CommonCounterState extends State<CommonCounter> {
         widget.paddingLeft != null ||
         widget.paddingBottom != null;
 
-    // final dynamic counterWithLabel =
-    //     widget.leftLabel != null || widget.rightLabel != null
-    //         ? Row(
-    //             mainAxisAlignment:
-    //                 widget.labelRowMainAxisAlignment ?? MainAxisAlignment.start,
-    //             crossAxisAlignment: widget.labelRowCrossAxisAlignment ??
-    //                 CrossAxisAlignment.start,
-    //             children: <Widget>[
-    //               if (widget.leftLabel != null) widget.leftLabel!,
-    //               simpleCounter,
-    //               if (widget.rightLabel != null) widget.rightLabel!,
-    //             ],
-    //           )
-    //         : Column(
-    //             crossAxisAlignment: widget.labelColumnCrossAxisAlignment ??
-    //                 CrossAxisAlignment.start,
-    //             children: <Widget>[
-    //               if (widget.topLabel != null) widget.topLabel!,
-    //               simpleCounter,
-    //               if (widget.bottomLabel != null) widget.bottomLabel!,
-    //             ],
-    //           );
-
-    // final bool withLabel = widget.leftLabel != null ||
-    //     widget.rightLabel != null ||
-    //     widget.bottomChild != null ||
-    //     widget.topChild != null;
-
     /// add padding to the counter
     final Padding counterWithPadding = Padding(
       padding: EdgeInsets.only(
