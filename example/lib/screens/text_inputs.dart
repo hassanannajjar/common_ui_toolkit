@@ -140,6 +140,7 @@ class _TextInputsState extends State<TextInputs> {
                 disabledColor: Colors.green,
                 disableFontColor: Colors.white,
                 enabled: false,
+                borderWidth: 0,
               ),
 
               CommonInput(

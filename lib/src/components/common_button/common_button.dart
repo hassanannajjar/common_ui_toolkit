@@ -207,7 +207,7 @@ class CommonButton extends StatelessWidget {
 
   final double? borderWidth;
   final dynamic borderColor;
-  final StrokeAlign? borderStrokeAlign;
+  final double? borderStrokeAlign;
   final BorderStyle? borderStyle;
 
   ///
@@ -371,10 +371,10 @@ class CommonButton extends StatelessWidget {
         currentStyle.borderStyle ??
         configModel.borderStyle ??
         BorderStyle.solid;
-    final StrokeAlign currentBorderStrokeAlign = borderStrokeAlign ??
+    final double currentBorderStrokeAlign = borderStrokeAlign ??
         currentStyle.borderStrokeAlign ??
         configModel.borderStrokeAlign ??
-        StrokeAlign.inside;
+        0.0;
     final double? currentMargin =
         margin ?? currentStyle.margin ?? configModel.margin;
     final double? currentMarginTop =

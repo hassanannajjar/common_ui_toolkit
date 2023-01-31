@@ -76,7 +76,6 @@ class CommonInputModel {
     this.textAlignVertical,
     this.textCapitalization,
     this.textDirection,
-    this.toolbarOptions,
     this.validator,
     this.scrollPhysics,
     this.labelText,
@@ -339,11 +338,6 @@ class CommonInputModel {
   final TextDirection? textDirection;
 
   ///
-  /// toolbar options
-  ///
-  final ToolbarOptions? toolbarOptions;
-
-  ///
   /// form field validator
   ///
   final FormFieldValidator<String>? validator;
@@ -497,7 +491,6 @@ class CommonInputModel {
     TextAlignVertical? textAlignVertical,
     TextCapitalization? textCapitalization,
     TextDirection? textDirection,
-    ToolbarOptions? toolbarOptions,
     FormFieldValidator<String>? validator,
     MaxLengthEnforcement? maxLengthEnforcement,
     ScrollPhysics? scrollPhysics,
@@ -605,7 +598,6 @@ class CommonInputModel {
       textAlignVertical: textAlignVertical ?? this.textAlignVertical,
       textCapitalization: textCapitalization ?? this.textCapitalization,
       textDirection: textDirection ?? this.textDirection,
-      toolbarOptions: toolbarOptions ?? this.toolbarOptions,
       validator: validator ?? this.validator,
       maxLengthEnforcement: maxLengthEnforcement ?? this.maxLengthEnforcement,
       scrollPhysics: scrollPhysics ?? this.scrollPhysics,
