@@ -49,6 +49,26 @@ class _TextInputsState extends State<TextInputs> {
               /////default counter
               const CommonCounter(),
 
+              CommonText(
+                onPress: () {
+                  CommonDatePicker.showDatePicker(
+                    context,
+                    theme: const DatePickerTheme(formateType: FormateType.ymd),
+                    minTime: DateTime(2018, 3, 5),
+                    maxTime: DateTime(2019, 6, 7),
+                    onChanged: (DateTime date) {
+                      consoleLog(
+                          'change $date in time zone ${date.timeZoneOffset.inHours}');
+                    },
+                    onConfirm: (DateTime date) {
+                      consoleLog('confirm $date');
+                    },
+                    currentTime: DateTime.now(),
+                  );
+                },
+                'show date picker(custom theme &date time range)',
+              ),
+
               ////counter with container style
               const CommonCounter(
                 minValue: 1,

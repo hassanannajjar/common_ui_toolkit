@@ -397,6 +397,9 @@ class _DatePickerState extends State<_DatePickerComponent> {
         textDirection: TextDirection.ltr,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          textDirection: theme.formateType == FormateType.dmy
+              ? TextDirection.rtl
+              : TextDirection.ltr,
           children: <Widget>[
             Container(
               child: widget.pickerModel.layoutProportions()[0] > 0

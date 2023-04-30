@@ -1,5 +1,11 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+
+import '../../../common_ui_toolkit.dart';
+
+enum FormateType {
+  dmy,
+  ymd,
+}
 
 class DatePickerTheme with DiagnosticableTreeMixin {
   const DatePickerTheme({
@@ -12,6 +18,7 @@ class DatePickerTheme with DiagnosticableTreeMixin {
     this.titleHeight = 44.0,
     this.itemHeight = 36.0,
     this.borderRadius = 16.0,
+    this.formateType = FormateType.dmy,
   });
 
   final TextStyle cancelStyle;
@@ -24,4 +31,5 @@ class DatePickerTheme with DiagnosticableTreeMixin {
   final double containerHeight;
   final double titleHeight;
   final double itemHeight;
+  final FormateType formateType;
 }
