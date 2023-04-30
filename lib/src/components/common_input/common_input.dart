@@ -96,7 +96,6 @@ class CommonInput extends StatelessWidget {
     this.textAlignVertical,
     this.textCapitalization,
     this.textDirection,
-    this.toolbarOptions,
     this.validator,
     this.scrollPhysics,
     this.labelText,
@@ -454,11 +453,6 @@ class CommonInput extends StatelessWidget {
   final TextDirection? textDirection;
 
   ///
-  /// toolbar options
-  ///
-  final ToolbarOptions? toolbarOptions;
-
-  ///
   /// form field validator
   ///
   final FormFieldValidator<String>? validator;
@@ -741,9 +735,6 @@ class CommonInput extends StatelessWidget {
     final TextDirection? currentTextDirection = textDirection ??
         currentStyle.textDirection ??
         configModel.textDirection;
-    final ToolbarOptions? currentToolbarOptions = toolbarOptions ??
-        currentStyle.toolbarOptions ??
-        configModel.toolbarOptions;
     final FormFieldValidator<String>? currentValidator =
         validator ?? currentStyle.validator ?? configModel.validator;
     final MaxLengthEnforcement? currentMaxLengthEnforcement =
@@ -939,7 +930,6 @@ class CommonInput extends StatelessWidget {
       textAlignVertical: currentTextAlignVertical,
       textCapitalization: currentTextCapitalization,
       textDirection: currentTextDirection,
-      toolbarOptions: currentToolbarOptions,
       validator: currentValidator,
       controller: currentController,
       decoration: currentInputDecoration ??

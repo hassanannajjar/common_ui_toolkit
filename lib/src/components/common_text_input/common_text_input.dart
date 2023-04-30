@@ -154,7 +154,6 @@ class CommonTextInput extends StatelessWidget {
         textAlignVertical: currentStyle.textAlignVertical,
         textCapitalization: currentStyle.textCapitalization,
         textDirection: currentStyle.textDirection,
-        toolbarOptions: currentStyle.toolbarOptions,
         validator: currentStyle.validator,
       ),
     );

@@ -1,3 +1,12 @@
+## 0.3.11
+**Jan 30, 2023**
+- Upgrade [intl] version to [^0.18.0]
+
+## 0.3.10 => 0.3.10+1
+**Jan 30, 2023**
+- Fixed [StrokeAlign] new update for flutter [3.7]
+- Fixed font weight in common text.
+
 ## 0.3.7 => 0.3.9 
 **Dec 27, 2022**
 - added `topLabel`, `topLabelText`, `topLabelText`, `topLabelStyle` and `topLabelContainerStyle` ot the `CommonInput()`.

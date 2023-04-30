@@ -316,7 +316,8 @@ class CommonText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final CommonTextModel currentTextStyle = style ?? const CommonTextModel();
-    final CommonTextModel configModel = GLOBAL_CONFIG.textModel!;
+    final CommonTextModel configModel =
+        GLOBAL_CONFIG.textModel ?? const CommonTextModel();
     final CommonContainerModel currentContainerStyle =
         containerStyle ?? const CommonContainerModel();
 
@@ -478,6 +479,7 @@ class CommonText extends StatelessWidget {
         configModel.backgroundColor ??
         COMMON_TRANSPARENT_COLOR;
 
+    // ignore: no_leading_underscores_for_local_identifiers
     double _responsiveFontSize() => DEVICE_WIDTH * (currentFontSize / 430);
 
     // simple text
@@ -486,11 +488,9 @@ class CommonText extends StatelessWidget {
       style: TextStyle(
         decoration: currentDecoration,
         color: getColorType(currentFontColor),
-        decorationThickness:
-            decorationThickness ?? currentTextStyle.decorationThickness,
+        decorationThickness: currentDecorationThickness,
         fontSize: _responsiveFontSize(),
-        fontWeight: fontWeight ?? configModel.fontWeight,
-        // fontWeight: fontWeight ?? currentTextStyle.fontWeight,
+        fontWeight: currentFontWeight,
         fontFamily: currentFontFamily,
         wordSpacing: currentWordSpacing,
         fontStyle: currentFontStyle,

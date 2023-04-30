@@ -72,7 +72,7 @@ class CommonButtonModel {
 
   final double? borderWidth;
   final dynamic borderColor;
-  final StrokeAlign? borderStrokeAlign;
+  final double? borderStrokeAlign;
   final BorderStyle? borderStyle;
 
   /// The shape of the button's underlying [Material].
@@ -265,7 +265,7 @@ class CommonButtonModel {
     dynamic overlayColor,
     double? borderWidth,
     dynamic borderColor,
-    StrokeAlign? borderStrokeAlign,
+    double? borderStrokeAlign,
     BorderStyle? borderStyle,
     MaterialStateProperty<OutlinedBorder?>? shape,
     double? bottomLeftRadius,

@@ -1,5 +1,6 @@
 export 'common_button/index.dart';
 export 'common_container/index.dart';
+export 'common_counter/index.dart';
 export 'common_date_picker/index.dart';
 export 'common_date_picker_time_line/index.dart';
 export 'common_input/index.dart';

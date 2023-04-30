@@ -45,6 +45,58 @@ class _TextInputsState extends State<TextInputs> {
                 marginHorizontal: 0.2,
                 // controller: _textEditingController,
               ),
+
+              /////default counter
+              const CommonCounter(),
+
+              ////counter with container style
+              const CommonCounter(
+                minValue: 1,
+                containerStyle: CommonContainerModel(
+                  backgroundColor: Colors.amber,
+                  width: 0.2,
+                  radiusColor: Colors.black,
+                  borderWidth: 1,
+                  borderRadius: 0.02,
+                ),
+              ),
+              ////counter with decrease widget
+              const CommonCounter(
+                decreaseWidget: CommonContainer(
+                  style: CommonContainerModel(
+                    backgroundColor: Colors.red,
+                    width: 0.04,
+                    height: 0.02,
+                    borderRadius: 0.1,
+                  ),
+                ),
+              ),
+              ////counter with increase widget and font color
+              const CommonCounter(
+                increaseWidget: CommonContainer(child: CommonText('increase')),
+                counterWidth: 0.3,
+                valueColor: Colors.cyanAccent,
+              ),
+
+              ////increase and decrease icons
+              const CommonCounter(
+                increaseIcon: Icons.keyboard_arrow_up_sharp,
+                decreaseIcon: Icons.keyboard_arrow_down_sharp,
+              ),
+              const CommonCounter(
+                rowCrossAxisAlignment: CrossAxisAlignment.center,
+                leftChild: CommonText(
+                  'test',
+                  style: CommonTextModel(
+                    fontSize: COMMON_H3_FONT,
+                  ),
+                ),
+              ),
+
+              const SizedBox(
+                height: 40,
+              ),
+
               const TextField(
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.search, color: Colors.red),
@@ -88,6 +140,7 @@ class _TextInputsState extends State<TextInputs> {
                 disabledColor: Colors.green,
                 disableFontColor: Colors.white,
                 enabled: false,
+                borderWidth: 0,
               ),
 
               CommonInput(
