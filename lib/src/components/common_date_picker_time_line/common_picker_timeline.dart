@@ -261,11 +261,12 @@ class _DatePickerState extends State<CommonPickerTimeLine> {
                   onVisibilityChanged: (VisibilityInfo visibilityInfo) {
                     if (mounted) {
                       if (index >= 0) {
-                        if (allDates[index]['Month'] != currentMonth) {
-                          setState(() {
-                            currentMonth = allDates[index]['Month'];
-                          });
-                        }
+                        // if (allDates[index]['Month'] != currentMonth &&
+                        //     visibilityInfo.visibleFraction == 1.0) {
+                        //   setState(() {
+                        //     currentMonth = allDates[index]['Month'];
+                        //   });
+                        // }
                         if (allDates[index]['Year'] != currentYear) {
                           setState(() {
                             currentYear = allDates[index]['Year'];
@@ -313,6 +314,9 @@ class _DatePickerState extends State<CommonPickerTimeLine> {
                         return;
                       }
 
+                      setState(() {
+                        currentMonth = allDates[index]['Month'];
+                      });
                       // A date is selected
                       widget.onDateChange?.call(selectedDate);
 
