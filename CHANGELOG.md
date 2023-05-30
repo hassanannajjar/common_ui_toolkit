@@ -1,6 +1,9 @@
 ## 0.3.11
 **Jan 30, 2023**
 - Upgrade [intl] version to [^0.18.0]
+## 0.3.10+2
+**May 30, 2023**
+- Changed date picker time line month listener to be with press listener 
 
 ## 0.3.10 => 0.3.10+1
 **Jan 30, 2023**
