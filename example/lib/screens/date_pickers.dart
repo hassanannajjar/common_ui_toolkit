@@ -73,7 +73,7 @@ class DatePickers extends StatelessWidget {
                     context,
                     minTime: DateTime(2018, 3, 5),
                     maxTime: DateTime(2019, 6, 7),
-                    theme: const DatePickerTheme(
+                    theme: const CommonDatePickerTheme(
                       headerColor: Colors.orange,
                       backgroundColor: Colors.blue,
                       itemStyle: TextStyle(

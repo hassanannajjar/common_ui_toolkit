@@ -3,7 +3,7 @@ import 'dart:math';
 import './index.dart';
 
 //interface for picker data model
-abstract class BasePickerModel {
+abstract class CommonBasePickerModel {
   //a getter method for left column data, return null to end list
   String? leftStringAtIndex(int index);
 
@@ -45,7 +45,7 @@ abstract class BasePickerModel {
 }
 
 //a base class for picker data model
-class CommonPickerModel extends BasePickerModel {
+class CommonPickerModel extends CommonBasePickerModel {
   CommonPickerModel({LocaleType? locale}) : locale = locale ?? LocaleType.en;
 
   late List<String> leftList;
@@ -125,8 +125,8 @@ class CommonPickerModel extends BasePickerModel {
 }
 
 //a date picker model
-class DatePickerModel extends CommonPickerModel {
-  DatePickerModel({
+class CommonDatePickerModel extends CommonPickerModel {
+  CommonDatePickerModel({
     DateTime? currentTime,
     DateTime? maxTime,
     DateTime? minTime,
@@ -373,8 +373,8 @@ class DatePickerModel extends CommonPickerModel {
 }
 
 //a time picker model
-class TimePickerModel extends CommonPickerModel {
-  TimePickerModel(
+class CommonTimePickerModel extends CommonPickerModel {
+  CommonTimePickerModel(
       {DateTime? currentTime,
       LocaleType? locale,
       this.showSecondsColumn = true})
@@ -518,8 +518,8 @@ class Time12hPickerModel extends CommonPickerModel {
 }
 
 // a date&time picker model
-class DateTimePickerModel extends CommonPickerModel {
-  DateTimePickerModel(
+class CommonDateCommonTimePickerModel extends CommonPickerModel {
+  CommonDateCommonTimePickerModel(
       {DateTime? currentTime,
       DateTime? maxTime,
       DateTime? minTime,
