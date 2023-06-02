@@ -101,7 +101,6 @@ class CommonTextInputModel {
     this.textAlignVertical,
     this.textCapitalization = TextCapitalization.none,
     this.textDirection,
-    this.toolbarOptions,
     this.validator,
   });
 
@@ -448,11 +447,6 @@ class CommonTextInputModel {
   TextDirection? textDirection;
 
   ///
-  /// toolbar options
-  ///
-  ToolbarOptions? toolbarOptions;
-
-  ///
   /// form field validator
   ///
   FormFieldValidator<String>? validator;
@@ -559,7 +553,6 @@ class CommonTextInputModel {
     TextAlignVertical? textAlignVertical,
     TextCapitalization? textCapitalization,
     TextDirection? textDirection,
-    ToolbarOptions? toolbarOptions,
     FormFieldValidator<String>? validator,
     MaxLengthEnforcement? maxLengthEnforcement,
   }) {
@@ -664,7 +657,6 @@ class CommonTextInputModel {
       textAlignVertical: textAlignVertical ?? this.textAlignVertical,
       textCapitalization: textCapitalization ?? this.textCapitalization,
       textDirection: textDirection ?? this.textDirection,
-      toolbarOptions: toolbarOptions ?? this.toolbarOptions,
       validator: validator ?? this.validator,
       maxLengthEnforcement: maxLengthEnforcement ?? this.maxLengthEnforcement,
     );

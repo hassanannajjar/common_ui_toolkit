@@ -164,7 +164,6 @@ class CommonTextInput extends StatelessWidget {
         textAlignVertical: (style ?? defaultTextInputModel).textAlignVertical,
         textCapitalization: (style ?? defaultTextInputModel).textCapitalization,
         textDirection: (style ?? defaultTextInputModel).textDirection,
-        toolbarOptions: (style ?? defaultTextInputModel).toolbarOptions,
         validator: (style ?? defaultTextInputModel).validator,
       ),
     );
