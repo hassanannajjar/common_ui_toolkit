@@ -1,6 +1,6 @@
 name: common_ui_toolkit
 description: common UI toolkit to clean your code and use it easily and reusable code.
-version: 0.3.11
+version: 0.3.12
 homepage: https://github.com/hassanannajjar/common_ui_toolkit
 
 environment:
@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^1.1.6
-  intl: ^0.18.0
+  intl: ^0.17.0
   visibility_detector: ^0.3.3
 
 

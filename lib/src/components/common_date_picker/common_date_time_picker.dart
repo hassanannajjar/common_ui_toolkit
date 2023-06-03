@@ -23,7 +23,7 @@ class CommonDatePicker {
     DateCancelledCallback? onCancel,
     LocaleType? locale = LocaleType.en,
     DateTime? currentTime,
-    DatePickerTheme? theme,
+    CommonDatePickerTheme? theme,
   }) async {
     return await Navigator.push(
       context,
@@ -36,7 +36,7 @@ class CommonDatePicker {
         theme: theme,
         barrierLabel:
             MaterialLocalizations.of(context).modalBarrierDismissLabel,
-        pickerModel: DatePickerModel(
+        pickerModel: CommonDatePickerModel(
           currentTime: currentTime,
           maxTime: maxTime,
           minTime: minTime,
@@ -58,7 +58,7 @@ class CommonDatePicker {
     DateCancelledCallback? onCancel,
     LocaleType? locale = LocaleType.en,
     DateTime? currentTime,
-    DatePickerTheme? theme,
+    CommonDatePickerTheme? theme,
   }) async {
     return await Navigator.push(
       context,
@@ -71,7 +71,7 @@ class CommonDatePicker {
         theme: theme,
         barrierLabel:
             MaterialLocalizations.of(context).modalBarrierDismissLabel,
-        pickerModel: TimePickerModel(
+        pickerModel: CommonTimePickerModel(
           currentTime: currentTime,
           locale: locale,
           showSecondsColumn: showSecondsColumn,
@@ -91,7 +91,7 @@ class CommonDatePicker {
     DateCancelledCallback? onCancel,
     LocaleType? locale = LocaleType.en,
     DateTime? currentTime,
-    DatePickerTheme? theme,
+    CommonDatePickerTheme? theme,
   }) async {
     return await Navigator.push(
       context,
@@ -104,7 +104,7 @@ class CommonDatePicker {
         theme: theme,
         barrierLabel:
             MaterialLocalizations.of(context).modalBarrierDismissLabel,
-        pickerModel: Time12hPickerModel(
+        pickerModel: CommonTime12hPickerModel(
           currentTime: currentTime,
           locale: locale,
         ),
@@ -125,7 +125,7 @@ class CommonDatePicker {
     DateCancelledCallback? onCancel,
     LocaleType? locale = LocaleType.en,
     DateTime? currentTime,
-    DatePickerTheme? theme,
+    CommonDatePickerTheme? theme,
   }) async {
     return await Navigator.push(
       context,
@@ -138,7 +138,7 @@ class CommonDatePicker {
         theme: theme,
         barrierLabel:
             MaterialLocalizations.of(context).modalBarrierDismissLabel,
-        pickerModel: DateTimePickerModel(
+        pickerModel: CommonDateTimePickerModel(
           currentTime: currentTime,
           minTime: minTime,
           maxTime: maxTime,
@@ -158,8 +158,8 @@ class CommonDatePicker {
     DateChangedCallback? onConfirm,
     DateCancelledCallback? onCancel,
     LocaleType? locale = LocaleType.en,
-    BasePickerModel? pickerModel,
-    DatePickerTheme? theme,
+    CommonBasePickerModel? pickerModel,
+    CommonDatePickerTheme? theme,
   }) async {
     return await Navigator.push(
       context,
@@ -184,13 +184,13 @@ class _DatePickerRoute<T> extends PopupRoute<T> {
     this.onChanged,
     this.onConfirm,
     this.onCancel,
-    DatePickerTheme? theme,
+    CommonDatePickerTheme? theme,
     this.barrierLabel,
     this.locale,
     RouteSettings? settings,
-    BasePickerModel? pickerModel,
-  })  : pickerModel = pickerModel ?? DatePickerModel(),
-        theme = theme ?? const DatePickerTheme(),
+    CommonBasePickerModel? pickerModel,
+  })  : pickerModel = pickerModel ?? CommonDatePickerModel(),
+        theme = theme ?? const CommonDatePickerTheme(),
         super(settings: settings);
 
   final bool? showTitleActions;
@@ -198,8 +198,8 @@ class _DatePickerRoute<T> extends PopupRoute<T> {
   final DateChangedCallback? onConfirm;
   final DateCancelledCallback? onCancel;
   final LocaleType? locale;
-  final DatePickerTheme theme;
-  final BasePickerModel pickerModel;
+  final CommonDatePickerTheme theme;
+  final CommonBasePickerModel pickerModel;
 
   @override
   Duration get transitionDuration => const Duration(milliseconds: 200);
@@ -256,7 +256,7 @@ class _DatePickerComponent extends StatefulWidget {
 
   final LocaleType? locale;
 
-  final BasePickerModel pickerModel;
+  final CommonBasePickerModel pickerModel;
 
   @override
   State<StatefulWidget> createState() {
@@ -287,7 +287,7 @@ class _DatePickerState extends State<_DatePickerComponent> {
 
   @override
   Widget build(BuildContext context) {
-    final DatePickerTheme theme = widget.route.theme;
+    final CommonDatePickerTheme theme = widget.route.theme;
     return GestureDetector(
       child: AnimatedBuilder(
         animation: widget.route.animation!,
@@ -318,7 +318,7 @@ class _DatePickerState extends State<_DatePickerComponent> {
     widget.onChanged?.call(widget.pickerModel.finalTime()!);
   }
 
-  Widget _renderPickerView(DatePickerTheme theme, double bottomPadding) {
+  Widget _renderPickerView(CommonDatePickerTheme theme, double bottomPadding) {
     final Widget itemView =
         _renderItemView(theme, bottomPadding: bottomPadding);
     if (widget.route.showTitleActions == true) {
@@ -334,7 +334,7 @@ class _DatePickerState extends State<_DatePickerComponent> {
 
   Widget _renderColumnView(
     ValueKey<dynamic> key,
-    DatePickerTheme theme,
+    CommonDatePickerTheme theme,
     StringAtIndexCallBack stringAtIndexCB,
     ScrollController scrollController,
     int layoutProportion,
@@ -389,7 +389,8 @@ class _DatePickerState extends State<_DatePickerComponent> {
     );
   }
 
-  Widget _renderItemView(DatePickerTheme theme, {double bottomPadding = 0.0}) {
+  Widget _renderItemView(CommonDatePickerTheme theme,
+      {double bottomPadding = 0.0}) {
     return Container(
       color: theme.backgroundColor,
       padding: EdgeInsets.only(bottom: bottomPadding),
@@ -466,7 +467,7 @@ class _DatePickerState extends State<_DatePickerComponent> {
   }
 
   // Title View
-  Widget _renderTitleActionsView(DatePickerTheme theme) {
+  Widget _renderTitleActionsView(CommonDatePickerTheme theme) {
     final String done = _localeDone();
     final String cancel = _localeCancel();
 
@@ -536,7 +537,7 @@ class _BottomPickerLayout extends SingleChildLayoutDelegate {
 
   final double progress;
   final bool? showTitleActions;
-  final DatePickerTheme theme;
+  final CommonDatePickerTheme theme;
   final double bottomPadding;
 
   @override
