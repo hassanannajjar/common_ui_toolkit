@@ -1,3 +1,7 @@
+## 0.3.13
+**Mar 4, 2024**
+- Upgrade [intl] version to [^0.18.0]
+
 ## 0.3.12
 **Jun 30, 2023**
 - Changed [DatePickerTheme] to [CommonDatePickerTheme], [BasePickerModel] to [CommonBasePickerModel], [DatePickerModel] to [CommonDatePickerModel], [TimePickerModel] to [CommonTimePickerModel], [Time12hPickerModel] to [CommonTime12hPickerModel].

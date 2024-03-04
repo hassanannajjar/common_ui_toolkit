@@ -176,8 +176,9 @@ class CommonContainerModel {
     this.backgroundImage,
 
     // responsive numbers
-    @Deprecated('We Used this just to use same width and height after version (0.3.5) you can use size property instead of width and height to use same with and height for')
-        this.isResponsive = true,
+    @Deprecated(
+        'We Used this just to use same width and height after version (0.3.5) you can use size property instead of width and height to use same with and height for')
+    this.isResponsive = true,
 
     // size
     this.size,
