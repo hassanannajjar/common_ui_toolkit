@@ -1,3 +1,7 @@
+## 0.3.14
+**Sep 24, 2024**
+- Upgrade [intl] version to [^0.19.0]
+
 ## 0.3.13
 **Mar 4, 2024**
 - Upgrade [intl] version to [^0.18.0]
